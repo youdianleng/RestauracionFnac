@@ -18,7 +18,7 @@ include_once "config/parameter.php";
                 $action = "index";
             }
 
-            $Controller->action();
+            $Controller->shop();
         }else{
             echo "Controller Name didnt exist";
         }
