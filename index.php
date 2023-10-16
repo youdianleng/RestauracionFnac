@@ -1,11 +1,15 @@
 <?php
 
     if(isset($_GET["controller"])){
-        echo 'Want realize a accion about '.$_GET["controller"];
-        if(isset($_GET["actopm"])){
-            echo 'About '.$_GET["controller"].' want to make this '.$_GET["action"];
+        //If theres no sending controller redirect to home page
+
+    }else{
+        $Controlle_name = $_GET['controller'].'Controller';
+        if(class_exists($Controlle_name)){
+            echo "Realize a action about".$Controlle_name;
+
         }else{
-            echo "you didnt send me controller";
+            echo "Controller Name didnt exist";
         }
     }
 
