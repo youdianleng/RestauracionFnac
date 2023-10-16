@@ -6,7 +6,7 @@
 include_once "Controller/OrderController.php";
 include_once "config/parameter.php";
     if(isset($_GET["controller"])){
-        //If theres no sending controller redirect to home page
+        //If theres no sending controller redirect to home pages
         header("Location");
         
     }else{
