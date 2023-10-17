@@ -5,12 +5,12 @@
 //Ingredientes
 include_once "Controller/OrderController.php";
 include_once "config/parameter.php";
-    if(isset($_GET["controller"])){
+    if(!isset($_GET["controller"])){
         //If theres no sending controller redirect to home pages
-        header("Location");
+        header("Location: ".url."?controller=Compra");
         
     }else{
-        $Controlle_name = $_GET['controller'].'Controller';
+        $Controlle_name = $_GET['controller'];
         if(class_exists($Controlle_name)){
             echo "Realize a action about".$Controlle_name;
             //Watch if theres any action
@@ -24,7 +24,7 @@ include_once "config/parameter.php";
 
             $Controller->shop();
         }else{
-            echo "Controller Name didnt exist";
+            header("Location: ".default_action);
         }
     }
 

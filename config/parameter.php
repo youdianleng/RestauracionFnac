@@ -1,5 +1,5 @@
 <?php
 
-define("url","urlLocation");
-define("default_action","LocationURL");
+define("url","https://localhost/webs/GitProyect/GamingShop/");
+define("default_action","https://localhost/webs/GitProyect/GamingShop/index.php");
 ?>
