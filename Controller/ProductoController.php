@@ -1,6 +1,7 @@
 <?php
-    include_once('Model/Peli.php');
-    include_once("Model/Game.php");
+    include_once 'Model/Peli.php';
+    include_once "Model/Game.php";
+    include_once "Model/ProductoDAO.php";
     class ProductoController{
         public function header(){
             echo "header";
@@ -16,8 +17,11 @@
 
         public function index(){
             //echo 'index';
-            ProductoDAO::getAllProducts();
-            echo "asdfasdsadas";
+           $games = ProductoDAO::getAllProducts();
+              foreach($games as $game){
+                     echo $game->getNombre();
+              }
+
         }
 
         public function shop(){

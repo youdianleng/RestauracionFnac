@@ -4,12 +4,15 @@ include_once "Producto.php";
 class Juego extends Producto{
 
     private $plataforma;
-
-    public function __construct($id,$name,$tipo,$genero,$plataforma){
-        parent::__construct($id,$name,$tipo);
-        $this->genero = $genero;
-        $this->plataforma = $plataforma;
+    public function __construct()
+    {
+        
     }
+    // public function __construct($id,$name,$tipo,$genero,$plataforma){
+    //     parent::__construct($id,$name,$tipo);
+    //     $this->genero = $genero;
+    //     $this->plataforma = $plataforma;
+    // }
 
     public function getPlataforma(){
         return $this->plataforma;

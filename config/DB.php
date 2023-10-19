@@ -1,7 +1,7 @@
 <?php
 
 class DataBase{
-    public static function connect($host="localhost",$user="root",$pass="1",$db="FnacRestauracion"){
+    public static function connect($host="localhost",$user="root",$pass="1",$db="videoclub"){
         $con = new mysqli($host,$user,$pass,$db);
 
         if($con == false){

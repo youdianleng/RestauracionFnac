@@ -7,22 +7,24 @@ include_once "Controller/ProductoController.php";
 include_once "config/parameter.php";
     if(!isset($_GET["controller"])){
         //If theres no sending controller redirect to home pages
-        header("Location: ".url."?controller=index");
+        header("Location: ".url."?controller=pedido");
         
     }else{
-        $Controlle_name = $_GET['controller'];
-        if($Controlle_name == true){
-            echo "Realize a action about".$Controlle_name;
+        $Controlle_name = $_GET['controller'].'Controller';
+        if(class_exists($Controlle_name)){
+            //echo "Realize a action about".$Controlle_name;
             //Watch if theres any action
             //if theres nothing show the default action
-            $Controller = new ProductoController();
+            $Controller = new $Controlle_name;
+            
             if(isset($_GET["action"]) && method_exists($Controller,$_GET["action"])){
                 $action = $_GET["action"];
             }else{
-                //header("Location: ".default_action);
+                $action = default_action;
             }
+            $Controller->action();
         }else{
-            //header("Location: ".default_action);
+           header("Location:".default_action."?controller=pedido");
         }
     }
 

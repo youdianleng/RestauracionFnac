@@ -5,26 +5,29 @@ abstract class Producto{
     const PRECIOGAME = 2;
 
     protected $id;
-    protected $name;
+    protected $nombre;
     protected $tipo;
     protected $genero;
     
-
-    public function __construct($id,$name,$tipo){
-        $this->id  = $id;
-        $this->name  = $name;
-        $this->tipo  = $tipo;
-
-
+    public function __construct()
+    {
+        
     }
+    // public function __construct($id,$name,$tipo){
+    //     $this->id  = $id;
+    //     $this->name  = $name;
+    //     $this->tipo  = $tipo;
+
+
+    // }
 
 
     public function getId(){
 
     }
 
-    public function getName(){
-        
+    public function getNombre(){
+        return $this->nombre;
     }
 
     public function getTipo(){
