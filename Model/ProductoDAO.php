@@ -4,18 +4,41 @@ class ProductoDAO{
     public static function getAllProducts(){
         $con = DataBase::connect();
         
-        if($result = $con->query("SELECT * FROM productos where tipo = 'GAME'")){
-                //return $result->fetch_object('Juego');
+        if($result = $con->query("SELECT * FROM productos")){
 
                 $res = [];
-                 while($producto = $result->fetch_object('Juego')){
+                 while($producto = $result->fetch_object('productos')){
                     $res[] = $producto;
-                //     echo $producto;
-                //     //echo $producto['Name'];ç
                  }
                  return $res;
         }
     }
+
+    public static function sendMenssage(){
+        if(isset($_POST['Enviar'])){
+            echo "Enviar";
+        }else if(isset($_POST['Devolver'])){
+            echo "Devolver";
+        }else{
+            echo "No hay indicaciones";
+        }
+    }
 }
+
+class CategoriaDAO{
+    public static function getAllCategories(){
+        $con = DataBase::connect();
+        
+        if($result = $con->query("SELECT * FROM categoria")){
+
+                $resC = [];
+                 while($Categoria = $result->fetch_object('productos')){
+                    $resC[] = $Categoria;
+                 }
+                 return $resC;
+        }
+    }
+}
+
 
 ?>

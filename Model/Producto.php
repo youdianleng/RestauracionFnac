@@ -1,13 +1,12 @@
 <?php
 
 abstract class Producto{
-    const PRECIOFILM = 3;
-    const PRECIOGAME = 2;
 
-    protected $id;
-    protected $nombre;
-    protected $tipo;
-    protected $genero;
+    protected $Producto_id;
+    protected $Categoria_id;
+    protected $Nombre;
+    protected $Descripcion;
+    protected $Precio;
     
     public function __construct()
     {
@@ -22,23 +21,28 @@ abstract class Producto{
     // }
 
 
-    public function getId(){
-
+    public function getProdId(){
+        return $this->Producto_id;
     }
+
+    public function getCatId(){
+        return $this->Categoria_id;
+    }
+
 
     public function getNombre(){
-        return $this->nombre;
+        return $this->Nombre;
+    }
+    
+    public function getDescripcion(){
+        return $this->Descripcion;
     }
 
-    public function getTipo(){
-        
+    public function getPrecio(){
+        return $this->Precio;
     }
 
-    public function getGenero(){
-        
-    }
-    public abstract function calculaPrecioTotal($numDias);
-    public abstract function devolverPrecioTotal();
+
 }
 
 

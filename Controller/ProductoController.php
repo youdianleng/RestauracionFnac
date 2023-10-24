@@ -1,8 +1,8 @@
 <?php
-    include_once 'Model/Peli.php';
-    include_once "Model/Game.php";
+    include_once "Model/Productos.php";
     include_once "Model/ProductoDAO.php";
-    class ProductoController{
+    include_once "config/DB.php";
+    class PedidoController{
         public function header(){
             echo "header";
         }
@@ -17,10 +17,29 @@
 
         public function index(){
             //echo 'index';
-           $games = ProductoDAO::getAllProducts();
-              foreach($games as $game){
-                     echo $game->getNombre();
+            $Productos = ProductoDAO::getAllProducts();
+            $ProductosMenssage = ProductoDAO::sendMenssage();
+            $Categorias = CategoriaDAO::getAllCategories();
+              foreach($Categorias as $categoria){
+                echo "<tr>";
+                        echo "<caption>".$categoria->getNombre()."</caption>";
+                echo "</tr>";
               }
+              foreach($Productos as $producto){
+                    echo "<tr>";
+                        echo "<td>".$producto->getProdId()."</td>".
+                        "<td>".$producto->getCatId()."</td>".
+                        "<td>".$producto->getNombre()."</td>".
+                        "<td>".$producto->getDescripcion()."</td>".
+                        "<td>".$producto->getPrecio()."</td>".
+                        "<td>"."<form method=post>
+                            $ProductosMenssage
+                            <input type='submit' value='Enviar' name='Enviar'>
+                            <input type='submit' value='Devolver' name='Devolver'>
+                        </form>"."</td>";
+                    echo "</tr>";
+              }
+            
 
         }
 
@@ -30,3 +49,4 @@
     }
 
 ?>
+
