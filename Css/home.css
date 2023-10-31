@@ -1,0 +1,17 @@
+@media only screen and (max-width: 600px) {
+    /* body {
+      background-color: lightblue;
+    } */
+}
+
+.container{
+    max-width: 1440px;
+}
+
+.container > .row > .col-12{
+    height: 107.7px;
+}
+
+.h90{
+    height: 49px;
+}

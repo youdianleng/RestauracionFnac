@@ -1,4 +1,5 @@
 <?php
+include "View/header.php";
 //Productos
 //Usaurio
 //Pedidos
@@ -7,7 +8,7 @@ include_once "Controller/ProductoController.php";
 include_once "config/parameter.php";
     if(!isset($_GET["controller"])){
         //If theres no sending controller redirect to home pages
-        header("Location: ".url."?controller=Pedido");
+        header("Location: ".url."?controller=producto");
         
     }else{
         $Controlle_name = $_GET['controller'].'Controller';
@@ -22,31 +23,10 @@ include_once "config/parameter.php";
             }else{
                 $action = default_action;
             }
-            
+            $Controller->$action();
         }else{
-           header("Location:".default_action."?controller=Pedido");
+           header("Location:".url."?controller=producto");
         }
     }
 
 ?>
-
-<html>
-
-<head>
-
-</head>
-
-
-<body>
-    <table border=1 style="text-align: center;">
-        <tr>
-            <th>Producto_id</th>
-            <th>Categoria_id</th>
-            <th>Nombre</th>
-            <th>Descripcion</th>
-            <th>Precio</th>
-        </tr>
-        <?php $Controller->index(); ?>
-    </table>
-</body>
-</html>

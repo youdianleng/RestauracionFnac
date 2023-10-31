@@ -1,0 +1,46 @@
+@charset "utf-8";
+/* CSS Document */
+
+/* FONTS */
+@font-face {
+    font-family: "BlantickScript";
+    src: url(../fonts/BlantickScript.ttf);
+}
+
+/*Variables CSS*/
+:root {
+    /* --main-bg-color: brown; */
+    --bg-color1: rgb(55,120,10);
+    --bg-color2: rgb(55,70,10);
+}
+
+h1{
+    color: var(--bg-color1);
+    width: 50%;
+    background-color: yellow;
+}
+
+.h1{
+    font-size: 24px;
+    font-family: "BlantickScript";
+}
+
+
+@font-face {
+    font-family: "BlantickScript";
+    src: url(../fonts/BlantickScript.ttf);
+}
+/*Media query*/
+@media only screen and (max-width: 600px) {
+    /* body {
+      background-color: lightblue;
+    } */
+    h1{
+        color: var(--bg-color2);
+        background-color: black;
+    }
+}
+
+.container{
+    max-width: 1050px;
+}

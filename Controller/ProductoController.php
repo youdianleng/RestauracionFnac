@@ -2,7 +2,7 @@
     include_once "Model/Productos.php";
     include_once "Model/ProductoDAO.php";
     include_once "config/DB.php";
-    class PedidoController{
+    class productoController{
         public function header(){
             echo "header";
         }
@@ -17,34 +17,71 @@
 
         public function index(){
             //echo 'index';
-            $Productos = ProductoDAO::getAllProducts();
-            $ProductosMenssage = ProductoDAO::sendMenssage();
+            $allProductos = ProductoDAO::getAllByID(7);
             $Categorias = CategoriaDAO::getAllCategories();
-              foreach($Categorias as $categoria){
-                echo "<tr>";
-                        echo "<caption>".$categoria->getNombre()."</caption>";
-                echo "</tr>";
-              }
-              foreach($Productos as $producto){
-                    echo "<tr>";
-                        echo "<td>".$producto->getProdId()."</td>".
-                        "<td>".$producto->getCatId()."</td>".
-                        "<td>".$producto->getNombre()."</td>".
-                        "<td>".$producto->getDescripcion()."</td>".
-                        "<td>".$producto->getPrecio()."</td>".
-                        "<td>"."<form method=post>
-                            $ProductosMenssage
-                            <input type='submit' value='Enviar' name='Enviar'>
-                            <input type='submit' value='Devolver' name='Devolver'>
-                        </form>"."</td>";
-                    echo "</tr>";
-              }
-            
-
+            include_once "View/OrderPanelPhp.php";
         }
 
         public function shop(){
-            echo "shop";
+            include_once "View/product.php";
+        }
+
+
+
+
+
+        public function eliminar(){
+            if(isset($_POST['producto_id'])){
+                $producto_id = $_POST['producto_id'];
+                ProductoDAO::deleteProduct($producto_id);
+                header("Location:".url."?controller=producto");
+            }else{
+                header("Location:".url."?controller=producto");
+            }
+        }
+
+        public function actualizar(){
+            if(isset($_POST['producto_id'])
+            ){
+                $producto_id = $_POST['producto_id'];
+                $producto = ProductoDAO::getProductByID($producto_id);
+                include_once "view/editarProductos.php";
+            }else{
+                header("Location:".url."?controller=producto");
+            }
+        }
+
+        public function modificar(){
+
+            if (isset($_POST['producto_id'])&
+                isset($_POST['nombre'])&
+                isset($_POST['descript'])&
+                isset($_POST['precio'])
+                ){
+    
+                $producto_id = $_POST['producto_id'];
+                $nombre = $_POST['nombre'];
+                $descripcion = $_POST['descript'];
+                $precio = $_POST['precio'];
+                
+                ProductoDAO::modificarProductos($producto_id, $nombre, $descripcion, $precio);
+                header("Location:".url."?controller=producto");
+            }else{
+                header("Location:".url."?controller=producto");
+            }
+        }
+
+        public function añadir(){
+            include_once "View/añadirProductos.php";
+        }
+
+        public function agregar(){
+            $producto_id = $_POST['producto_id'];
+            $categoria_id = $_POST['categoria_id'];
+            $nombre = $_POST['nombre'];
+            $descripcion = $_POST['descript'];
+            $precio = $_POST['precio'];
+            ProductoDAO::añadirProductos($producto_id,$categoria_id,$nombre,$descripcion,$precio);
         }
     }
 
