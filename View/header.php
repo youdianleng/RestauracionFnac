@@ -5,7 +5,8 @@
     <meta name="author" content="ZhiouZhu">
     <meta name="description" content="Cabecera comun de mis paginas web">
     <meta lang="es">
-    <link rel="stylesheet" href="Css/header.css">
+    <link href="Css/bootstrap.min.css" rel="stylesheet">
+    <link href="Css/header.css" rel="stylesheet" type="text/css" media="screen">
 </head>
 <body>
     <div class="container">
@@ -15,7 +16,7 @@
                 <a href="#"><li id="accebilidad"><img src="Materiales/accebilidad.png"></li></a>
                 <a href="#"><li><span class="imgCss"><img src="Materiales/IconoCabecera/Ubicacion.svg"></span>Encontrar un tienda</li></a>
                 <a href="#"><li>Envio gratis para Socios</li></a>
-            </ul>
+                </ul>
         </div>
         <div class="menu2">
             <ul>
