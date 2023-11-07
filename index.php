@@ -1,5 +1,4 @@
 <?php
-include "View/header.php";
 //Productos
 //Usaurio
 //Pedidos
