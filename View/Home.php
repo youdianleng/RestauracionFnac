@@ -10,13 +10,31 @@
                 <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
                 <div class="carousel-inner">
                     <div class="carousel-item active">
-                        <div style="background-image: url('Materiales/restauranteCarousel.jpg'); min-height: 270px; background-repeat: no-repeat;"></div>
+                        <div style="background-image: url('Materiales/restauranteCarousel.jpg'); min-height: 270px; background-repeat: no-repeat; background-size: cover; background-position: bottom; ">
+                            <div class="d-flex align-items-end justify-content-center buttonBox">
+                                <div class="d-grid gap-2 col-3 mx-auto">
+                                    <input class="btn btn-primary mb-5" type="button" value="Reserva">
+                                </div>
+                            </div>     
+                        </div>
                     </div>
                     <div class="carousel-item">
-                        <div style="background-image: url('Materiales/restauranteCarousel.jpg'); min-height: 270px; background-repeat: no-repeat"></div>
+                        <div style="background-image: url('Materiales/restauranteCarousel.jpg'); min-height: 270px; background-repeat: no-repeat; background-size: cover; background-position: bottom; ">
+                            <div class="d-flex align-items-end justify-content-center buttonBox">
+                                <div class="d-grid gap-2 col-3 mx-auto">
+                                    <input class="btn btn-primary mb-5" type="button" value="Reserva">
+                                </div>
+                            </div>  
+                        </div>
                     </div>
                     <div class="carousel-item">
-                        <div style="background-image: url('Materiales/restauranteCarousel.jpg'); min-height: 270px; background-repeat: no-repeat"></div>
+                        <div style="background-image: url('Materiales/restauranteCarousel.jpg'); min-height: 270px; background-repeat: no-repeat; background-size: cover; background-position: bottom; ">
+                            <div class="d-flex align-items-end justify-content-center buttonBox">
+                                <div class="d-grid gap-2 col-3 mx-auto">
+                                    <input class="btn btn-primary mb-5" type="button" value="Reserva">
+                                </div>
+                            </div>  
+                        </div>
                     </div>
                 </div>
                 <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
@@ -29,20 +47,32 @@
                 </button>
                 </div>
             </div>
+            
             <div class="col-4 marginNone">
                 <div class="estiloP">
-                    <p>One of three columns</p>
-                    
+                    <img src="Materiales/cena.png">
+                    <div class="col-9">
+                        <p>One of three columns</p>
+                        <span class="noEstiloP"><p>One of three columns</p></span>
+                    </div>
                 </div>
             </div>
             <div class="col-4 marginNone">
                 <div class="estiloP">
-                    <p>One of three columns</p>
+                    <img src="Materiales/cena.png">
+                    <div class="col-9">
+                        <p>One of three columns</p>
+                        <span class="noEstiloP"><p>One of three columns</p></span>
+                    </div>
                 </div>
             </div>
             <div class="col-4 marginNone">
                 <div class="estiloP">
-                    <p>One of three columns</p>
+                    <img src="Materiales/cena.png">
+                    <div class="col-9">
+                        <p>One of three columns</p>
+                        <span class="noEstiloP"><p>One of three columns</p></span>
+                    </div>
                 </div>
             </div>
         
@@ -56,9 +86,14 @@
                 <div class="flexProductos">
                     <div class="row">
                         <div class="col-md-3 col-sm-6">
-                            <div class="card">
+                            <div class="card ">
                                 <div class="divFoto">
-                                    <img src="Materiales/Productos/sushi.png" alt="...">
+                                    <div class="col-12 d-flex justify-content-start">
+                                        <img  class="zoomOn" src="Materiales/Productos/sushi.png" alt="...">
+                                        <div class="tret">
+                                            <img src="Materiales/Etiquetas/Oferta 25.png" alt="...">
+                                        </div>
+                                    </div>
                                 </div>
                                 <div class="card-body d-flex align-items-center ">
                                     <p class="card-text">Categorias</p>
@@ -69,7 +104,12 @@
                         <div class="col-md-3 col-sm-6">
                             <div class="card">
                                 <div class="divFoto">
-                                    <img src="Materiales/Productos/sushi.png" alt="...">
+                                    <div class="col-12 d-flex justify-content-start">
+                                        <img class="zoomOn" src="Materiales/Productos/sushi.png" alt="...">
+                                        <div class="tret">
+                                            <img src="Materiales/Etiquetas/Oferta 25.png" alt="...">
+                                        </div>
+                                    </div>
                                 </div>
                                 <div class="card-body d-flex align-items-center">
                                     <p class="card-text">Categorias</p>
@@ -80,7 +120,12 @@
                         <div class="col-md-3 col-sm-6">
                             <div class="card">
                                 <div class="divFoto">
-                                    <img src="Materiales/Productos/sushi.png" alt="...">
+                                    <div class="col-12 d-flex justify-content-start">
+                                        <img class="zoomOn" src="Materiales/Productos/sushi.png" alt="...">
+                                        <div class="tret">
+                                            <img src="Materiales/Etiquetas/Oferta 25.png" alt="...">
+                                        </div>
+                                    </div>
                                 </div>
                                 <div class="card-body d-flex align-items-center">
                                     <p class="card-text">Categorias</p>
@@ -91,7 +136,12 @@
                         <div class="col-md-3 col-sm-6">
                             <div class="card">
                                 <div class="divFoto">
-                                    <img src="Materiales/Productos/sushi.png" alt="...">
+                                    <div class="col-12 d-flex justify-content-start">
+                                        <img class="zoomOn" src="Materiales/Productos/sushi.png" alt="...">
+                                        <div class="tret">
+                                            <img src="Materiales/Etiquetas/Oferta 25.png" alt="...">
+                                        </div>
+                                    </div>
                                 </div>
                                 <div class="card-body d-flex align-items-center">
                                     <p class="card-text">Categorias</p>
@@ -114,7 +164,12 @@
                         <div class="col-md-3 col-sm-6">
                             <div class="card">
                                 <div class="divFoto">
-                                    <img src="Materiales/Productos/sushi.png" alt="...">
+                                    <div class="col-12 d-flex justify-content-start">
+                                        <img class="zoomOn" src="Materiales/Productos/sushi.png" alt="...">
+                                        <div class="tret">
+                                            <img src="Materiales/Etiquetas/Oferta 25.png" alt="...">
+                                        </div>
+                                    </div>
                                 </div>
                                 <div class="card-body d-flex align-items-center">
                                     <p class="card-text">Categorias</p>
@@ -125,7 +180,12 @@
                         <div class="col-md-3 col-sm-6">
                             <div class="card">
                                 <div class="divFoto">
-                                    <img src="Materiales/Productos/sushi.png" alt="...">
+                                    <div class="col-12 d-flex justify-content-start">
+                                        <img class="zoomOn" src="Materiales/Productos/sushi.png" alt="...">
+                                        <div class="tret">
+                                            <img src="Materiales/Etiquetas/Oferta 25.png" alt="...">
+                                        </div>
+                                    </div>
                                 </div>
                                 <div class="card-body d-flex align-items-center">
                                     <p class="card-text">Categorias</p>
@@ -266,9 +326,9 @@
                 <div class="row">
                     
                     <div class="col-4">
-                        <div class="card bg-black">
+                        <div class="card bg-black subrallar">
                             <img src="Materiales/Cultura_Fnac/KFC.png" class="card-img-top" alt="...">
-                            <div class="card-body text-start">
+                            <div class="card-body text-start ">
                                 <h5 class="card-title mt-3">Nuevo Producto KFC</h5>
                                 <p class="card-text mt-3 font-m">Nuevo Producto KFC</p>
                                 <p class="card-text mb-3">Se acerca el fin de año y KFC quiere que rompas con todos tus propósitos para el próximo 2021. Para ello, la famosa cadena de  pollo frito ha lanzado el producto menos esperado, más innovador y disruptivo: La Infame.</p>
@@ -279,7 +339,7 @@
                         </div>
                     </div>
                     <div class="col-4">
-                        <div class="card bg-black">
+                        <div class="card bg-black subrallar">
                             <img src="Materiales/Cultura_Fnac/Telepizza.jpg" class="card-img-top" alt="...">
                             <div class="card-body text-start">
                                 <h5 class="card-title mt-3">Nuevo Producto KFC</h5>
@@ -293,9 +353,9 @@
                     </div>
                     <div class="col-4">
 
-                        <div class="card bg-black">
+                        <div class="card bg-black subrallar">
                             <img src="Materiales/Cultura_Fnac/Viena.jpg" class="card-img-top" alt="...">
-                            <div class="card-body text-start ">
+                            <div class="card-body text-start">
                                 <h5 class="card-title  mt-3">Nuevo Producto KFC</h5>
                                 <p class="card-text mt-3 font-m">Nuevo Producto KFC</p>
                                 <p class="card-text mb-3">Se acerca el fin de año y KFC quiere que rompas con todos tus propósitos para el próximo 2021. Para ello, la famosa cadena de  pollo frito ha lanzado el producto menos esperado, más innovador y disruptivo: La Infame.</p>

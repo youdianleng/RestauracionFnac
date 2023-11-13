@@ -19,7 +19,7 @@
             //echo 'index';
             $allProductos = ProductoDAO::getAllByID(7);
             $Categorias = CategoriaDAO::getAllCategories();
-            include_once "View/Home.php";
+            include_once "View/carrito.php";
         }
 
         public function shop(){

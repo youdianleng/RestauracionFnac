@@ -1,6 +1,6 @@
 
 body{
-    max-width: 100%;
+    width: 100%;
     height: auto;
     margin-left: auto;
     margin-right: auto;
@@ -25,7 +25,9 @@ body{
 }
 
 
-@media only screen and (max-width: 740px) {
+
+
+@media only screen and (max-width: 580px) {
     body {
       width: 100%;
       height: auto;
@@ -33,9 +35,6 @@ body{
       margin-right: auto;
     }  
     
-    .col-4{
-        margin-top: 3%;
-    }
 
     .elegidaPorTi  .card-text{
         font-size: 6px;
@@ -64,16 +63,30 @@ body{
     .elegidaPorTi li{
         font-size: 10px;
     }
-    .col-md-2{
-        height: 300px;
-    }
 
     .noticias .row{
         height: 300px;
     }
 
+    .col-4 {
+        margin-top: 0%;
+    }
 
-}、
+    .estiloP p{
+        font-size: 10px;
+    }
+
+    .estiloP .noEstiloP p{
+        font-size: 5px;
+        color: #D8D8D8;
+    }
+
+    .estiloP img{
+        max-height: 50%;
+    }
+    
+
+}
 
 img {
     width: 100%;
@@ -121,6 +134,8 @@ img {
     border-style: none;
 }
 
+
+
 .flexProductos .card-body{
     box-shadow: 1px 1px 10px #9d9a8c;
     border-radius: 0px 0px 10px 10px;
@@ -158,6 +173,21 @@ img {
     width: 100px;
 }
 
+.buttonBox{
+    height: 100%;
+    width: 50%;
+}
+
+.buttonBox input{
+    background-color: black;
+    color: white;
+    border-color: white;
+}
+.buttonBox input:hover{
+    background-color: white;
+    color: black;
+}
+
 
 
 
@@ -165,12 +195,28 @@ img {
 .estiloP{
     display: flex;
     align-items: center;
-    height: 74.84px;
+    height: 100%;
     background-color: black;
     color: white;
 }
 
 
+.estiloP p{
+    width: 100%;
+    margin-top: 0px;
+    margin-bottom: 0%;
+}
+
+.noEstiloP p{
+    font-size: 10px;
+    color: #D8D8D8;
+}
+
+.estiloP img{
+    height: 80%;
+    padding-right: 2%;
+    padding-left: 5%;
+}
 
 
 /*Para Separador*/
@@ -199,15 +245,33 @@ img {
 
 
 .card > .divFoto{
-    background-color: grey;
     height: 100%;
     width: 100%;
     border-radius: 10px 10px 0px 0px;
+    background-color: #EDEDED;
+}
+
+
+.fotoMain img{
+    height: 190px;
 }
 
 .flexProductos .card .divFoto img{
-    width: 70%;
+    width: 60%;
+    transition: transform 0.3s;
 }
+
+
+.card > .divFoto .zoomOn:hover{
+    transform: scale(1.2);
+}
+
+.flexProductos .card .divFoto .tret img{
+    margin-top: 5%;
+    height: 50%;
+    width: 100%;
+}
+
 
 /*Nuevas*/
 .nuevas{
@@ -292,3 +356,7 @@ img {
     color: #F5B027;
 }
 
+.noticias .subrallar:hover .font-m{
+    text-decoration: underline;
+    cursor: pointer;
+}
