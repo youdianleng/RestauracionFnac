@@ -1,17 +1,106 @@
 body{
-    width: 1423px;
+    width: 100%;
     height: auto;
     margin-left: auto;
     margin-right: auto;
 }
 .container{
-    max-width: 100%;
+    max-width: 1440px;
     padding: 0px;
     margin: 0px;
 }
 
+.col-12 .marginNoneBottom{
+    padding-bottom: 0px;
+    padding-top: 0px;
+}
+
+.marginNone{
+    padding-bottom: 0px;
+}
+
+.marginNoneTop{
+    padding-top: none;
+}
+
+
+.btnStyle{
+    width: 100%;
+    height: 100%;
+}
+
+input:focus{
+    outline: none;
+}
+input{
+    border: none;
+}
+
+@font-face {
+    font-family: "araboto-light";
+    src: url("Fuentes/Araboto_Light_400.ttf");
+}
+
+@font-face {
+    font-family: "araboto-normal";
+    src: url("Fuentes/Araboto_Normal.ttf");
+}
+
+@media only screen and (max-width: 800px) {
+    body {
+      width: 100%;
+      height: auto;
+      margin-left: auto;
+      margin-right: auto;
+    }  
+
+    .txt14{
+        font-size: 10px!important;
+    }
+}
+
+.araboto-light{
+    font-family: "araboto-light";
+}
+
+.araboto-normal{
+    font-family: "araboto-normal";
+}
+
+.noDecoration a{
+    text-decoration: none;
+    color: black;
+}
+
+.txt14{
+    font-size: 14px;
+}
+
+.txt12{
+    font-size: 12px;
+}
+
+.weight700{
+    color: #303030!important;
+    font-size: 12px!important;
+    font-weight: 700!important;
+}
+
+::placeholder{
+    font-style: italic!important;
+    padding-left: 10px!important;
+    font-size: 15px!important;
+}
+
+.buscarCss{
+    border-top-right-radius: 0px; 
+    border-bottom-right-radius: 0px; 
+    width: 80%; 
+    height: 40px;
+}
+
+
 .menu1{
-    margin-top: 1%;
     width: 100%;
     height: 40px;
 }
@@ -19,11 +108,25 @@ body{
 .menu1 a{
     text-decoration: none;
     color: black;
+    font-size: 100%;
+    margin-left: 4.2%;
+    opacity: 0.9;
 }
 
 .imgCss img{
-    width: 30px;
-    height: 15px;
+    width: 50px;
+    height: 22px;
+    padding-bottom: 5%;
+    padding-left: 40%!important;
+    margin-right: 10px!important;
+}
+
+.marginLeftIcono > img{
+    margin-right: 10px!important;
+}
+
+.marginLeftIcono{
+    margin-left: 72px;
 }
 
 .menu1 li{
@@ -31,7 +134,7 @@ body{
 }
 
 #accebilidad{
-    width: 18px;
+    width: 30px;
     height: 22px;
     padding: 0%;
 
@@ -70,10 +173,33 @@ body{
     border-top: 1px solid;
     border-bottom: 1px solid;
     width: 100%;
-    height: 40px;
+    height: auto;
     list-style: none;
     display: flex;
     justify-content: space-around;
     align-items: center;
 }
 
+.contadorCarrito{
+    width: 20px;
+    height: 20px;
+    background-color: black;
+    border-radius: 100%;
+}
+
+.contadorCarrito p{
+    color: white;
+    font-size: 15px;
+}
+
+.boxCarrito:hover{
+    border: solid 1px;
+    border-radius: 10px 10px 10px 10px;
+    border-color: #D8D8D8;
+}
+
+.boxCarrito{
+    border: solid 1px;
+    border-radius: 10px 10px 10px 10px;
+    border-color: white;
+}

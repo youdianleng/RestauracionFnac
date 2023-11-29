@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html>
 <head>
     <meta lang="es">
@@ -12,11 +13,11 @@
         <div class="row">
             <div class="col-12 pb-5" >
                 <div class="textosCabecera">
-                    <div class="categoria">
+                    <div class="categoria araboto-normal">
                         <p>Home > Carta</p>
                     </div>
-                    <div class="carta mt-2">
-                        <h2>CARTAS</h2>
+                    <div class="carta mt-2 araboto-light txt27">
+                        <p>CARTAS</p>
                     </div>
                 </div>
             </div>
@@ -44,77 +45,84 @@
             </div>
 
         
-
-            
-            <div class="col-12 alturaBox d-flex align-items-center">
-                <div class="col-3 d-flex justify-content-center ">
-                    <img src="Materiales/Productos/Arroz Curry.png" style="width: 150px;">
-                </div>
-                <div class="col-6">
-                    <p class="txt15">Carne Wagyu</p>
-                    <p class="txt13">Humo Restaurant</p>
-                    <p class="txt12 mt-3">El Wagyū (和牛?) es una raza bovina originaria de Japón. El nombre proviene de los kanji 和 (wa, que significa "armonía" o, a veces en abreviaciones, "Japón")
-                         y 牛 (ushi o gyū, "vaca"/"vacuno"/"ternera"). El significado es, simplemente, "ganado japonés".</p>
-                    <div class="d-flex justify-content-end txt13">
-                        <a href="#"><u>Ver Productos</u></a>
+            <div class="row">
+            <?php foreach($Productos as $producto){?>
+                <div class="row">
+                <div class="col-12 border-bottom d-flex align-items-center pb-4 pt-4">
+                <div class="col-12 row">
+                    <div class="col-md-3 col-sm-12 d-flex justify-content-center ">
+                        <img src="<?=$producto->getImagen()?>" style="width: 250px; height: px;">
                     </div>
-                    <div class="col-12 cajaDescripcion d-flex">
-                        <div class="col-6 descripcionSub1 d-flex ps-4 pt-3">
-                           <div class="col-6">
-                                <p class="pt-1">Tipo</p>
-                                <p class="pt-3">Restaurante</p>
-                                <p class="pt-3">Horario</p>
-                                <p class="pt-3">Valoracion</p>
-                           </div>
-                           <div class="col-6 negrita">
-                                <p class="pt-1">Carne Vaca</p>
-                                <p class="pt-3">Humo Restaurante</p>
-                                <p class="pt-3">8AM - 16PM</p>
-                                <p class="pt-3">4.5/5</p>
-                           </div>
+                    <div class="col-md-6 col-sm-12">
+                        <p class="txt15"><?=$producto->getNombre()?></p>
+                        <p class="txt13">Humo Restaurant</p>
+                        <p class="txt12 mt-1"><?=$producto->getDescripcion()?></p>
+                        <div class="d-flex justify-content-end txt13 pt-1">
+                            <a href="#"><u>Ver Productos</u></a>
                         </div>
-                        <div class="col-6 d-flex justify-content-center">
-                            <div class="row">
-                                <div class="col-12 descripcionSub2">
-                                    <div class="text ms-3 mt-3">
-                                        <p class="txt15 verde">Disponible en Tienda</p>
-                                        <p class="txt13 negro">No Disponible en Tienda</p>
-                                    </div>
+                        
+                        <div class="col-12 cajaDescripcion d-flex">
+                            <div class="col-6 descripcionSub1 d-flex ps-4 pt-2 pb-5">
+                                <div class="col-6">
+                                        <p class="pt-1">Tipo</p>
+                                        <p class="pt-3">Restaurante</p>
+                                        <p class="pt-3">Horario</p>
+                                        <p class="pt-3">Valoracion</p>
                                 </div>
+                                <div class="col-6 negrita">
+                                        <p class="pt-1">Carne Vaca</p>
+                                        <p class="pt-3">Humo Restaurante</p>
+                                        <p class="pt-3">8AM - 16PM</p>
+                                        <p class="pt-3">4.5/5</p>
+                                </div>
+                            </div>
+                            <div class="col-6 d-flex justify-content-center">
+                                <div class="row">
+                                    <div class="col-12 descripcionSub2">
+                                        <div class="text ms-3 mt-3">
+                                            <p class="txt15 verde">Disponible en Tienda</p>
+                                            <p class="txt13 negro">Barcelona Sant</p>
+                                        </div>
+                                    </div>
 
-                                <div class="col-12">
-                                    <div class="text ms-3 mt-3">
-                                        <p class="txt15 verde">Disponible en Tienda</p>
-                                        <p class="txt13 negro">No Disponible en Tienda</p>
+                                    <div class="col-12">
+                                        <div class="text ms-3 mt-3">
+                                            <p class="txt15 verde">Disponible en Tienda</p>
+                                            <p class="txt13 negro">Barcelona Sant</p>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-3 d-flex justify-content-center">
-                    <div class="row">
-                        <div class="col-12 d-flex justify-content-end txt24">
-                            <p>30€</p>
-                        </div>
-                        <div class="col-12 d-flex justify-content-end txt12">
-                            <p>30€</p>
-                        </div>
-                        <div class="col-12 d-grid gap-2 col-6 mx-auto">
-                            <input class="btn btn-primary" type="button" value="Añadir al Cesta">
+                    <div class="col-md-3 col-12 d-flex justify-content-center">
+                        <div class="row">
+                            <div class="col-12 d-flex justify-content-end align-items-end txt24 fw-bold" style="color: #DD1E35;">
+                                <p><?=$producto->getPrecio()?>€</p>
+                            </div>
+                            <div class="col-12 d-grid gap-2 col-12" style="max-height: 40px;">
+                                <form action="<?= url . "?controller=producto&action=index" ?>" method="POST" class="col-12">
+                                    <div class="d-grid gap-2 col-12 mx-auto">
+                                        <input hidden name="id" value="<?= $producto->getProdId() ?>">
+                                        <button class="btn btn-primary" type="Submit">Añadir a Cesta</button>
+                                    </div>
+                                </form>
+                            </div>
                         </div>
                     </div>
                 </div>
+                </div>
+                </div>
+            <?php } ?>
             </div>
-
             <div class="col-12 greyColor d-flex justify-content-center bordeBottom">
                 <div class="row ">
                     <div class="col-12 d-flex justify-content-center mt-2 mb-1 txt12">
-                            <p>Has visto 5 del 20</p>
+                            <p>Has visto <?=count($Productos)?> del <?=count($Productos)?></p>
                     </div>
                     <div class="col-12 d-flex justify-content-center mt-1s mb-3 txt15">
                         <div class="d-grid gap-2 col-12 mx-auto ">
-                            <input class="btn btn-primary ps-5 pe-5" type="button" value="Input">
+                            <input class="btn btn-dark ps-5 pe-5" type="button" value="Ver Mas">
                         </div>
                     </div>                  
                 </div>  

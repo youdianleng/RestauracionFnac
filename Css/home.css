@@ -1,9 +1,10 @@
 
 body{
     width: 100%;
-    height: auto;
+    height: 100%;
     margin-left: auto;
     margin-right: auto;
+    font-family: Roboto,Arial,Helvetica,Tahoma,sans-serif;
 }
 
 @font-face {
@@ -20,6 +21,10 @@ body{
     font-family: "araboto-light";
 }
 
+.araboto-normal{
+    font-family: "araboto-normal";
+}
+
 .noticias .font-m{
     font-size: 25px;
 }
@@ -27,7 +32,7 @@ body{
 
 
 
-@media only screen and (max-width: 580px) {
+@media only screen and (max-width: 1000px) {
     body {
       width: 100%;
       height: auto;
@@ -37,20 +42,27 @@ body{
     
 
     .elegidaPorTi  .card-text{
-        font-size: 6px;
+        font-size: 10px;
     }
 
     .noticias  .card-text{
-        font-size: 6px;
+        font-size: 10px;
     }
 
     .elegidaPorTi .card-title{
-        font-size: 10px;
+        font-size: 15px;
     }
 
     .noticias .card-title{
         font-size: 10px;
     }
+
+    .elegidaPorTi .list-group-item{
+        color: #DD1E35; 
+        font-size: 20px;
+        font-weight: 700;
+    }
+    
 
     .noticias .font-m{
         font-size: 17px;
@@ -65,7 +77,7 @@ body{
     }
 
     .noticias .row{
-        height: 300px;
+        height: 100%;
     }
 
     .col-4 {
@@ -82,7 +94,8 @@ body{
     }
 
     .estiloP img{
-        max-height: 50%;
+        max-height: 30px;
+        max-width: 390px;
     }
     
 
@@ -112,39 +125,47 @@ img {
 }
 
 .EstiloTexto{
-    margin-top: 3%;
+    margin-top: 2%;
     height: auto;
     display: flex;
     align-items: center;
     margin-left: 30px;
     font-size: 27px;
+    font-weight: 300;
+    padding-left: 30px;
 }
 
 .EstiloTexto2{
-    margin-top: 3%;
+    margin-top: 2%;
     height: auto;
     display: flex;
     align-items: center;
-    margin-left: 40px;
+    margin-left: 30px;
     font-size: 27px;
+    font-weight: 300;
+    padding-left: 30px;
+}
+.EstiloTexto2 p{
+    margin-bottom: 0px;
+}
+
+.estiloPTitle{
+    padding-left: 30px;
+    margin-left: 30px;
 }
 
 .card{
     margin-top: 5%;
     border-style: none;
+
 }
 
 
 
 .flexProductos .card-body{
-    box-shadow: 1px 1px 10px #9d9a8c;
+    box-shadow: 1px 1px 3px #9d9a8c;
     border-radius: 0px 0px 10px 10px;
     height: 90px;
-}
-
-.container{
-    width: 100%;
-
 }
 
 :root{
@@ -159,12 +180,6 @@ img {
 }
 
 /*Carousels*/
-.carousel-item  img{
-    width: 100%;
-    height: 270px;
-    
-}
-
 .carousel-control-next{
     width: 100px;
 }
@@ -174,7 +189,7 @@ img {
 }
 
 .buttonBox{
-    height: 100%;
+    height: 270px;
     width: 50%;
 }
 
@@ -189,6 +204,19 @@ img {
 }
 
 
+/**/
+
+/*Botton de Añadir*/
+.btn-primary{
+    background-color: #F5B027;
+    border-style: none;
+}
+
+.btn-primary:hover{
+    background-color: #FFC22B;
+}
+
+
 
 
 /*Contexto bajo carousel*/
@@ -200,6 +228,9 @@ img {
     color: white;
 }
 
+.border-end{
+    border-color: #5f5f5f!important;
+}
 
 .estiloP p{
     width: 100%;
@@ -213,9 +244,9 @@ img {
 }
 
 .estiloP img{
-    height: 80%;
-    padding-right: 2%;
-    padding-left: 5%;
+    height: 50px;
+    width: 50px;
+    margin-left: 15px;
 }
 
 
@@ -238,11 +269,13 @@ img {
 .destacadas{
     height: 100%;
     width: 100%;
-    border-top: 1px solid;
+}
+
+
+section{
     border-bottom: 1px solid;
     border-color: #D8D8D8;
 }
-
 
 .card > .divFoto{
     height: 100%;
@@ -257,17 +290,17 @@ img {
 }
 
 .flexProductos .card .divFoto img{
-    width: 60%;
+    width: 50%;
+    height: 100%;
     transition: transform 0.3s;
 }
 
 
 .card > .divFoto .zoomOn:hover{
-    transform: scale(1.2);
+    transform: scale(1.1);
 }
 
 .flexProductos .card .divFoto .tret img{
-    margin-top: 5%;
     height: 50%;
     width: 100%;
 }
@@ -290,14 +323,9 @@ img {
 .elegidaPorTi{
     height: 100%;
     width: 100%;
-    border-top: 1px solid;
-    border-bottom: 1px solid;
-    border-color: #D8D8D8;
 }
 
-.estiloPTitle{
-    margin-left: 42px;
-}
+
 
 .elegidaPorTi > .TextoElegidoPorTi{
     height: 100%;
@@ -312,7 +340,6 @@ img {
 .elegidaPorTi .row .card{
     border-radius: 0%;
     border-top: 1px solid;
-    border-bottom: 1px solid;
     border-right: 1px solid;
     border-color: #D8D8D8;
 }
@@ -327,6 +354,12 @@ img {
 
 .elegidaPorTi > .marginElegida{
     margin-left: 40px;
+}
+
+.list-group-item{
+    color: #DD1E35; 
+    font-size: 20px;
+    font-weight: 700;
 }
 
 
@@ -359,4 +392,11 @@ img {
 .noticias .subrallar:hover .font-m{
     text-decoration: underline;
     cursor: pointer;
+}
+
+.greyGround{
+    background-color: #d2d2d2;
+    max-width: 100%;
+    height: 100%;
+    text-align: center;
 }

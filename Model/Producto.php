@@ -6,6 +6,8 @@ abstract class Producto{
     protected $Categoria_id;
     protected $Nombre;
     protected $Descripcion;
+    protected $DescripcionCorto;
+    protected $Imagen;
     protected $Precio;
     
     public function __construct()
@@ -43,6 +45,46 @@ abstract class Producto{
     }
 
 
+
+    /**
+     * Get the value of Imagen
+     */ 
+    public function getImagen()
+    {
+        return $this->Imagen;
+    }
+
+    /**
+     * Set the value of Imagen
+     *
+     * @return  self
+     */ 
+    public function setImagen($Imagen)
+    {
+        $this->Imagen = $Imagen;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of DescripcionCorto
+     */ 
+    public function getDescripcionCorto()
+    {
+        return $this->DescripcionCorto;
+    }
+
+    /**
+     * Set the value of DescripcionCorto
+     *
+     * @return  self
+     */ 
+    public function setDescripcionCorto($DescripcionCorto)
+    {
+        $this->DescripcionCorto = $DescripcionCorto;
+
+        return $this;
+    }
 }
 
 

@@ -21,6 +21,7 @@
                             <td><?=$producto->getCatId()?></td>
                             <td><?=$producto->getNombre()?></td>
                             <td><?=$producto->getDescripcion()?></td>
+                            <td><?=$producto->getImagen()?></td>
                             <td><?=$producto->getPrecio()?></td>
                             <td>
                                 <form action=<?=url."?controller=producto&action=eliminar"?> method="post">

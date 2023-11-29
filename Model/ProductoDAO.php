@@ -3,7 +3,7 @@
 include_once "config/DB.php";
 class ProductoDAO{
 
-
+    //Buscar los Productos por producto_id
     public static function getProductByID($idProducto){
         //Preparar la consulta select para buscar elementos en dicho BBDD
         $con = DataBase::connect();
@@ -19,26 +19,21 @@ class ProductoDAO{
         return $result;
     }
 
-    public static function getAllByID($id){
+
+    //Buscar todos los productos de un categoria por el Categoria_ID
+    public static function getAllByID($idCategoria){
 
         //Preparar la consulta select para buscar elementos en dicho BBDD
         $con = DataBase::connect();
         $stmt = $con->prepare("SELECT * FROM productos where categoria_id = ?");
-        $stmt->bind_param("i",$id);
+        $stmt->bind_param("i",$idCategoria);
 
         //Ejecutar el select, guardar el resultado y cerrar el conecxion
         $stmt->execute();
         $result=$stmt->get_result();
 
         $con->close();
-        $obj = "";
-        echo $obj;
-        if($id = 1 ){
-            $obj = "productos";
-        }elseif($id = 2){
-            $obj = "Categorias";
-            echo $obj;
-        }
+        $obj = "productos";
         //Guardar los resultados en un Array
         $listaProductos = [];
         while ($productoDB = $result->fetch_object($obj)){
@@ -46,6 +41,53 @@ class ProductoDAO{
         }
 
         return $listaProductos;
+
+    }
+
+
+    //Buscar todos los contenido de cada Categoria
+    public static function getAllCategoria(){
+
+        //Preparar la consulta select para buscar elementos en dicho BBDD
+        $con = DataBase::connect();
+        $stmt = $con->prepare("SELECT * FROM categoria");
+
+        //Ejecutar el select, guardar el resultado y cerrar el conecxion
+        $stmt->execute();
+        $result=$stmt->get_result();
+
+        $con->close();
+        $obj = "categorias";
+        //Guardar los resultados en un Array
+        $listaCategoria = [];
+        while ($productoDB = $result->fetch_object($obj)){
+            $listaCategoria[] = $productoDB;
+        }
+
+        return $listaCategoria;
+
+    }
+
+    //Buscar todos los contenido de cada Categoria
+    public static function getAllProductos(){
+
+        //Preparar la consulta select para buscar elementos en dicho BBDD
+        $con = DataBase::connect();
+        $stmt = $con->prepare("SELECT * FROM productos");
+
+        //Ejecutar el select, guardar el resultado y cerrar el conecxion
+        $stmt->execute();
+        $result=$stmt->get_result();
+
+        $con->close();
+        $obj = "productos";
+        //Guardar los resultados en un Array
+        $listaProducto = [];
+        while ($productoDB = $result->fetch_object($obj)){
+            $listaProducto[] = $productoDB;
+        }
+
+        return $listaProducto;
 
     }
 
@@ -61,11 +103,11 @@ class ProductoDAO{
         return $result;
     }
 
-    public static function modificarProductos($producto_id,$nombre,$descripcion,$precio){
+    public static function modificarProductos($producto_id,$nombre,$descripcion,$descripcionCorto,$imagen,$precio){
         $con = DataBase::connect();
 
-        $stmt = $con->prepare("UPDATE productos SET Nombre = ?, Descripcion = ?, Precio = ? WHERE Producto_id = ?");
-        $stmt->bind_param("ssdi",$nombre,$descripcion,$precio,$producto_id);
+        $stmt = $con->prepare("UPDATE productos SET Nombre = ?, Descripcion = ?, DescripcionCorto = ?, Imagen = ?, Precio = ? WHERE Producto_id = ?");
+        $stmt->bind_param("ssssdi",$nombre,$descripcion,$descripcionCorto,$imagen,$precio,$producto_id);
 
         $stmt->execute();
 
@@ -75,30 +117,35 @@ class ProductoDAO{
         return $result;
     }
 
-    public static function añadirProductos($producto_id,$Categoria_id,$nombre,$descripcion,$precio){
+    public static function añadirProductos($producto_id,$Categoria_id,$nombre,$descripcion,$descripcionCorto, $imagen ,$precio){
         $con = DataBase::connect();
 
-        $stmt = mysqli_query($con,"INSERT INTO `productos`(`Producto_id`, `Categoria_id`, `Nombre`, `Descripcion`, `Precio`) VALUES ('$producto_id','$Categoria_id','$nombre','$descripcion','$precio')");
+        $stmt = mysqli_query($con,"INSERT INTO `productos`(`Producto_id`, `Categoria_id`, `Nombre`, `Descripcion`, `DescripcionCorto`, `Imagen`, `Precio`) VALUES ('$producto_id','$Categoria_id','$nombre','$descripcion','$descripcionCorto','$imagen','$precio')");
 
         $con->close();
         header("Location: ".url."?controller=producto");
     }
-}
 
-class CategoriaDAO{
-    public static function getAllCategories(){
+    public static function getUsuarios(){
         $con = DataBase::connect();
-        
-        if($result = $con->query("SELECT * FROM categoria")){
+        $stmt = $con->prepare("SELECT * FROM clientes");
 
-                $resC = [];
-                 while($Categoria = $result->fetch_object('productos')){
-                    $resC[] = $Categoria;
-                 }
-                 return $resC;
+        //Ejecutar el select, guardar el resultado y cerrar el conecxion
+        $stmt->execute();
+        $result=$stmt->get_result();
+
+        $con->close();
+        $obj = "usuarios";
+        //Guardar los resultados en un Array
+        $listaUsuarios = [];
+        while ($productoDB = $result->fetch_object($obj)){
+            $listaUsuarios[] = $productoDB;
         }
+
+        return $listaUsuarios;
     }
 }
+
 
 
 

@@ -14,6 +14,9 @@
             <label>Descripcion Producto</label>
             <input name="descript" value="<?= $producto->getDescripcion() ?>">
             <br>
+            <label>Descripcion Producto</label>
+            <input name="imagen" value="">
+            <br>
             <label>Precio Producto</label>
             <input name="precio" value="<?= $producto->getPrecio() ?>">
             <br>

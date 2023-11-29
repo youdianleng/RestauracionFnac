@@ -1,8 +1,9 @@
 body{
     width: 100%;
-    height: auto;
+    height: 100%;
     margin-left: auto;
     margin-right: auto;
+
 }
 
 @font-face {
@@ -13,6 +14,14 @@ body{
 @font-face {
     font-family: "araboto-normal";
     src: url("Fuentes/Araboto_Normal.ttf");
+}
+
+.row p{
+    margin-bottom: 0rem;
+}
+
+.align-left{
+    text-align: end;
 }
 
 .araboto-light{
@@ -32,6 +41,21 @@ body{
     font-size: 21px;
 }
 
+.txt18{
+    font-size: 18px;
+    font-weight: bold;
+    
+}
+
+.txtIva{
+    margin-left: 5px;
+    color: #989898;
+    font-size: 14px;
+    font-weight: normal;
+    line-height: 20px;
+    vertical-align: top;
+}
+
 .txt24{
     font-size: 24px;
     font-family: "araboto-normal";
@@ -41,6 +65,15 @@ body{
     font-size: 15px;
     font-family: "araboto-normal";
 }
+
+.txt14{
+    font-size: 14px;
+}
+
+.txtRed{
+    color: red;
+}
+
 
 .txt13{
     font-size: 13px;
@@ -53,9 +86,10 @@ body{
 
 
 .container{
+    max-width: 1440px;
     padding: 0px;
-    max-width: 100%;
 }
+
 
 @media only screen and (max-width: 580px) {
     body {
@@ -69,10 +103,22 @@ body{
 
 }
 
+/*Botton de Añadir*/
+.btn-primary{
+    background-color: #F5B027;
+    border-style: none;
+}
+
+.btn-primary:hover{
+    background-color: #FFC22B;
+}
+
+
 
 .row{
     margin: 0%;
-    padding: 0%;
+    padding: 0px;
+    background-color: #f2f2f2;
 }
 
 .row .col-12{
@@ -80,7 +126,47 @@ body{
     padding: 0%;
 }
 
+.row .col-4{
+    margin: 0%;
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+
 .d-flex{
-    margin: 0px;
     padding: 0px;
+}
+
+.border{
+    border: solid 1px;
+    border-radius: 10%;
+}
+
+.border-right{
+    border-right: solid 1px;
+}
+
+.row a{
+    color: black;
+}
+
+.backgroundGrey{
+    background-color: white;
+}
+
+.row .btn:hover{
+    background-color: #FFC22B;
+}
+
+.radiusBorder{
+    border-radius: 5%;
+    border-style: none;
+    border: solid 0.5px;
+    background-color: white;
+    color: grey;
+}
+
+.prueba{
+    width: 1px;
+    height: 1000px;
 }

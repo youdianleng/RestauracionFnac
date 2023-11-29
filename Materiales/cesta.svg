@@ -1,0 +1,9 @@
+<svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 28" width="25" height="28">
+	<title>cesta-svg</title>
+	<defs>
+		<image width="75" height="84" id="img1" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEsAAABUCAYAAADKzsqkAAACuUlEQVR4nO2c3W0aQRSFT1Z5DyXgCpxUYFJB4IVXLx1ABXYqwKmAdBA6cFxBnApMCaSCRJPcjYiFM/do75gBn09C4mE1Px8zszPAnlfT6RSFGQJoAVwAGBWo6iuAOwCfAWxKdqUpWPZbALcAHgBcFRIFK/fK6rm1eotQStYcwLeCgp5iZPXOSxReQtYKwLJAuQxLa0co0bKWtj7VQBv9oUXKGpUa/j2YRy4FkbLCh30QYe2KktXaFqFGhlFLw+ugzl06r9vavuh7QJ0Xtk0YOK79YPuwXkTIGjjXhTWAmQmLYmDTbJwpb2zX9qo7Yhp6NoH3ACbBomDlTaz8HL03qxGyPGvVp4B6+pbfe019LllFz2zO8quQ9WKQLALJIpAsAskikCwCySKQLIL0g8XPo2ntgdHIIpAsAskikCwCySKQLALJIvB8B9/98eLUyf5xxSMribp+AbKuc7I0DQkki0CyCCSLQLIIJItAsggki0CyCCSLQLIIJItAsggki0CyCCSLQLIIJItAsggki0CyCCSLQLIIJItAsggki0CyCCSLQLIIJItAsggki0CyCCSLQLIIJItAsgg8ss6raW1Zsv1sHJEnxTL0KiPXz23jyHEZHiC777kZORJF7hvn0xOHzvArjad/d41FNeVIQ7TW5LW+rJxLzbqbhp7gm/YEha2cqW2bbhomPjoLby0HNBfuVTtj64c33u63n9244AcyNmlrozK9fhyBoDc23bzRdx1pVJ3h0VNhCwBfiEK6+LpTv1Muuje7m9K00N8cpj3VcrN7A3y8g1/Yw5jij4fFrod9x52JhP0NdPyHfbLSwv0+ItfzSEn9frfvGPi/g/TM7JYON6yFjfV39lR7ct86rO22mebuqUrbWP/OcqcZbwJuuiukV9qjpA0dE9VbG93+MJ2JkxxPICwA4BfgM2HDPKH0WAAAAABJRU5ErkJggg=="/>
+	</defs>
+	<style>
+	</style>
+	<use id="Capa_1" href="#img1" transform="matrix(.316,0,0,.318,.633,.636)"/>
+</svg>

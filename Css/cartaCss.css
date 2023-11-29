@@ -1,15 +1,19 @@
 
 body{
     width: 100%;
-    height: auto;
+    height: 100%;
     margin-left: auto;
     margin-right: auto;
 }
 
-@media only screen and (max-width: 600px) {
-    /* body {
-      background-color: lightblue;
-    } */
+@media only screen and (max-width: 825px) {
+    .descripcionSub1{
+        border-right: 1px solid;
+        border-color: #9d9a8c;
+        font-size: 6px;
+    
+    }
+    
 }
 
 @font-face {
@@ -26,6 +30,11 @@ body{
     --texto-12: 12px;
 }
 
+img {
+    width: 100%;
+    height: auto; /* Ajusta la altura según tus necesidades */
+    margin-right: 10px; /* Agrega margen derecho entre las imágenes si es necesario */
+  }
 
 .container{
     padding: 0px;
@@ -53,10 +62,6 @@ body{
     box-shadow: 0px 1px 1px #9d9a8c;
 }
 
-.alturaBox{
-    height: 350px;
-    border-bottom: 1px solid;
-}
 
 .cajaDescripcion{
     height: 50%;
@@ -69,9 +74,13 @@ a{
     color: black;
 }
 
-p{
+.row p{
     margin: 0%;
     padding: 0%;
+}
+
+.txt27{
+    font-size: 27px;
 }
 
 
@@ -94,9 +103,17 @@ p{
     font-size: 12px;
 }
 
+/*Botton de Añadir*/
 .btn-primary{
     background-color: #F5B027;
+    border-style: none;
 }
+
+.btn-primary:hover{
+    background-color: #FFC22B;
+}
+
+
 
 
 .descripcionSub2{

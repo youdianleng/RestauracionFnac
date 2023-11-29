@@ -2,6 +2,8 @@
 <head>
     <link href="Css/bootstrap.min.css" rel="stylesheet">
     <link href="Css/home.css" rel="stylesheet" type="text/css" media="screen">
+    
+
 </head>
 <body>
     <div class="container">
@@ -10,28 +12,28 @@
                 <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
                 <div class="carousel-inner">
                     <div class="carousel-item active">
-                        <div style="background-image: url('Materiales/restauranteCarousel.jpg'); min-height: 270px; background-repeat: no-repeat; background-size: cover; background-position: bottom; ">
+                        <div style="background-image: url('Materiales/restaurant.png'); min-height: 270px; background-repeat: no-repeat; background-size: cover; background-position: bottom; ">
                             <div class="d-flex align-items-end justify-content-center buttonBox">
                                 <div class="d-grid gap-2 col-3 mx-auto">
-                                    <input class="btn btn-primary mb-5" type="button" value="Reserva">
+                                    <input class="btn mb-5" type="button" value="Reserva">
                                 </div>
                             </div>     
                         </div>
                     </div>
                     <div class="carousel-item">
-                        <div style="background-image: url('Materiales/restauranteCarousel.jpg'); min-height: 270px; background-repeat: no-repeat; background-size: cover; background-position: bottom; ">
+                        <div style="background-image: url('Materiales/restaurant.png'); min-height: 270px; background-repeat: no-repeat; background-size: cover; background-position: bottom; ">
                             <div class="d-flex align-items-end justify-content-center buttonBox">
                                 <div class="d-grid gap-2 col-3 mx-auto">
-                                    <input class="btn btn-primary mb-5" type="button" value="Reserva">
+                                    <input class="btn  mb-5" type="button" value="Reserva">
                                 </div>
                             </div>  
                         </div>
                     </div>
                     <div class="carousel-item">
-                        <div style="background-image: url('Materiales/restauranteCarousel.jpg'); min-height: 270px; background-repeat: no-repeat; background-size: cover; background-position: bottom; ">
+                        <div style="background-image: url('Materiales/restaurant.png'); min-height: 270px; background-repeat: no-repeat; background-size: cover; background-position: bottom; ">
                             <div class="d-flex align-items-end justify-content-center buttonBox">
                                 <div class="d-grid gap-2 col-3 mx-auto">
-                                    <input class="btn btn-primary mb-5" type="button" value="Reserva">
+                                    <input class="btn  mb-5" type="button" value="Reserva">
                                 </div>
                             </div>  
                         </div>
@@ -49,25 +51,25 @@
             </div>
             
             <div class="col-4 marginNone">
-                <div class="estiloP">
+                <div class="estiloP mb-3">
                     <img src="Materiales/cena.png">
-                    <div class="col-9">
+                    <div class="col-9 border-end">
                         <p>One of three columns</p>
                         <span class="noEstiloP"><p>One of three columns</p></span>
                     </div>
                 </div>
             </div>
             <div class="col-4 marginNone">
-                <div class="estiloP">
+                <div class="estiloP ">
                     <img src="Materiales/cena.png">
-                    <div class="col-9">
+                    <div class="col-9 border-end">
                         <p>One of three columns</p>
                         <span class="noEstiloP"><p>One of three columns</p></span>
                     </div>
                 </div>
             </div>
             <div class="col-4 marginNone">
-                <div class="estiloP">
+                <div class="estiloP ">
                     <img src="Materiales/cena.png">
                     <div class="col-9">
                         <p>One of three columns</p>
@@ -77,250 +79,115 @@
             </div>
         
 
-        <div class="separador"></div>
-
-            <div class="destacadas">
-                <div class="EstiloTexto araboto-light">
-                    <h2>Texto Producto Destacadas</h2>
-                </div>
-                <div class="flexProductos">
-                    <div class="row">
-                        <div class="col-md-3 col-sm-6">
-                            <div class="card ">
-                                <div class="divFoto">
-                                    <div class="col-12 d-flex justify-content-start">
-                                        <img  class="zoomOn" src="Materiales/Productos/sushi.png" alt="...">
-                                        <div class="tret">
-                                            <img src="Materiales/Etiquetas/Oferta 25.png" alt="...">
+            <div class="separador"></div>
+            <section class="border-top">
+                <div class="destacadas">
+                    <div class="EstiloTexto araboto-light">
+                        <p>PRODUCTOS DESTACADAS</p>
+                    </div>
+                    <div class="flexProductos">
+                        <div class="row">
+                        <?php foreach($Categorias as $categoria){ ?>
+                            <div class="col-md-3 col-sm-6 ">
+                                <a href="<?=url."?controller=producto&action=shop&categoriaId=".$categoria->getCategoria_id()?>" class="text-decoration-none">
+                                    <div class="card">
+                                        <div class="divFoto">
+                                            <div class="col-12 d-flex justify-content-start">
+                                                <img  class="zoomOn object-fit-scale pt-3 pb-3" src="<?=$categoria->getImagenCategoria();?>" alt="...">
+                                                <div class="tret">
+                                                    <img src="Materiales/Etiquetas/Oferta 25.png" class="object-fit-scale" style="width: 100%;" alt="...">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="card-body d-flex align-items-center araboto-normal " >
+                                            <p class="card-text"><?= $categoria->getNombre();?></p>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="card-body d-flex align-items-center ">
-                                    <p class="card-text">Categorias</p>
-                                </div>
+                                </a> 
                             </div>
-                        </div>
-                            
-                        <div class="col-md-3 col-sm-6">
-                            <div class="card">
-                                <div class="divFoto">
-                                    <div class="col-12 d-flex justify-content-start">
-                                        <img class="zoomOn" src="Materiales/Productos/sushi.png" alt="...">
-                                        <div class="tret">
-                                            <img src="Materiales/Etiquetas/Oferta 25.png" alt="...">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="card-body d-flex align-items-center">
-                                    <p class="card-text">Categorias</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-md-3 col-sm-6">
-                            <div class="card">
-                                <div class="divFoto">
-                                    <div class="col-12 d-flex justify-content-start">
-                                        <img class="zoomOn" src="Materiales/Productos/sushi.png" alt="...">
-                                        <div class="tret">
-                                            <img src="Materiales/Etiquetas/Oferta 25.png" alt="...">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="card-body d-flex align-items-center">
-                                    <p class="card-text">Categorias</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-md-3 col-sm-6">
-                            <div class="card">
-                                <div class="divFoto">
-                                    <div class="col-12 d-flex justify-content-start">
-                                        <img class="zoomOn" src="Materiales/Productos/sushi.png" alt="...">
-                                        <div class="tret">
-                                            <img src="Materiales/Etiquetas/Oferta 25.png" alt="...">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="card-body d-flex align-items-center">
-                                    <p class="card-text">Categorias</p>
-                                </div>
-                            </div>
+                        <?php }?>
                         </div>
                     </div>
+                    <div class="separador2"></div>
                 </div>
-                <div class="separador2"></div>
-            </div>
-
+            </section>
             
-
-            <div class="nuevas">
-                <div class="EstiloTexto araboto-light">
-                    <h2>Texto Producto Nuevos</h2>
+            <section>
+                <div class="nuevas">
+                    <div class="EstiloTexto araboto-light">
+                        <p>NOVEDAD</p>
+                    </div>
+                    <div class="flexProductos">
+                        <div class="row">
+                        <?php 
+                        for($productos = 0; $productos < count($Productos); $productos++){ 
+                            if($productos < 4){?>
+                            <div class="col-md-3 col-sm-6">
+                                <div class="card">
+                                    <div class="divFoto">
+                                        <div class="col-12 d-flex justify-content-start">
+                                            <img class="zoomOn object-fit-scale pt-3 pb-3" src="<?=$Productos[$productos]->getImagen()?>" alt="...">
+                                            <div class="tret">
+                                                <img src="Materiales/Etiquetas/Oferta 25.png" alt="...">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card-body d-flex align-items-center araboto-normal">
+                                        <p class="card-text"><?=$Productos[$productos]->getNombre();?></p>
+                                    </div>
+                                </div>
+                            </div>
+                            <?php  }else{
+                                break;
+                            } ?>
+                        <?php }?>
+                        </div>
+                    </div>
+                    <div class="separador2"></div>
                 </div>
-                <div class="flexProductos">
+            </section>
+
+
+            <section>
+            
+                <div class="elegidaPorTi marginNone">
+                    <div class="EstiloTexto2 araboto-light">
+                        <p>ELEGIDO PARA TI</p>
+                    </div>
+                    <div class="estiloPTitle araboto-light">
+                        <p>Elegido para ti</p>
+                    </div>
                     <div class="row">
-                        <div class="col-md-3 col-sm-6">
+                    <?php foreach ($allProductos as $producto){?>
+                        <div class="col-md-2 col-4">
                             <div class="card">
-                                <div class="divFoto">
-                                    <div class="col-12 d-flex justify-content-start">
-                                        <img class="zoomOn" src="Materiales/Productos/sushi.png" alt="...">
-                                        <div class="tret">
-                                            <img src="Materiales/Etiquetas/Oferta 25.png" alt="...">
+                                <img src="<?= $producto->getImagen() ?>" class="object-fit-scale" style="height: 177px;" alt="...">
+                                <div class="descripcion ms-3 mb-3">
+                                    <h5 class="card-title"><?=$producto->getNombre()?></h5>
+                                    <p class="card-text"><?=$producto->getDescripcionCorto()?></p>
+                                </div>
+                                <ul class="list-group-flush ms-3 mt-5 araboto-normal ">
+                                    <li class="list-group-item fw-bold"><?=$producto->getPrecio() ?>€</li>
+                                </ul>
+                                <div class="d-flex justify-content-start card-body  me-1 ms-1">
+                                    <form action="<?= url . "?controller=producto&action=index" ?>" method="POST" class="col-12">
+                                        <div class="d-grid gap-2 col-11 mx-auto">
+                                            <input hidden name="id" value="<?= $producto->getProdId() ?>">
+                                            <button class="btn btn-primary" type="Submit">Añadir a Cesta</button>
                                         </div>
-                                    </div>
-                                </div>
-                                <div class="card-body d-flex align-items-center">
-                                    <p class="card-text">Categorias</p>
+                                    </form>
                                 </div>
                             </div>
                         </div>
-                            
-                        <div class="col-md-3 col-sm-6">
-                            <div class="card">
-                                <div class="divFoto">
-                                    <div class="col-12 d-flex justify-content-start">
-                                        <img class="zoomOn" src="Materiales/Productos/sushi.png" alt="...">
-                                        <div class="tret">
-                                            <img src="Materiales/Etiquetas/Oferta 25.png" alt="...">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="card-body d-flex align-items-center">
-                                    <p class="card-text">Categorias</p>
-                                </div>
-                            </div>
-                        </div>
+                        <?php }?>
                     </div>
                 </div>
-                <div class="separador2"></div>
-            </div>
-
-
-        
-            <div class="elegidaPorTi marginNone">
-                <div class="EstiloTexto2 araboto-light">
-                    <h2>Elegida Por ti</h2>
-                </div>
-                <div class="araboto-light estiloPTitle">
-                    <p>Elegida Por ti</p>
-                </div>
-                <div class="row">
-                    <div class="col-md-2 col-4">
-                        <div class="card">
-                            <img src="Materiales/Productos/sushi.png" class="card-img-top" alt="...">
-                            <div class="descripcion ms-3 mb-3">
-                                <h5 class="card-title">Card title</h5>
-                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            </div>
-                            <ul class="list-group-flush ms-3 mt-4">
-                                <li class="list-group-item">A third item</li>
-                            </ul>
-                            <div class="d-flex justify-content-start card-body border-bottom me-1 ms-1">
-                                <div class="d-grid gap-2 col-11 mx-auto">
-                                    <input class="btn btn-primary" type="button" value="Input">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                        
-                    <div class="col-md-2 col-4">
-                        <div class="card">
-                            <img src="Materiales/Productos/sushi.png" class="card-img-top" alt="...">
-                            <div class="descripcion ms-3 mb-3">
-                                <h5 class="card-title">Card title</h5>
-                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            </div>
-                            <ul class="list-group-flush ms-3 mt-4">
-                                <li class="list-group-item">A third item</li>
-                            </ul>
-                            <div class="d-flex justify-content-start card-body border-bottom me-1 ms-1">
-                                <div class="d-grid gap-2 col-11 mx-auto">
-                                    <input class="btn btn-primary" type="button" value="Input">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-2 col-4">
-                        <div class="card">
-                            <img src="Materiales/Productos/sushi.png" class="card-img-top" alt="...">
-                            <div class="descripcion ms-3 mb-3">
-                                <h5 class="card-title">Card title</h5>
-                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            </div>
-                            <ul class="list-group-flush ms-3 mt-4">
-                                <li class="list-group-item">A third item</li>
-                            </ul>
-                            <div class="d-flex justify-content-start card-body border-bottom me-1 ms-1">
-                                <div class="d-grid gap-2 col-11 mx-auto">
-                                    <input class="btn btn-primary" type="button" value="Input">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-2 col-4">
-                        <div class="card">
-                            <img src="Materiales/Productos/sushi.png" class="card-img-top" alt="...">
-                            <div class="descripcion ms-3 mb-3">
-                                <h5 class="card-title">Card title</h5>
-                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            </div>
-                            <ul class="list-group-flush ms-3 mt-4">
-                                <li class="list-group-item">A third item</li>
-                            </ul>
-                            <div class="d-flex justify-content-start card-body border-bottom me-1 ms-1">
-                                <div class="d-grid gap-2 col-11 mx-auto">
-                                    <input class="btn btn-primary" type="button" value="Input">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-2 col-4">
-                        <div class="card">
-                            <img src="Materiales/Productos/sushi.png" class="card-img-top" alt="...">
-                            <div class="descripcion ms-3 mb-3">
-                                <h5 class="card-title">Card title</h5>
-                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            </div>
-                            <ul class="list-group-flush ms-3 mt-4">
-                                <li class="list-group-item">A third item</li>
-                            </ul>
-                            <div class="d-flex justify-content-start card-body border-bottom me-1 ms-1">
-                                <div class="d-grid gap-2 col-11 mx-auto">
-                                    <input class="btn btn-primary" type="button" value="Input">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-2 col-4">
-                        <div class="card">
-                            <img src="Materiales/Productos/sushi.png" class="card-img-top" alt="...">
-                            <div class="descripcion ms-3 mb-3">
-                                <h5 class="card-title">Card title</h5>
-                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            </div>
-                            <ul class="list-group-flush ms-3 mt-4">
-                                <li class="list-group-item">A third item</li>
-                            </ul>
-                            <div class="d-flex justify-content-start card-body border-bottom me-1 ms-1">
-                                <div class="d-grid gap-2 col-11 mx-auto">
-                                    <input class="btn btn-primary" type="button" value="Input">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="separador2"></div>
-            </div>
-        <div class="text-center">
-
+                
+            </section>
+            <div class="separador2"></div>
+        <section class="greyGround pb-5">
             <div class="noticias marginNone">
-                <div class="EstiloTexto2 araboto-light">
+                <div class="EstiloTexto2 araboto-light pt-4">
                     <h2>Noticias</h2>
                 </div>
                 <div class="row">
@@ -352,7 +219,6 @@
                         </div>
                     </div>
                     <div class="col-4">
-
                         <div class="card bg-black subrallar">
                             <img src="Materiales/Cultura_Fnac/Viena.jpg" class="card-img-top" alt="...">
                             <div class="card-body text-start">
@@ -364,15 +230,13 @@
                                 </div>
                             </div>
                         </div>
-
                     </div>
                 </div>
             </div>
-        </div>
+        </section>
     </div>
-    </div>
+</div>
 
 </body>
-<script src="js/bootstrap.bundle.min.js"></script>
 
 </html>

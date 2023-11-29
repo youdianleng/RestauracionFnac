@@ -5,8 +5,6 @@
 
     <div>
         <form action=<?= url."?controller=producto&action=agregar" ?> method='post'>
-            <label>Producto_id</label>
-            <input name="producto_id">
             <br>
             <label>Categoria_id</label>
             <input name="categoria_id">
@@ -16,6 +14,12 @@
             <br>
             <label>Descripcion Producto</label>
             <input name="descript">
+            <br>
+            <label>Descripcion Corto Producto</label>
+            <input name="descriptCorto">
+            <br>
+            <label>Imagen Producto</label>
+            <input name="imagen">
             <br>
             <label>Precio Producto</label>
             <input name="precio">
