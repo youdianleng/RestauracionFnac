@@ -13,7 +13,8 @@
                     <div class="pt-5">
                         <p>Vendido Por Fnac</p>
                     </div>
-                    <?php foreach($_SESSION['selecciones'] as $productosCarrito){  ?>
+                    <?php foreach($_SESSION['selecciones'] as $productosCarrito){  
+                        $pos = 0?>
                     <div class="row backgroundGrey pb-2" style="margin-top: 50px;">
                         <div class="col-4 d-flex justify-content-center align-items-center">
                             <img src="<?= $productosCarrito->getProducto()->getImagen()?>" style="width: 180px;">
@@ -26,8 +27,21 @@
                         <div class="col-4 pe-5 pt-4 align-left">
                             <p class="txt21 txtRed"><strong><?= $productosCarrito->getProducto()->getPrecio()?>€</strong></p>
                             <div class="col-12 d-flex justify-content-end">
-                                <div class="col-3 border d-flex justify-content-start ps-2">
-                                    <p><?=$productosCarrito->getCantidad()?></p>
+                                <div class="col-3 border d-flex justify-content-start">
+                                    <form class="d-flex justify-content-center" action=<?= url."?controller=producto&action=carrito" ?> method="post">
+                                    <td><button style="border: none;" type="submit" name="Add" value=<?=$pos?>>-</button></td>
+                                        <p class="me-2 ms-2"><?php
+                                            $cantidadProducto = $productosCarrito->getCantidad();
+                                            if($cantidadProducto != null){
+                                                echo $productosCarrito->getCantidad();
+                                            }else{
+                                                echo "0";
+                                            }
+                                            
+                                            
+                                        ?></p>
+                                    <td><button style="border: none;" type="submit" name="Del" value=<?=$pos?>>+</button></td>
+                                    </form>
                                 </div>
                             </div>
                             <div class="col-12 d-flex justify-content-end mt-4">
@@ -41,7 +55,7 @@
                             </div>
                         </div>
                     </div>
-                    <?php }?>
+                    <?php $pos++; }?>
                 </div>
                 <div class="col-3 mt-1 ms-5">
                     <h2 class="pb-3 ms-5"> <span class="txt21">Resumen</span></h2>

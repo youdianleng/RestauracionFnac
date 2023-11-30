@@ -125,25 +125,6 @@ class ProductoDAO{
         $con->close();
         header("Location: ".url."?controller=producto");
     }
-
-    public static function getUsuarios(){
-        $con = DataBase::connect();
-        $stmt = $con->prepare("SELECT * FROM clientes");
-
-        //Ejecutar el select, guardar el resultado y cerrar el conecxion
-        $stmt->execute();
-        $result=$stmt->get_result();
-
-        $con->close();
-        $obj = "usuarios";
-        //Guardar los resultados en un Array
-        $listaUsuarios = [];
-        while ($productoDB = $result->fetch_object($obj)){
-            $listaUsuarios[] = $productoDB;
-        }
-
-        return $listaUsuarios;
-    }
 }
 
 

@@ -50,25 +50,25 @@
                 </div>
             </div>
             
-            <div class="col-4 marginNone">
-                <div class="estiloP mb-3">
+            <div class="col-4 marginNone border-end cajaBajo">
+                <div class="estiloP mb-3 ">
                     <img src="Materiales/cena.png">
-                    <div class="col-9 border-end">
+                    <div class="col-9">
                         <p>One of three columns</p>
                         <span class="noEstiloP"><p>One of three columns</p></span>
                     </div>
                 </div>
             </div>
-            <div class="col-4 marginNone">
+            <div class="col-4 marginNone  border-end cajaBajo">
                 <div class="estiloP ">
                     <img src="Materiales/cena.png">
-                    <div class="col-9 border-end">
+                    <div class="col-9">
                         <p>One of three columns</p>
                         <span class="noEstiloP"><p>One of three columns</p></span>
                     </div>
                 </div>
             </div>
-            <div class="col-4 marginNone">
+            <div class="col-4 marginNone border-end cajaBajo">
                 <div class="estiloP ">
                     <img src="Materiales/cena.png">
                     <div class="col-9">
@@ -100,7 +100,7 @@
                                             </div>
                                         </div>
                                         <div class="card-body d-flex align-items-center araboto-normal " >
-                                            <p class="card-text"><?= $categoria->getNombre();?></p>
+                                            <p class=" card-textP"><?= $categoria->getNombre();?></p>
                                         </div>
                                     </div>
                                 </a> 
@@ -133,7 +133,7 @@
                                         </div>
                                     </div>
                                     <div class="card-body d-flex align-items-center araboto-normal">
-                                        <p class="card-text"><?=$Productos[$productos]->getNombre();?></p>
+                                        <span class="card-textP"><?=$Productos[$productos]->getNombre();?></span>
                                     </div>
                                 </div>
                             </div>

@@ -20,8 +20,6 @@
 
         public function index(){
             
-
-
             session_start();
             //echo 'index';
             $allProductos = ProductoDAO::getAllByID(7);
@@ -38,6 +36,7 @@
                     array_push($_SESSION['selecciones'],$pedido);
                 }
             }
+            
             include_once "View/header.php";
             include_once "View/home.php";
             
@@ -155,33 +154,6 @@
             $imagen = $_POST['imagen'];
             $precio = $_POST['precio'];
             ProductoDAO::añadirProductos($producto_id,$categoria_id,$nombre,$descripcion,$descripcionCorto, $imagen,$precio);
-        }
-
-
-        public function userPanel(){
-            $allUsuarios = ProductoDAO::getUsuarios();
-
-            if(isset($_POST['usuario'])){
-                session_start();
-                $_SESSION['usuario'] = $_POST['usuario'];
-                header('Location:'.url."?controller=producto&action=controllerPanelUser");
-            }else{
-                header('Location:'.url."?controller=producto&action=iniciarSession");
-            }
-            
-        }
-
-        public function controllerPanelUser(){
-            session_start();
-            include_once "View/header.php";
-            include_once "userPanel/userPanel.php";
-            
-        }
-
-        public function IniciarSession(){
-            session_start();
-            include_once "View/header.php";
-            include_once "userPanel/iniciarSession.php";
         }
     }
 

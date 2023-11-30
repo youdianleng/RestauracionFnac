@@ -41,13 +41,10 @@ body{
     }  
     
 
-    .elegidaPorTi  .card-text{
-        font-size: 10px;
+    .card-textP{
+        font-size: 14.5px!important;
     }
 
-    .noticias  .card-text{
-        font-size: 10px;
-    }
 
     .elegidaPorTi .card-title{
         font-size: 15px;
@@ -160,12 +157,16 @@ img {
 
 }
 
+.cajaBajo{
+    height: 76.33px;
+}
+
 
 
 .flexProductos .card-body{
-    box-shadow: 1px 1px 3px #9d9a8c;
+    box-shadow: 0 0 12px rgba(0,0,0,.05), 0 5px 8px 0 rgba(0,0,0,.05), 0 2px 4px 0 rgba(0,0,0,.05);
     border-radius: 0px 0px 10px 10px;
-    height: 90px;
+    height: 60px;
 }
 
 :root{
@@ -306,6 +307,8 @@ section{
 }
 
 
+
+
 /*Nuevas*/
 .nuevas{
     height: 100%;
@@ -361,6 +364,13 @@ section{
     font-size: 20px;
     font-weight: 700;
 }
+
+.card-textP{
+    font-weight: 400;
+    font-size: 20px;
+    margin: 0px;
+}
+
 
 
 

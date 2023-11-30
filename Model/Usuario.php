@@ -3,6 +3,8 @@ abstract class Usuario{
     protected $Cliente_id;
     protected $Nombre;
     protected $Apellido;
+    protected $Mail;
+    protected $ImgUsuario;
     protected $Permisos;
 
     public function __construct(){
@@ -86,6 +88,46 @@ abstract class Usuario{
     public function setPermisos($Permisos)
     {
         $this->Permisos = $Permisos;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of ImgUsuario
+     */ 
+    public function getImgUsuario()
+    {
+        return $this->ImgUsuario;
+    }
+
+    /**
+     * Set the value of ImgUsuario
+     *
+     * @return  self
+     */ 
+    public function setImgUsuario($ImgUsuario)
+    {
+        $this->ImgUsuario = $ImgUsuario;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of Mail
+     */ 
+    public function getMail()
+    {
+        return $this->Mail;
+    }
+
+    /**
+     * Set the value of Mail
+     *
+     * @return  self
+     */ 
+    public function setMail($Mail)
+    {
+        $this->Mail = $Mail;
 
         return $this;
     }
