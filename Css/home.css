@@ -94,6 +94,10 @@ body{
         max-height: 30px;
         max-width: 390px;
     }
+
+    .noticias .card-textFinal{
+        font-size: 12px;
+    }
     
 
 }
@@ -199,7 +203,7 @@ img {
     color: white;
     border-color: white;
 }
-.buttonBox input:hover{
+.carousel-item:hover input{
     background-color: white;
     color: black;
 }
@@ -297,7 +301,7 @@ section{
 }
 
 
-.card > .divFoto .zoomOn:hover{
+.card:hover .zoomOn{
     transform: scale(1.1);
 }
 

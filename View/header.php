@@ -5,7 +5,6 @@
     <meta name="author" content="ZhiouZhu">
     <meta name="description" content="Cabecera comun de mis paginas web">
     <meta lang="es">
-    <link href="Css/bootstrap.min.css" rel="stylesheet">
     <link href="Css/header.css" rel="stylesheet" type="text/css" media="screen">
 </head>
 <body>
@@ -41,9 +40,19 @@
                         <a href="<?= url."?controller=producto&action=carrito" ?>">
                             <div class="boxCarrito d-flex ps-3 pe-3 pt-2 pb-2 fw-bold">
                                 <div style="background-image: url('Materiales/cesta.svg'); max-height: 30px; width: 35px; background-repeat: no-repeat;" class="mt-2 me-2"><span>
+                                <!-- En caso de que no existe ninguno usuario registrado en el icono de cabecera Carrito
+                                    No se muestra los numeros de productos, ya que no esta iniciado el Carrito -->
+                                <?php if(isset($_SESSION['Carrito'],$_SESSION['usuario'])){?>
                                     <div class="contadorCarrito ms-3 d-flex justify-content-center">
-                                        <p><?= count($_SESSION['selecciones']) ?></p>
+                                        <p>
+                                         <?php echo count($_SESSION['Carrito']); ?>
+                                         </p>
                                     </div>
+                                    <?php }else{?>
+                                        <div class=" ms-3 d-flex justify-content-center">
+                                        
+                                        </div>
+                                     <?php }?>
                                 </span></div>
                                 
                                 <p class="mt-2 pt-1 txt14">Mi Cesta</p>

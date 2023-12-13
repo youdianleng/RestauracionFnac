@@ -159,6 +159,8 @@
                     </div>
                     <div class="row">
                     <?php foreach ($allProductos as $producto){?>
+                        
+
                         <div class="col-md-2 col-4">
                             <div class="card">
                                 <img src="<?= $producto->getImagen() ?>" class="object-fit-scale" style="height: 177px;" alt="...">
@@ -194,40 +196,46 @@
                     
                     <div class="col-4">
                         <div class="card bg-black subrallar">
-                            <img src="Materiales/Cultura_Fnac/KFC.png" class="card-img-top" alt="...">
+                            <img src="Materiales/Cultura_Fnac/KFC.png" style="height: 239px;" class="card-img-top" alt="...">
                             <div class="card-body text-start ">
-                                <h5 class="card-title mt-3">Nuevo Producto KFC</h5>
-                                <p class="card-text mt-3 font-m">Nuevo Producto KFC</p>
-                                <p class="card-text mb-3">Se acerca el fin de año y KFC quiere que rompas con todos tus propósitos para el próximo 2021. Para ello, la famosa cadena de  pollo frito ha lanzado el producto menos esperado, más innovador y disruptivo: La Infame.</p>
-                                <div class="text-end mb-3">
-                                    <a href="#">Go somewhere</a>
-                                </div>
+                                <article>
+                                    <h5 class="card-title mt-3">Nuevo Producto KFC</h5>
+                                    <p class="card-text mt-3 font-m">Nuevo Producto KFC</p>
+                                    <p class="card-text mb-3 card-textFinal">Se acerca el fin de año y KFC quiere que rompas con todos tus propósitos para el próximo 2021. Para ello, la famosa cadena de  pollo frito ha lanzado el producto menos esperado, más innovador y disruptivo: La Infame.</p>
+                                    <div class="text-end mb-3">
+                                        <a href="#">Go somewhere</a>
+                                    </div>
+                                </article>
                             </div>
                         </div>
                     </div>
                     <div class="col-4">
                         <div class="card bg-black subrallar">
-                            <img src="Materiales/Cultura_Fnac/Telepizza.jpg" class="card-img-top" alt="...">
+                            <img src="Materiales/Cultura_Fnac/Telepizza.jpg" style="height: 239px;" class="card-img-top" alt="...">
                             <div class="card-body text-start">
-                                <h5 class="card-title mt-3">Nuevo Producto KFC</h5>
-                                <p class="card-text mt-3 font-m" >Nuevo Producto KFC</p>
-                                <p class="card-text mb-3">Se acerca el fin de año y KFC quiere que rompas con todos tus propósitos para el próximo 2021. Para ello, la famosa cadena de  pollo frito ha lanzado el producto menos esperado, más innovador y disruptivo: La Infame.</p>
-                                <div class="text-end mb-3">
-                                    <a href="#">Go somewhere</a>
-                                </div>
+                                <article>
+                                    <h5 class="card-title mt-3">Nuevo Producto KFC</h5>
+                                    <p class="card-text mt-3 font-m" >Nuevo Producto KFC</p>
+                                    <p class="card-text mb-3 card-textFinal">Se acerca el fin de año y KFC quiere que rompas con todos tus propósitos para el próximo 2021. Para ello, la famosa cadena de  pollo frito ha lanzado el producto menos esperado, más innovador y disruptivo: La Infame.</p>
+                                    <div class="text-end mb-3">
+                                        <a href="#">Go somewhere</a>
+                                    </div>
+                                </article>
                             </div>
                         </div>
                     </div>
                     <div class="col-4">
                         <div class="card bg-black subrallar">
-                            <img src="Materiales/Cultura_Fnac/Viena.jpg" class="card-img-top" alt="...">
+                            <img src="Materiales/Cultura_Fnac/Viena.jpg" class="card-img-top" style="height: 239px;" alt="...">
                             <div class="card-body text-start">
-                                <h5 class="card-title  mt-3">Nuevo Producto KFC</h5>
-                                <p class="card-text mt-3 font-m">Nuevo Producto KFC</p>
-                                <p class="card-text mb-3">Se acerca el fin de año y KFC quiere que rompas con todos tus propósitos para el próximo 2021. Para ello, la famosa cadena de  pollo frito ha lanzado el producto menos esperado, más innovador y disruptivo: La Infame.</p>
-                                <div class="text-end mb-3">
-                                    <a href="#">Go somewhere</a>
-                                </div>
+                                <article>
+                                    <h5 class="card-title  mt-3">Nuevo Producto KFC</h5>
+                                    <p class="card-text mt-3 font-m">Nuevo Producto KFC</p>
+                                    <p class="card-text mb-3 card-textFinal">Se acerca el fin de año y KFC quiere que rompas con todos tus propósitos para el próximo 2021. Para ello, la famosa cadena de  pollo frito ha lanzado el producto menos esperado, más innovador y disruptivo: La Infame.</p>
+                                    <div class="text-end mb-3">
+                                        <a href="#">Go somewhere</a>
+                                    </div>
+                                </article>
                             </div>
                         </div>
                     </div>

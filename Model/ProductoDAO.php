@@ -91,8 +91,10 @@ class ProductoDAO{
 
     }
 
+    //Eliminar el producto que depende del parametro id que nos pasa
     public static function deleteProduct($id){
         $con = DataBase::connect();
+        //Busca y borra el bbdd el tabla productos los que coincide con Where
         $stmt = $con->prepare("DELETE FROM productos Where producto_id = ?");
         $stmt->bind_param("i",$id);
 
@@ -103,9 +105,10 @@ class ProductoDAO{
         return $result;
     }
 
+    //Modificar los producto segun los parametro pasados y cambia los valores de bbdd
     public static function modificarProductos($producto_id,$nombre,$descripcion,$descripcionCorto,$imagen,$precio){
         $con = DataBase::connect();
-
+        //Realizar el actualizacion de 
         $stmt = $con->prepare("UPDATE productos SET Nombre = ?, Descripcion = ?, DescripcionCorto = ?, Imagen = ?, Precio = ? WHERE Producto_id = ?");
         $stmt->bind_param("ssssdi",$nombre,$descripcion,$descripcionCorto,$imagen,$precio,$producto_id);
 
@@ -117,6 +120,7 @@ class ProductoDAO{
         return $result;
     }
 
+    //Añadir un nuevo producto al bbdd
     public static function añadirProductos($producto_id,$Categoria_id,$nombre,$descripcion,$descripcionCorto, $imagen ,$precio){
         $con = DataBase::connect();
 

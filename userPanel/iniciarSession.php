@@ -15,15 +15,24 @@
             </div>
             <div class="col-12 d-flex justify-content-center mt-5">
                 <div class="containerRegistro">
+                    <!-- Envia el dado al userController en funcion de userPanel-->
                     <form action="<?=url."?controller=user&action=userPanel"?>" method="POST">
                         <div class="d-flex justify-content-center pt-5">
-                            <input class="col-8" type="mail" name="usuario" placeholder="Email">
+                            <!-- Crear un input para que el usuario escribe el email -->
+                            <input class="col-8" type="email" name="usuario" placeholder="Email">
+                        </div>
+
+                        <div class="d-flex justify-content-center pt-5">
+                            <!-- Crear un input para que el usuario escribe el Contrasenya -->
+                            <input class="col-8" type="password" name="contrasenya" placeholder="Contrasenya">
                         </div>
                     
                         <div class="d-flex justify-content-center topMarginBoton">
+                            <!-- Cuando clica el boton se envia a direccion donde esta definido en form -->
                             <button class="button d-grid gap-2 col-8 mx-auto" type="submit">CONEXION / INSCRIPCION</button>
                         </div>
                     </form>
+                    
                     <div class="d-flex justify-content-center">
                         <div class="containerRalla col-8" style="margin-top: 40px;">
                             <span class="textContainerGuio">O</span>

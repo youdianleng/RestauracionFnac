@@ -1,0 +1,81 @@
+
+.row{
+    padding: 0px;
+    margin: 0px;
+    
+}
+
+.backgroundGrey{
+    background-color: #f2f2f2;
+}
+
+.miInformacion{
+    font-size: 28px;
+}
+
+.noMarginBottom {
+    margin-bottom: 0!important;
+}
+
+.marginSelector {
+    margin: 50px auto;
+}
+
+.tabList {
+    border-bottom: 1px solid #d8d8d8;
+    height: auto;
+}
+
+ol, ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+
+.tabList li.selected:hover, .tabList li:focus, .tabList li:hover {
+    border-bottom: 1px solid #232323;
+    color: #232323;
+}
+
+
+.tabList li {
+    font-family: Roboto,Arial,Helvetica,Tahoma,sans-serif;
+    font-weight: 300;
+    display: inline-block;
+    line-height: 24px;
+    margin-right: 3.33335em;
+    cursor: pointer;
+    color: #989898;
+    font-size: 1.25em;
+    width: 400px;
+}
+
+.boxInformacion{
+    width: 100%;
+
+}
+
+
+input{
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid;
+}
+
+table{
+    text-align: center;
+    
+}
+
+label{
+    border-bottom: 2px solid;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+
+td{
+    width: 234px;
+    height: 50.5px;
+}

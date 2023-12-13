@@ -6,57 +6,67 @@
 </head>
 <body>
     <div class="container">
-        <div class="row">
-            <div class="col-12 d-flex justify-content-center mt-5">
+        <div class="row rowCarrito">
+            <div class="col-12 d-flex justify-content-center mt-5 carritoCol12">
                 <div class="col-7">
-                    <h2>Cesta <span class="txt13"><?=count($_SESSION['selecciones'])?> productos</span> </h2>
+                    <h2>Cesta <span class="txt13"><?php
+                        if(isset($_SESSION['Carrito'])){
+                            echo count($_SESSION['Carrito']);
+                        }
+                    ?> productos</span> </h2>
                     <div class="pt-5">
                         <p>Vendido Por Fnac</p>
                     </div>
-                    <?php foreach($_SESSION['selecciones'] as $productosCarrito){  
-                        $pos = 0?>
-                    <div class="row backgroundGrey pb-2" style="margin-top: 50px;">
-                        <div class="col-4 d-flex justify-content-center align-items-center">
-                            <img src="<?= $productosCarrito->getProducto()->getImagen()?>" style="width: 180px;">
-                        </div>
-                        <div class="col-4 pt-4">
-                            <p class="txt15"><?= $productosCarrito->getProducto()->getNombre()?></p>
-                            <p class="txt13"><?= $productosCarrito->getProducto()->getDescripcionCorto()?></p>
-                            <p class="txt13">Tiempo de Espera: 15min</p>
-                        </div>
-                        <div class="col-4 pe-5 pt-4 align-left">
-                            <p class="txt21 txtRed"><strong><?= $productosCarrito->getProducto()->getPrecio()?>€</strong></p>
-                            <div class="col-12 d-flex justify-content-end">
-                                <div class="col-3 border d-flex justify-content-start">
-                                    <form class="d-flex justify-content-center" action=<?= url."?controller=producto&action=carrito" ?> method="post">
-                                    <td><button style="border: none;" type="submit" name="Add" value=<?=$pos?>>-</button></td>
-                                        <p class="me-2 ms-2"><?php
-                                            $cantidadProducto = $productosCarrito->getCantidad();
-                                            if($cantidadProducto != null){
-                                                echo $productosCarrito->getCantidad();
-                                            }else{
-                                                echo "0";
-                                            }
-                                            
-                                            
-                                        ?></p>
-                                    <td><button style="border: none;" type="submit" name="Del" value=<?=$pos?>>+</button></td>
-                                    </form>
+                    
+                    <?php 
+                    if(isset($_SESSION['Carrito'],$_SESSION['usuario'])){
+                        $pos = 0;
+                        foreach($_SESSION['Carrito'] as $productosCarrito){  
+                           ?>
+                        <div class="row backgroundGrey pb-2" style="margin-top: 50px;">
+                            <div class="col-4 d-flex justify-content-center align-items-center">
+                                <img src="<? echo $productosCarrito->getProducto()->getImagen()?>" style="width: 180px;">
+                            </div>
+                            <div class="col-4 pt-4">
+                                <p class="txt15"><?= $productosCarrito->getProducto()->getNombre()?></p>
+                                <p class="txt13"><?= $productosCarrito->getProducto()->getDescripcionCorto()?></p>
+                                <p class="txt13">Tiempo de Espera: 15min</p>
+                            </div>
+                            <div class="col-4 pe-5 pt-4 align-left">
+                                <p class="txt21 txtRed"><strong><?= $productosCarrito->getProducto()->getPrecio()?>€</strong></p>
+                                <div class="col-12 d-flex justify-content-end">
+                                    <div class="col-3 border d-flex justify-content-start">
+                                        <form class="d-flex justify-content-center" action=<?= url."?controller=producto&action=carrito" ?> method="post">
+                                        <td><button style="border: none;" type="submit" name="Del" value=<?=$pos?>>-</button></td>
+                                            <p class="me-2 ms-2"><?php
+                                                $cantidadProducto = $productosCarrito->getCantidad();
+                                                if($cantidadProducto != null){
+                                                    echo $productosCarrito->getCantidad();
+                                                }else{
+                                                    echo "0";
+                                                }
+                                                
+                                                
+                                            ?></p>
+                                        <td><button style="border: none;" type="submit" name="Add" value=<?=$pos?>>+</button></td>
+                                        </form>
+                                    </div>
+                                </div>
+                                <div class="col-12 d-flex justify-content-end mt-4">
+                                    <div class="col-4 txt13 decoracionCarrito">
+                                        <a href="#">Eliminar</a>
+                                    </div>
+                                    <div class="col-1 border-right"></div>
+                                    <div class="col-8 txt13 decoracionCarrito">
+                                        <a href="#">Guardar para Luego</a>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="col-12 d-flex justify-content-end mt-4">
-                                <div class="col-4 txt13">
-                                    <a href="#">Eliminar</a>
-                                </div>
-                                <div class="col-1 border-right"></div>
-                                <div class="col-8 txt13">
-                                    <a href="#">Guardar para Luego</a>
-                                </div>
-                            </div>
                         </div>
-                    </div>
-                    <?php $pos++; }?>
+                        <?php $pos++; }}?>
+                     
                 </div>
+                
                 <div class="col-3 mt-1 ms-5">
                     <h2 class="pb-3 ms-5"> <span class="txt21">Resumen</span></h2>
                     <div class="col-12 mt-3 backgroundGrey ms-4 pb-3 pe-3">
@@ -66,21 +76,44 @@
                             <button type="submit" class="ms-2 col-3 radiusBorder">Validar</button>
                         </div>
                     </div>
-                    <div class="col-12 mt-4 backgroundGrey ms-4 d-flex justify-content-center">
-                        <div class="col-10">
-                            <div class="col-12 d-flex justify-content-between">
-                                    <p class="ms-4 mt-5">Cesta<span>(<?=count($_SESSION['selecciones'])?>)</span></p>
-                                    <p class="me-4 mt-5 mb-5 fw-bold txt14 txtRed"><?=CalculadoraPrecios::calculadorPrecioPedido($_SESSION['selecciones']) ?>€</p>
-                            </div>
-                            <div class="col-12 d-flex justify-content-between mt-3">
-                                    <p class="ms-4 txt18">Total <span class="txtIva">(IVA INCLUIDO)</span></p>
-                                    <p class="me-4 fw-bold txtRed "><?=CalculadoraPrecios::calculadorPrecioPedido($_SESSION['selecciones']) ?>€</p>
-                            </div>  
-                            <div class="d-grid gap-2 col-11 mx-auto mt-2 pb-4">
-                                <button class="btn btn-primary" type="button">Finalizar la Compra</button>
+                    
+                        <div class="col-12 mt-4 backgroundGrey ms-4 d-flex justify-content-center">
+                            <div class="col-10">
+                                <div class="col-12 d-flex justify-content-between">
+                                        <p class="ms-4 mt-5">Cesta<span>(<?php
+                                            if(isset($_SESSION['Carrito'])){
+                                                echo count($_SESSION['Carrito']);
+                                            }
+                                        ?>)</span></p>
+                                        <p class="me-4 mt-5 mb-5 fw-bold txt14 txtRed"><?php 
+                                            if(isset($_SESSION['Carrito'])){
+                                                echo CalculadoraPrecios::calculadorPrecioPedido($_SESSION['Carrito']) ;
+                                            }
+                                        ?>€</p>
+                                </div>
+                                <div class="col-12 d-flex justify-content-between mt-3">
+                                        <p class="ms-4 txt18">Total <span class="txtIva">(IVA INCLUIDO)</span></p>
+                                        <p class="me-4 fw-bold txtRed "><?php 
+                                                if(isset($_SESSION['Carrito'])){
+                                                echo CalculadoraPrecios::calculadorPrecioPedido($_SESSION['Carrito']) ;
+                                            } ?>€</p>
+                                </div>  
+                                <form action="<?=url."?controller=pedido&&action=añadirPedido"?>" method="POST">
+                                    <input  name="Cliente_id" value="<?php 
+                                        if(isset($_SESSION['usuario'] ) && ($_SESSION['Carrito']) != null){
+                                            echo $_SESSION['usuario']->getCliente_id();
+                                        }
+                                    ?>">
+                                    <input hidden  name="PrecioTotal" value="<?php 
+                                        if(isset($_SESSION['usuario']) && ($_SESSION['Carrito']) != null){
+                                            echo CalculadoraPrecios::calculadorPrecioPedido($_SESSION['Carrito']);
+                                        } ?>">
+                                        <div class="d-grid gap-2 col-11 mx-auto mt-2 pb-4">
+                                        <button class="btn btn-primary" type="submit">Finalizar la Compra</button>
+                                    </div>
+                                </form>
                             </div>
                         </div>
-                    </div>
                     <div class="col-12 mt-2 backgroundGrey ms-4 mt-5">
                     <div class="col-12 d-flex justify-content-between">
                                 <p class="ms-4 mt-3">ACEPTAMOS</p>

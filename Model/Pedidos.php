@@ -1,8 +1,10 @@
 <?php
-
-class Pedido{
+include_once "Model/PedidoInfo.php";
+include_once "Model/Producto.php";
+class Pedido {
     private $producto;
     private $cantidad = 1;
+
 
     public function __construct($producto){
         $this->producto = $producto;
@@ -51,9 +53,11 @@ class Pedido{
     }
 
 
+    //Me devuelve el Precio total de producto segun el cantidad que tiene
     public function getPrecioTotal(){
         return ($this->producto->getPrecio() * $this->cantidad);
     }
+
 }
 
 

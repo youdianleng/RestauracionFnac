@@ -115,13 +115,13 @@ body{
 
 
 
-.row{
+.rowCarrito{
     margin: 0%;
     padding: 0px;
     background-color: #f2f2f2;
 }
 
-.row .col-12{
+.row .carritoCol12{
     margin: 0%;
     padding: 0%;
 }
@@ -146,7 +146,7 @@ body{
     border-right: solid 1px;
 }
 
-.row a{
+.row .decoracionCarrito a{
     color: black;
 }
 

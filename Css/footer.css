@@ -5,8 +5,26 @@ body{
     margin-right: auto;
 }
 .container{
-    padding: 0px;
-    max-width: 100%;
+    max-width: 1440px;
+}
+
+.smText{
+    font-size: 10px;
+}
+
+
+.normalText{
+    font-size: 14px;
+    margin-bottom: 2px;
+}
+
+.specialText{
+    color: white;
+}
+
+.titlePrincipal{
+    margin-top: 32px;
+    margin-bottom: 10px;
 }
 
 @font-face {
@@ -27,4 +45,83 @@ body{
       margin-right: auto;
     }  
 
+}
+
+.row{
+    padding: 0%;
+    margin: 0%;
+}
+
+
+.footer_nav{
+    height: 92px;
+}
+
+.iconoSocial{
+    list-style: none;
+    height: 92px;
+    margin-bottom: 0px;
+}
+
+.iconoSocialCentro{
+    width: 255px;
+    height: 45px;
+
+}
+
+.boxCenter{
+    padding: 0%;
+}
+
+.cajaIcono{
+    height: 25px;
+    width: 25px;
+}
+
+.cajaRedesSocial{
+    width: 51px;
+}
+
+.cajaRedesSocial:hover img{
+    opacity: 0.8;
+    cursor: pointer;
+}
+
+
+.redesbox{
+    background-color: #f5b027;
+}
+
+
+.footertext{
+    height: 533px;
+    background-color: #232323;
+    padding: 32px 41px 64px;
+}
+
+.footerinfo{
+    padding: 0%;
+    height: 96px;
+}
+
+.todas{
+    height: 17.14px;
+    padding: 0px;
+    color: #9d9a8c;
+}
+
+.infoTodas{
+    height: 29.14px;
+}
+
+
+.aFooter{
+    padding: 0px!important;
+    text-decoration: none;
+    color: white;
+}
+
+.footerPagos{
+    height: 100%;
+    width: 45%;
 }
