@@ -36,6 +36,7 @@
                         
                         //Añadir al array Carrito el pedido acaba de crear
                         array_push($_SESSION['Carrito'],$pedido);
+                        array_push($_SESSION['CarritoCant'],$pedido);
 
                     }
                 
@@ -43,6 +44,7 @@
                 }else{
                     //En caso de carrito no existe crea el session de Carrito como array
                     $_SESSION['Carrito'] = array();
+                    $_SESSION['CarritoCant'] = array();
                     
                 }
                 
@@ -79,12 +81,14 @@
 
                         //Añadir al array Carrito el pedido acaba de crear
                         array_push($_SESSION['Carrito'],$pedido);
+                        array_push($_SESSION['CarritoCant'],$pedido);
                         
                     }
                     
                 }else{
                     //En caso de carrito no existe crea el session de Carrito como array
                     $_SESSION['Carrito'] = array();
+                    $_SESSION['CarritoCant'] = array();
                     
                 }
                 
@@ -116,6 +120,9 @@
             //Iniciar el session
             session_start();
             $Productos = ProductoDAO::getAllProductos();
+
+            $ingredientes = ingredientesDAO::getAllIngredientes();
+            var_dump($ingredientes) ;
             //En caso de que el Session de Carrito existe entra
             if(isset($_SESSION['usuario'])){
 
@@ -135,6 +142,7 @@
 
                         //Añadir al array Carrito el pedido acaba de crear
                         array_push($_SESSION['Carrito'],$pedido);
+
                         
                     }
                     
@@ -160,7 +168,6 @@
                 if($pedido->getCantidad()==1){
                     //Borrar el producto desde Carrito
                     unset($_SESSION['Carrito'][$_POST['Del']]);
-
                     //Tenemos que re-indexar el array
                     $_SESSION['Carrito'] = array_values($_SESSION['Carrito']);
                 }else{

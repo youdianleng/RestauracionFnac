@@ -100,7 +100,7 @@
                     //Crear un array
                     $ProdUltima = array();
 
-                    //Hacer un bucle para sacar los informacion recibido de $pedidoReciente
+                    // Hacer un bucle para sacar los informacion recibido de $pedidoReciente
                     foreach($pedidoReciente as $producto_id){
 
                         //Guardar el producto_id de cada producto encontrada de $pedidoReciente

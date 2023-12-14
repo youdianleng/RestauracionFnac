@@ -2,7 +2,7 @@
 <head>
     <link rel="stylesheet" href="Css/carritoCss.css">
     <link href="Css/bootstrap.min.css" rel="stylesheet">
-    <link href="Css/home.css" rel="stylesheet" type="text/css" media="screen">
+    <link href="Css/carritoCss.css" rel="stylesheet" type="text/css" media="screen">
 </head>
 <body>
     <div class="container">
@@ -53,12 +53,9 @@
                                     </div>
                                 </div>
                                 <div class="col-12 d-flex justify-content-end mt-4">
-                                    <div class="col-4 txt13 decoracionCarrito">
-                                        <a href="#">Eliminar</a>
-                                    </div>
-                                    <div class="col-1 border-right"></div>
-                                    <div class="col-8 txt13 decoracionCarrito">
-                                        <a href="#">Guardar para Luego</a>
+                                    <div class="col-12 txt13 decoracionCarrito">
+                                    <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">INGREDIENTES</button>
+
                                     </div>
                                 </div>
                             </div>
@@ -155,7 +152,27 @@
             </div>
         </div>
     </div>
+
+    
+    <!-- Modal para Ingredientes-->
+    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="staticBackdropLabel">Añadir Ingredientes</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Understood</button>
+            </div>
+            </div>
+        </div>
+    </div>
+    
 </body>
 <script src="js/bootstrap.bundle.min.js"></script>
 </html>
-
