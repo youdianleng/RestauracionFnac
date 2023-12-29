@@ -16,4 +16,4 @@ Para poder ejecutar el proyecto en tu entorno o sistema, necesitaremos lo siguie
 Para poder arrancar y ejecutar el proyecto necesitaremos hacer lo siguientes:
   1. Instalar Xampp
      1.1. Ir a pagina oficial de Xampp con siguiente enlace [Instalar Xampp Nueva Version](https://www.apachefriends.org/es/download.html)
-     
+     ![Pagina Principal para instalar el nueva version de Xampp](https://github.com/youdianleng/RestauracionFnac/tree/main/asset/XamppMainPage.png)
