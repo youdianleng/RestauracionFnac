@@ -1,10 +1,10 @@
 <?php
+include_once("Model/Ingredientes.php");
 include_once "Model/Categoria.php";
 include_once "Model/Producto.php";
 include_once "Model/Usuario.php";
 include_once "Model/Pedidos.php";
 include_once "Model/PedidoInfo.php";
-include_once "Model/Ingredientes.php";
 
 //Clase para los productos
 class productos extends Producto{
@@ -35,7 +35,7 @@ class pedidos extends PedidosInfo{
 }
 
 //Clase para los Ingredientes
-class ingredientes extends Ingredientes{
+class ingrediente extends IngredientesInfo{
     public function __construct(){
     }
 }

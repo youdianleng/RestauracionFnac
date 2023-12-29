@@ -6,6 +6,7 @@
     include_once "Utils/CalculadoraPrecios.php";
     include_once "Model/UserDAO.php";
     include_once "Model/PedidoDAO.php";
+    include_once "Model/IngredienteDAO.php";
     class pedidoController{
         
         //Añadir el producto de carrito de pedido actual y guardarlo en bbdd que cada producto sigue con el
@@ -33,12 +34,37 @@
                     $Precio_unidad = $productoCarrito->getProducto()->getPrecio();
                     $producto_id = $productoCarrito->getProducto()->getProdId();
                     
-                    //Añadir los productos con los datos configurados y el pedido_id que tenga el fecha mas reciente de usuario
+                    
+                    //Añadir los ingredientes de un pedido con el numero de pedido
                     PedidoDAO::AñadirPedidoProducto($pedido,$cantidad,$precio_Total,$Precio_unidad,$producto_id);
-                }
+                    if($productoCarrito->getIngredientes() != null){
+                        foreach($productoCarrito->getIngredientes() as $ingrediente){
+                            $ingredienteEncontrada = ingredientesDAO::getIngredientesById($ingrediente);
+                            $Descripcion = $ingredienteEncontrada->getDescripcion();
+                            $Ingrediente_id = $ingredienteEncontrada->getIngredientes_id();
+                            $Nombre = $ingredienteEncontrada->getNombre();
+                            ingredientesDAO::setIngredientesPedido($Descripcion, $Ingrediente_id, $Nombre, $pedido);       
+                        }
+                    }
 
+                    //Añadir los productos con su ingredientes
+                    foreach($_SESSION['Carrito'] as $productoCarrito){
+                        $producto_id = $productoCarrito->getProducto()->getProdId();
+                        foreach($productoCarrito->getIngredientes() as $ingrediente){
+                            $ingredienteEncontrada = ingredientesDAO::getIngredientesById($ingrediente);
+                            $Descripcion = $ingredienteEncontrada->getDescripcion();
+                            $Ingrediente_id = $ingredienteEncontrada->getIngredientes_id();
+                            $Nombre = $ingredienteEncontrada->getNombre();
+                            ingredientesDAO::setIngredientesProducto($Descripcion, $Ingrediente_id, $Nombre, $producto_id);       
+                        }
+                        
+                    }
+                    
+                }
                 //Configurar el Cookie para mostrar el ultimo pedido de usuario
                 setcookie('UltimoPedido',$pedido,time()+3600);
+
+
 
                 //Quitar el carrito despues de añadir los productos en el pedido
                 unset($_SESSION['Carrito']);

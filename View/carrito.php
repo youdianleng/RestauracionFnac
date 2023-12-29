@@ -3,6 +3,7 @@
     <link rel="stylesheet" href="Css/carritoCss.css">
     <link href="Css/bootstrap.min.css" rel="stylesheet">
     <link href="Css/carritoCss.css" rel="stylesheet" type="text/css" media="screen">
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 </head>
 <body>
     <div class="container">
@@ -21,15 +22,26 @@
                     <?php 
                     if(isset($_SESSION['Carrito'],$_SESSION['usuario'])){
                         $pos = 0;
-                        foreach($_SESSION['Carrito'] as $productosCarrito){  
-                           ?>
+                        foreach($_SESSION['Carrito'] as $productosCarrito){  ?>
                         <div class="row backgroundGrey pb-2" style="margin-top: 50px;">
                             <div class="col-4 d-flex justify-content-center align-items-center">
-                                <img src="<? echo $productosCarrito->getProducto()->getImagen()?>" style="width: 180px;">
+                                <img src="<?= $productosCarrito->getProducto()->getImagen()?>" style="width: 180px;">
                             </div>
                             <div class="col-4 pt-4">
                                 <p class="txt15"><?= $productosCarrito->getProducto()->getNombre()?></p>
                                 <p class="txt13"><?= $productosCarrito->getProducto()->getDescripcionCorto()?></p>
+                                <p class="txt13">
+                                    <?php 
+                                    if($productosCarrito->getIngredientes() != null) { echo "Ingredientes: ";?>
+                                        <?php foreach($productosCarrito->getIngredientes() as $ingProd){ ?>
+                                            <?php 
+                                                $ingredienteInfo = ingredientesDAO::getIngredientesById($ingProd);
+                                                echo $ingredienteInfo->getNombre();
+
+                                            ?>
+                                        <?php  }?>
+                                    <?php } ?>
+                                </p>
                                 <p class="txt13">Tiempo de Espera: 15min</p>
                             </div>
                             <div class="col-4 pe-5 pt-4 align-left">
@@ -54,7 +66,7 @@
                                 </div>
                                 <div class="col-12 d-flex justify-content-end mt-4">
                                     <div class="col-12 txt13 decoracionCarrito">
-                                    <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">INGREDIENTES</button>
+                                        <button type="button" id="btnModal" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop" data-ProdId="<?= $productosCarrito->getProducto()->getProdId()?>">INGREDIENTES</button>
 
                                     </div>
                                 </div>
@@ -89,14 +101,14 @@
                                         ?>€</p>
                                 </div>
                                 <div class="col-12 d-flex justify-content-between mt-3">
-                                        <p class="ms-4 txt18">Total <span class="txtIva">(IVA INCLUIDO)</span></p>
+                                        <p class="ms-4 mb-4 txt18">Total <span class="txtIva">(IVA INCLUIDO)</span></p>
                                         <p class="me-4 fw-bold txtRed "><?php 
                                                 if(isset($_SESSION['Carrito'])){
                                                 echo CalculadoraPrecios::calculadorPrecioPedido($_SESSION['Carrito']) ;
                                             } ?>€</p>
                                 </div>  
                                 <form action="<?=url."?controller=pedido&&action=añadirPedido"?>" method="POST">
-                                    <input  name="Cliente_id" value="<?php 
+                                    <input hidden name="Cliente_id" value="<?php 
                                         if(isset($_SESSION['usuario'] ) && ($_SESSION['Carrito']) != null){
                                             echo $_SESSION['usuario']->getCliente_id();
                                         }
@@ -105,6 +117,7 @@
                                         if(isset($_SESSION['usuario']) && ($_SESSION['Carrito']) != null){
                                             echo CalculadoraPrecios::calculadorPrecioPedido($_SESSION['Carrito']);
                                         } ?>">
+                                    
                                         <div class="d-grid gap-2 col-11 mx-auto mt-2 pb-4">
                                         <button class="btn btn-primary" type="submit">Finalizar la Compra</button>
                                     </div>
@@ -123,7 +136,7 @@
             <div class="col-12 d-flex justify-content-center">
                 <div class="col-7 mt-5">
                     <h2>También te Gustaria...</h2>
-                    <div class="col-12 d-flex">
+                    <div class="col-md-6 d-flex ">
                     <?php foreach($Productos as $productos){ }?>
                     <?php for($productos = 0; $productos < count($Productos); $productos++){
                             if($productos < 4){?>
@@ -153,6 +166,8 @@
         </div>
     </div>
 
+
+
     
     <!-- Modal para Ingredientes-->
     <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
@@ -163,16 +178,46 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                
+                <div class="row">
+                <table>
+                    <th>Nombre</th>
+                    <th>Descripcion</th>
+                    <th>Precio</th>
+                <form action="<?=url."?controller=producto&&action=carrito"?>" method="POST">
+                    <input hidden name="id" id="id" >
+                    <?php foreach($_SESSION['Ingredientes'] as $ingre){ ?>
+                            <tr>
+                                <td><?=$ingre->getIngredientes()->getNombre();?></td>
+                                <td><?=$ingre->getIngredientes()->getDescripcion();?></td>
+                                <td><?=$ingre->getIngredientes()->getPrecio();?></td>
+                                <td><?=$ingre->getIngredientes()->getIngredientes_id();?></td>
+                                <td>
+                                    <input name="ingredienteSelect[]" type="checkbox" value="<?=$ingre->getIngredientes()->getIngredientes_id();?>"></input>
+                                </td>
+                            </tr>
+                    <?php } ?>
+                </table>
+                </div>
             </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Understood</button>
-            </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                    <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Añadir</button>
+                </div>
+                </form>
             </div>
         </div>
     </div>
     
 </body>
+
+<script>
+    $(document).on("click", "#btnModal", function () {
+    let prodId = $(this).data("prodid");
+    
+    $("#id").val(prodId);
+
+    
+})
+</script>
 <script src="js/bootstrap.bundle.min.js"></script>
 </html>

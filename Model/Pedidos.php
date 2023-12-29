@@ -5,9 +5,11 @@ class Pedido {
     private $producto;
     private $cantidad = 1;
 
+    private $ingredientes = [];
 
-    public function __construct($producto){
+    public function __construct($producto,$ingrediente = null){
         $this->producto = $producto;
+        $this->ingredientes = $ingrediente;
     }
     
     
@@ -58,6 +60,26 @@ class Pedido {
         return ($this->producto->getPrecio() * $this->cantidad);
     }
 
+
+    /**
+     * Get the value of ingredientes
+     */ 
+    public function getIngredientes()
+    {
+        return $this->ingredientes;
+    }
+
+    /**
+     * Set the value of ingredientes
+     *
+     * @return  self
+     */ 
+    public function setIngredientes($ingredientes)
+    {
+        $this->ingredientes = $ingredientes;
+
+        return $this;
+    }
 }
 
 

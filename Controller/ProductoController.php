@@ -6,24 +6,28 @@
     include_once "Utils/CalculadoraPrecios.php";
     include_once "Model/Categoria.php";
     include_once "Model/PedidoDAO.php";
+    include_once "Model/IngredienteDAO.php";
     class productoController{
 
         public function index(){
             //iniciar el session
             session_start();
-            
             //Variables predefinido para si en caso luego usa
             $allProductos = ProductoDAO::getAllByID(1);
 
             $Categorias = ProductoDAO::getAllCategoria();
             
             $Productos = ProductoDAO::getAllProductos();
+
+            $ingredientes = ingredientesDAO::getAllIngredientes();
+
             
             //Si el session de usuario existe entra
             if(isset($_SESSION['usuario'])){
                 
                 //En caso de que el Session de Carrito existe entra
                 if(isset($_SESSION['Carrito'])){
+
                     //Si recibe un "validar" desde panel de carrito, quita el session de carrito
                     if(isset($_POST['validar'])){
                         unset($_SESSION['Carrito']);
@@ -34,9 +38,19 @@
                         //Crear el pedido con el producto encontrada de bbdd con el id pasado por parametro
                         $pedido = new Pedido(ProductoDAO::getProductByID($_POST['id']));
                         
-                        //Añadir al array Carrito el pedido acaba de crear
-                        array_push($_SESSION['Carrito'],$pedido);
-                        array_push($_SESSION['CarritoCant'],$pedido);
+                        if($_SESSION['Carrito'] != null){
+                            foreach($_SESSION['Carrito'] as $CarritoProd){
+                                if($pedido->getProducto()->getProdId() == $CarritoProd->getProducto()->getProdId() && $CarritoProd->getIngredientes() == null){
+                                    $CarritoProd->setCantidad($CarritoProd->getCantidad() + 1);
+                                }else{
+                                    //Añadir al array Carrito el pedido acaba de crear
+                                    array_push($_SESSION['Carrito'],$pedido);
+                                }
+                            }
+                        }else{
+                            //Añadir al array Carrito el pedido acaba de crear
+                            array_push($_SESSION['Carrito'],$pedido);
+                        }
 
                     }
                 
@@ -44,8 +58,16 @@
                 }else{
                     //En caso de carrito no existe crea el session de Carrito como array
                     $_SESSION['Carrito'] = array();
-                    $_SESSION['CarritoCant'] = array();
-                    
+                    $_SESSION['Ingredientes'] = array();
+                    foreach($ingredientes as $ingred){
+                        $ingreId = $ingred->getIngredientes_id();
+
+                        $ingredientesPush = new Ingredientes(ingredientesDAO::getIngredientesById($ingreId));
+
+
+                        array_push($_SESSION['Ingredientes'],$ingredientesPush);
+    
+                    }
                 }
                 
             }
@@ -65,11 +87,14 @@
         public function shop(){
             //Inicar el session
             session_start();
+            $ingredientes = ingredientesDAO::getAllIngredientes();
 
             //En caso de que el Session de Carrito existe entra
             if(isset($_SESSION['usuario'])){
                 //En caso de que el Session de Carrito existe entra
                 if(isset($_SESSION['Carrito'])){
+
+
                     //Si recibe un "validar" desde panel de carrito, quita el session de carrito
                     if(isset($_POST['validar'])){
                         unset($_SESSION['Carrito']);
@@ -79,17 +104,37 @@
                         //Crear el pedido con el producto encontrada de bbdd con el id pasado por parametro
                         $pedido = new Pedido(ProductoDAO::getProductByID($_POST['id']));
 
-                        //Añadir al array Carrito el pedido acaba de crear
-                        array_push($_SESSION['Carrito'],$pedido);
-                        array_push($_SESSION['CarritoCant'],$pedido);
+                        if($_SESSION['Carrito'] != null){
+                            foreach($_SESSION['Carrito'] as $CarritoProd){
+                                if($pedido->getProducto()->getProdId() == $CarritoProd->getProducto()->getProdId() && $CarritoProd->getIngredientes() == null){
+                                    $CarritoProd->setCantidad($CarritoProd->getCantidad() + 1);
+                                }else{
+                                    //Añadir al array Carrito el pedido acaba de crear
+                                    array_push($_SESSION['Carrito'],$pedido);
+                                }
+                            }
+                        }else{
+                            //Añadir al array Carrito el pedido acaba de crear
+                            array_push($_SESSION['Carrito'],$pedido);
+                        }
+
+                        
                         
                     }
                     
                 }else{
                     //En caso de carrito no existe crea el session de Carrito como array
                     $_SESSION['Carrito'] = array();
-                    $_SESSION['CarritoCant'] = array();
-                    
+
+                    $_SESSION['Ingredientes'] = array();
+                    foreach($ingredientes as $ingred){
+                        $ingreId = $ingred->getIngredientes_id();
+                        
+                        $ingredientesPush = new Ingredientes(ingredientesDAO::getIngredientesById($ingreId));
+                        
+                        array_push($_SESSION['Ingredientes'],$ingredientesPush);
+    
+                    }
                 }
                 
             }
@@ -122,12 +167,14 @@
             $Productos = ProductoDAO::getAllProductos();
 
             $ingredientes = ingredientesDAO::getAllIngredientes();
-            var_dump($ingredientes) ;
+
             //En caso de que el Session de Carrito existe entra
             if(isset($_SESSION['usuario'])){
+               
 
                 //En caso de que el Session de Carrito existe entra
                 if(isset($_SESSION['Carrito'])){
+                    
 
                     //Si recibe un "validar" desde panel de carrito, quita el session de carrito
                     if(isset($_POST['validar'])){
@@ -136,25 +183,54 @@
                         unset($_SESSION['Carrito']);
                     }
                     //Si recibe un id de producto entra
-                    if(isset($_POST['id'])){
+                    if(isset($_POST['id'],$_POST['ingredienteSelect'])){
+                        //Crear el pedido con el producto encontrada de bbdd con el id pasado por parametro
+                        $pedido = new Pedido(ProductoDAO::getProductByID($_POST['id']),$_POST['ingredienteSelect']);
+
+                        foreach($pedido->getIngredientes() as $ingredientes){
+                            $ingredienteInfo = ingredientesDAO::getIngredientesById($ingredientes);
+                            $pedido->getProducto()->setPrecio($pedido->getProducto()->getPrecio() + $ingredienteInfo->getPrecio());
+                        }
+                        
+
+
+                        //Añadir al array Carrito el pedido acaba de crear
+                        array_push($_SESSION['Carrito'],$pedido);
+
+
+                        
+                        
+                    }else if(isset($_POST['id'])){
                         //Crear el pedido con el producto encontrada de bbdd con el id pasado por parametro
                         $pedido = new Pedido(ProductoDAO::getProductByID($_POST['id']));
 
                         //Añadir al array Carrito el pedido acaba de crear
                         array_push($_SESSION['Carrito'],$pedido);
-
-                        
                     }
-                    
+
+
                 }else{
                     //En caso de carrito no existe crea el session de Carrito como array
                     $_SESSION['Carrito'] = array();
-                    
+
+                    $_SESSION['Ingredientes'] = array();
+                    foreach($ingredientes as $ingred){
+                        $ingreId = $ingred->getIngredientes_id();
+                        
+                        $ingredientesPush = new Ingredientes(ingredientesDAO::getIngredientesById($ingreId));
+                        
+
+                        array_push($_SESSION['Ingredientes'],$ingredientesPush);
+    
+                    }
                 }
                 
             }
 
-            
+
+            /**
+             * Hecho para los Carritos
+             */
             //Si recibe post de Add
             if (isset($_POST['Add'])){
                 //El producto se va a añadir 1 basado el cantidad que existe ahora mismo en array de Carrito
@@ -175,6 +251,9 @@
                     $pedido->setCantidad($pedido->getCantidad()-1);
                 }
             }
+
+
+
 
             //Incluir los paneles necesarios para mostrar al web
             include_once "View/header.php";

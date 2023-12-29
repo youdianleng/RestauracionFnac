@@ -40,9 +40,6 @@ abstract class Producto{
         return $this->Descripcion;
     }
 
-    public function getPrecio(){
-        return $this->Precio;
-    }
 
 
 
@@ -82,6 +79,26 @@ abstract class Producto{
     public function setDescripcionCorto($DescripcionCorto)
     {
         $this->DescripcionCorto = $DescripcionCorto;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of Precio
+     */ 
+    public function getPrecio()
+    {
+        return $this->Precio;
+    }
+
+    /**
+     * Set the value of Precio
+     *
+     * @return  self
+     */ 
+    public function setPrecio($Precio)
+    {
+        $this->Precio = $Precio;
 
         return $this;
     }

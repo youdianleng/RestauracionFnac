@@ -6,6 +6,7 @@
 include_once "Controller/ProductoController.php";
 include_once "Controller/UserController.php";
 include_once "Controller/PedidoController.php";
+include_once "Controller/IngredienteController.php";
 include_once "config/parameter.php";
     if(!isset($_GET["controller"])){
         //If theres no sending controller redirect to home pages

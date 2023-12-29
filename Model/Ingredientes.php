@@ -1,92 +1,55 @@
 <?php
+include_once "Model/IngredientesInfo.php";
+Class Ingredientes{
 
-abstract class Ingredientes{
+    //Guardar el Ingrediente actual que pasa por parametro
+    protected $ingredientes;
 
-    protected $Descripcion;
-    protected $Ingredientes_id;
-    protected $Nombre;
-    protected $Precio;
-    
-    public function __construct(){
-        
+    //Cantidad actual de este Ingrediente
+    protected $cantidad = 1;
+
+    public function __construct($ingrediente){
+        $this->ingredientes = $ingrediente;
     }
 
+
+
     /**
-     * Get the value of Descripcion
+     * Get the value of cantidad
      */ 
-    public function getDescripcion()
+    public function getCantidad()
     {
-        return $this->Descripcion;
+        return $this->cantidad;
     }
 
     /**
-     * Set the value of Descripcion
+     * Set the value of cantidad
      *
      * @return  self
      */ 
-    public function setDescripcion($Descripcion)
+    public function setCantidad($cantidad)
     {
-        $this->Descripcion = $Descripcion;
+        $this->cantidad = $cantidad;
 
         return $this;
     }
 
     /**
-     * Get the value of Ingredientes_id
+     * Get the value of ingredientes
      */ 
-    public function getIngredientes_id()
+    public function getIngredientes()
     {
-        return $this->Ingredientes_id;
+        return $this->ingredientes;
     }
 
     /**
-     * Set the value of Ingredientes_id
+     * Set the value of ingredientes
      *
      * @return  self
      */ 
-    public function setIngredientes_id($Ingredientes_id)
+    public function setIngredientes($ingredientes)
     {
-        $this->Ingredientes_id = $Ingredientes_id;
-
-        return $this;
-    }
-
-    /**
-     * Get the value of Nombre
-     */ 
-    public function getNombre()
-    {
-        return $this->Nombre;
-    }
-
-    /**
-     * Set the value of Nombre
-     *
-     * @return  self
-     */ 
-    public function setNombre($Nombre)
-    {
-        $this->Nombre = $Nombre;
-
-        return $this;
-    }
-
-    /**
-     * Get the value of Precio
-     */ 
-    public function getPrecio()
-    {
-        return $this->Precio;
-    }
-
-    /**
-     * Set the value of Precio
-     *
-     * @return  self
-     */ 
-    public function setPrecio($Precio)
-    {
-        $this->Precio = $Precio;
+        $this->ingredientes = $ingredientes;
 
         return $this;
     }
