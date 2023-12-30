@@ -108,7 +108,56 @@ Para poder arrancar y ejecutar el proyecto necesitaremos hacer lo siguientes:
       5. Cantidad [Int(255)]
   
 
-4. Configurar el Apache
+4. Configurar el Apache  
+   > Más bien que Configurar sino es saber donde se guarda este fichero de proyecto fnacrestauracion para que puedes usar con Xampp
+     1. Ir a ruta donde tenga instalado el Xampp
+     1. Entrar a xampp -> htdoc  
+        <img src="https://github.com/youdianleng/RestauracionFnac/blob/main/asset/Apache.png" width="500px" alt="El fichero de root web de Xampp HTDOC">
+     1. Eliminar el index.html (Es el pagina principal de Xampp pero nosotros no lo necesitamos) y Crear un fichero vacia  
+        <img src="https://github.com/youdianleng/RestauracionFnac/blob/main/asset/Apache2.png" width="500px" alt="El pagina principal de Xampp">
+     1. En el Fichero creada importar el proyecto  
+        <img src="https://github.com/youdianleng/RestauracionFnac/blob/main/asset/Apache3.png" width="500px" alt="Importar el proyecto al fichero vacio creada ">
 5. Instalar un Compilador de Codigo
+   instalar un cualquiera Compilador de Codigo.  
+   Ej VisualCode [Instalar VisualStudio Code](https://code.visualstudio.com/)
+   
+## Realizar Test
+Para Asegurar que todos los instalacion y configuracion anteriores estan bien realizada tenemos que hacer lo siguientes test:
+  1. Crear un Usuario y ir a los Paginas para verificar la funcionalidad de Cuentas y creacion de Carritos
+  2. Añadir varias Producto y Usar Ingrediente para verificar si los Clases de Productos y codigos de Carrito estan bien imporatada
+  3. Crear el Pedido y ir a panel de Usuario para verificar que los procesos de "Creacion de Pedidos" estan bien hecho  
 
+## Test 
+  1. Crear Usuario y Crear Carrito  
+     Crear Usuario (Hay que poner 2 veces, porque la primera es para registrar)  
+     <img src="https://github.com/youdianleng/RestauracionFnac/blob/main/asset/CuentaCarrito1.png" width="400px" alt="Crear Usuario ">  
+    Entrar y veras el Pagina de Usuario  
+     <img src="https://github.com/youdianleng/RestauracionFnac/blob/main/asset/CuentaCarrito2.png" width="400px" alt="Ventana de Usuario">  
+     Ir a un pagina Ej. Carta para ver si el Carrito se crea al hora de cambiar a otros paginas  
+     <img src="https://github.com/youdianleng/RestauracionFnac/blob/main/asset/CuentaCarrito3.png" width="300px" alt="Ver si el Carrito esta creada correctamente">  
+  3. Añadir Producto y Producto con Ingredients
+     Clica a "Añadir Producto" y Ver si en Carrito ha añadido o no  
+     <img src="https://github.com/youdianleng/RestauracionFnac/blob/main/asset/ProductoIngred1.png" width="400px" alt="Añadir un o varias Productos a Carrito ">  
+     Clicar a Ingredientes para añadir Ingredientes  
+     <img src="https://github.com/youdianleng/RestauracionFnac/blob/main/asset/ProductoIngred2.png" width="400px" alt="Añadir Producto con Ingredientes">  
+     Ver si ha creado correctamente el producto con Ingrediente  
+     <img src="https://github.com/youdianleng/RestauracionFnac/blob/main/asset/ProductoIngred3.png" width="400px" alt="Ver producto con Ingredientes esta añadido o no">  
+     
+  5. Crear Pedido y Verificar el Pedido  
+     <img src="https://github.com/youdianleng/RestauracionFnac/blob/main/asset/Pedido1.png" width="400px" alt="Ver si en panel de Pedido de Usuario esta creado el Pedido o no">
 
+## Lenguaje de programación utilizado
+  1. PHP 8.1 o Mas
+  2. HTML5
+  3. JavaScript
+  4. Css
+
+## Autor
+Autor: Zhiou Zhu
+Puedes ver todos los desarrolladores que participan en este proyecto en la lista de colaboradores.
+
+## Descripcion de Licencia
+Este Proyecto esta firmado Licencia de MIT, Puedes saber mas informacion en **[Licencia.md]()
+
+## Expresiones de gratitud
+Tienda Fnac
