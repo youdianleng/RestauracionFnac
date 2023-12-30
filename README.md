@@ -41,9 +41,23 @@ Para poder arrancar y ejecutar el proyecto necesitaremos hacer lo siguientes:
    <img src="https://github.com/youdianleng/RestauracionFnac/blob/main/asset/phpmyadmin1.png" width="400px" alt="Entrar al PhpMyAdmin en Xampp">
 
    2.2. vista de panel de PhpMyAdmin y los tablas que vamos a crear.
-   <img src="https://github.com/youdianleng/RestauracionFnac/blob/main/asset/phpmyadmin2.png" width="400px" alt="Vista de panel PhpMyAdmin y los tablas que vamos a necesitar">
-   
-   
+   > Cuando entras y crear el conexion de "fnacrestauracion" recuerda de usar el cotejamiento de "utf8mb4_general_ci"  
+   <img src="https://github.com/youdianleng/RestauracionFnac/blob/main/asset/phpmyadmin2.png" width="500px" alt="Vista de panel PhpMyAdmin y los tablas que vamos a necesitar">
+### Tablas de "fnacrestauracion"
+    - **categoria**  
+      > Es para indentificar y crear los categorias para elegir
+      1. Categoria_id [Int(255) Primary_key autoincrement]
+      2. Descripcion [varchar(255)]
+      3. ImagenCategoria [varchar(255)]
+      4. Nombre [varchar(255)]
+    - **clientes**
+    - **ingredientes**
+    - **pedidos**
+    - **pedidos_ingredientes**
+    - **pedido_producto**
+    - **productos**
+    - **producto_ingredientes**
+  
 
 4. Configurar el Apache
 5. Instalar un Compilador de Codigo
