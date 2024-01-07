@@ -21,13 +21,23 @@ body{
 }
 
 /* Responsive */
-@media only screen and (max-width: 825px) {
+@media only screen and (max-width: 960px) {
     body {
       width: 100%;
       height: auto;
       margin-left: auto;
       margin-right: auto;
     }  
+
+    .cajaIcono{
+        width: 20px!important;
+        height: 20px!important;
+    }
+
+    .footerPagos{
+        height: 60%!important;
+        width: 50%!important;
+    }
 
 }
 

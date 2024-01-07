@@ -9,7 +9,9 @@
     <div class="container">
         <div class="row rowCarrito">
             <div class="col-12 d-flex justify-content-center mt-5 carritoCol12">
-                <div class="col-7">
+                <div class="col-md-12 row justify-content-center">
+                <div class="col-lg-7 ">
+                    <div class="col-md-12 row">
                     <h2>Cesta <span class="txt13"><?php
                         //si el session de carrito existe
                         if(isset($_SESSION['Carrito'])){
@@ -29,7 +31,7 @@
                         foreach($_SESSION['Carrito'] as $productosCarrito){  ?>
                         <div class="row backgroundGrey pb-2" style="margin-top: 50px;">
                             <div class="col-4 d-flex justify-content-center align-items-center">
-                                <img src="<?= $productosCarrito->getProducto()->getImagen()?>" style="width: 180px;">
+                                <img src="<?= $productosCarrito->getProducto()->getImagen()?>" style="width: 180px;" alt="<?= $productosCarrito->getProducto()->getDescripcion()?>">
                             </div>
                             <div class="col-4 pt-4">
                                 <p class="txt15"><?= $productosCarrito->getProducto()->getNombre()?></p>
@@ -58,8 +60,8 @@
                             <div class="col-4 pe-5 pt-4 align-left">
                                 <p class="txt21 txtRed"><strong><?= $productosCarrito->getProducto()->getPrecio()?>€</strong></p>
                                 <div class="col-12 d-flex justify-content-end">
-                                    <div class="col-3 border d-flex justify-content-start">
-                                        <form class="d-flex justify-content-center" action=<?= url."?controller=producto&action=carrito" ?> method="post">
+                                    <div class="col-3  d-flex justify-content-start">
+                                        <form class="d-flex border justify-content-center" action=<?= url."?controller=producto&action=carrito" ?> method="post">
                                         <td><button style="border: none;" type="submit" name="Del" value=<?=$pos?>>-</button></td>
                                             <p class="me-2 ms-2"><?php
                                                 $cantidadProducto = $productosCarrito->getCantidad();
@@ -86,23 +88,24 @@
                             </div>
                         </div>
                         <?php $pos++; }}?>
-                     
+                        </div>
                 </div>
                 
-                <div class="col-3 mt-1 ms-5">
-                    <h2 class="pb-3 ms-5"> <span class="txt21">Resumen</span></h2>
-                    <div class="col-12 mt-3 backgroundGrey ms-4 pb-3 pe-3">
-                        <p class="ms-4 pt-2 mb-3">¿Tienes un codigo de descuento?</p>
+                <div class="col-lg-3 mt-1 ms-5 boxNoneMargin">
+                    <div class="col-md-12 row ">
+                    <h2 class="pb-3 ms-5 boxNoneMargin boxResumen"> <span class="txt21 ">Resumen</span></h2>
+                    <div class="col-12 mt-3 backgroundGrey ms-4 pb-3 pe-3 codigoText boxCodigo">
+                        <p class="ms-4 pt-2 mb-3 ">¿Tienes un codigo de descuento?</p>
                         <div class="d-flex">
                             <input type="text" class="ms-4 col-8" placeholder="Introduce tu codigo de descuento">
                             <button type="submit" class="ms-2 col-3 radiusBorder">Validar</button>
                         </div>
                     </div>
                     
-                        <div class="col-12 mt-4 backgroundGrey ms-4 d-flex justify-content-center">
-                            <div class="col-10">
-                                <div class="col-12 d-flex justify-content-between">
-                                        <p class="ms-4 mt-5">Cesta<span>(<?php
+                        <div class="col-12 mt-4 backgroundGrey ms-4 d-flex justify-content-center boxNoneMargin">
+                            <div class="col-lg-10 col-md-12 ">
+                                <div class="col-12 d-flex justify-content-between codigoText">
+                                        <p class="ms-4 mt-5">Cesta<span class="txtCountCarrito">(<?php
                                             //Si el carrito existe entra
                                             if(isset($_SESSION['Carrito'])){
                                                 //muestra el resultado contado de carrito el total de productos que hay
@@ -117,8 +120,8 @@
                                             }
                                         ?>€</p>
                                 </div>
-                                <div class="col-12 d-flex justify-content-between mt-3">
-                                        <p class="ms-4 mb-4 txt18">Total <span class="txtIva">(IVA INCLUIDO)</span></p>
+                                <div class="col-12 d-flex justify-content-between mt-3 codigoText">
+                                        <p class="ms-4 mb-4 txt18">TOTAL <span class="txtIva">(IVA INCLUIDO)</span></p>
                                         <p class="me-4 fw-bold txtRed "><?php 
                                                 //Si existe el carrito entra
                                                 if(isset($_SESSION['Carrito'])){
@@ -146,29 +149,31 @@
                             </div>
                         </div>
                     <div class="col-12 mt-2 backgroundGrey ms-4 mt-5">
-                    <div class="col-12 d-flex justify-content-between">
-                                <p class="ms-4 mt-3">ACEPTAMOS</p>
+                        <div class="col-12 d-flex justify-content-between aceptamos">
+                                <img src="Materiales/CarritoIcono/Aceptamos.png" alt="Aceptamos pagamiento de Bizum, MasterCard y Transferencia">
                         </div>
                     </div>
+                </div>
+                </div>
                 </div>
             </div>
 
 
             <div class="col-12 d-flex justify-content-center">
-                <div class="col-7 mt-5">
+                <div class="col-lg-7 mt-5">
                     <h2>También te Gustaria...</h2>
-                    <div class="col-md-12 d-flex ">
+                    <div class="col-lg-12 d-flex ">
                     <?php 
                     //realizar un bucle de productos contando todos los productos que hay
                     for($productos = 0; $productos < count($Productos); $productos++){
                             //Si el $productos sea menos de 4 entra
                             if($productos < 4){?>
                     <div class="card" >
-                        <img src="<?=$Productos[$productos]->getImagen()?>" class="card-img-top" alt="...">
+                        <img src="<?=$Productos[$productos]->getImagen()?>" class="card-img-top" alt="<?=$Productos[$productos]->getDescripcion()?>">
                         <div class="card-body">
                             <h5 class="card-title"><?=$Productos[$productos]->getNombre()?></h5>
-                            <p class="card-text"><?= $Productos[$productos]->getDescripcionCorto()?></p>
-                            <p class="card-text"><?= $Productos[$productos]->getPrecio()?></p>
+                            <p class="card-text pt-2"><?= $Productos[$productos]->getDescripcionCorto()?></p>
+                            <p class="card-text txtRed fw-bold pt-2 pb-3"><?= $Productos[$productos]->getPrecio()?>€</p>
                             <form action="<?= url . "?controller=producto&action=index" ?>" method="POST" class="col-12">
                                 <div class="d-grid gap-2 col-11 mx-auto">
                                     <input hidden name="id" value="<?=$Productos[$productos]->getProdId()?>">

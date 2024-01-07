@@ -12,7 +12,7 @@
                 <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
                 <div class="carousel-inner">
                     <div class="carousel-item active">
-                        <div style="background-image: url('Materiales/restaurant.png'); min-height: 270px; background-repeat: no-repeat; background-size: cover; background-position: bottom; ">
+                        <div style="background-image: url('Materiales/restaurant.png'); min-height: 270px; background-repeat: no-repeat; background-size: cover; background-position: bottom; " alt="Foto de restaurante que permite reservar">
                             <div class="d-flex align-items-end justify-content-center buttonBox">
                                 <div class="d-grid gap-2 col-3 mx-auto">
                                     <input class="btn mb-5" type="button" value="Reserva">
@@ -21,7 +21,7 @@
                         </div>
                     </div>
                     <div class="carousel-item">
-                        <div style="background-image: url('Materiales/restaurant.png'); min-height: 270px; background-repeat: no-repeat; background-size: cover; background-position: bottom; ">
+                        <div style="background-image: url('Materiales/restaurant.png'); min-height: 270px; background-repeat: no-repeat; background-size: cover; background-position: bottom; " alt="Foto de restaurante que permite reservar">
                             <div class="d-flex align-items-end justify-content-center buttonBox">
                                 <div class="d-grid gap-2 col-3 mx-auto">
                                     <input class="btn  mb-5" type="button" value="Reserva">
@@ -30,7 +30,7 @@
                         </div>
                     </div>
                     <div class="carousel-item">
-                        <div style="background-image: url('Materiales/restaurant.png'); min-height: 270px; background-repeat: no-repeat; background-size: cover; background-position: bottom; ">
+                        <div style="background-image: url('Materiales/restaurant.png'); min-height: 270px; background-repeat: no-repeat; background-size: cover; background-position: bottom; " alt="Foto de restaurante que permite reservar">
                             <div class="d-flex align-items-end justify-content-center buttonBox">
                                 <div class="d-grid gap-2 col-3 mx-auto">
                                     <input class="btn  mb-5" type="button" value="Reserva">
@@ -52,7 +52,7 @@
             
             <div class="col-4 marginNone border-end cajaBajo">
                 <div class="estiloP mb-3 ">
-                    <img src="Materiales/recogida Gratuita.jpg">
+                    <img src="Materiales/recogida Gratuita.jpg" alt="Recogida Gratuita">
                     <div class="col-9">
                         <p>Recogida Gratuita en Tienda</p>
                         <span class="noEstiloP"><p>Elige tu tienda más cercana</p></span>
@@ -61,7 +61,7 @@
             </div>
             <div class="col-4 marginNone  border-end cajaBajo">
                 <div class="estiloP ">
-                    <img src="Materiales/promocion.png">
+                    <img src="Materiales/promocion.png" alt="Promocion">
                     <div class="col-9">
                         <p>Descuento 5% en comidas</p>
                         <span class="noEstiloP"><p>En todos los comidas y para todo el mundo</p></span>
@@ -70,7 +70,7 @@
             </div>
             <div class="col-4 marginNone border-end cajaBajo">
                 <div class="estiloP ">
-                    <img src="Materiales/cena.png">
+                    <img src="Materiales/cena.png" alt="Envio Gratis">
                     <div class="col-9">
                         <p>Envió gratis</p>
                         <span class="noEstiloP"><p>Hazte Socio Tech+Cultura</p></span>
@@ -95,9 +95,9 @@
                                     <div class="card">
                                         <div class="divFoto">
                                             <div class="col-12 d-flex justify-content-start">
-                                                <img  class="zoomOn object-fit-scale pt-3 pb-3" src="<?=$categoria->getImagenCategoria();?>" alt="...">
+                                                <img  class="zoomOn object-fit-scale pt-3 pb-3" src="<?=$categoria->getImagenCategoria();?>" alt="<?=$categoria->getDescripcion();?>">
                                                 <div class="tret">
-                                                    <img src="Materiales/Etiquetas/Oferta 25.png" class="object-fit-scale" style="width: 100%;" alt="...">
+                                                    <img src="Materiales/Etiquetas/Oferta 25.png" class="object-fit-scale" style="width: 100%;" alt="Etiqueta de Oferta">
                                                 </div>
                                             </div>
                                         </div>
@@ -130,9 +130,9 @@
                                 <div class="card">
                                     <div class="divFoto">
                                         <div class="col-12 d-flex justify-content-start">
-                                            <img class="zoomOn object-fit-scale pt-3 pb-3" src="<?=$Productos[$productos]->getImagen()?>" alt="...">
+                                            <img class="zoomOn object-fit-scale pt-3 pb-3" src="<?=$Productos[$productos]->getImagen()?>" alt="<?=$Productos[$productos]->getDescripcion()?>">
                                             <div class="tret">
-                                                <img src="Materiales/Etiquetas/Oferta 25.png" alt="...">
+                                                <img src="Materiales/Etiquetas/Oferta 25.png" alt="Etiqueta de oferta">
                                             </div>
                                         </div>
                                     </div>
@@ -170,7 +170,7 @@
 
                         <div class="col-md-2 col-4">
                             <div class="card">
-                                <img src="<?= $producto->getImagen() ?>" class="object-fit-scale" style="height: 177px;" alt="...">
+                                <img src="<?= $producto->getImagen() ?>" class="object-fit-scale" style="height: 177px;" alt="<?= $producto->getDescripcion() ?>">
                                 <div class="descripcion ms-3 mb-3">
                                     <h5 class="card-title"><?=$producto->getNombre()?></h5>
                                     <p class="card-text"><?=$producto->getDescripcionCorto()?></p>
@@ -203,7 +203,7 @@
                     
                     <div class="col-4">
                         <div class="card bg-black subrallar">
-                            <img src="Materiales/Cultura_Fnac/KFC.png" style="height: 239px;" class="card-img-top" alt="...">
+                            <img src="Materiales/Cultura_Fnac/KFC.png" style="height: 239px;" class="card-img-top" alt="KFC ha tenido evento especial para los Socios">
                             <div class="card-body text-start ">
                                 <article>
                                     <h5 class="card-title mt-3">Nuevo Producto KFC</h5>
@@ -218,7 +218,7 @@
                     </div>
                     <div class="col-4">
                         <div class="card bg-black subrallar">
-                            <img src="Materiales/Cultura_Fnac/Telepizza.jpg" style="height: 239px;" class="card-img-top" alt="...">
+                            <img src="Materiales/Cultura_Fnac/Telepizza.jpg" style="height: 239px;" class="card-img-top" alt="Telepizza ha salido su nueva producto de pizza quard de queso">
                             <div class="card-body text-start">
                                 <article>
                                     <h5 class="card-title mt-3">Nuevo Producto KFC</h5>
@@ -233,7 +233,7 @@
                     </div>
                     <div class="col-4">
                         <div class="card bg-black subrallar">
-                            <img src="Materiales/Cultura_Fnac/Viena.jpg" class="card-img-top" style="height: 239px;" alt="...">
+                            <img src="Materiales/Cultura_Fnac/Viena.jpg" class="card-img-top" style="height: 239px;" alt="Viena ha abierto su quintena restaurante despues de 6 años">
                             <div class="card-body text-start">
                                 <article>
                                     <h5 class="card-title  mt-3">Nuevo Producto KFC</h5>

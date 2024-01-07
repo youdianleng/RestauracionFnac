@@ -28,7 +28,7 @@
                     <div class="noDecoration d-flex justify-content-end pe-2">
                         <a href="<?= url."?controller=user&action=userPanel" ?>">
                             <div class="boxCarrito d-flex ps-3 pe-2 pt-2 pb-2 fw-bold">
-                                <div style="background-image: url('Materiales/cesta.svg'); max-height: 30px; width: 35px; background-repeat: no-repeat;" class="mt-2 me-2"><span>
+                                <div style="background-image: url('Materiales/usuario.svg'); max-height: 30px; width: 35px; background-repeat: no-repeat;" class="mt-2 me-2"><span>
 
                                 </span></div>
                                 

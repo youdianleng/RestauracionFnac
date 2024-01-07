@@ -52,10 +52,10 @@
                         <article>
                             <div class="col-12 border-bottom d-flex align-items-center pb-4 pt-4">
                                 <div class="col-12 row">
-                                    <div class="col-md-3 col-sm-12 d-flex justify-content-center ">
-                                            <img class="mt-4" src="<?=$producto->getImagen()?>" style="width: 250px; height: 200px;">
+                                    <div class="col-lg-3 col-md-12 d-flex justify-content-center ">
+                                            <img class="mt-4" src="<?=$producto->getImagen()?>" style="width: 250px; height: 200px;" alt="<?=$producto->getDescripcion()?>">
                                         </div>
-                                        <div class="col-md-6 col-sm-12">
+                                        <div class="col-lg-6 col-md-12">
                                             <p class="txt15"><?=$producto->getNombre()?></p>
                                             <p class="txt13 ">Humo Restaurant</p>
                                             <p class="txt12 mt-1"><?=$producto->getDescripcion()?></p>
@@ -79,7 +79,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="col-6 d-flex justify-content-center">
-                                                    <div class="row">
+                                                    <div class="row col-12">
                                                         <div class="col-12 descripcionSub2">
                                                             <div class="text ms-3 mt-3">
                                                                 <p class="txt15 verde">Disponible en Tienda</p>
@@ -97,12 +97,12 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="col-md-3 col-12 d-flex justify-content-center">
+                                        <div class="col-lg-3 col-md-12 d-flex justify-content-center">
                                             <div class="row">
                                                 <div class="col-12 d-flex justify-content-end align-items-end txt24 fw-bold" style="color: #DD1E35;">
-                                                    <p><?=$producto->getPrecio()?>€</p>
+                                                    <p class="pb-3"><?=$producto->getPrecio()?>€</p>
                                                 </div>
-                                                <div class="col-12 d-grid gap-2 col-12" style="max-height: 40px;">
+                                                <div class="col-12 d-grid gap-2" style="max-height: 40px;">
                                                     <form action="<?= url . "?controller=producto&action=shop" ?>" method="POST" class="col-12">
                                                         <div class="d-grid gap-2 col-12 mx-auto">
                                                             <input hidden name="id" value="<?= $producto->getProdId() ?>">
@@ -139,9 +139,9 @@
                 </div>
                 <div class="d-flex">
                 <?php foreach($ProductosUltimos as $productoUlt){ ?>
-                    <div class="col-4 col-md-2 borderSolid">
+                    <div class="col-md-4 col-lg-2 borderSolid">
                         <div class="card">
-                            <img src="Materiales/Productos/ramen.png" class="card-img-top" alt="...">
+                            <img src="Materiales/Productos/ramen.png" class="card-img-top" alt="Ramen, comida tipica de Japan">
                             <div class="card-body ms-3">
                                 <h5 class="ultiProd card-title"><?=$productoUlt->getNombre()?></h5>
                                 <p class="ultiProdDesc card-text"><?=$productoUlt->getDescripcionCorto()?></p>
