@@ -174,10 +174,11 @@
                             <h5 class="card-title"><?=$Productos[$productos]->getNombre()?></h5>
                             <p class="card-text pt-2"><?= $Productos[$productos]->getDescripcionCorto()?></p>
                             <p class="card-text txtRed fw-bold pt-2 pb-3"><?= $Productos[$productos]->getPrecio()?>€</p>
-                            <form action="<?= url . "?controller=producto&action=index" ?>" method="POST" class="col-12">
+                            <form onsubmit="return validarFormulario();" action="<?= url . "?controller=producto&action=index" ?>" method="POST" class="col-12">
                                 <div class="d-grid gap-2 col-11 mx-auto">
                                     <input hidden name="id" value="<?=$Productos[$productos]->getProdId()?>">
-                                    <button class="btn btn-primary" type="Submit">Añadir a Cesta</button>
+                                    <input hidden name="carrito" value="Carrito">
+                                    <button class="btn btn-primary" type="submit">Añadir a Cesta</button>
                                 </div>
                             </form>
                         </div>
@@ -252,5 +253,16 @@
     
 })
 </script>
+
+<script>
+    function validarFormulario() {
+      // Aquí puedes realizar tus validaciones
+      // Por ejemplo, verificar si los campos obligatorios están llenos
+
+      // Si la validación falla, puedes mostrar un mensaje de error y devolver false
+      // Si la validación es exitosa, puedes permitir el envío del formulario devolviendo true
+      return confirm("¿Estás seguro de enviar el formulario?");
+    }
+  </script>
 <script src="js/bootstrap.bundle.min.js"></script>
 </html>

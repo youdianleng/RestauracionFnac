@@ -91,14 +91,7 @@
             // Mostrar todos los pedidos del usuario
             $pedidos = PedidoDAO::getAllPedidoByUser($_SESSION['usuario']->getCliente_id());
             
-            // Este paso es para buscar el TiempoEstima de cada pedido
-            foreach($pedidos as $pedido){
-                $pedidoActs = PedidoDAO::PedidoActualProducto($pedido->getPedido_id());
-                $TiempoEstimado = 0;
-                foreach($pedidoActs as $pedidoAct){
-                    $TiempoEstimado += $pedidoAct->getTiempo_Estimado();
-                }
-            }
+            
 
                 //En caso de que el Cookie esta configurado
                 if(isset($_COOKIE['UltimoPedido'])){
@@ -203,6 +196,8 @@
             //Guardar todos los Clientes
             $Usuarios = UserDAO::getUsuarios();
 
+            //Guardar todos los Pedidos
+            $Pedidos = PedidoDAO::getAllPedidoAdmin();
 
             //Incluir los paneles del admin 
             include_once "View/header.php";
@@ -261,7 +256,7 @@
          * Modificar el Usuario
          */
         public function modificarUsusario(){
-
+            session_start();
             //Si recibe correctamente los parametros
             if(isset($_POST['Nombre'],$_POST['Apellido'],$_POST['cliente_id'])){
                 //Cambiara el nombre y apellido de usuario segun los parametros pasado por usuario
@@ -269,6 +264,9 @@
 
                 //Despues de modificar vuelve a Panel de Iniciar Session
                 header('Location:'.url."?controller=user&action=IniciarSession");
+
+                unset($_SESSION['usuario']);
+                
             }else{
                 //Enviar al panel de Usuario
                 header('Location:'.url."?controller=user&action=controllerPanelUser");

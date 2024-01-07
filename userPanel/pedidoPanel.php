@@ -87,7 +87,15 @@
                                                     <td class="col-3"><?=$pedido->getPedido_id()?></td>
                                                     <td class="col-2"><?=$pedido->getPrecio_total()?></td>
                                                     <td class="col-3"><?=substr($pedido->getPedido_TIme(), 0, 10);?></td>
-                                                    <td class="col-2"><?php echo $TiempoEstimado;?></td>
+                                                    <td class="col-2"><?php
+                                                            // Este paso es para buscar el TiempoEstima de cada pedido
+                                                            $pedidoActs = PedidoDAO::PedidoActualProducto($pedido->getPedido_id());
+                                                            $TiempoEstimado = 0;
+                                                            foreach($pedidoActs as $pedidoAct){
+                                                                $TiempoEstimado += $pedidoAct->getTiempo_Estimado();
+                                                            }
+                                                            echo $TiempoEstimado;
+                                                    ?></td>
                                                     <td class="col-2">
                                                     <form action="<?=url."?controller=user&action=productoPedidoPanel"?>" class="ps-1" method="post">
                                                         <input hidden name="pedidoUser" value="<?=$pedido->getPedido_id()?>">     

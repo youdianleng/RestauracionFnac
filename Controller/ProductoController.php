@@ -81,10 +81,18 @@
                 header('Location: //localhost/webs/GitProyect/GamingShop/index.php?controller=user&action=IniciarSession');
             }
             
+
+            if(isset($_POST["carrito"])){
             //Incluir los paneles necesarios para mostrar por web
-            include_once "View/header.php";
-            include_once "View/home.php";
-            include_once "View/footer.php";
+                include_once "View/header.php";
+                include_once "View/carrito.php";
+                include_once "View/footer.php";
+            }else{
+                //Incluir los paneles necesarios para mostrar por web
+                include_once "View/header.php";
+                include_once "View/home.php";
+                include_once "View/footer.php";
+            }
             
              
         }

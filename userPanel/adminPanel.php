@@ -73,12 +73,12 @@
                         <div class="col-12 pb-5">
                             <table >
                                 <tr>
-                                    <th class="col-1">Categoria_id</th>
-                                    <th class="col-1">Producto_id</th>  
-                                    <th class="col-2">Nombre</th>
-                                    <th class="col-3">Descripcion</th>
-                                    <th class="col-3">Descripcion</th>
-                                    <th class="col-3">Descripcion</th>
+                                    <th class="col-1">Cliente_id</th>
+                                    <th class="col-1">Nombre</th>  
+                                    <th class="col-2">Apellido</th>
+                                    <th class="col-3">Mail</th>
+                                    <th class="col-3">Contrasenya</th>
+                                    <th class="col-3">Control</th>
                                 </tr>
                                 <?php
                                 //Aqui esta todos los usuarios que estan a dentro de sistema registrado
@@ -89,13 +89,48 @@
                                         <td class="col-1"><?=$Usuario->getNombre()?></td>
                                         <td class="col-2"><?=$Usuario->getApellido()?></td>
                                         <td class="col-3"><?=$Usuario->getMail()?></td>
-                                        <td class="col-3"><?=$Usuario->getMail()?></td>
+                                        <td class="col-3"><?=$Usuario->getContrasenya()?></td>
                                         <td class="colWidth col-3">
                                             <!-- Crear un formulario que llama al productoController y en funcion Eliminar cuando clica al boton -->
                                             <form action=<?=url."?controller=user&action=eliminarUsusario"?> method="post">
                                                 <!-- Cuando envia se para el nombre producto_id y su valor como post -->
                                                 <input type="number" name="cliente_id" value="<?=$Usuario->getCliente_id()?>" hidden>
                                                 <input type="number" name="admin_id" value="<?=$Usuario->getCliente_id()?>" hidden>
+                                                <button class="btn" type="Submit">Eliminar</button>
+                                            </form>
+                                        </td>
+                                    </tr>
+                                <?php
+                                }?>
+                            </table>   
+                        </div>
+                    </div>
+
+                    <h2>Clientes</h2>
+                    <div class="col-6  boxInformacion d-flex justify-content-center">
+                        <div class="col-12 pb-5">
+                            <table >
+                                <tr>
+                                    <th class="col-2">Cliente_id</th>
+                                    <th class="col-2">Pedido_id</th>  
+                                    <th class="col-2">Precio_Total</th>
+                                    <th class="col-3">Pedido_Time</th>
+                                    <th class="col-3">Control</th>
+                                </tr>
+                                <?php
+                                //Aqui esta todos los usuarios que estan a dentro de sistema registrado
+                                //Aqui es para que el admin pueda realizar control de eliminar el usuario
+                                foreach ($Pedidos as $Pedido){?>
+                                    <tr class="pedidoColor">
+                                        <td class="col-2"><?=$Pedido->getCliente_id()?></td>
+                                        <td class="col-2"><?=$Pedido->getPedido_id()?></td>
+                                        <td class="col-2"><?=$Pedido->getPrecio_total()?></td>
+                                        <td class="col-3"><?=$Pedido->getPedido_Time()?></td>
+                                        <td class="colWidth col-3">
+                                            <!-- Crear un formulario que llama al productoController y en funcion Eliminar cuando clica al boton -->
+                                            <form action=<?=url."?controller=Pedido&action=eliminarPedidoEspecificado"?> method="post">
+                                                <!-- Cuando envia se para el nombre producto_id y su valor como post -->
+                                                <input type="number" name="pedidoUser" value="<?=$Pedido->getPedido_id()?>" hidden>
                                                 <button class="btn" type="Submit">Eliminar</button>
                                             </form>
                                         </td>

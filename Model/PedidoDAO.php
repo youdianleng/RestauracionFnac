@@ -48,7 +48,7 @@ class PedidoDAO{
 
 
     //Muestra todos los pedidos existentes asignados para que administrador puedan gestionar
-    public static function getAllPedido($pedido){
+    public static function getAllPedido($pedido = null){
         $con = DataBase::connect();
         $stmt = $con->prepare("SELECT * FROM pedidos");
 
@@ -68,7 +68,26 @@ class PedidoDAO{
         return $listaUsuarios;
     }
 
+    //Muestra todos los pedidos existentes asignados para que administrador puedan gestionar
+    public static function getAllPedidoAdmin(){
+        $con = DataBase::connect();
+        $stmt = $con->prepare("SELECT * FROM pedidos");
 
+        //Ejecutar el select, guardar el resultado y cerrar el conecxion
+        $stmt->execute();
+        $result=$stmt->get_result();
+
+        $con->close();
+        $obj = "pedidos";
+        //Guardar los resultados en un Array
+        $listaUsuarios = [];
+        while ($productoDB = $result->fetch_object($obj)){
+            $listaUsuarios[] = $productoDB;
+        }
+
+        //Retornar el array
+        return $listaUsuarios;
+    }
 
     //Buscar una o varias pedido en concreta de un Usuario y que se devuelve los productos que hay en dentro
     public static function productosActualPedido($usuario,$pedidoActual){

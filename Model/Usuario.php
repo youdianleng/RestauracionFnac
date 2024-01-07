@@ -7,6 +7,9 @@ abstract class Usuario{
     protected $Apellido;
     protected $Mail;
     protected $ImgUsuario;
+
+    protected $Contrasenya;
+    
     protected $Permisos;
 
     //Contructor para crear clase
@@ -131,6 +134,26 @@ abstract class Usuario{
     public function setMail($Mail)
     {
         $this->Mail = $Mail;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of Contrasenya
+     */ 
+    public function getContrasenya()
+    {
+        return $this->Contrasenya;
+    }
+
+    /**
+     * Set the value of Contrasenya
+     *
+     * @return  self
+     */ 
+    public function setContrasenya($Contrasenya)
+    {
+        $this->Contrasenya = $Contrasenya;
 
         return $this;
     }
