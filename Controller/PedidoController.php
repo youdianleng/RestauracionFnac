@@ -15,6 +15,11 @@
             session_start();
             //Si recibe el Cliente_id y el PrecioTotal relleno entra.
             if(isset($_POST['Cliente_id'],$_POST['PrecioTotal']) && ($_POST['Cliente_id'] != null)){
+                $usuarioActual = UserDAO::getUsuarioEspecificoNombre($_POST['Cliente_id']);
+                $usuarioPermiso = $usuarioActual->getPermisos();
+                if($usuarioPermiso == 1){
+
+                
                 $usuario = $_POST['Cliente_id'];
                 $precioTotal = $_POST['PrecioTotal'];
                 //realizar action de añadir el pedido con el usuario actual iniciado 
@@ -33,10 +38,10 @@
                     $precio_Total = ($productoCarrito->getCantidad() * $productoCarrito->getProducto()->getPrecio());
                     $Precio_unidad = $productoCarrito->getProducto()->getPrecio();
                     $producto_id = $productoCarrito->getProducto()->getProdId();
-                    
+                    $tiempo = $productoCarrito->getProducto()->getTiempo() * $productoCarrito->getCantidad();
                     
                     //Añadir los ingredientes de un pedido con el numero de pedido
-                    PedidoDAO::AñadirPedidoProducto($pedido,$cantidad,$precio_Total,$Precio_unidad,$producto_id);
+                    PedidoDAO::AñadirPedidoProducto($pedido,$cantidad,$precio_Total,$Precio_unidad,$producto_id,$tiempo);
                     if($productoCarrito->getIngredientes() != null){
                         foreach($productoCarrito->getIngredientes() as $ingrediente){
                             $ingredienteEncontrada = ingredientesDAO::getIngredientesById($ingrediente);
@@ -71,6 +76,12 @@
 
                 //Enviar al pagina siguiente
                 header('Location:'.url."?controller=producto&action=carrito");
+                }else{
+                   //Enviar al pagina siguiente
+                    header('Location:'.url."?controller=producto&action=carrito"); 
+                    $_SESSION['Carrito'] = null;
+                    
+                }
             }else{
                 //Enviar al pagina siguiente en caso que no se encuentra nada de POST o falta.
                 header('Location:'.url."?controller=producto&action=carrito");
@@ -89,7 +100,9 @@
             //Cuando recibe un "POST" de pedidoUser entra
             if(isset($_POST['pedidoUser'])){
                 //Realizar el action de eliminar la dicha pedido que ha pasasdo 
+                IngredientesDAO::deleteIngredientePedido($_POST['pedidoUser']);
                 PedidoDAO::eliminarProductoPedido($_POST['pedidoUser']);
+                
 
                 //Enviar al pagina siguiente
                 header('Location:'.url."?controller=user&action=controllerPanelUser");

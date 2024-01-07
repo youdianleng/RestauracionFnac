@@ -70,6 +70,8 @@
                     }
                 }
                 
+            }elseif(!isset($_SESSION['usuario'] ) && isset($_POST['id'])){
+                header('Location: //localhost/webs/GitProyect/GamingShop/index.php?controller=user&action=IniciarSession');
             }
             
             //Incluir los paneles necesarios para mostrar por web
@@ -137,6 +139,8 @@
                     }
                 }
                 
+            }elseif(!isset($_SESSION['usuario'] ) && isset($_POST['id'])){
+                header('Location: //localhost/webs/GitProyect/GamingShop/index.php?controller=user&action=IniciarSession');
             }
 
 
@@ -167,6 +171,8 @@
             $Productos = ProductoDAO::getAllProductos();
 
             $ingredientes = ingredientesDAO::getAllIngredientes();
+
+            foreach($Productos as $productos){ }
 
             //En caso de que el Session de Carrito existe entra
             if(isset($_SESSION['usuario'])){
@@ -225,6 +231,8 @@
                     }
                 }
                 
+            }else{
+                header('Location: //localhost/webs/GitProyect/GamingShop/index.php?controller=user&action=IniciarSession');
             }
 
 

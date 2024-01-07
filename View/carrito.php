@@ -11,7 +11,9 @@
             <div class="col-12 d-flex justify-content-center mt-5 carritoCol12">
                 <div class="col-7">
                     <h2>Cesta <span class="txt13"><?php
+                        //si el session de carrito existe
                         if(isset($_SESSION['Carrito'])){
+                            //Muestra el numero contado de los contenidos en carrito
                             echo count($_SESSION['Carrito']);
                         }
                     ?> productos</span> </h2>
@@ -20,8 +22,10 @@
                     </div>
                     
                     <?php 
+                    //Cuando el session de carrito y usuario existe entra
                     if(isset($_SESSION['Carrito'],$_SESSION['usuario'])){
                         $pos = 0;
+                        //hacer un bucle de carrito para sacar los contenidos de forma individual
                         foreach($_SESSION['Carrito'] as $productosCarrito){  ?>
                         <div class="row backgroundGrey pb-2" style="margin-top: 50px;">
                             <div class="col-4 d-flex justify-content-center align-items-center">
@@ -32,17 +36,24 @@
                                 <p class="txt13"><?= $productosCarrito->getProducto()->getDescripcionCorto()?></p>
                                 <p class="txt13">
                                     <?php 
-                                    if($productosCarrito->getIngredientes() != null) { echo "Ingredientes: ";?>
-                                        <?php foreach($productosCarrito->getIngredientes() as $ingProd){ ?>
+                                    //EN caso de que el producto que esta en carrito contiene ingredientes muestra
+                                    if($productosCarrito->getIngredientes() != null) { 
+                                        echo "Ingredientes: ";?>
+                                        <?php 
+                                        //Ingredientes guardada en producto es un array y tenemos que separalo
+                                        foreach($productosCarrito->getIngredientes() as $ingProd){ ?>
                                             <?php 
+                                                //Realizar el busqueda de $ingProd que contiene el id de ingrediente
                                                 $ingredienteInfo = ingredientesDAO::getIngredientesById($ingProd);
+
+                                                //Mostrar el nombre de ingrediente
                                                 echo $ingredienteInfo->getNombre();
 
                                             ?>
                                         <?php  }?>
                                     <?php } ?>
                                 </p>
-                                <p class="txt13">Tiempo de Espera: 15min</p>
+                                <p class="txt13">Tiempo de Espera: <?=$productosCarrito->getProducto()->getTiempo()?>min</p>
                             </div>
                             <div class="col-4 pe-5 pt-4 align-left">
                                 <p class="txt21 txtRed"><strong><?= $productosCarrito->getProducto()->getPrecio()?>€</strong></p>
@@ -52,9 +63,11 @@
                                         <td><button style="border: none;" type="submit" name="Del" value=<?=$pos?>>-</button></td>
                                             <p class="me-2 ms-2"><?php
                                                 $cantidadProducto = $productosCarrito->getCantidad();
+                                                //Cuando el catidad de producto no sea null muestra
                                                 if($cantidadProducto != null){
                                                     echo $productosCarrito->getCantidad();
                                                 }else{
+                                                //En caso que carrito no contienen nada muestra 0 como precio
                                                     echo "0";
                                                 }
                                                 
@@ -90,12 +103,16 @@
                             <div class="col-10">
                                 <div class="col-12 d-flex justify-content-between">
                                         <p class="ms-4 mt-5">Cesta<span>(<?php
+                                            //Si el carrito existe entra
                                             if(isset($_SESSION['Carrito'])){
+                                                //muestra el resultado contado de carrito el total de productos que hay
                                                 echo count($_SESSION['Carrito']);
                                             }
                                         ?>)</span></p>
                                         <p class="me-4 mt-5 mb-5 fw-bold txt14 txtRed"><?php 
+                                            //Si existe el carrito entra
                                             if(isset($_SESSION['Carrito'])){
+                                                //Realizar un calculo de los precio de los productos que hay en carrito y muestra
                                                 echo CalculadoraPrecios::calculadorPrecioPedido($_SESSION['Carrito']) ;
                                             }
                                         ?>€</p>
@@ -103,17 +120,21 @@
                                 <div class="col-12 d-flex justify-content-between mt-3">
                                         <p class="ms-4 mb-4 txt18">Total <span class="txtIva">(IVA INCLUIDO)</span></p>
                                         <p class="me-4 fw-bold txtRed "><?php 
+                                                //Si existe el carrito entra
                                                 if(isset($_SESSION['Carrito'])){
-                                                echo CalculadoraPrecios::calculadorPrecioPedido($_SESSION['Carrito']) ;
+                                                //Realizar un calculo de precio de pedidos pero con IVA
+                                                echo CalculadoraPrecios::calculadorPrecioPedidoConIVA($_SESSION['Carrito']) ;
                                             } ?>€</p>
                                 </div>  
                                 <form action="<?=url."?controller=pedido&&action=añadirPedido"?>" method="POST">
                                     <input hidden name="Cliente_id" value="<?php 
+                                        //Si existe usuario y que el carrito contiene productos
                                         if(isset($_SESSION['usuario'] ) && ($_SESSION['Carrito']) != null){
                                             echo $_SESSION['usuario']->getCliente_id();
                                         }
                                     ?>">
                                     <input hidden  name="PrecioTotal" value="<?php 
+                                        //Si existe usuario y que el carrito contiene productos
                                         if(isset($_SESSION['usuario']) && ($_SESSION['Carrito']) != null){
                                             echo CalculadoraPrecios::calculadorPrecioPedido($_SESSION['Carrito']);
                                         } ?>">
@@ -136,12 +157,14 @@
             <div class="col-12 d-flex justify-content-center">
                 <div class="col-7 mt-5">
                     <h2>También te Gustaria...</h2>
-                    <div class="col-md-6 d-flex ">
-                    <?php foreach($Productos as $productos){ }?>
-                    <?php for($productos = 0; $productos < count($Productos); $productos++){
+                    <div class="col-md-12 d-flex ">
+                    <?php 
+                    //realizar un bucle de productos contando todos los productos que hay
+                    for($productos = 0; $productos < count($Productos); $productos++){
+                            //Si el $productos sea menos de 4 entra
                             if($productos < 4){?>
                     <div class="card" >
-                        <img src="Materiales/Productos/sushi.png" class="card-img-top" alt="...">
+                        <img src="<?=$Productos[$productos]->getImagen()?>" class="card-img-top" alt="...">
                         <div class="card-body">
                             <h5 class="card-title"><?=$Productos[$productos]->getNombre()?></h5>
                             <p class="card-text"><?= $Productos[$productos]->getDescripcionCorto()?></p>
@@ -185,12 +208,13 @@
                     <th>Precio</th>
                 <form action="<?=url."?controller=producto&&action=carrito"?>" method="POST">
                     <input hidden name="id" id="id" >
-                    <?php foreach($_SESSION['Ingredientes'] as $ingre){ ?>
+                    <?php 
+                    //hacer un bucle de todos los ingredientes que hay en session (Que estan todos los Ingredientes de BBDD)
+                    foreach($_SESSION['Ingredientes'] as $ingre){ ?>
                             <tr>
                                 <td><?=$ingre->getIngredientes()->getNombre();?></td>
                                 <td><?=$ingre->getIngredientes()->getDescripcion();?></td>
                                 <td><?=$ingre->getIngredientes()->getPrecio();?></td>
-                                <td><?=$ingre->getIngredientes()->getIngredientes_id();?></td>
                                 <td>
                                     <input name="ingredienteSelect[]" type="checkbox" value="<?=$ingre->getIngredientes()->getIngredientes_id();?>"></input>
                                 </td>
@@ -210,10 +234,14 @@
     
 </body>
 
+<!-- Es una script para pasar los productoId de producto seleccionado para poder añadir ingredientes en el -->
 <script>
+    //Cuando clicas al botton de btnModal ejecutar el funcion
     $(document).on("click", "#btnModal", function () {
+    //asignar el proId al id que queremos pasar.
     let prodId = $(this).data("prodid");
     
+    //En el input de modal que tiene el "name" id tendra el id de prodId
     $("#id").val(prodId);
 
     

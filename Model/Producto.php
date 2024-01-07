@@ -9,6 +9,8 @@ abstract class Producto{
     protected $DescripcionCorto;
     protected $Imagen;
     protected $Precio;
+
+    protected $Tiempo;
     
     public function __construct()
     {
@@ -99,6 +101,26 @@ abstract class Producto{
     public function setPrecio($Precio)
     {
         $this->Precio = $Precio;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of Tiempo
+     */ 
+    public function getTiempo()
+    {
+        return $this->Tiempo;
+    }
+
+    /**
+     * Set the value of Tiempo
+     *
+     * @return  self
+     */ 
+    public function setTiempo($Tiempo)
+    {
+        $this->Tiempo = $Tiempo;
 
         return $this;
     }

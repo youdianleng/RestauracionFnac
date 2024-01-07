@@ -1,6 +1,6 @@
 <?php
-
-abstract Class IngredientesInfo{
+include_once "Model/Ingredientes.php";
+abstract Class IngredientesInfo extends Ingredientes{
     protected $Descripcion;
     protected $Ingredientes_id;
     protected $Nombre;

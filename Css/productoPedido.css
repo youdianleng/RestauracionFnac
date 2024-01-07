@@ -40,6 +40,8 @@ body{
 }
 
 .miInformacion{
+    font-family: Roboto,Arial,Helvetica,Tahoma,sans-serif;
+    font-weight: 300;
     font-size: 28px;
 }
 
@@ -63,10 +65,6 @@ ol, ul {
 }
 
 
-.tabList li.selected:hover, .tabList li:focus, .tabList li:hover {
-    border-bottom: 1px solid #232323;
-    color: #232323;
-}
 
 
 .tabList li {
@@ -74,11 +72,9 @@ ol, ul {
     font-weight: 300;
     display: inline-block;
     line-height: 24px;
-    margin-right: 3.33335em;
     cursor: pointer;
     color: #989898;
     font-size: 1.25em;
-    width: 400px;
 }
 
 .boxInformacion{
@@ -94,8 +90,24 @@ input{
 
 table{
     text-align: center;
+    width: 100%;
+}
+
+.pedidoColor{
+    background-color: white;
+    border-left: 5px solid #4bc7e1;
     
 }
+
+.boxInformacionTotal{
+    padding: 70px;
+}
+
+.boxWidth{
+    padding: 0 80px;
+}
+
+
 
 th{
     border-bottom: 1px solid;
@@ -106,5 +118,4 @@ th{
 td{
     border-bottom: 1px solid;
     border-color: #f2f2f2;
-    width: 234px;
 }

@@ -50,6 +50,35 @@ class ingredientesDAO{
     }
 
 
+    //Eliminar
+    //Eliminar los ingredientes asignados a un Pedido
+    public static function deleteIngredientePedido($id){
+        $con = DataBase::connect();
+        //Busca y borra el bbdd el tabla productos los que coincide con Where
+        $stmt = $con->prepare("DELETE FROM pedidos_ingredientes Where Pedido_id = ?");
+        $stmt->bind_param("i",$id);
+
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $con->close();
+
+        return $result;
+    }
+
+    //Eliminar todos los ingredientes de un usuario
+    public static function deleteTodosIngredientesUsuario($id){
+        $con = DataBase::connect();
+        //Busca y borra el bbdd el tabla productos los que coincide con Where
+        $stmt = $con->prepare("DELETE t1 FROM pedidos_ingredientes AS t1 JOIN pedidos AS t2 ON t1.Pedido_id = t2.Pedido_id WHERE t2.Cliente_id = ?");
+        $stmt->bind_param("i",$id);
+
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $con->close();
+
+        return $result;
+    }
+
 
 }
 

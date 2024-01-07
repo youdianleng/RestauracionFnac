@@ -42,6 +42,22 @@ class UserDAO{
         return $result;
     }
 
+    //Buscar un usuario especificado segun el id asignada
+    public static function getUsuarioEspecificoNombre($id){
+        //Preparar la consulta select para buscar elementos en dicho BBDD
+        $con = DataBase::connect();
+        $stmt = $con->prepare("SELECT Permisos FROM clientes where Cliente_id = ?");
+        $stmt->bind_param("s",$id);
+
+        //Ejecutar el select, guardar el resultado y cerrar el conecxion
+        $stmt->execute();
+        $result=$stmt->get_result();
+        $result = $result->fetch_object("usuarios");
+        $con->close();
+
+        return $result;
+    }
+
     //Añadir & Editar
     //Crear un nuevo usuario con los parametros pasados
     public static function nuevaUsuario($mail,$contrasenya,$permiso=1){

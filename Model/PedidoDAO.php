@@ -108,10 +108,31 @@ class PedidoDAO{
     }
 
 
-    /*Añadir */
-    public static function AñadirPedidoProducto($pedido_id,$cantidad,$Precio_total,$precio_unidad,$product_id){
+    //Buscar todos los datos de pedido_producto depende de pedido_id pasado
+    public static function PedidoActualProducto($PedId){
         $con = DataBase::connect();
-        $stmt = mysqli_query($con,"INSERT INTO `pedido_producto`(`Cantidad`, `Pedido_id`, `Precio_total`, `Precio_Unidad`, `Producto_id`) VALUES ('$cantidad','$pedido_id','$Precio_total','$precio_unidad','$product_id')");
+        $stmt = $con->prepare("SELECT * FROM pedido_producto WHERE Pedido_id = ?");
+        $stmt->bind_param("i",$PedId);
+
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $con->close();
+        $obj = "pedidos";
+        //Guardar los resultados en un Array
+        $listaPedido = [];
+        while ($productoDB = $result->fetch_object($obj)){
+            $listaPedido[] = $productoDB;
+        }
+
+        return $listaPedido;
+    }
+
+    
+
+    /*Añadir */
+    public static function AñadirPedidoProducto($pedido_id,$cantidad,$Precio_total,$precio_unidad,$product_id,$estimado){
+        $con = DataBase::connect();
+        $stmt = mysqli_query($con,"INSERT INTO `pedido_producto`(`Cantidad`, `Pedido_id`, `Precio_total`, `Precio_Unidad`, `Producto_id`, `Tiempo_Estimado`) VALUES ('$cantidad','$pedido_id','$Precio_total','$precio_unidad','$product_id','$estimado')");
         $con->close();
         header("Location: ".url."?controller=user&action=IniciarSession");
     }
@@ -130,14 +151,14 @@ class PedidoDAO{
     //Eliminar todos los pedidos hecho por usuario
     public static function eliminarTodoPedidoUsuario($usuario){
         $con = DataBase::connect();
-        $stmt = $con->prepare("DELETE FROM pedidos Where Cliente_id = ?");
+        $stmt = $con->prepare("DELETE pedido_producto FROM pedido_producto JOIN pedidos on pedido_producto.Pedido_id = pedidos.Pedido_id Where pedidos.Cliente_id = ?");
+        $stmt2 = $con->prepare("DELETE FROM pedidos Where Cliente_id = ?");
         $stmt->bind_param("i",$usuario);
+        $stmt2->bind_param("i",$usuario);
 
         $stmt->execute();
-        $result = $stmt->get_result();
+        $stmt2->execute();
         $con->close();
-
-        return $result;
     }
 
 

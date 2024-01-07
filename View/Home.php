@@ -52,19 +52,19 @@
             
             <div class="col-4 marginNone border-end cajaBajo">
                 <div class="estiloP mb-3 ">
-                    <img src="Materiales/cena.png">
+                    <img src="Materiales/recogida Gratuita.jpg">
                     <div class="col-9">
-                        <p>One of three columns</p>
-                        <span class="noEstiloP"><p>One of three columns</p></span>
+                        <p>Recogida Gratuita en Tienda</p>
+                        <span class="noEstiloP"><p>Elige tu tienda más cercana</p></span>
                     </div>
                 </div>
             </div>
             <div class="col-4 marginNone  border-end cajaBajo">
                 <div class="estiloP ">
-                    <img src="Materiales/cena.png">
+                    <img src="Materiales/promocion.png">
                     <div class="col-9">
-                        <p>One of three columns</p>
-                        <span class="noEstiloP"><p>One of three columns</p></span>
+                        <p>Descuento 5% en comidas</p>
+                        <span class="noEstiloP"><p>En todos los comidas y para todo el mundo</p></span>
                     </div>
                 </div>
             </div>
@@ -72,8 +72,8 @@
                 <div class="estiloP ">
                     <img src="Materiales/cena.png">
                     <div class="col-9">
-                        <p>One of three columns</p>
-                        <span class="noEstiloP"><p>One of three columns</p></span>
+                        <p>Envió gratis</p>
+                        <span class="noEstiloP"><p>Hazte Socio Tech+Cultura</p></span>
                     </div>
                 </div>
             </div>
@@ -87,7 +87,9 @@
                     </div>
                     <div class="flexProductos">
                         <div class="row">
-                        <?php foreach($Categorias as $categoria){ ?>
+                        <?php 
+                        //Es un bucle para mostrar todos los categorias que existe en sistema
+                        foreach($Categorias as $categoria){ ?>
                             <div class="col-md-3 col-sm-6 ">
                                 <a href="<?=url."?controller=producto&action=shop&categoriaId=".$categoria->getCategoria_id()?>" class="text-decoration-none">
                                     <div class="card">
@@ -120,7 +122,9 @@
                     <div class="flexProductos">
                         <div class="row">
                         <?php 
+                        //Realizar un for contando todos los productos
                         for($productos = 0; $productos < count($Productos); $productos++){ 
+                            //Cuando el producto (inicio de 0) sea menos de 4 realizar lo siguiente
                             if($productos < 4){?>
                             <div class="col-md-3 col-sm-6">
                                 <div class="card">
@@ -138,6 +142,7 @@
                                 </div>
                             </div>
                             <?php  }else{
+                                //En caso de que $producto llega a 5 se acaba el bucle
                                 break;
                             } ?>
                         <?php }?>
@@ -158,7 +163,9 @@
                         <p>Elegido para ti</p>
                     </div>
                     <div class="row">
-                    <?php foreach ($allProductos as $producto){?>
+                    <?php 
+                    //Hacer un bucle que muestra todos los productos
+                    foreach ($allProductos as $producto){?>
                         
 
                         <div class="col-md-2 col-4">

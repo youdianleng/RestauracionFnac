@@ -88,30 +88,38 @@
             //Si el usuario esta iniciado entra
             if(isset($_SESSION['usuario'])){
                 
-                //Mostrar todos los pedidos del usuario
-                $pedidos = PedidoDAO::getAllPedidoByUser($_SESSION['usuario']->getCliente_id());
+            // Mostrar todos los pedidos del usuario
+            $pedidos = PedidoDAO::getAllPedidoByUser($_SESSION['usuario']->getCliente_id());
+            
+            // Este paso es para buscar el TiempoEstima de cada pedido
+            foreach($pedidos as $pedido){
+                $pedidoActs = PedidoDAO::PedidoActualProducto($pedido->getPedido_id());
+                $TiempoEstimado = 0;
+                foreach($pedidoActs as $pedidoAct){
+                    $TiempoEstimado += $pedidoAct->getTiempo_Estimado();
+                }
+            }
 
                 //En caso de que el Cookie esta configurado
                 if(isset($_COOKIE['UltimoPedido'])){
-                    
-                    //Busca el ultimo pedido que ha creado el usuario
-                    $pedidoReciente = PedidoDAO::productosActualPedido($_SESSION['usuario']->getCliente_id(),$_COOKIE['UltimoPedido']);
-                    
+
+
+
+                    //Busca el pedido que esta guardado en bbdd de este usuario y devuelve todos los productos id de este pedido
+                    $pedido = $_COOKIE['UltimoPedido'];
+
+                    $productoPedido = PedidoDAO::PedidoActualProducto($pedido);
                     //Crear un array
                     $ProdUltima = array();
-
                     // Hacer un bucle para sacar los informacion recibido de $pedidoReciente
-                    foreach($pedidoReciente as $producto_id){
-
+                    foreach($productoPedido as $producto_id){
                         //Guardar el producto_id de cada producto encontrada de $pedidoReciente
-                        $producto_idOne = $producto_id->getProdId();
-
-                        
+                        $producto_idOne = $producto_id->getProducto_id();
 
                         //Crear el Pedido con el producto_id
                         $pedido = new Pedido(ProductoDAO::getProductByID($producto_idOne));
-                        
-
+                        $pedido->getProducto()->setPrecio($producto_id->getPrecio_Unidad());
+                        $pedido->setCantidad($producto_id->getCantidad());
 
                         //Añadir a array $ProdUltima el $pedido
                         array_push($ProdUltima,$pedido);
@@ -143,19 +151,27 @@
             if(isset($_POST['pedidoUser'])){
 
                 //Busca el pedido que esta guardado en bbdd de este usuario y devuelve todos los productos id de este pedido
-                $productosPedido = PedidoDAO::productosActualPedido($_SESSION['usuario']->getCliente_id(),$_POST['pedidoUser']);
-
+                $pedido = $_POST['pedidoUser'];
                 //Crear el array
                 $productoEncontrada = [];
 
+                $productoPedido = PedidoDAO::PedidoActualProducto($pedido);
                 //Con los productos id recibido realizar un bucle para separarlo
-                foreach($productosPedido as $productoPrincipal){
-                    //Usar cada producto id que existe en $productosPedido encontrar el producto exacto en bbdd
-                    $productosEncontradaTemporal = ProductoDAO::getProductByID($productoPrincipal->getProdId());
+                foreach($productoPedido as $prodIdPedido){
 
-                    //Añadir el producto a array de $productoEncontrada
-                    array_push($productoEncontrada,$productosEncontradaTemporal);
+                    
+                    //Guardar el producto_id de cada producto encontrada de $pedidoReciente
+                    $producto_idOne = $prodIdPedido->getProducto_id();
+
+                    //Crear el Pedido con el producto_id
+                    $pedido = new Pedido(ProductoDAO::getProductByID($producto_idOne));
+                    $pedido->getProducto()->setPrecio($prodIdPedido->getPrecio_Unidad());
+                    $pedido->setCantidad($prodIdPedido->getCantidad());
+
+                    
+                    array_push($productoEncontrada,$pedido);
                 }
+                
             }
 
 
@@ -179,6 +195,11 @@
             //Guardar todos los Productos
             $Productos = ProductoDAO::getAllProductos();
             
+
+            //Guardar todos los Clientes
+            $Usuarios = UserDAO::getUsuarios();
+
+
             //Incluir los paneles del admin 
             include_once "View/header.php";
             include_once "userPanel/adminPanel.php";
@@ -203,6 +224,9 @@
         public function eliminarUsusario(){
             //Quitar el Cookie de Ultimo pedido de usuario
             setcookie('UltimoPedido','', time()-3600);
+
+            ingredientesDAO::deleteTodosIngredientesUsuario($_POST['cliente_id']);
+
 
             //Eliminar primero todos los productos que hay el usuario
             PedidoDAO::eliminarUsuarioPedido($_POST['cliente_id']);

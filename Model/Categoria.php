@@ -4,9 +4,9 @@ abstract class categoria{
     protected $Nombre;
     protected $Descripcion;
     protected $ImagenCategoria;
-
+     
     
-
+     
     /**
      * Get the value of Categoria_id
      */ 
@@ -30,8 +30,7 @@ abstract class categoria{
     /**
      * Get the value of Nombre
      */ 
-    public function getNombre()
-    {
+    public function getNombre(){
         return $this->Nombre;
     }
 
@@ -40,8 +39,7 @@ abstract class categoria{
      *
      * @return  self
      */ 
-    public function setNombre($Nombre)
-    {
+    public function setNombre($Nombre){
         $this->Nombre = $Nombre;
 
         return $this;
@@ -50,8 +48,7 @@ abstract class categoria{
     /**
      * Get the value of Descripcion
      */ 
-    public function getDescripcion()
-    {
+    public function getDescripcion(){
         return $this->Descripcion;
     }
 
@@ -60,8 +57,7 @@ abstract class categoria{
      *
      * @return  self
      */ 
-    public function setDescripcion($Descripcion)
-    {
+    public function setDescripcion($Descripcion){
         $this->Descripcion = $Descripcion;
 
         return $this;

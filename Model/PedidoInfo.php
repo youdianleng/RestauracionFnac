@@ -6,6 +6,13 @@ abstract class PedidosInfo extends Pedido{
 
     protected $Pedido_Time;
 
+    protected $Precio_Unidad;
+
+    protected $Producto_id;
+
+    protected $Cantidad;
+
+    protected $Tiempo_Estimado;
     public function __construct(){
     }
 
@@ -87,6 +94,86 @@ abstract class PedidosInfo extends Pedido{
     public function setPedido_Time($Pedido_Time)
     {
         $this->Pedido_Time = $Pedido_Time;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of Precio_Unidad
+     */ 
+    public function getPrecio_Unidad()
+    {
+        return $this->Precio_Unidad;
+    }
+
+    /**
+     * Set the value of Precio_Unidad
+     *
+     * @return  self
+     */ 
+    public function setPrecio_Unidad($Precio_Unidad)
+    {
+        $this->Precio_Unidad = $Precio_Unidad;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of Producto_id
+     */ 
+    public function getProducto_id()
+    {
+        return $this->Producto_id;
+    }
+
+    /**
+     * Set the value of Producto_id
+     *
+     * @return  self
+     */ 
+    public function setProducto_id($Producto_id)
+    {
+        $this->Producto_id = $Producto_id;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of Cantidad
+     */ 
+    public function getCantidad()
+    {
+        return $this->Cantidad;
+    }
+
+    /**
+     * Set the value of Cantidad
+     *
+     * @return  self
+     */ 
+    public function setCantidad($Cantidad)
+    {
+        $this->Cantidad = $Cantidad;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of Tiempo_Estimado
+     */ 
+    public function getTiempo_Estimado()
+    {
+        return $this->Tiempo_Estimado;
+    }
+
+    /**
+     * Set the value of Tiempo_Estimado
+     *
+     * @return  self
+     */ 
+    public function setTiempo_Estimado($Tiempo_Estimado)
+    {
+        $this->Tiempo_Estimado = $Tiempo_Estimado;
 
         return $this;
     }

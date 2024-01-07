@@ -7,7 +7,8 @@
     <main>
         <div class="container">
         <div class="col-12 d-flex justify-content-center backgroundGrey ">
-            <div class="row mb-5" >
+            <div class="row mb-5 " >
+            <div class="boxInformacionTotal">
                 <div class="col-12 mt-5">
                     <H2 class="miInformacion">MIS INFORMACIONES</H2>
                 <section class="marginSelector noMarginBottom ">
@@ -19,42 +20,79 @@
                         <a href="<?=url."?controller=user&action=pedidoPanel"?>" class="text-decoration-none"></a>
                     </li>
                 </ul>
-                <h2 class="mt-4 ">MIS INFORMACIONES</h2>
-                <div class="col-12 mt-5 bg-white">
+                <div class="col-12 mt-5">
+                    <h2>Productos</h2>
                     <div class="col-6  boxInformacion d-flex justify-content-center">
-                        <div class="col-12 mt-5 pb-5">
+                        <div class="col-12 pb-5">
                             <table >
                                 <tr>
-                                    <th class="col-1">Producto_id</th>
                                     <th class="col-1">Categoria_id</th>
+                                    <th class="col-1">Producto_id</th>  
                                     <th class="col-2">Nombre</th>
-                                    <th class="col-4">Descripcion</th>
-                                    <th class="col-1">Precio</th>
+                                    <th class="col-3">Descripcion</th>
+                                    <th class="col-3">Precio</th>
+                                    <th class="col-3">Precio</th>
                                 </tr>
                                 <?php
                                 foreach ($Productos as $producto){?>
-                                    <tr>
-                                        <td><?=$producto->getProdId()?></td>
-                                        <td><?=$producto->getCatId()?></td>
-                                        <td><?=$producto->getNombre()?></td>
-                                        <td><?=$producto->getDescripcion()?></td>
-                                        <td><?=$producto->getPrecio()?></td>
-                                        <td class="d-flex align-items-center">
+                                    <tr class="pedidoColor">
+                                        <td class="col-1"><?=$producto->getCatId()?></td>
+                                        <td class="col-1"><?=$producto->getProdId()?></td>
+                                        <td class="col-2"><?=$producto->getNombre()?></td>
+                                        <td class="col-3"><?=$producto->getDescripcion()?></td>
+                                        <td class="col-3"><?=$producto->getPrecio()?></td>
+                                        <td class="colWidth d-flex justify-content-between align-items-center col-3">
                                             <!-- Crear un formulario que llama al productoController y en funcion Eliminar cuando clica al boton -->
                                             <form action=<?=url."?controller=producto&action=eliminar"?> method="post">
                                                 <!-- Cuando envia se para el nombre producto_id y su valor como post -->
                                                 <input type="number" name="producto_id" value="<?=$producto->getProdId()?>" hidden>
-                                                <button class="btn btn-dark ms-4" type="Submit">Eliminar</button>
+                                                <button class="btn " type="Submit">Eliminar</button>
                                             </form>
                                             <!-- Crear un formulario que llama al productoController y en funcion Actualizar cuando clica al boton -->
                                             <form action=<?=url."?controller=producto&action=actualizar"?> method="post">
                                                 <!-- Cuando envia se para el nombre producto_id y su valor como post -->
                                                 <input type="number" name="producto_id" value="<?=$producto->getProdId()?>" hidden>
-                                                <button class="btn btn-dark ms-4" type="Submit">Actualizar</button>
+                                                <button class="btn" type="Submit">Actualizar</button>
                                             </form>
                                             <!-- Crear un formulario que llama al productoController y en funcion Añadir cuando clica al boton -->
                                             <form action=<?=url."?controller=producto&action=añadir"?> method="post">
-                                                <button class="btn btn-dark ms-4" type="Submit">Añadir</button>
+                                                <button class="btn " type="Submit">Añadir</button>
+                                            </form>
+                                        </td>
+                                    </tr>
+                                <?php
+                                }?>
+                            </table>   
+                        </div>
+                    </div>
+
+                    <h2>Clientes</h2>
+                    <div class="col-6  boxInformacion d-flex justify-content-center">
+                        <div class="col-12 pb-5">
+                            <table >
+                                <tr>
+                                    <th class="col-1">Categoria_id</th>
+                                    <th class="col-1">Producto_id</th>  
+                                    <th class="col-2">Nombre</th>
+                                    <th class="col-3">Descripcion</th>
+                                    <th class="col-3">Descripcion</th>
+                                    <th class="col-3">Descripcion</th>
+                                </tr>
+                                <?php
+                                foreach ($Usuarios as $Usuario){?>
+                                    <tr class="pedidoColor">
+                                        <td class="col-1"><?=$Usuario->getCliente_id()?></td>
+                                        <td class="col-1"><?=$Usuario->getNombre()?></td>
+                                        <td class="col-2"><?=$Usuario->getApellido()?></td>
+                                        <td class="col-3"><?=$Usuario->getMail()?></td>
+                                        <td class="col-3"><?=$Usuario->getMail()?></td>
+                                        <td class="colWidth col-3">
+                                            <!-- Crear un formulario que llama al productoController y en funcion Eliminar cuando clica al boton -->
+                                            <form action=<?=url."?controller=user&action=eliminarUsusario"?> method="post">
+                                                <!-- Cuando envia se para el nombre producto_id y su valor como post -->
+                                                <input type="number" name="cliente_id" value="<?=$Usuario->getCliente_id()?>" hidden>
+                                                <input type="number" name="admin_id" value="<?=$Usuario->getCliente_id()?>" hidden>
+                                                <button class="btn" type="Submit">Eliminar</button>
                                             </form>
                                         </td>
                                     </tr>
@@ -65,6 +103,7 @@
                     </div>
                 </div>
             </section>
+            </div>
             </div>
             </div>
         </div>      

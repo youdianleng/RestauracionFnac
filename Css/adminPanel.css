@@ -40,6 +40,8 @@ body{
 }
 
 .miInformacion{
+    font-family: Roboto,Arial,Helvetica,Tahoma,sans-serif;
+    font-weight: 300;
     font-size: 28px;
 }
 
@@ -63,22 +65,15 @@ ol, ul {
 }
 
 
-.tabList li.selected:hover, .tabList li:focus, .tabList li:hover {
-    border-bottom: 1px solid #232323;
-    color: #232323;
-}
-
 
 .tabList li {
     font-family: Roboto,Arial,Helvetica,Tahoma,sans-serif;
     font-weight: 300;
     display: inline-block;
     line-height: 24px;
-    margin-right: 3.33335em;
     cursor: pointer;
     color: #989898;
     font-size: 1.25em;
-    width: 400px;
 }
 
 .boxInformacion{
@@ -87,20 +82,45 @@ ol, ul {
 }
 
 
-input{
-    border-bottom: 2px solid;
-    width: 100%;
-}
-
 table{
     text-align: center;
     
 }
 
+.pedidoColor{
+    background-color: white;
+    border-left: 5px solid #4bc7e1;
+    
+}
 
-td{
+.boxInformacionTotal{
+    padding: 70px;
+}
+
+
+tr{
     border-bottom: 1px solid;
     border-color: #f2f2f2;
     width: 234px;
     height: 50.5px;
+}
+
+.btn{
+    background-color: #f5b027;
+    color: white;
+    float: right;
+
+}
+
+.btn:hover{
+    background-color: #FFC22B;
+    color: white;
+}
+
+table{
+    width: 100%;
+}
+
+.colWidth{
+    width: 100%;
 }

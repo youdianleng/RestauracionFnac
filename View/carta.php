@@ -89,8 +89,8 @@
 
                                                         <div class="col-12">
                                                             <div class="text ms-3 mt-3">
-                                                                <p class="txt15 verde">Disponible en Tienda</p>
-                                                                <p class="txt13 negro">Barcelona Sant</p>
+                                                                <p class="txt15 verde">Disponible comer en Restaurante</p>
+                                                                <p class="txt13 negro">Tiempo de Espera: <?=$producto->getTiempo()?> min</p>
                                                             </div>
                                                         </div>
                                                     </div>
