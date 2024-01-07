@@ -1,3 +1,4 @@
+/* Container Global */
 body{
     width: 100%;
     height: auto;
@@ -9,6 +10,7 @@ body{
     max-width: 1440px;
 }
 
+/* Font-Face */
 @font-face {
     font-family: "araboto-light";
     src: url("Fuentes/Araboto_Light_400.ttf");
@@ -18,6 +20,8 @@ body{
     font-family: "araboto-normal";
     src: url("Fuentes/Araboto_Normal.ttf");
 }
+
+/* Responsive */
 
 @media only screen and (max-width: 825px) {
     body {
@@ -29,20 +33,12 @@ body{
 
 }
 
+/* Configuracion Basica */
+
 .row{
     padding: 0px;
     margin: 0px;
     
-}
-
-.backgroundGrey{
-    background-color: #f2f2f2;
-}
-
-.miInformacion{
-    font-family: Roboto,Arial,Helvetica,Tahoma,sans-serif;
-    font-weight: 300;
-    font-size: 28px;
 }
 
 .noMarginBottom {
@@ -53,6 +49,41 @@ body{
     margin: 50px auto;
 }
 
+/* Diseño */
+.backgroundGrey{
+    background-color: #f2f2f2;
+}
+
+.pedidoColor{
+    background-color: white;
+    border-left: 5px solid #4bc7e1;
+    
+}
+
+/* Caja de Informacion */
+
+.miInformacion{
+    font-family: Roboto,Arial,Helvetica,Tahoma,sans-serif;
+    font-weight: 300;
+    font-size: 28px;
+}
+
+
+.boxInformacion{
+    width: 100%;
+
+}
+
+.boxInformacionTotal{
+    padding: 70px;
+}
+
+.colWidth{
+    width: 100%;
+}
+
+
+/* LI, OL, UL */
 .tabList {
     border-bottom: 1px solid #d8d8d8;
     height: auto;
@@ -64,8 +95,6 @@ ol, ul {
     margin: 0;
 }
 
-
-
 .tabList li {
     font-family: Roboto,Arial,Helvetica,Tahoma,sans-serif;
     font-weight: 300;
@@ -76,25 +105,10 @@ ol, ul {
     font-size: 1.25em;
 }
 
-.boxInformacion{
-    width: 100%;
-
-}
-
-
+/* Table */
 table{
     text-align: center;
     
-}
-
-.pedidoColor{
-    background-color: white;
-    border-left: 5px solid #4bc7e1;
-    
-}
-
-.boxInformacionTotal{
-    padding: 70px;
 }
 
 
@@ -105,6 +119,11 @@ tr{
     height: 50.5px;
 }
 
+table{
+    width: 100%;
+}
+
+/* Button, Input */
 .btn{
     background-color: #f5b027;
     color: white;
@@ -117,10 +136,3 @@ tr{
     color: white;
 }
 
-table{
-    width: 100%;
-}
-
-.colWidth{
-    width: 100%;
-}

@@ -62,10 +62,11 @@ class UserDAO{
     //Crear un nuevo usuario con los parametros pasados
     public static function nuevaUsuario($mail,$contrasenya,$permiso=1){
         $con = DataBase::connect();
-
+        //Aqui realizar el insert de los datos a BBDD
         $stmt = mysqli_query($con,"INSERT INTO `clientes`(`Nombre`, `Apellido`, `Mail`, `Contrasenya`, `ImgUsuario`, `Permisos`) VALUES ('','','$mail','$contrasenya','','$permiso')");
 
         $con->close();
+        //Redireccionar al enlace siguiente
         header("Location: ".url."?controller=user&action=IniciarSession");
     }
 
@@ -73,14 +74,19 @@ class UserDAO{
     public static function editarUsuario($nombre,$apellido,$cliente_id){
         $con = DataBase::connect();
 
+        //preparar un SQL para actualizar los datos de usuario
         $stmt = $con->prepare("UPDATE clientes SET Nombre = ?, Apellido = ? WHERE Cliente_id = ?");
+
+        //Asignar el tipo de los variables
         $stmt->bind_param("ssi",$nombre,$apellido,$cliente_id);
 
         $stmt->execute();
 
+        //Guardar el resutado en un variable
         $result = $stmt->get_result();
         $con->close();
 
+        //Retornar el resultado
         return $result;
     }
 
@@ -90,12 +96,19 @@ class UserDAO{
     //Eliminar el usuario segun el id que nos pasa
     public static function eliminarUsuario($cliente_id){
         $con = DataBase::connect();
+        //preparar un SQL para eliminar los datos de usuario
         $stmt = $con->prepare("DELETE FROM clientes Where Cliente_id = ?");
+
+        //Asignar el tipo de los variables
         $stmt->bind_param("i",$cliente_id);
+
         $stmt->execute();
+        
+        //Guardar el resutado en un variable
         $result = $stmt->get_result();
         $con->close();
 
+        //Retornar el resultado
         return $result;
     }
 }

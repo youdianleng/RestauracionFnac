@@ -2,11 +2,14 @@
 include_once "Model/PedidoInfo.php";
 include_once "Model/Producto.php";
 class Pedido {
+
+    //Preparar el variable para clase
     private $producto;
     private $cantidad = 1;
 
     private $ingredientes = [];
 
+    //Aqui el constuctor recibira un objeto "Producto" y un array "Ingrediente (Si existe)". 
     public function __construct($producto,$ingrediente = null){
         $this->producto = $producto;
         $this->ingredientes = $ingrediente;

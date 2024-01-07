@@ -165,7 +165,11 @@
 
                     //Crear el Pedido con el producto_id
                     $pedido = new Pedido(ProductoDAO::getProductByID($producto_idOne));
+
+                    //Cambiar el precio de pedido
                     $pedido->getProducto()->setPrecio($prodIdPedido->getPrecio_Unidad());
+
+                    //Cambiar el Cantidad de pedido
                     $pedido->setCantidad($prodIdPedido->getCantidad());
 
                     
@@ -225,6 +229,7 @@
             //Quitar el Cookie de Ultimo pedido de usuario
             setcookie('UltimoPedido','', time()-3600);
 
+            //Eliminar todos los ingredientes que hay en los productos del usuario
             ingredientesDAO::deleteTodosIngredientesUsuario($_POST['cliente_id']);
 
 

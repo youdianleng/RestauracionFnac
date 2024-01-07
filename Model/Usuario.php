@@ -1,5 +1,7 @@
 <?php
 abstract class Usuario{
+
+    //Preparar los variables que usaremos para crear clases
     protected $Cliente_id;
     protected $Nombre;
     protected $Apellido;
@@ -7,6 +9,7 @@ abstract class Usuario{
     protected $ImgUsuario;
     protected $Permisos;
 
+    //Contructor para crear clase
     public function __construct(){
     }
 

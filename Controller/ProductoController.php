@@ -15,10 +15,13 @@
             //Variables predefinido para si en caso luego usa
             $allProductos = ProductoDAO::getAllByID(1);
 
+            //Guardar todos los Categorias que hay en sistema
             $Categorias = ProductoDAO::getAllCategoria();
             
+            //Guardar todos los Productos que hay en sistema
             $Productos = ProductoDAO::getAllProductos();
 
+            //Guardar todos los ingredientes que hay en sistema
             $ingredientes = ingredientesDAO::getAllIngredientes();
 
             
@@ -58,13 +61,17 @@
                 }else{
                     //En caso de carrito no existe crea el session de Carrito como array
                     $_SESSION['Carrito'] = array();
+                    //Siempre creara un array para Ingredientes
                     $_SESSION['Ingredientes'] = array();
+
+                    //Hacer un bucle para separar los ingredientes en individual
                     foreach($ingredientes as $ingred){
                         $ingreId = $ingred->getIngredientes_id();
-
+                        
+                        //Crear cada ingrediente como un nuevi objeto 
                         $ingredientesPush = new Ingredientes(ingredientesDAO::getIngredientesById($ingreId));
 
-
+                        //Añadir el objeto al Session de Ingredientes
                         array_push($_SESSION['Ingredientes'],$ingredientesPush);
     
                     }
@@ -89,6 +96,8 @@
         public function shop(){
             //Inicar el session
             session_start();
+        
+            //Obtener todos los ingredientes que hay en sistema
             $ingredientes = ingredientesDAO::getAllIngredientes();
 
             //En caso de que el Session de Carrito existe entra
@@ -128,12 +137,17 @@
                     //En caso de carrito no existe crea el session de Carrito como array
                     $_SESSION['Carrito'] = array();
 
+                    //Siempre creara un array para Ingredientes
                     $_SESSION['Ingredientes'] = array();
+
+                    //Hacer un bucle para separar los ingredientes en individual
                     foreach($ingredientes as $ingred){
                         $ingreId = $ingred->getIngredientes_id();
                         
+                        //Crear cada ingrediente como un nuevi objeto 
                         $ingredientesPush = new Ingredientes(ingredientesDAO::getIngredientesById($ingreId));
                         
+                        //Añadir el objeto al Session de Ingredientes
                         array_push($_SESSION['Ingredientes'],$ingredientesPush);
     
                     }
@@ -168,10 +182,15 @@
 
             //Iniciar el session
             session_start();
+
+            //Guardar todos los productos que hay en sistema
             $Productos = ProductoDAO::getAllProductos();
 
+            //Guardar todos los ingredientes que hay en sistema
             $ingredientes = ingredientesDAO::getAllIngredientes();
 
+            //Preparada para luego poder mostrar en panel de carrito
+            //"Tambien te gustaria..."
             foreach($Productos as $productos){ }
 
             //En caso de que el Session de Carrito existe entra
@@ -219,13 +238,18 @@
                     //En caso de carrito no existe crea el session de Carrito como array
                     $_SESSION['Carrito'] = array();
 
+                    //Siempre va a crear un array para los ingredientes
                     $_SESSION['Ingredientes'] = array();
+
+                    //Hacer un bucle de ingredientes para separar los ingredientes en individual
                     foreach($ingredientes as $ingred){
+
                         $ingreId = $ingred->getIngredientes_id();
-                        
+
+                        //Crear un nueva objeto de ingredientes segun el id de ingrediente
                         $ingredientesPush = new Ingredientes(ingredientesDAO::getIngredientesById($ingreId));
                         
-
+                        //Añadir al session ingredientes el objeto creada
                         array_push($_SESSION['Ingredientes'],$ingredientesPush);
     
                     }
@@ -289,10 +313,14 @@
             }
         }
 
+        //Esto es para redireccionar al pagina para editar producto
         public function actualizar(){
             if(isset($_POST['producto_id'])
             ){
+                //Guardar en variable el producto_id
                 $producto_id = $_POST['producto_id'];
+
+                //Usar el producto id para hacer un busqueda de productos.
                 $producto = ProductoDAO::getProductByID($producto_id);
                 include_once "view/editarProductos.php";
             }else{
@@ -300,8 +328,10 @@
             }
         }
 
-        public function modificar(){
 
+        //Aqui es para modificar el producto
+        public function modificar(){
+            //Recibira primero todos los informaciones para modificar producto
             if (isset($_POST['producto_id'])&
                 isset($_POST['nombre'])&
                 isset($_POST['descript'])&
@@ -309,6 +339,7 @@
                 isset($_POST['precio'])&
                 isset($_POST['imagen'])
                 ){
+                //Guardar los informaciones en variable
                 $producto_id = $_POST['producto_id'];
                 $nombre = $_POST['nombre'];
                 $descripcion = $_POST['descript'];
@@ -316,6 +347,7 @@
                 $precio = $_POST['precio'];
                 $descripcionCorto = $_POST['descriptCorto'];
                 
+                //Realizar el funcion de modificar el producto
                 ProductoDAO::modificarProductos($producto_id, $nombre, $descripcion,$descripcionCorto, $imagen, $precio);
                 header("Location:".url."?controller=producto");
             }else{

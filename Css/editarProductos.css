@@ -1,26 +1,42 @@
+/* Container Global */
 
+/* Font-Face */
+
+/* Configuracion basico */
 .row{
     padding: 0px;
     margin: 0px;
     
 }
 
-.backgroundGrey{
-    background-color: #f2f2f2;
-}
-
-.miInformacion{
-    font-size: 28px;
-}
 
 .noMarginBottom {
     margin-bottom: 0!important;
 }
 
+
 .marginSelector {
     margin: 50px auto;
 }
 
+/* Caja de Informacion */
+.miInformacion{
+    font-size: 28px;
+}
+
+.boxInformacion{
+    width: 100%;
+
+}
+
+/* Diseño */
+
+.backgroundGrey{
+    background-color: #f2f2f2;
+}
+
+
+/* LI, UL, OL */
 .tabList {
     border-bottom: 1px solid #d8d8d8;
     height: auto;
@@ -51,17 +67,14 @@ ol, ul {
     width: 400px;
 }
 
-.boxInformacion{
-    width: 100%;
-
-}
-
-
+/* Button, Input */
 input{
     width: 100%;
     border: none;
 }
 
+
+/* Table */
 table{
     text-align: center;
     

@@ -1,10 +1,14 @@
 <?php
 include_once "Model/Ingredientes.php";
 abstract Class IngredientesInfo extends Ingredientes{
+
+    //Preparar los variables para clase
     protected $Descripcion;
     protected $Ingredientes_id;
     protected $Nombre;
     protected $Precio;
+
+    //El constructor para crear clase
     public function __construct(){
         
     }

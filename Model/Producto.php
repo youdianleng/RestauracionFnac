@@ -2,6 +2,7 @@
 
 abstract class Producto{
 
+    //Preparar los variables para clase
     protected $Producto_id;
     protected $Categoria_id;
     protected $Nombre;
@@ -12,17 +13,11 @@ abstract class Producto{
 
     protected $Tiempo;
     
+    //Es el constructor para crear clase
     public function __construct()
     {
         
     }
-    // public function __construct($id,$name,$tipo){
-    //     $this->id  = $id;
-    //     $this->name  = $name;
-    //     $this->tipo  = $tipo;
-
-
-    // }
 
 
     public function getProdId(){

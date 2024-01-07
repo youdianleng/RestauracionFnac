@@ -108,7 +108,7 @@ class ProductoDAO{
     //Modificar los producto segun los parametro pasados y cambia los valores de bbdd
     public static function modificarProductos($producto_id,$nombre,$descripcion,$descripcionCorto,$imagen,$precio){
         $con = DataBase::connect();
-        //Realizar el actualizacion de 
+        //Realizar el actualizacion de productos
         $stmt = $con->prepare("UPDATE productos SET Nombre = ?, Descripcion = ?, DescripcionCorto = ?, Imagen = ?, Precio = ? WHERE Producto_id = ?");
         $stmt->bind_param("ssssdi",$nombre,$descripcion,$descripcionCorto,$imagen,$precio,$producto_id);
 
@@ -124,6 +124,7 @@ class ProductoDAO{
     public static function añadirProductos($producto_id,$Categoria_id,$nombre,$descripcion,$descripcionCorto, $imagen ,$precio){
         $con = DataBase::connect();
 
+        //Insertar al BBDD los contenidos al tabla que corresponde
         $stmt = mysqli_query($con,"INSERT INTO `productos`(`Producto_id`, `Categoria_id`, `Nombre`, `Descripcion`, `DescripcionCorto`, `Imagen`, `Precio`) VALUES ('$producto_id','$Categoria_id','$nombre','$descripcion','$descripcionCorto','$imagen','$precio')");
 
         $con->close();

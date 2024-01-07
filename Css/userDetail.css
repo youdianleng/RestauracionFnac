@@ -1,3 +1,4 @@
+/* Contenidor Globar */
 body{
     width: 100%;
     height: auto;
@@ -9,6 +10,7 @@ body{
     max-width: 1440px;
 }
 
+/* Font-Face */
 @font-face {
     font-family: "araboto-light";
     src: url("Fuentes/Araboto_Light_400.ttf");
@@ -19,6 +21,8 @@ body{
     src: url("Fuentes/Araboto_Normal.ttf");
 }
 
+
+/* Responsive */
 @media only screen and (max-width: 900px) {
     body {
       width: 100%;
@@ -39,16 +43,32 @@ body{
 
 }
 
+
+/* Configuracion Basico */
 .row{
     padding: 0px;
     margin: 0px;
     
 }
 
+.noMarginBottom {
+    margin-bottom: 0!important;
+}
+
+.marginSelector {
+    margin: 50px auto;
+}
+
+
+
+/* Configuracion de diseño */
+
 .backgroundGrey{
     background-color: #f2f2f2;
 }
 
+
+/* Parte Cajas */
 .miInformacion{
     font-family: Roboto,Arial,Helvetica,Tahoma,sans-serif;
     font-weight: 300;
@@ -61,13 +81,39 @@ body{
     font-size: 22px;
 }
 
-.noMarginBottom {
-    margin-bottom: 0!important;
+.boxInformacion{
+    width: 100%;
+    padding: 70px;
+    display: flex;
+    justify-content: space-between;
 }
 
-.marginSelector {
-    margin: 50px auto;
+.boxInformacionTotal{
+    padding: 70px;
 }
+
+
+.adicionalBox{
+    padding-bottom: 30px;
+}
+
+.adicionalInfo{
+    font-size: 15px;
+    font-weight: 700;
+    margin: 0px;
+}
+
+.adicionaInfo2{
+    color: #989898;
+    font-size: 11px;
+}
+
+
+.boxWidth{
+    padding: 0 80px;
+}
+
+/* Li, UL, OL */
 
 .tabList {
     border-bottom: 1px solid #d8d8d8;
@@ -91,16 +137,7 @@ ol, ul {
     font-size: 1.25em;
 }
 
-.boxInformacion{
-    width: 100%;
-    padding: 70px;
-    display: flex;
-    justify-content: space-between;
-}
-
-.boxInformacionTotal{
-    padding: 70px;
-}
+/* Input, Button */
 
 input{
     border-bottom: 1px solid;
@@ -123,26 +160,6 @@ input{
     border-right: 0px;
     border-left: 0px;
     border-color: #27a638;
-}
-
-.adicionalBox{
-    padding-bottom: 30px;
-}
-
-.adicionalInfo{
-    font-size: 15px;
-    font-weight: 700;
-    margin: 0px;
-}
-
-.adicionaInfo2{
-    color: #989898;
-    font-size: 11px;
-}
-
-
-.boxWidth{
-    padding: 0 80px;
 }
 
 .btn{

@@ -1,3 +1,4 @@
+/* Container Global */
 body{
     width: 100%;
     height: auto;
@@ -10,32 +11,7 @@ body{
     margin: 0px;
 }
 
-.col-12 .marginNoneBottom{
-    padding-bottom: 0px;
-    padding-top: 0px;
-}
-
-.marginNone{
-    padding-bottom: 0px;
-}
-
-.marginNoneTop{
-    padding-top: none;
-}
-
-
-.btnStyle{
-    width: 100%;
-    height: 100%;
-}
-
-input:focus{
-    outline: none;
-}
-input{
-    border: none;
-}
-
+/* font-faces */
 @font-face {
     font-family: "araboto-light";
     src: url("Fuentes/Araboto_Light_400.ttf");
@@ -45,6 +21,17 @@ input{
     font-family: "araboto-normal";
     src: url("Fuentes/Araboto_Normal.ttf");
 }
+
+.araboto-light{
+    font-family: "araboto-light";
+}
+
+.araboto-normal{
+    font-family: "araboto-normal";
+}
+
+
+/* Responsives */
 
 @media only screen and (max-width: 800px) {
     body {
@@ -59,18 +46,8 @@ input{
     }
 }
 
-.araboto-light{
-    font-family: "araboto-light";
-}
 
-.araboto-normal{
-    font-family: "araboto-normal";
-}
-
-.noDecoration a{
-    text-decoration: none;
-    color: black;
-}
+/* Font-size Global */
 
 .txt14{
     font-size: 14px;
@@ -86,11 +63,47 @@ input{
     font-weight: 700!important;
 }
 
+
+/* Diseño */
+.col-12 .marginNoneBottom{
+    padding-bottom: 0px;
+    padding-top: 0px;
+}
+
+.marginNone{
+    padding-bottom: 0px;
+}
+
+.marginNoneTop{
+    padding-top: none;
+}
+
+/* Button, Input */
+.btnStyle{
+    width: 100%;
+    height: 100%;
+}
+
+input:focus{
+    outline: none;
+}
+input{
+    border: none;
+}
+
 ::placeholder{
     font-style: italic!important;
     padding-left: 10px!important;
     font-size: 15px!important;
 }
+
+/* Enlaces */
+
+.noDecoration a{
+    text-decoration: none;
+    color: black;
+}
+
 
 .buscarCss{
     border-top-right-radius: 0px; 
@@ -99,7 +112,7 @@ input{
     height: 40px;
 }
 
-
+/* Caja de Informacion */
 .menu1{
     width: 100%;
     height: 40px;
@@ -113,6 +126,8 @@ input{
     opacity: 0.9;
 }
 
+
+/* Img */
 .imgCss img{
     width: 50px;
     height: 22px;
@@ -129,15 +144,16 @@ input{
     margin-left: 72px;
 }
 
-.menu1 li{
-    display: flex;
-}
-
 #accebilidad{
     width: 30px;
     height: 22px;
     padding: 0%;
 
+}
+
+/* LI, UL, OL */
+.menu1 li{
+    display: flex;
 }
 
 .menu1 ul{
@@ -180,6 +196,7 @@ input{
     align-items: center;
 }
 
+/* Contador Carrito */
 .contadorCarrito{
     width: 20px;
     height: 20px;

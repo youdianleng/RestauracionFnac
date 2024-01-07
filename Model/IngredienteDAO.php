@@ -6,6 +6,7 @@ class ingredientesDAO{
     //Buscar los Ingredientes
     public static function getAllIngredientes(){
         $con = DataBase::connect();
+        //Preparar un consulta SQL para seleccionar los datos de dicho tabla
         $stmt = $con->prepare("SELECT * FROM ingredientes");
         $stmt->execute();
         $result = $stmt->get_result();
@@ -24,6 +25,7 @@ class ingredientesDAO{
     //Buscar los Ingredientes por Id
     public static function getIngredientesById($Ingred){
         $con = DataBase::connect();
+        //Preparar un consulta SQL para seleccionar los datos de dicho tabla
         $stmt = $con->prepare("SELECT * FROM ingredientes where Ingredientes_id = $Ingred");
         $stmt->execute();
         $result = $stmt->get_result();
@@ -38,6 +40,7 @@ class ingredientesDAO{
     //Añadir el Ingrediente en Pedido_Ingredientes
     public static function setIngredientesPedido($Descripcion, $Ingrediente_id, $Nombre, $Pedido_id){
         $con = DataBase::connect();
+        //Preparar un consulta SQL para insertar los datos de dicho tabla
         $stmt = mysqli_query($con,"INSERT INTO `pedidos_ingredientes`(`Descripcion`, `Ingrediente_id`, `Nombre`, `Pedido_id`) VALUES ('$Descripcion','$Ingrediente_id','$Nombre','$Pedido_id')");
         $con->close();
     }
@@ -45,6 +48,7 @@ class ingredientesDAO{
     //Añadir el Ingrediente en Producto_Ingredientes
     public static function setIngredientesProducto($Descripcion, $Ingrediente_id, $Nombre, $Producto_id){
         $con = DataBase::connect();
+        //Preparar un consulta SQL para insertar los datos de dicho tabla
         $stmt = mysqli_query($con,"INSERT INTO `producto_ingredientes`(`Descripcion`, `Ingrediente_id`, `Nombre`, `Producto_id`) VALUES ('$Descripcion','$Ingrediente_id','$Nombre','$Producto_id')");
         $con->close();
     }

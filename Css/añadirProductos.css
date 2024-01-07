@@ -1,25 +1,42 @@
-
+/* Container Global */
 .row{
     padding: 0px;
     margin: 0px;
     
 }
 
-.backgroundGrey{
-    background-color: #f2f2f2;
-}
+/* Font-Face */
 
-.miInformacion{
-    font-size: 28px;
-}
+/* Responsive */
 
+/* Configuracion Basica */
 .noMarginBottom {
     margin-bottom: 0!important;
 }
 
+
 .marginSelector {
     margin: 50px auto;
 }
+
+
+/* Diseño */
+
+.backgroundGrey{
+    background-color: #f2f2f2;
+}
+
+/* Caja de Informacion */
+.miInformacion{
+    font-size: 28px;
+}
+
+.boxInformacion{
+    width: 100%;
+
+}
+
+/* LI, UL, OL */
 
 .tabList {
     border-bottom: 1px solid #d8d8d8;
@@ -51,18 +68,6 @@ ol, ul {
     width: 400px;
 }
 
-.boxInformacion{
-    width: 100%;
-
-}
-
-
-input{
-    width: 100%;
-    border: none;
-    border-bottom: 1px solid;
-}
-
 table{
     text-align: center;
     
@@ -79,3 +84,12 @@ td{
     width: 234px;
     height: 50.5px;
 }
+
+
+/* Button, Input */
+input{
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid;
+}
+

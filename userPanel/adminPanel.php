@@ -34,6 +34,8 @@
                                     <th class="col-3">Precio</th>
                                 </tr>
                                 <?php
+                                //Este es para sacar todos los productos que hay actualmente en sistema guardada
+                                //Aqui es para que el admin pueda realizar control sobre Actualizar, Modificar o añadir nuevas productos
                                 foreach ($Productos as $producto){?>
                                     <tr class="pedidoColor">
                                         <td class="col-1"><?=$producto->getCatId()?></td>
@@ -79,6 +81,8 @@
                                     <th class="col-3">Descripcion</th>
                                 </tr>
                                 <?php
+                                //Aqui esta todos los usuarios que estan a dentro de sistema registrado
+                                //Aqui es para que el admin pueda realizar control de eliminar el usuario
                                 foreach ($Usuarios as $Usuario){?>
                                     <tr class="pedidoColor">
                                         <td class="col-1"><?=$Usuario->getCliente_id()?></td>

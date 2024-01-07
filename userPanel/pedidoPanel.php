@@ -32,6 +32,7 @@
                             <th>Tu Ultimo Pedido:</th>
                             <?php 
                             //Cuadno el $pedidos no sea nulo y que el Cookie UltimoPedido existe entra
+                            //Este parte es para mostrar el ultimo pedido hecho a dentro de 1 hora
                             if($pedidos != null && isset($_COOKIE['UltimoPedido'])){ 
                                 $pedido = $_COOKIE['UltimoPedido'];
                                 
@@ -41,12 +42,15 @@
                                     </tr>
                             <?php }?>
                             <?php 
+                            //Cuadno el $pedidos no sea nulo y que el Cookie UltimoPedido existe entra
+                            //Aqui es para mostrar los informaciones de los productos que esta en ese pedido
                             if($pedidos != null && isset($_COOKIE['UltimoPedido'])){ ?>
                                 <th class="col-3">Producto</th>
                                     <th class="col-3">Descripcion</th>
                                     <th class="col-3">Precio</th>
                                     <th class="col-3">Cantidad</th>
                             <?php
+                                //Hacer un bucle de los productos que hay en pedido encontrada
                                 foreach($ProdUltima as $UltimoMandado){?>
                                 
                                     
@@ -73,18 +77,17 @@
                                     <th class="col-2">Tiempo de Espera</th>
                                     <th class="col-2">Control</th>
                                     <?php 
+                                    //En $pedidos esta todos los pedidos de usuario
+                                    //Si el pedido no esta en nulo entra
                                     if($pedidos != null){
+                                        //hacer un bucle para sacar los pedidos en individual
                                         foreach($pedidos as $pedido){?>
                                                 
                                                 <tr class="pedidoColor">
                                                     <td class="col-3"><?=$pedido->getPedido_id()?></td>
                                                     <td class="col-2"><?=$pedido->getPrecio_total()?></td>
                                                     <td class="col-3"><?=substr($pedido->getPedido_TIme(), 0, 10);?></td>
-                                                    <td class="col-2"><?php 
-                                                            
-
-                                                            echo $TiempoEstimado;
-                                                    ?></td>
+                                                    <td class="col-2"><?php echo $TiempoEstimado;?></td>
                                                     <td class="col-2">
                                                     <form action="<?=url."?controller=user&action=productoPedidoPanel"?>" class="ps-1" method="post">
                                                         <input hidden name="pedidoUser" value="<?=$pedido->getPedido_id()?>">     

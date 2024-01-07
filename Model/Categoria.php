@@ -1,10 +1,12 @@
 <?php
 abstract class categoria{
+
+    //Preparar los variables para clase
     protected $Categoria_id;
     protected $Nombre;
     protected $Descripcion;
     protected $ImagenCategoria;
-     
+    
     
      
     /**

@@ -15,8 +15,13 @@
             session_start();
             //Si recibe el Cliente_id y el PrecioTotal relleno entra.
             if(isset($_POST['Cliente_id'],$_POST['PrecioTotal']) && ($_POST['Cliente_id'] != null)){
+
+                //Obtener el usuario segun el ID que tiene
                 $usuarioActual = UserDAO::getUsuarioEspecificoNombre($_POST['Cliente_id']);
+                //Obtener el permiso de usuario
                 $usuarioPermiso = $usuarioActual->getPermisos();
+
+                //Cuando sea 1 como usuario entra
                 if($usuarioPermiso == 1){
 
                 
@@ -42,24 +47,37 @@
                     
                     //Añadir los ingredientes de un pedido con el numero de pedido
                     PedidoDAO::AñadirPedidoProducto($pedido,$cantidad,$precio_Total,$Precio_unidad,$producto_id,$tiempo);
+
+                    //Si el producto contiene Ingrediente entra
                     if($productoCarrito->getIngredientes() != null){
+                        //Hacer un separacion de ingredientes desde array
                         foreach($productoCarrito->getIngredientes() as $ingrediente){
+
+                            //llamar al funcion para obtener informaciones de ese ingrediente
                             $ingredienteEncontrada = ingredientesDAO::getIngredientesById($ingrediente);
                             $Descripcion = $ingredienteEncontrada->getDescripcion();
                             $Ingrediente_id = $ingredienteEncontrada->getIngredientes_id();
                             $Nombre = $ingredienteEncontrada->getNombre();
+
+                            //Añadir en la tabla de pedidos_ingredientes
                             ingredientesDAO::setIngredientesPedido($Descripcion, $Ingrediente_id, $Nombre, $pedido);       
                         }
                     }
 
                     //Añadir los productos con su ingredientes
                     foreach($_SESSION['Carrito'] as $productoCarrito){
+                        //Obtener el producto id de ese producto dentro de pedido
                         $producto_id = $productoCarrito->getProducto()->getProdId();
+
+                        //Hacer un bucle para separar los ingredientes de array
                         foreach($productoCarrito->getIngredientes() as $ingrediente){
+
+                            //buscar el ingrediente segun el id pasado
                             $ingredienteEncontrada = ingredientesDAO::getIngredientesById($ingrediente);
                             $Descripcion = $ingredienteEncontrada->getDescripcion();
                             $Ingrediente_id = $ingredienteEncontrada->getIngredientes_id();
                             $Nombre = $ingredienteEncontrada->getNombre();
+                            //Añadir en la tabla de pedidos_ingredientes
                             ingredientesDAO::setIngredientesProducto($Descripcion, $Ingrediente_id, $Nombre, $producto_id);       
                         }
                         

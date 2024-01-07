@@ -1,5 +1,7 @@
 <?php 
 abstract class PedidosInfo extends Pedido{
+
+    //Preparar los variables para la clase
     protected $Cliente_id;
     protected $Pedido_id;
     protected $Precio_total;
@@ -13,6 +15,8 @@ abstract class PedidosInfo extends Pedido{
     protected $Cantidad;
 
     protected $Tiempo_Estimado;
+
+    //Constructor para poder crear el clase
     public function __construct(){
     }
 
