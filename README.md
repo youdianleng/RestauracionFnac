@@ -166,7 +166,7 @@ Para Asegurar que todos los instalacion y configuracion anteriores estan bien re
   4. Css
 
 ## Autor
-Autor: Zhiou Zhu
+Autor: Zhiou Zhu  
 Puedes ver todos los desarrolladores que participan en este proyecto en la lista de colaboradores.
 
 ## Descripcion de Licencia
