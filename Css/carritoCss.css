@@ -77,16 +77,18 @@ body{
 }
 
 
-@media only screen and (max-width: 970px) {
+@media only screen and (max-width: 990px) {
     body {
       width: 100%;
       height: auto;
       margin-left: auto;
       margin-right: auto;
     }  
-
+    /*Parte Derecha Carrito*/
     .boxCodigo{
-        display: none;
+        display: block;
+        margin-left: 0px!important;
+        margin-bottom: 30px;
     }
 
     .boxNoneMargin{
@@ -98,16 +100,25 @@ body{
     }
 
     .aceptamos img{
-        display: none;
+        display: block !important;
+        height: auto;
+        width: 100%;
     }
 
+    .imgAcept{
+        margin-left: 0px!important;
+        margin-bottom: 30px;
+    }
 
     .codigoText{
         padding-left: 20px!important;
         padding-right: 20px!important;
     }
 
-    
+    /*Ultimos productos*/
+    .boxUltimo{
+        display: none!important;
+    }
 
 
 }
@@ -139,6 +150,9 @@ body{
     background-color: white;
 }
 
+.verdeClaro{
+    color: #5C9A03!important;
+}
 
 /* Font-size Global */
 .txt32{
@@ -259,7 +273,15 @@ body{
     height: 1000px;
 }
 
+.boxCodigo{
+    margin-left: 1.5rem;;
+}
+
 /* Cambios */
 .boxDerecha{
     display: none;
+}
+
+.imgAcept{
+    margin-left: 1.5rem;
 }

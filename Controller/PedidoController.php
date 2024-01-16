@@ -114,7 +114,7 @@
          * Eliminar 
          */
         public function eliminarPedidoEspecificado(){
-
+            
             //Cuando recibe un "POST" de pedidoUser entra
             if(isset($_POST['pedidoUser'])){
                 //Realizar el action de eliminar la dicha pedido que ha pasasdo 

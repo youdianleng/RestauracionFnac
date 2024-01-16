@@ -6,6 +6,9 @@
     <meta lang="es">
     <link href="Css/bootstrap.min.css" rel="stylesheet">
     <link href="Css/pedidoPanel.css" rel="stylesheet" type="text/css" media="screen">
+    <link href="Css/generalTexto.css" rel="stylesheet" type="text/css" media="screen">
+    <link href="Css/generalDiseño.css" rel="stylesheet" type="text/css" media="screen">
+    <link href="Css/generalColors.css" rel="stylesheet" type="text/css" media="screen">
 </head> 
 <body>
     <div class="container">
@@ -95,7 +98,7 @@
                                                                 $TiempoEstimado += $pedidoAct->getTiempo_Estimado();
                                                             }
                                                             echo $TiempoEstimado;
-                                                    ?></td>
+                                                    ?> Min</td>
                                                     <td class="col-2">
                                                     <form action="<?=url."?controller=user&action=productoPedidoPanel"?>" class="ps-1" method="post">
                                                         <input hidden name="pedidoUser" value="<?=$pedido->getPedido_id()?>">     

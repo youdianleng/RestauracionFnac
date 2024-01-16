@@ -2,6 +2,9 @@
 <head>
     <link href="Css/bootstrap.min.css" rel="stylesheet">
     <link href="Css/añadirProductos.css" rel="stylesheet" type="text/css" media="screen">
+    <link href="Css/generalTexto.css" rel="stylesheet" type="text/css" media="screen">
+    <link href="Css/generalDiseño.css" rel="stylesheet" type="text/css" media="screen">
+    <link href="Css/generalColors.css" rel="stylesheet" type="text/css" media="screen">
 </head>
 <body>
     <main>
@@ -19,7 +22,7 @@
                         <a href="#>" class="text-decoration-none"></a>
                     </li>
                 </ul>
-                <h2 class="mt-4 ">NUEVO PRODUCTO</h2>
+                <h2 class="mt-4 miInformacionDatos ">NUEVO PRODUCTO</h2>
                 <div class="col-12 mt-5 bg-white">
                     <div class="col-6  boxInformacion d-flex justify-content-center">
                         <div class="row"></div>
@@ -28,48 +31,48 @@
                                 <form action=<?= url."?controller=producto&action=agregar" ?> method='post'>
                                 <tr>
                                     <td class="col-12">
-                                        <label class="fw-bold">Categoria_id</label>
-                                        <input name="categoria_id">
+                                        <label class="fw-bold float-left border-left">Categoria_id</label>
+                                        <input class="mt-2" name="categoria_id">
                                         <br>
                                     </td>
                                 </tr>
                                 <tr>
                                 <td class="col-12">
-                                        <label class="fw-bold">Nombre Producto</label>
-                                        <input name="nombre">
+                                        <label class="fw-bold float-left border-left">Nombre Producto</label>
+                                        <input class="mt-2" name="nombre">
                                     <br>
                                 </td>
                                 </tr>
                                 <td class="col-12">
-                                        <label class="fw-bold">Descripcion Producto</label>
-                                        <input name="descript">
-                                    <br>
-                                </td>
-                                </tr>
-                                <tr>
-                                <td class="col-12">
-                                        <label class="fw-bold">Descripcion Corto Producto</label>
-                                        <input name="descriptCorto">
+                                        <label class="fw-bold float-left border-left">Descripcion Producto</label>
+                                        <input class="mt-2" name="descript">
                                     <br>
                                 </td>
                                 </tr>
                                 <tr>
                                 <td class="col-12">
-                                        <label class="fw-bold">Imagen Producto</label>
-                                        <input name="imagen">
+                                        <label class="fw-bold float-left border-left">Descripcion Corto Producto</label>
+                                        <input class="mt-2" name="descriptCorto">
                                     <br>
                                 </td>
                                 </tr>
                                 <tr>
                                 <td class="col-12">
-                                        <label class="fw-bold">Precio Producto</label>
-                                        <input name="precio">
+                                        <label class="fw-bold float-left border-left">Imagen Producto</label>
+                                        <input class="mt-2" name="imagen">
                                     <br>
                                 </td>
                                 </tr>
                                 <tr>
                                 <td class="col-12">
-                                    <button class="btn btn-dark mt-3 mb-3 pe-5 ps-5" type="submit">Añadir</button>
+                                        <label class="fw-bold float-left border-left">Precio Producto</label>
+                                        <input class="mt-2" name="precio">
+                                    <br>
+                                </td>
+                                </tr>
+                                <tr>
+                                <td class="col-12">
+                                    <button class="btn btn-primary mt-3 mb-3 pe-5 ps-5 float-left" type="submit">Añadir</button>
                                 </td>
                                 </tr>
                                 </form>

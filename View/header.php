@@ -6,10 +6,15 @@
     <meta name="description" content="Cabecera comun de mis paginas web">
     <meta lang="es">
     <link href="Css/header.css" rel="stylesheet" type="text/css" media="screen">
+    <title>Tienda de Libros, Electrónica, Música y Video - Cultura y Ocio | Fnac</title>
+    <link rel="icon" href="Materiales/Fnac_Logo.svg" type="image/x-icon">
+    <link href="Css/generalTexto.css" rel="stylesheet" type="text/css" media="screen">
+    <link href="Css/generalDiseño.css" rel="stylesheet" type="text/css" media="screen">
+    <link href="Css/generalColors.css" rel="stylesheet" type="text/css" media="screen">
 </head>
 <body>
     <div class="container">
-        <div class="menu1 d-flex justify-content-end align-items-center pt-2 " >
+        <div class="menu1 d-flex justify-content-end pt-2 " >
             <a href="<?=url."?controller=producto&action=PanelMod"?>" class="me-2 araboto-normal " ><li class="txt14"><span class="imgCss"><img src="Materiales/IconoCabecera/PreguntaIcono.svg" ></span>Necesito Ayuda</li></a>
             <a href="#" ><li id="accebilidad"><img src="Materiales/accebilidad.png" ></li></a>
             <a href="#" class="araboto-normal"><li class="txt14"><span class="imgCss"><img src="Materiales/IconoCabecera/Ubicacion.svg"></span>Encontrar un tienda</li></a>
@@ -18,7 +23,7 @@
         <div class="row"></div>
             <nav class="col-12 d-flex navbar navbar-expand-lg" style="padding: 0px;">
                 <div class="col-7 d-flex justify-content-center  pe-1 align-items-end">
-                    <a class="navbar-brands d-flex justify-content-center marginLeftIcono " href="<?=url."?controller=producto&action=index"?>"><img src="Materiales/IconoCabecera/Fnac.png" style="width: 112px; height: 50px;"></a>
+                    <a class="navbar-brands d-flex justify-content-center marginLeftIcono me-5" href="<?=url."?controller=producto&action=index"?>"><img src="Materiales/IconoCabecera/FnacIogo.svg" style="width: 112px; height: 50px;"></a>
                     <form class="d-flex btnStyle" role="search">
                         <input class="bg-body-tertiary mb-1 buscarCss" style="border: none;" type="search" placeholder="¿Què quieres buscar hoy?" aria-label="Search" >
                         <img src="Materiales/Buscador.png" style="height: 40px; width: 50px;">

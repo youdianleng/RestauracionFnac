@@ -3,10 +3,16 @@
     <link rel="stylesheet" href="Css/carritoCss.css">
     <link href="Css/bootstrap.min.css" rel="stylesheet">
     <link href="Css/iniciarSession.css" rel="stylesheet" type="text/css" media="screen">
+    <link href="Css/generalTexto.css" rel="stylesheet" type="text/css" media="screen">
+    <link href="Css/generalDiseño.css" rel="stylesheet" type="text/css" media="screen">
+    <link href="Css/generalColors.css" rel="stylesheet" type="text/css" media="screen">
 </head>
 <body>
     <div class="container greyBackground">
         <div class="row">
+            <div class="col-12 d-flex justify-content-center ">
+                <p class="Titulo"><? echo $_GET["userMail"]?></p>
+            </div>
             <div class="col-12 d-flex justify-content-center ">
                 <h1 class="Titulo">Conexión / Inscripción</h1>
             </div>
@@ -19,7 +25,11 @@
                     <form action="<?=url."?controller=user&action=userPanel"?>" method="POST">
                         <div class="d-flex justify-content-center pt-5">
                             <!-- Crear un input para que el usuario escribe el email -->
-                            <input class="col-8" type="email" name="usuario" placeholder="Email">
+                            <input class="col-8" type="email" name="usuario" placeholder="Email" value="<?php 
+                                if(isset($_GET["userMail"])){
+                                    echo $_GET["userMail"];
+                                }
+                            ?>">
                         </div>
 
                         <div class="d-flex justify-content-center pt-5">

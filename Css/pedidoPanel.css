@@ -93,7 +93,20 @@ body{
 .tabList {
     border-bottom: 1px solid #d8d8d8;
     height: auto;
+    padding: 8px;
+    padding-left: 0px;
+    font-size: 14px;
 }
+
+.tabList a{
+   color: #9d9a8c;
+}
+
+.tabList a:hover {
+    color: #232323;
+    border-bottom: 10px solid #232323;
+ }
+
 
 ol, ul {
     list-style: none;

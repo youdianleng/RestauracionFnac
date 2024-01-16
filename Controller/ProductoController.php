@@ -124,12 +124,19 @@
                         $pedido = new Pedido(ProductoDAO::getProductByID($_POST['id']));
 
                         if($_SESSION['Carrito'] != null){
+                            $arrayProd = [];
+                            foreach($_SESSION['Carrito'] as $CarritoProd){
+                                array_push($arrayProd,$CarritoProd->getProducto()->getProdId());
+                            }
+
                             foreach($_SESSION['Carrito'] as $CarritoProd){
                                 if($pedido->getProducto()->getProdId() == $CarritoProd->getProducto()->getProdId() && $CarritoProd->getIngredientes() == null){
                                     $CarritoProd->setCantidad($CarritoProd->getCantidad() + 1);
-                                }else{
+                                    break;
+                                }elseif(!in_array($pedido->getProducto()->getProdId(),$arrayProd)){
                                     //Añadir al array Carrito el pedido acaba de crear
                                     array_push($_SESSION['Carrito'],$pedido);
+                                    break;
                                 }
                             }
                         }else{
@@ -377,7 +384,23 @@
             $precio = $_POST['precio'];
             ProductoDAO::añadirProductos($producto_id,$categoria_id,$nombre,$descripcion,$descripcionCorto, $imagen,$precio);
         }
+
+
+        //Preparado para el Proyecto de Javascript
+        public function productoPanel(){
+
+
+            //Incluir los paneles necesarios para mostrar al web
+            include_once "View/header.php";
+            include_once "View/producto.php";
+            include_once "View/footer.php";
+        }
+
     }
+
+
+
+    
 
 ?>
 

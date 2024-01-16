@@ -108,8 +108,38 @@ body{
         max-width: 390px;
     }
 
+    /*Caja Noticias*/
+    /* .boxTotal{
+        width: 100%!important;
+    } */
+
     
 
+}
+
+@media only screen and (max-width: 710px) {
+    
+    /*Caja Noticias*/
+    .boxTotal{
+        width: 100%!important;
+    }
+
+
+    .EstiloTexto{
+        font-size: 24px!important;
+    }
+
+    .EstiloTexto2{
+        font-size: 24px!important;
+    }
+
+    .EstiloTexto2 p{
+        margin-bottom: 0px;
+    }
+
+    .estiloPTitle{
+        font-size: 14px!important;
+    }
 }
 
 /* Img */
@@ -139,8 +169,6 @@ img {
     align-items: center;
     margin-left: 30px;
     font-size: 27px;
-    font-weight: 300;
-    padding-left: 30px;
 }
 
 .EstiloTexto2{
@@ -148,7 +176,6 @@ img {
     height: auto;
     display: flex;
     align-items: center;
-    margin-left: 30px;
     font-size: 27px;
     font-weight: 300;
     padding-left: 30px;
@@ -159,7 +186,6 @@ img {
 
 .estiloPTitle{
     padding-left: 30px;
-    margin-left: 30px;
 }
 
 /* Diseño Cartas */
@@ -295,7 +321,7 @@ section{
     height: 100%;
     width: 100%;
     border-radius: 10px 10px 0px 0px;
-    background-color: #EDEDED;
+    background-color: #f2f2f2;
 }
 
 

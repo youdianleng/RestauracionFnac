@@ -6,6 +6,9 @@
     <meta lang="es">
     <link href="Css/bootstrap.min.css" rel="stylesheet">
     <link href="Css/productoPedido.css" rel="stylesheet" type="text/css" media="screen">
+    <link href="Css/generalTexto.css" rel="stylesheet" type="text/css" media="screen">
+    <link href="Css/generalDiseño.css" rel="stylesheet" type="text/css" media="screen">
+    <link href="Css/generalColors.css" rel="stylesheet" type="text/css" media="screen">
 </head> 
 <body>
     <div class="container">
@@ -28,9 +31,10 @@
                         <div class="col-6  boxInformacion d-flex pb-5">
                             <div class="col-12 mt-5 ">
                                 <table >
-                                        <th class="col-3">Producto</th>
+                                        <th class="col-2">Producto</th>
+                                        <th class="col-2">Imagen</th>
                                         <th class="col-2">Precio</th>
-                                        <th class="col-3">Descripcion</th>
+                                        <th class="col-2">Descripcion</th>
                                         <th class="col-2">Cantidad</th>
                                         <th class="col-2">Tiempo Necesario</th>
                                         <?php 
@@ -40,18 +44,19 @@
                                             foreach($productoEncontrada as $pedidoProductos){?>
                                                 
                                                     <tr class="pedidoColor">
-                                                        <td class="col-3"><?=$pedidoProductos->getProducto()->getNombre()?></td>
+                                                        <td class="col-2"><?=$pedidoProductos->getProducto()->getNombre()?></td>
+                                                        <td class="col-2 boxImagen"><img src="<?=$pedidoProductos->getProducto()->getImagen()?>"></td>
                                                         <td class="col-2"><?=$pedidoProductos->getProducto()->getPrecio()?></td>
-                                                        <td class="col-3"><?=$pedidoProductos->getProducto()->getDescripcionCorto()?></td>
+                                                        <td class="col-2"><?=$pedidoProductos->getProducto()->getDescripcionCorto()?></td>
                                                         <td class="col-2"><?=$pedidoProductos->getCantidad()?></td>
-                                                        <td class="col-2"><?=$pedidoProductos->getProducto()->getTiempo() * $pedidoProductos->getCantidad()?></td>
+                                                        <td class="col-2"><?=$pedidoProductos->getProducto()->getTiempo() * $pedidoProductos->getCantidad()?> Min</td>
                                                     </tr>
                                                 
                                         <?php }
                                                 }?>
                                 </table>       
                                 <div class="col-12 d-flex justify-content-end mt-4 ">
-                                    <a href="<?=url."?controller=user&action=pedidoPanel"?>" class="text-decoration-none"><button class="btn btn-dark  ">VOLVER</button></a>
+                                    <a href="<?=url."?controller=user&action=pedidoPanel"?>" class="text-decoration-none"><button class="btn btn-primary  ">VOLVER</button></a>
                                 </div>
                             </div>
                         </div>

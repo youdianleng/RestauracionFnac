@@ -27,7 +27,7 @@ Class CalculadoraPrecios{
             $precioTotal += $pedido->getPrecioTotal();
         }
         //Aplicar IVA
-        $precioTotal *= 1.21;
+        $precioTotal = $precioTotal + ($precioTotal*0.21);
         //Devolver el precio acumulado
         return $precioTotal;
     }

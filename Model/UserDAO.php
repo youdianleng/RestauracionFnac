@@ -27,11 +27,11 @@ class UserDAO{
 
 
     //Buscar un usuario especificado segun el usuario y el contrasenya pasado
-    public static function getUsuarioEspecifico($nombre,$contrasenya){
+    public static function getUsuarioEspecifico($nombre){
         //Preparar la consulta select para buscar elementos en dicho BBDD
         $con = DataBase::connect();
-        $stmt = $con->prepare("SELECT * FROM clientes where Mail = ? and Contrasenya = ?");
-        $stmt->bind_param("ss",$nombre,$contrasenya);
+        $stmt = $con->prepare("SELECT * FROM clientes where Mail = ?");
+        $stmt->bind_param("s",$nombre);
 
         //Ejecutar el select, guardar el resultado y cerrar el conecxion
         $stmt->execute();
@@ -60,10 +60,10 @@ class UserDAO{
 
     //Añadir & Editar
     //Crear un nuevo usuario con los parametros pasados
-    public static function nuevaUsuario($mail,$contrasenya,$permiso=1){
+    public static function nuevaUsuario($nombre,$apellido,$mail,$contrasenya, $permiso=1){
         $con = DataBase::connect();
         //Aqui realizar el insert de los datos a BBDD
-        $stmt = mysqli_query($con,"INSERT INTO `clientes`(`Nombre`, `Apellido`, `Mail`, `Contrasenya`, `ImgUsuario`, `Permisos`) VALUES ('','','$mail','$contrasenya','','$permiso')");
+        $stmt = mysqli_query($con,"INSERT INTO `clientes`(`Nombre`, `Apellido`, `Mail`, `Contrasenya`, `ImgUsuario`, `Permisos`) VALUES ('$nombre','$apellido','$mail','$contrasenya','','$permiso')");
 
         $con->close();
         //Redireccionar al enlace siguiente

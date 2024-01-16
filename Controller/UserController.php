@@ -10,39 +10,36 @@
 
         //Mostrar el panel de Usuario
         public function userPanel(){
-            //Cuando recibe el usuario y el Contrasenya a la vez entra
-            if(isset($_POST['usuario']) && $_POST['usuario'] != null && $_POST['contrasenya'] && $_POST['contrasenya'] != null){
 
+            //Cuando recibe el usuario y el Contrasenya a la vez entra
+            if(isset($_POST['usuario']) && $_POST['usuario'] != null && $_POST['contrasenya'] && $_POST['contrasenya'] != null ){
+                
                 //Definir los variables para usuario y contrasenya
                 $usuarioRegistro = $_POST['usuario'];
                 $usuarioContrasenya = $_POST['contrasenya'];
-
                 //buscar en el bbdd el usuario que contiene el contrasenya 
-                $usuarios = UserDAO::getUsuarioEspecifico($usuarioRegistro,$usuarioContrasenya);
+                $usuarios = UserDAO::getUsuarioEspecifico($usuarioRegistro);
 
+                
                 //En caso de que usuario devuelve nulo entra
                 if($usuarios == null){
-                    
-                    //Si es nulo crea el ususario
-                    UserDAO::nuevaUsuario($usuarioRegistro,$usuarioContrasenya);
-
-                    //Vuelve a panel de Iniciar Usuario
-                    header('Location:'.url."?controller=user&action=IniciarSession");
+                    header('Location:'.url."?controller=user&action=Registracion&userMail=$usuarioRegistro");
                 }else{
 
-                    //Iniciar Session
-                    session_start();
+                    if(password_verify($usuarioContrasenya, $usuarios->getContrasenya())){
+                        //Iniciar Session
+                        session_start();
 
-                    //En caso de que usuario y Contrasenya recibido esta en bbdd entra
-                    if($_SESSION['usuario'] = UserDAO::getUsuarioEspecifico($usuarioRegistro,$usuarioContrasenya) != null){
-                        
-                        //Iniciar el session de usuario con el resultado encontrada de bbdd
-                        $_SESSION['usuario'] = UserDAO::getUsuarioEspecifico($usuarioRegistro,$usuarioContrasenya);
+                        //En caso de que usuario y Contrasenya recibido esta en bbdd entra
+                        if($_SESSION['usuario'] = UserDAO::getUsuarioEspecifico($usuarioRegistro) != null){
+                            
+                            //Iniciar el session de usuario con el resultado encontrada de bbdd
+                            $_SESSION['usuario'] = UserDAO::getUsuarioEspecifico($usuarioRegistro);
 
-                        //Enviar al Panel de usuario
-                        header('Location:'.url."?controller=user&action=controllerPanelUser");
+                            //Enviar al Panel de usuario
+                            header('Location:'.url."?controller=user&action=controllerPanelUser");
+                        }
                     }else{
-
                         //Enviar al panel de Iniciar Session
                         header('Location:'.url."?controller=user&action=IniciarSession");
                     }
@@ -61,8 +58,19 @@
                     header('Location:'.url."?controller=user&action=IniciarSession");
                 }
             }
-        
-            
+        }
+
+
+        //Registrar Usuario
+        public function registrarUsuario(){
+            if(isset($_POST["mail"],$_POST["contrasenya"])){
+                $usuarioRegistro = $_POST["mail"];
+                $usuarioContrasenya = $_POST["contrasenya"];
+                $hasedContrasenya = password_hash($usuarioContrasenya, PASSWORD_DEFAULT);
+                $nombreUsuario = $_POST["nombre"];
+                $apellidoUsuario = $_POST["apellido"];
+                UserDAO::nuevaUsuario($nombreUsuario,$apellidoUsuario,$usuarioRegistro,$hasedContrasenya);
+            }
         }
 
 
@@ -200,9 +208,14 @@
             $Pedidos = PedidoDAO::getAllPedidoAdmin();
 
             //Incluir los paneles del admin 
-            include_once "View/header.php";
-            include_once "userPanel/adminPanel.php";
-            include_once "View/footer.php";
+            if(isset($_SESSION['usuario']) && $_SESSION['usuario']->getPermisos() == 0){
+                include_once "View/header.php";
+                include_once "userPanel/adminPanel.php";
+                include_once "View/footer.php";
+            }else{
+                header('Location:'.url."?controller=user&action=IniciarSession");
+            }
+            
             
             
         }
@@ -219,6 +232,17 @@
             include_once "View/footer.php";
         }
 
+
+        //Mostrar el panel de Registro
+        public function Registracion(){
+            //Inicar el session
+            session_start();
+
+            //Incluir de panel de Iniciar el Session
+            include_once "View/header.php";
+            include_once "userPanel/registrar.php";
+            include_once "View/footer.php";
+        }
         //Eliminar el usuario 
         public function eliminarUsusario(){
             //Quitar el Cookie de Ultimo pedido de usuario

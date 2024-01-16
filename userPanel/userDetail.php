@@ -6,6 +6,9 @@
     <meta lang="es">
     <link href="Css/bootstrap.min.css" rel="stylesheet">
     <link href="Css/UserDetail.css" rel="stylesheet" type="text/css" media="screen">
+    <link href="Css/generalTexto.css" rel="stylesheet" type="text/css" media="screen">
+    <link href="Css/generalDiseño.css" rel="stylesheet" type="text/css" media="screen">
+    <link href="Css/generalColors.css" rel="stylesheet" type="text/css" media="screen">
 </head> 
 <body>
     <div class="container">

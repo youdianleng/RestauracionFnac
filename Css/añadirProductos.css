@@ -1,15 +1,15 @@
 /* Container Global */
+
+/* Font-Face */
+
+/* Configuracion basico */
 .row{
     padding: 0px;
     margin: 0px;
     
 }
 
-/* Font-Face */
 
-/* Responsive */
-
-/* Configuracion Basica */
 .noMarginBottom {
     margin-bottom: 0!important;
 }
@@ -19,15 +19,18 @@
     margin: 50px auto;
 }
 
+.float-left{
+    float: left;
+}
 
-/* Diseño */
-
-.backgroundGrey{
-    background-color: #f2f2f2;
+.border-left{
+    border-left: 5px solid #4bc7e1;
 }
 
 /* Caja de Informacion */
-.miInformacion{
+.miInformacion {
+    font-family: Roboto,Arial,Helvetica,Tahoma,sans-serif;
+    font-weight: 300;
     font-size: 28px;
 }
 
@@ -36,12 +39,37 @@
 
 }
 
-/* LI, UL, OL */
+.miInformacionDatos {
+    font-family: Roboto,Arial,Helvetica,Tahoma,sans-serif;
+    font-weight: 300;
+    font-size: 22px;
+}
 
+/* Diseño */
+
+.backgroundGrey{
+    background-color: #f2f2f2;
+}
+
+
+/* LI, UL, OL */
 .tabList {
     border-bottom: 1px solid #d8d8d8;
     height: auto;
+    padding: 8px;
+    padding-left: 0px;
+    font-size: 14px;
 }
+
+.tabList a{
+   color: #9d9a8c;
+}
+
+.tabList a:hover {
+    color: #232323;
+    border-bottom: 10px solid #232323;
+ }
+
 
 ol, ul {
     list-style: none;
@@ -49,11 +77,6 @@ ol, ul {
     margin: 0;
 }
 
-
-.tabList li.selected:hover, .tabList li:focus, .tabList li:hover {
-    border-bottom: 1px solid #232323;
-    color: #232323;
-}
 
 
 .tabList li {
@@ -68,15 +91,34 @@ ol, ul {
     width: 400px;
 }
 
+/* Button, Input */
+input{
+    width: 100%;
+    border: none;
+    border: 1px solid black;
+    border-radius: 5px;
+}
+
+
+/*Botton de Añadir*/
+.btn-primary{
+    background-color: #F5B027;
+    border-style: none;
+}
+
+.btn-primary:hover{
+    background-color: #FFC22B;
+}
+
+
+/* Table */
 table{
     text-align: center;
     
 }
 
 label{
-    border-bottom: 2px solid;
-    margin-top: 10px;
-    margin-bottom: 10px;
+    margin-top: 20px;
 }
 
 
@@ -84,12 +126,3 @@ td{
     width: 234px;
     height: 50.5px;
 }
-
-
-/* Button, Input */
-input{
-    width: 100%;
-    border: none;
-    border-bottom: 1px solid;
-}
-

@@ -3,6 +3,9 @@
     <link rel="stylesheet" href="Css/carritoCss.css">
     <link href="Css/bootstrap.min.css" rel="stylesheet">
     <link href="Css/carritoCss.css" rel="stylesheet" type="text/css" media="screen">
+    <link href="Css/generalTexto.css" rel="stylesheet" type="text/css" media="screen">
+    <link href="Css/generalDiseño.css" rel="stylesheet" type="text/css" media="screen">
+    <link href="Css/generalColors.css" rel="stylesheet" type="text/css" media="screen">
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 </head>
 <body>
@@ -55,7 +58,7 @@
                                         <?php  }?>
                                     <?php } ?>
                                 </p>
-                                <p class="txt13">Tiempo de Espera: <?=$productosCarrito->getProducto()->getTiempo()?>min</p>
+                                <p class="txt13 verdeClaro">Tiempo de Espera: <?=$productosCarrito->getProducto()->getTiempo()?>min</p>
                             </div>
                             <div class="col-4 pe-5 pt-4 align-left">
                                 <p class="txt21 txtRed"><strong><?= $productosCarrito->getProducto()->getPrecio()?>€</strong></p>
@@ -94,7 +97,7 @@
                 <div class="col-lg-3 mt-1 ms-5 boxNoneMargin">
                     <div class="col-md-12 row ">
                     <h2 class="pb-3 ms-5 boxNoneMargin boxResumen"> <span class="txt21 ">Resumen</span></h2>
-                    <div class="col-12 mt-3 backgroundGrey ms-4 pb-3 pe-3 codigoText boxCodigo">
+                    <div class="col-12 mt-3 backgroundGrey pb-3 pe-3 codigoText boxCodigo">
                         <p class="ms-4 pt-2 mb-3 ">¿Tienes un codigo de descuento?</p>
                         <div class="d-flex">
                             <input type="text" class="ms-4 col-8" placeholder="Introduce tu codigo de descuento">
@@ -103,7 +106,7 @@
                     </div>
                     
                         <div class="col-12 mt-4 backgroundGrey ms-4 d-flex justify-content-center boxNoneMargin">
-                            <div class="col-lg-10 col-md-12 ">
+                            <div class="col-lg-10 col-12 ">
                                 <div class="col-12 d-flex justify-content-between codigoText">
                                         <p class="ms-4 mt-5">Cesta<span class="txtCountCarrito">(<?php
                                             //Si el carrito existe entra
@@ -148,7 +151,7 @@
                                 </form>
                             </div>
                         </div>
-                    <div class="col-12 mt-2 backgroundGrey ms-4 mt-5">
+                    <div class="col-12 mt-2 backgroundGrey imgAcept mt-5">
                         <div class="col-12 d-flex justify-content-between aceptamos">
                                 <img src="Materiales/CarritoIcono/Aceptamos.png" alt="Aceptamos pagamiento de Bizum, MasterCard y Transferencia">
                         </div>
@@ -159,7 +162,7 @@
             </div>
 
 
-            <div class="col-12 d-flex justify-content-center">
+            <div class="col-12 d-flex justify-content-center boxUltimo mb-5">
                 <div class="col-lg-7 mt-5">
                     <h2>También te Gustaria...</h2>
                     <div class="col-lg-12 d-flex ">

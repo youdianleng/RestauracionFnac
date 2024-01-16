@@ -5,6 +5,9 @@
     <meta name="description" content="Cabecera comun de mis paginas web">
     <meta lang="es">
     <link href="Css/footer.css" rel="stylesheet" type="text/css" media="screen">
+    <link href="Css/generalTexto.css" rel="stylesheet" type="text/css" media="screen">
+    <link href="Css/generalDiseño.css" rel="stylesheet" type="text/css" media="screen">
+    <link href="Css/generalColors.css" rel="stylesheet" type="text/css" media="screen">
 </head>
 <body>
     <div class="container">

@@ -2,7 +2,9 @@
 <head>
     <link href="Css/bootstrap.min.css" rel="stylesheet">
     <link href="Css/home.css" rel="stylesheet" type="text/css" media="screen">
-    
+    <link href="Css/generalTexto.css" rel="stylesheet" type="text/css" media="screen">
+    <link href="Css/generalDiseño.css" rel="stylesheet" type="text/css" media="screen">
+    <link href="Css/generalColors.css" rel="stylesheet" type="text/css" media="screen">
 
 </head>
 <body>
@@ -52,7 +54,7 @@
             
             <div class="col-4 marginNone border-end cajaBajo">
                 <div class="estiloP mb-3 ">
-                    <img src="Materiales/recogida Gratuita.jpg" alt="Recogida Gratuita">
+                    <img src="Materiales/recogida Gratuita.svg" alt="Recogida Gratuita">
                     <div class="col-9">
                         <p>Recogida Gratuita en Tienda</p>
                         <span class="noEstiloP"><p>Elige tu tienda más cercana</p></span>
@@ -61,7 +63,7 @@
             </div>
             <div class="col-4 marginNone  border-end cajaBajo">
                 <div class="estiloP ">
-                    <img src="Materiales/promocion.png" alt="Promocion">
+                    <img src="Materiales/promocion.svg" alt="Promocion">
                     <div class="col-9">
                         <p>Descuento 5% en comidas</p>
                         <span class="noEstiloP"><p>En todos los comidas y para todo el mundo</p></span>
@@ -70,7 +72,7 @@
             </div>
             <div class="col-4 marginNone border-end cajaBajo">
                 <div class="estiloP ">
-                    <img src="Materiales/cena.png" alt="Envio Gratis">
+                    <img src="Materiales/cena.svg" alt="Envio Gratis">
                     <div class="col-9">
                         <p>Envió gratis</p>
                         <span class="noEstiloP"><p>Hazte Socio Tech+Cultura</p></span>
@@ -90,7 +92,7 @@
                         <?php 
                         //Es un bucle para mostrar todos los categorias que existe en sistema
                         foreach($Categorias as $categoria){ ?>
-                            <div class="col-md-3 col-sm-6 ">
+                            <div class="col-lg-3 col-md-6 ">
                                 <a href="<?=url."?controller=producto&action=shop&categoriaId=".$categoria->getCategoria_id()?>" class="text-decoration-none">
                                     <div class="card">
                                         <div class="divFoto">
@@ -102,7 +104,7 @@
                                             </div>
                                         </div>
                                         <div class="card-body d-flex align-items-center araboto-normal " >
-                                            <p class=" card-textP"><?= $categoria->getNombre();?></p>
+                                            <p class="card-textP araboto-normal"><?= $categoria->getNombre();?></p>
                                         </div>
                                     </div>
                                 </a> 
@@ -126,7 +128,7 @@
                         for($productos = 0; $productos < count($Productos); $productos++){ 
                             //Cuando el producto (inicio de 0) sea menos de 4 realizar lo siguiente
                             if($productos < 4){?>
-                            <div class="col-md-3 col-sm-6">
+                            <div class="col-lg-3 col-md-6">
                                 <div class="card">
                                     <div class="divFoto">
                                         <div class="col-12 d-flex justify-content-start">
@@ -137,7 +139,7 @@
                                         </div>
                                     </div>
                                     <div class="card-body d-flex align-items-center araboto-normal">
-                                        <span class="card-textP"><?=$Productos[$productos]->getNombre();?></span>
+                                        <span class="card-textP araboto-normal"><?=$Productos[$productos]->getNombre();?></span>
                                     </div>
                                 </div>
                             </div>
@@ -168,7 +170,7 @@
                     foreach ($allProductos as $producto){?>
                         
 
-                        <div class="col-md-2 col-4">
+                        <div class="col-lg-2 col-md-4">
                             <div class="card">
                                 <img src="<?= $producto->getImagen() ?>" class="object-fit-scale" style="height: 177px;" alt="<?= $producto->getDescripcion() ?>">
                                 <div class="descripcion ms-3 mb-3">
@@ -201,7 +203,7 @@
                 </div>
                 <div class="row">
                     
-                    <div class="col-4">
+                    <div class="col-lg-4 boxTotal">
                         <div class="card bg-black subrallar">
                             <img src="Materiales/Cultura_Fnac/KFC.png" style="height: 239px;" class="card-img-top" alt="KFC ha tenido evento especial para los Socios">
                             <div class="card-body text-start ">
@@ -216,7 +218,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-4">
+                    <div class="col-lg-4 boxTotal">
                         <div class="card bg-black subrallar">
                             <img src="Materiales/Cultura_Fnac/Telepizza.jpg" style="height: 239px;" class="card-img-top" alt="Telepizza ha salido su nueva producto de pizza quard de queso">
                             <div class="card-body text-start">
@@ -231,7 +233,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-4">
+                    <div class="col-lg-4 boxTotal">
                         <div class="card bg-black subrallar">
                             <img src="Materiales/Cultura_Fnac/Viena.jpg" class="card-img-top" style="height: 239px;" alt="Viena ha abierto su quintena restaurante despues de 6 años">
                             <div class="card-body text-start">

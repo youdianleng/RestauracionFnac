@@ -7,6 +7,9 @@
     <meta name="description" content="Es el sitio donde muestra los productos segun los categorias que elige">
     <link href="Css/bootstrap.min.css" rel="stylesheet">
     <link href="Css/cartaCss.css" rel="stylesheet" type="text/css" media="screen">
+    <link href="Css/generalTexto.css" rel="stylesheet" type="text/css" media="screen">
+    <link href="Css/generalDiseño.css" rel="stylesheet" type="text/css" media="screen">
+    <link href="Css/generalColors.css" rel="stylesheet" type="text/css" media="screen">
 </head>
 <body>
     <div class="container">
@@ -56,16 +59,19 @@
                                             <img class="mt-4" src="<?=$producto->getImagen()?>" style="width: 250px; height: 200px;" alt="<?=$producto->getDescripcion()?>">
                                         </div>
                                         <div class="col-lg-6 col-md-12">
-                                            <p class="txt15"><?=$producto->getNombre()?></p>
+                                            <p class="txt15 araboto-normal"><?=$producto->getNombre()?></p>
                                             <p class="txt13 ">Humo Restaurant</p>
                                             <p class="txt12 mt-1"><?=$producto->getDescripcion()?></p>
                                             <div class="d-flex justify-content-end txt13 pt-1">
-                                                <a href="#"><u>Ver Productos</u></a>
+                                                <form id="enviaProductoPanel" action="<?=url."?controller=Producto&&action=productoPanel"?>" method="POST" style="display: none;">
+                                                    
+                                                </form>
+                                                <a href="#" onclick="document.getElementById('enviaProductoPanel').submit(); return false;"><u>Ver Productos</u></a>
                                             </div>
                                             
                                             <div class="col-12 cajaDescripcion d-flex">
                                                 <div class="col-6 descripcionSub1 d-flex ps-4 pt-2 pb-5">
-                                                    <div class="col-6">
+                                                    <div class="col-6 shadowLetra">
                                                             <p class="pt-1 specialp">Tipo</p>
                                                             <p class="pt-3 specialp">Restaurante</p>
                                                             <p class="pt-3 specialp">Horario</p>
@@ -98,9 +104,9 @@
                                             </div>
                                         </div>
                                         <div class="col-lg-3 col-md-12 d-flex justify-content-center">
-                                            <div class="row">
+                                            <div class="row col-12 col-lg-10">
                                                 <div class="col-12 d-flex justify-content-end align-items-end txt24 fw-bold" style="color: #DD1E35;">
-                                                    <p class="pb-3"><?=$producto->getPrecio()?>€</p>
+                                                    <p class="pb-3 normalPrecio"><?=$producto->getPrecio()?>€</p>
                                                 </div>
                                                 <div class="col-12 d-grid gap-2" style="max-height: 40px;">
                                                     <form action="<?= url . "?controller=producto&action=shop" ?>" method="POST" class="col-12">
@@ -139,12 +145,12 @@
                 </div>
                 <div class="d-flex">
                 <?php foreach($ProductosUltimos as $productoUlt){ ?>
-                    <div class="col-md-4 col-lg-2 borderSolid">
+                    <div class="col-4 col-md-2 borderSolid">
                         <div class="card">
-                            <img src="Materiales/Productos/ramen.png" class="card-img-top" alt="Ramen, comida tipica de Japan">
+                            <img src="<?=$productoUlt->getImagen()?>" class="card-img-top" alt="Ramen, comida tipica de Japan">
                             <div class="card-body ms-3">
-                                <h5 class="ultiProd card-title"><?=$productoUlt->getNombre()?></h5>
-                                <p class="ultiProdDesc card-text"><?=$productoUlt->getDescripcionCorto()?></p>
+                                <h5 class="ultiProd card-title "><?=$productoUlt->getNombre()?></h5>
+                                <p class="ultiProdDesc card-text shadowLetra2"><?=$productoUlt->getDescripcionCorto()?></p>
                             </div>
                             <ul class="list-group-flush mt-5 araboto-normal ">
                                     <li class="ultiProdPrec list-group-item fw-bold"><?=$productoUlt->getPrecio() ?>€</li>
