@@ -2,5 +2,58 @@
 
 
 /* Border */
+.borderLeft{
+    border-left: 1px solid;
+}
+
+.borderRight{
+    border-right: 1px solid;
+}
+
+/* border_color */
+.bd-f4f{
+    border-color: #f4f4ed;
+}
+
 
 /* Margin & Padding */
+.padding30{
+    padding: 30px;
+}
+
+.noPaddingBottom{
+    padding-bottom: 0!important;
+}
+
+
+.noMarginBottom{
+    margin-bottom: 0;
+}
+
+.marginTop30{
+    margin-top: 30px!important;
+}
+
+.marginBot16{
+    margin-bottom: 16px!important;
+}
+/* Styles de a y listas */
+li{
+    list-style: none;
+}
+
+a{
+    text-decoration: none;
+}
+
+
+
+/* Espaciado */
+.espacioLetter2{
+    letter-spacing: 2px!important;
+}
+
+/* Backgrounds */
+.bg-white{
+    background-color: white;
+}

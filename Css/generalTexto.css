@@ -1,10 +1,60 @@
+
+
+/* Font-Face */
+
+@font-face {
+    font-family: "araboto-light";
+    src: url("Fuentes/Araboto_Light_400.ttf");
+}
+
+@font-face {
+    font-family: "araboto-normal";
+    src: url("Fuentes/Araboto_Normal.ttf");
+}
+
+.araboto-normal{
+    font-family: "araboto-normal";
+}
+
+
+.araboto-light{
+    font-family: "araboto-light";
+}
 /* Textos */
+.txt11{
+    font-size: 11px;
+}
+
 .txt13{
     font-size: 13px;
 }
 
+.txt14{
+    font-size: 14px;
+}
+
 .txt15{
     font-size: 15px;
+}
+
+.txt16{
+    font-size: 16px;
+}
+
+.txt18{
+    font-size: 18px!important;
+}
+
+.txt19{
+    font-size: 19px!important;
+}
+
+.txt54{
+    font-size: 54px!important;
+}
+
+.txt48{
+    font-size: 48px!important;
 }
 
 .txt20{

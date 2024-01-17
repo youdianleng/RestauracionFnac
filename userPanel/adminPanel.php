@@ -27,20 +27,20 @@
                     <div class="col-2 cajaRedirige">
                         <div class="col-12 d-flex boton efectSelect mt-2">
                             <a class="d-flex align-items-center " href="#">
-                                <img src="Materiales/redirigeAdmin/ProductoGestion.svg">
+                                <img src="Materiales/productosIndividual/redirigeAdmin/ProductoGestion.svg">
                                 <div class="gestionProducto txt13 fw700 ps-2 black">Gestionar Productos</div>
                             </a>
                             
                         </div>
                         <div class="col-12 d-flex boton efectSelect mt-2">
                             <a class="d-flex align-items-center" href="#">
-                                <img src="Materiales/redirigeAdmin/UsuarioCliente.svg">
+                                <img src="Materiales/productosIndividual/redirigeAdmin/UsuarioCliente.svg">
                                 <div class="gestionProducto txt13 fw700 ps-2 black">Gestionar Clientes</div>
                             </a>
                         </div>
                         <div class="col-12 d-flex boton efectSelect mt-2" >
                             <a class="d-flex align-items-center" href="#">
-                                <img src="Materiales/redirigeAdmin/NegroPaquete.svg">
+                                <img src="Materiales/productosIndividual/redirigeAdmin/NegroPaquete.svg">
                                 <div class="gestionProducto txt13 fw700 ps-2 black">Gestionar Pedidos</div>
                             </a>
                         </div>

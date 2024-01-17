@@ -9,34 +9,9 @@ body{
 .container{
     padding: 0px;
     max-width: 1440px;
+    height: 100%;
 }
 
-
-
-/* Font-Face */
-
-@font-face {
-    font-family: "araboto-light";
-    src: url("Fuentes/Araboto_Light_400.ttf");
-}
-
-@font-face {
-    font-family: "araboto-normal";
-    src: url("Fuentes/Araboto_Normal.ttf");
-}
-
-/*Textos*/
-.txt13{
-    font-size: 13px;
-}
-
-.txt15{
-    font-size: 15px;
-}
-
-.color98{
-    color: #989898!important;
-}
 
 /* Configuracion Basica */
 .row{
@@ -111,6 +86,7 @@ body{
 
 .ResumenBox{
     margin-top: 32px;
+    height: 100%;
 }
 
 .boxResumen{
@@ -120,8 +96,9 @@ body{
 }
 
 .productReassurance{
-    height: 200px;
-    background-color: green;
+    margin-top: 30px;
+    height: 40px;
+    padding: 0px;
 }
 
 /* Caja de informacion de compras */
@@ -140,6 +117,10 @@ body{
 
 .btnAñadir{
     margin-top: 25px;
+}
+
+.cajasOpciones{
+    height: 100%;
 }
 /*Interior de informacion de compras InfoComprDetall*/
 .InfoComprDetall{
@@ -213,7 +194,7 @@ body{
 /*Caja de informacion Y ademas*/
 .boxYDemas{
     margin-top: 32px;
-    height: auto;
+    height: 100%;
 }
 
 .ofertaProducto{
@@ -236,4 +217,140 @@ body{
 
 .fnacPro p{
     margin: 0px;
+}
+
+.paddingBox{
+    padding: 10px 30px 30px!important;
+}
+
+.svgReseaurence{
+    margin-right: 12px;
+    width: 40px;
+    height: 40px;
+}
+.boxinfoContent{
+    line-height: 35px;
+}
+
+.separadorGrey{
+    height: 30px;
+}
+
+
+.boxOpiniones li{
+    height: 70px;
+}
+
+ul{
+    padding: 0px;
+    margin: 0px;
+    height: 100%;
+}
+
+.boxOpiniones li a{
+    padding: 10px 20px;
+    height: 100%;
+}
+.fotosAñadir svg{
+    height: 50px;
+    width: 50px;
+}
+
+.boxInfoOpiniones{
+    padding: 0px;
+    box-shadow: 0px 2px 10px 0px #555;
+}
+
+.boxOpiniones li:hover{
+    filter: blur(0.5px);
+    padding-top: 10px;
+    border-bottom: 10px solid #232323;
+}
+
+.cajaPrincipalInformacionTotal{
+    margin-top: 10px;
+    padding: 30px;
+    height: 3097px;
+    background-color: #f2f2f2;
+}
+
+.resumenDetalle{
+
+    height: auto;
+}
+
+.paddingTxtResumen{
+    padding: 16px 30px 30px;
+}
+
+.resumback{
+    background-color: white;
+}
+
+.fnacPublicidad{
+    width: 297px;
+    height: 248px;
+    background-color: white;
+    
+}
+
+.opinionesDetalle{
+    margin-top: 30px!important;
+    background-color: white;
+}
+
+.cajaExtrella{
+    width: 50px;
+    height: 50px;
+}
+
+.borderEstrella{
+    background-color: #fff;
+    border: 1px solid #f2f2f2;
+    border-radius: 9px;
+    height: 200px;
+}
+
+.boxGeneralEstrella{
+    padding: 0 25px;
+}
+
+.boxCantResenya{
+    padding: 20px 0;
+}
+
+.svgEstrellaSmall{
+    width: 18px;
+    height: 18px;
+}
+
+.svgTickaSmall{
+    height: 10.73px;
+    width: 10.73px;
+}
+
+
+.boxCarouselResenya{
+    height: 100%;
+}
+
+.CarouselResenya{
+    height: 100%;
+}
+
+.carousel-inner{
+    height: 100%;
+}
+
+.carousel-item{
+    height: 100%;
+}
+
+.carouselItem2{
+    height: 100%;
+}
+
+.caractDetalle dl{
+    padding: 10px 16px;
+    background-color: #f9f9f9;
 }

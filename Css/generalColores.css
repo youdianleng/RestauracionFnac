@@ -1,3 +1,26 @@
+/* Colores Simples */
+
 .black{
     color: black!important;
+}
+
+
+
+/* Colores especiales */
+.color98{
+    color: #989898!important;
+}
+
+.color30{
+    color: #303030!important;
+}
+
+.colorF5{
+    color: #f5b027;;
+}
+
+/* Color Background */
+
+.bg-f2{
+    background-color: #f2f2f2;
 }
