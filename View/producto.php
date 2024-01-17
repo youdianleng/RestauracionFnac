@@ -549,12 +549,150 @@
 
           <!-- Preguntas -->
           </section>
-          <section class="preguntaRespDetalle col-12 marginTop30 bg-white">
+          <section class="preguntaRespDetalle col-12 marginTop30 bg-white" id="preguntas">
             <div>
-                <div class="noPaddingBottom padding30">
-                  <h2 class="noMarginBottom">CARACTERÍSCTICAS</h2>
+                <div class="padding30">
+                  <h2 class="noMarginBottom">PREGUNTAS & RESPUESTAS</h2>
+                  <div class="d-flex align-items-center">
+                    <button class="marginRight20 btn btn-primary btnPreguntar ">Preguntar</button>
+                    <p class="noMarginBottom txt21">Apple iPad 2021 10,2" 64GB WI-FI Gris espacial</p>
+                  </div>
+                  
                 </div>
-                
+                <div class="col-12 padding30">
+                  <div id="carouselExample2" class="carousel slide col-12 CarouselResenya">
+                    <div class="carousel-inner">
+                      <div class="carousel-item active col-12">
+                        <div class="d-block w-100 d-flex carouselItem2">
+                          <div class="row borderLeft bd-f4f col-4">
+                            <a class="marginBot16 txt19 black fw-bold">JOSE LUIS .J</a>
+                            <div class="d-flex marginBot16 align-items-center">
+                              <svg class="svgEstrellaSmall">
+                                <image href="Materiales/productoIndividual/valoracionOpiniones/Estrella.png" width="18px" height="18px"></image>
+                              </svg>
+                              <p class="noMarginBottom ms-1 colorF5">5</p>
+                            </div>
+                            <div class="d-flex align-items-center ">
+                              <svg class="svgTickaSmall">
+                                <image href="Materiales/productoIndividual/valoracionOpiniones/tick.png" width="10.73px" height="10.73px"></image>
+                              </svg>
+                              <p class="txt11 noMarginBottom espacioLetter2 ms-1">COMPRAS VERIFICADAS</p>
+                            </div>
+                            
+                            <p class="txt13">Publicado el 14 oct. 2021</p>
+                            <p class="marginBot16 txt16 fw-bold">Rápido y perfecto</p>
+                            <p class="marginBot16 txt14">Como siempre Apple con un sistema operativo rápido sin problemas. Funciona perfectamente</p>
+                          </div>
+                          <div class="row borderLeft bd-f4f col-4">
+                            <a class="marginBot16 txt19 black fw-bold">JOSE LUIS .J</a>
+                            <div class="d-flex marginBot16 align-items-center">
+                              <svg class="svgEstrellaSmall">
+                                <image href="Materiales/productoIndividual/valoracionOpiniones/Estrella.png" width="18px" height="18px"></image>
+                              </svg>
+                              <p></p>
+                            </div>
+                            <div class="d-flex align-items-center ">
+                              <svg class="svgTickaSmall">
+                                <image href="Materiales/productoIndividual/valoracionOpiniones/tick.png" width="10.73px" height="10.73px"></image>
+                              </svg>
+                              <p class="ms-1"></p>
+                            </div>
+                            <p class="marginBot16"></p>
+                            <p class="marginBot16"></p>
+                            <p class="marginBot16"></p>
+                          </div>
+                          <div class="row borderLeft bd-f4f col-4">
+                            <a class="marginBot16 txt19 black fw-bold">JOSE LUIS .J</a>
+                            <div class="d-flex marginBot16 align-items-center">
+                              <svg class="svgEstrellaSmall">
+                                <image href="Materiales/productoIndividual/valoracionOpiniones/Estrella.png" width="18px" height="18px"></image>
+                              </svg>
+                              <p></p>
+                            </div>
+                            <div class="d-flex align-items-center">
+                              <svg class="svgTickaSmall">
+                                <image href="Materiales/productoIndividual/valoracionOpiniones/tick.png" width="10.73px" height="10.73px"></image>
+                              </svg>
+                              <p class="ms-1"></p>
+                            </div>
+                            <p class="marginBot16"></p>
+                            <p class="marginBot16"></p>
+                            <p class="marginBot16"></p>
+                          </div>
+                        </div>
+                        
+                      </div>
+                      <div class="carousel-item col-12">
+                        <div class="d-block w-100 d-flex carouselItem2">
+                          <div class="row borderLeft bd-f4f col-4">
+                            <a class="marginBot16 txt19 black fw-bold">JOSE LUIS .J</a>
+                            <div class="d-flex marginBot16 align-items-center">
+                              <svg class="svgEstrellaSmall">
+                                <image href="Materiales/productoIndividual/valoracionOpiniones/Estrella.png" width="18px" height="18px"></image>
+                              </svg>
+                              <p class="noMarginBottom ms-1 colorF5">5</p>
+                            </div>
+                            <div class="d-flex align-items-center ">
+                              <svg class="svgTickaSmall">
+                                <image href="Materiales/productoIndividual/valoracionOpiniones/tick.png" width="10.73px" height="10.73px"></image>
+                              </svg>
+                              <p class="txt11 noMarginBottom espacioLetter2 ms-1">COMPRAS VERIFICADAS</p>
+                            </div>
+                            
+                            <p class="txt13">Publicado el 14 oct. 2021</p>
+                            <p class="marginBot16 txt16 fw-bold">Rápido y perfecto</p>
+                            <p class="marginBot16 txt14">Como siempre Apple con un sistema operativo rápido sin problemas. Funciona perfectamente</p>
+                          </div>
+                          <div class="row borderLeft bd-f4f col-4">
+                            <a class="marginBot16 txt19 black fw-bold">JOSE LUIS .J</a>
+                            <div class="d-flex marginBot16 align-items-center">
+                              <svg class="svgEstrellaSmall">
+                                <image href="Materiales/productoIndividual/valoracionOpiniones/Estrella.png" width="18px" height="18px"></image>
+                              </svg>
+                              <p></p>
+                            </div>
+                            <div class="d-flex align-items-center ">
+                              <svg class="svgTickaSmall">
+                                <image href="Materiales/productoIndividual/valoracionOpiniones/tick.png" width="10.73px" height="10.73px"></image>
+                              </svg>
+                              <p class="ms-1"></p>
+                            </div>
+                            <p class="marginBot16"></p>
+                            <p class="marginBot16"></p>
+                            <p class="marginBot16"></p>
+                          </div>
+                          <div class="row borderLeft bd-f4f col-4">
+                            <a class="marginBot16 txt19 black fw-bold">Jqwewq .J</a>
+                            <div class="d-flex marginBot16 align-items-center">
+                              <svg class="svgEstrellaSmall">
+                                <image href="Materiales/productoIndividual/valoracionOpiniones/Estrella.png" width="18px" height="18px"></image>
+                              </svg>
+                              <p></p>
+                            </div>
+                            <div class="d-flex align-items-center">
+                              <svg class="svgTickaSmall">
+                                <image href="Materiales/productoIndividual/valoracionOpiniones/tick.png" width="10.73px" height="10.73px"></image>
+                              </svg>
+                              <p class="ms-1"></p>
+                            </div>
+                            <p class="marginBot16"></p>
+                            <p class="marginBot16"></p>
+                            <p class="marginBot16"></p>
+                          </div>
+                        </div>
+                        
+                      </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample2" data-bs-slide="prev">
+                      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                      <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExample2" data-bs-slide="next">
+                      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                      <span class="visually-hidden">Next</span>
+                    </button>
+                  </div>
+                </div>
               </div>
             </section>
         </div>
