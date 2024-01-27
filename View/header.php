@@ -10,7 +10,7 @@
     <link rel="icon" href="Materiales/Fnac_Logo.svg" type="image/x-icon">
     <link href="Css/generalTexto.css" rel="stylesheet" type="text/css" media="screen">
     <link href="Css/generalDiseño.css" rel="stylesheet" type="text/css" media="screen">
-    <link href="Css/generalColors.css" rel="stylesheet" type="text/css" media="screen">
+    <link href="Css/generalColores.css" rel="stylesheet" type="text/css" media="screen">
 </head>
 <body>
     <div class="container">

@@ -31,8 +31,15 @@
                         <p>CARTAS</p>
                     </div>
                 </div>
-                <div class="ordenar">
-                    <p>ordenar por</p>
+                <div class="ordenar d-flex">
+                    <div class="dropdown-center d-flex align-items-center">
+                        <p>Ordenar Por</p>
+                        <button class="btn dropdown-toggle btn-Ordenar" data-bs-toggle="dropdown" aria-expanded="false">
+                        </button>
+                        <ul class="dropdown-menu" id="dropDownMenu">
+
+                        </ul>
+                    </div>
                 </div>
             </div>
             <div class="col-2 d-flex justify-content-around align-items-center border ">
@@ -63,10 +70,7 @@
                                             <p class="txt13 ">Humo Restaurant</p>
                                             <p class="txt12 mt-1"><?=$producto->getDescripcion()?></p>
                                             <div class="d-flex justify-content-end txt13 pt-1">
-                                                <form id="enviaProductoPanel" action="<?=url."?controller=Producto&&action=productoPanel"?>" method="POST" style="display: none;">
-                                                    
-                                                </form>
-                                                <a href="#" onclick="document.getElementById('enviaProductoPanel').submit(); return false;"><u>Ver Productos</u></a>
+                                                <a href="<?=url."?controller=Producto&&action=productoPanel&prod_id=".$producto->getProdId()?>"><u>Ver Productos</u></a>
                                             </div>
                                             
                                             <div class="col-12 cajaDescripcion d-flex">
@@ -170,5 +174,9 @@
             </div>
         </div>
     </div>
+
+              
+
 </body>
+<script src="js/cartaOrdenar.js"></script>
 </html>

@@ -308,8 +308,14 @@
                           <p class="color98">13 opiniones - 20 en el gama</p>
                         </div>
                         <div class="d-flex align-items-center col-12 justify-content-center">
-                          <form >
-                            <button class="btn btn-primary">Dar una opinión</button>
+                          <form action="" method="POST">
+                          <input id="idProd" value="<?=$_GET["prod_id"]?>" hidden>
+                          <input id="idUser" value="<?php if(isset($_SESSION["usuario"])){
+                              echo $_SESSION["usuario"]->getCliente_id();
+                          }else{
+                              echo "";
+                          }?>" hidden>
+                          <button class="btn btn-primary" type="button" data-bs-toggle="modal" id="btnModal" data-bs-target="#exampleModal">Dar una opinión</button>
                           </form>
                         </div>
                         <div class="d-flex align-items-center col-12 justify-content-center boxCantResenya">
@@ -698,20 +704,33 @@
         </div>
       </div>
     </div>
+
+    <!-- Modal Para dar Opiniones-->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+        <div class="modal-body">
+            <h3>Darnos tu Opinion</h1>
+            <div>
+            <div class="star-container" onmousemove="MoverEnEstrella(event)" onmouseout="fueraDeEstrella()">
+              <span class="star" onclick="clicarEstrella(1)" id="star1">★</span>
+              <span class="star" onclick="clicarEstrella(2)" id="star2">★</span>
+              <span class="star" onclick="clicarEstrella(3)" id="star3">★</span>
+              <span class="star" onclick="clicarEstrella(4)" id="star4">★</span>
+              <span class="star" onclick="clicarEstrella(5)" id="star5">★</span>
+            </div>
+              <textarea id="resenyaPorUsuario"></textarea>
+            </div>
+            <input id="prodIdValue" hidden>
+            <input id="userIdValue" hidden>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="button" onclick="enviarDatos()" class="btn btn-primary">Save changes</button>
+        </div>
+        </div>
+    </div>
+    </div>  
 </body>
-
-<script>
-  window.addEventListener('scroll', function() {
-    let scrollTop = window.scrollY;
-    let contenedor = document.querySelector('.contenedor');
-    let imagenFija = document.querySelector('.imagen-fija');
-
-    let maxDesplazamiento = contenedor.clientHeight - imagenFija.clientHeight;
-
-    // Ajustar la posición de la imagen dentro del rango permitido
-    let nuevaPosicion = Math.min(maxDesplazamiento, Math.max(0, scrollTop));
-
-    imagenFija.style.top = nuevaPosicion + 'px';
-  });
-</script>
+<script src="js/producto.js"></script> 
 </html>

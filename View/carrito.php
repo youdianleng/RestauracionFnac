@@ -146,12 +146,19 @@
                                         } ?>">
                                     
                                         <div class="d-grid gap-2 col-11 mx-auto mt-2 pb-4">
-                                        <button class="btn btn-primary" type="submit">Finalizar la Compra</button>
+                                        <button class="btn btn-primary" onclick="aplicarPunto()" type="submit">Finalizar la Compra</button>
                                     </div>
                                 </form>
                             </div>
                         </div>
-                    <div class="col-12 mt-2 backgroundGrey imgAcept mt-5">
+                    <div class="col-12 mt-2 backgroundGrey imgAcept mt-3">
+                        <div class="col-12 d-flex justify-content-between aceptamos" id="propina">
+                            <input id="verificarCarrito" value="<?=count($_SESSION['Carrito'])?>" hidden>
+                            <input id="UsuarioActual" value="<?=$_SESSION['usuario']->getCliente_id()?>" hidden>
+                            
+                        </div>
+                    </div>
+                    <div class="col-12 mt-2 backgroundGrey imgAcept mt-3">
                         <div class="col-12 d-flex justify-content-between aceptamos">
                                 <img src="Materiales/CarritoIcono/Aceptamos.png" alt="Aceptamos pagamiento de Bizum, MasterCard y Transferencia">
                         </div>
@@ -256,16 +263,6 @@
     
 })
 </script>
-
-<script>
-    function validarFormulario() {
-      // Aquí puedes realizar tus validaciones
-      // Por ejemplo, verificar si los campos obligatorios están llenos
-
-      // Si la validación falla, puedes mostrar un mensaje de error y devolver false
-      // Si la validación es exitosa, puedes permitir el envío del formulario devolviendo true
-      return confirm("¿Estás seguro de enviar el formulario?");
-    }
-  </script>
+<script src="js/carrito.js"></script>
 <script src="js/bootstrap.bundle.min.js"></script>
 </html>

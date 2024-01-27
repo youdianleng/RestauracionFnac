@@ -1,0 +1,9 @@
+<svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 96" width="100" height="96">
+	<title>Estrella</title>
+	<defs>
+		<image  width="80" height="75" id="img1" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFAAAABLBAMAAAAVLh3GAAAAAXNSR0IB2cksfwAAABtQTFRF/////OvJ/vXk+teT9bAn+MRd++Gu9rpC+c54xzQ2YgAAAAl0Uk5TAP+w////////hUGeRAAAAa1JREFUeJyNlrFugzAQhgFDk5GhKisDUdcMljK3vbQZq4oHQFHVzpGQujLw4I0xJrHvDp+nCH3o5zPnnyQJXmlNXKSW2gvB/FMIPr4KQf0mBOEo4zKAWgQqAJl2DiDTbgBk2hrgXQQCyLSv0jJtZcBOAG4MKNFuDCjR1gaUaPcg056kJdrKgl0U3FhwiIKNBePa2oJx7daCpxg3S8e1lQO7CFg4cIiAjQOR9tOPt0YHnvzr52QLonU9l5WEu5gNaeOcHSbVR8HS+kTDL858XOdurzMSXt42czX8637bV8L9Vk3Z8I/SA5MdB6IqONDcCxobOvxYIpCejgFzZDgOpsOPNQnicPbj8O1z/NnWPsh/6cJH5LgsANkSUCHYMWAeglzlNyHIdZ8OQW5/8JsRSnPaSJrT3iyJyzPQ2ov0fpkOWttJX3vhd1W7v6lm82+y8p30NIQunNJWS7BZFa9deHs8t+bASi/H0xYXpT1J3xVSxWmbLG/4R1rbSPuF9NCT2gq/sWfwSnReBXHqRkq7QU04dQfW1tSo7Ij2aclCOiDtjC6k9C+8wv1J37r7/wHrWR0yOANR3QAAAABJRU5ErkJggg=="/>
+	</defs>
+	<style>
+	</style>
+	<use id="Background" href="#img1" x="11" y="11"/>
+</svg>

@@ -1,3 +1,15 @@
+/* Contenidor Globar */
+body{
+    width: 100%;
+    height: auto;
+    margin-left: auto;
+    margin-right: auto;
+}
+.container{
+    padding: 0px;
+    max-width: 1440px;
+}
+
 /* Botones */
 
 
@@ -10,11 +22,25 @@
     border-right: 1px solid;
 }
 
+.noBorderTop{
+    border-top: none!important;
+}
+
+.noBorderLeft{
+    border-left: none!important;
+}
+
+.noBorderRight{
+    border-right: none!important;
+}
 /* border_color */
 .bd-f4f{
     border-color: #f4f4ed;
 }
 
+.bd-d8d{
+    border-color: #d8d8d8;
+}
 
 /* Margin & Padding */
 .padding30{
@@ -60,4 +86,14 @@ a{
 /* Backgrounds */
 .bg-white{
     background-color: white;
+}
+
+/*Botton de Añadir*/
+.btn-primary{
+    background-color: #F5B027;
+    border-style: none;
+}
+
+.btn-primary:hover{
+    background-color: #FFC22B;
 }

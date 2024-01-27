@@ -44,6 +44,12 @@
                                 <div class="gestionProducto txt13 fw700 ps-2 black">Gestionar Pedidos</div>
                             </a>
                         </div>
+                        <div class="col-12 d-flex boton efectSelect mt-2" >
+                            <a class="d-flex align-items-center" href="<?=url."?controller=user&action=panelResenyas"?>">
+                                <img src="Materiales/productosIndividual/redirigeAdmin/NegroPaquete.svg">
+                                <div class="gestionProducto txt13 fw700 ps-2 black">Ver Resenyas</div>
+                            </a>
+                        </div>
                     </div>
                     <div class="col-10 mt-5">
                         <h2>Productos</h2>

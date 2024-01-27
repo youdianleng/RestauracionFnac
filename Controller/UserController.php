@@ -243,6 +243,18 @@
             include_once "userPanel/registrar.php";
             include_once "View/footer.php";
         }
+
+        //Mostrar el panel de Resenyas
+        public function panelResenyas(){
+            //Inicar el session
+            session_start();
+            //Incluir de panel de Iniciar el Session
+            include_once "View/header.php";
+            include_once "View/resenyas.php";
+            include_once "View/footer.php";
+        }
+
+
         //Eliminar el usuario 
         public function eliminarUsusario(){
             //Quitar el Cookie de Ultimo pedido de usuario

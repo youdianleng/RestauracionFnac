@@ -170,18 +170,6 @@ a{
 }
 
 
-
-/*Botton de Añadir*/
-.btn-primary{
-    background-color: #F5B027;
-    border-style: none;
-}
-
-.btn-primary:hover{
-    background-color: #FFC22B;
-}
-
-
 /* Caja de Informacion */
 
 
@@ -262,3 +250,21 @@ a{
     padding: 0px;
 }
 
+.show{
+    border-color:transparent!important;
+}
+
+:not(.btn-check)+.btn:active {
+    border-color:transparent!important;
+}
+.dropdown-menu{
+    border-color: #989898!important;
+}
+
+.liRange{
+    width: 300px;
+}
+
+#rangePrecio{
+    width: 100%;
+}

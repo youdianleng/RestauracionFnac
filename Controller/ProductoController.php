@@ -135,7 +135,9 @@
                                     break;
                                 }elseif(!in_array($pedido->getProducto()->getProdId(),$arrayProd)){
                                     //Añadir al array Carrito el pedido acaba de crear
+                                    $CarritoProd->setCantidad($CarritoProd->getCantidad() - 1);
                                     array_push($_SESSION['Carrito'],$pedido);
+                                    
                                     break;
                                 }
                             }
@@ -389,7 +391,12 @@
         //Preparado para el Proyecto de Javascript
         public function productoPanel(){
 
-
+            session_start();
+            if(isset($_SESSION['usuario'])){
+                $usuario = $_SESSION['usuario'];
+            }else{
+                $usuario = "";
+            }
             //Incluir los paneles necesarios para mostrar al web
             include_once "View/header.php";
             include_once "View/producto.php";
