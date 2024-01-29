@@ -18,5 +18,5 @@
 <script src="js/resenyas.js"></script>
 <script src="js/filtracionResenyas.js"></script>
 <script src="js/insertHTML.js"></script>
-<script src="js/notie.js"></script>
+<script src="https://unpkg.com/notie"></script>
 </html>

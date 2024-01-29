@@ -14,8 +14,7 @@ function getUsuarioPropina(user_id){
         return response.json();
     })
     .then(data => {
-        console.log("data");
-        if(data == null){
+        if(!data){
             aplicarPropinaUsuario(user_id,propinaSeleccionado)
         }
     })
@@ -63,14 +62,10 @@ if(propinaCarrito != 0){
     let propinaBoxPrimero = document.createElement('div');
     let propinaBoxTexto = document.createElement('p');
     let propinaSelectBox = document.createElement('div');
-    let propinaSelect = document.createElement('select');
-    let propinaSelectDefault = document.createElement('option');
-    let propinaSelectUnEuro = document.createElement('option');
-    let propinaSelectTresEuro = document.createElement('option');
-    let propinaSelectCincoEuro = document.createElement('option');
-    let propinaSelectDiezEuro = document.createElement('option');
-    let propinaSelectVeinteEuro = document.createElement('option');
-    let propinaSelectCincuantaEuro = document.createElement('option');
+    let propinaSelect = document.createElement('input');
+    propinaSelect.type = "range";
+    propinaSelect.setAttribute("min","3");
+    propinaSelect.setAttribute("max","100");
 
     propinaBoxPrimero.classList.add("row","col-12","mt-2","mb-2");
     propinaBoxTexto.classList.add("txt18");
@@ -79,19 +74,6 @@ if(propinaCarrito != 0){
     propinaSelect.id = "propinas";
 
 
-    propinaSelectDefault.innerHTML = "Dar propinas";
-    propinaSelectUnEuro.value = 1;
-    propinaSelectUnEuro.innerHTML = "1€";
-    propinaSelectTresEuro.value = 2;
-    propinaSelectTresEuro.innerHTML = "2€";
-    propinaSelectCincoEuro.value = 5;
-    propinaSelectCincoEuro.innerHTML = "5€";
-    propinaSelectDiezEuro.value = 10;
-    propinaSelectDiezEuro.innerHTML = "10€";
-    propinaSelectVeinteEuro.value = 20;
-    propinaSelectVeinteEuro.innerHTML = "20€";
-    propinaSelectCincuantaEuro.value = 50;
-    propinaSelectCincuantaEuro.innerHTML = "50€";
 
     propinaBoxTexto.innerText = "Quiero dar Propinas!";
 
@@ -99,13 +81,6 @@ if(propinaCarrito != 0){
     propinaBoxPrimero.append(propinaBoxTexto);
     propinaBoxPrimero.append(propinaSelectBox);
     propinaSelectBox.append(propinaSelect);
-    propinaSelect.append(propinaSelectDefault);
-    propinaSelect.append(propinaSelectUnEuro);
-    propinaSelect.append(propinaSelectTresEuro);
-    propinaSelect.append(propinaSelectCincoEuro);
-    propinaSelect.append(propinaSelectDiezEuro);
-    propinaSelect.append(propinaSelectVeinteEuro);
-    propinaSelect.append(propinaSelectCincuantaEuro);
 
     let propinaSeleccionado = document.getElementById('propinas');
     propinaSeleccionado.addEventListener('change', function() {

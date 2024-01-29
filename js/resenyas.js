@@ -174,8 +174,6 @@ function mostrarReseñas(reseny){
 
     ArrayDeComentarios = [];
     reseny.forEach(resenyaIndividual => {
-
-        console.log(resenyaIndividual);
         ArrayDeComentarios.push({
             user_id : resenyaIndividual['Nombre'],
             producto_id : resenyaIndividual['prod_id'],
@@ -213,14 +211,19 @@ function mostrarReseñas(reseny){
         //Crear un button para Generar QR de Cada Resenyas
         let boxButton = document.createElement("div");
         boxButton.classList.add("d-flex","justify-content-end");
+        boxButton.id = "boxButton";
         let buttonQRResenya = document.createElement("button");
-        buttonQRResenya.classList.add("btn","btn-primary"); 
+        // buttonQRResenya.value = resenyaIndividual['prod_id'];
+        buttonQRResenya.classList.add("btn","btn-primary","btnQrProd"); 
         buttonQRResenya.innerHTML = "QR Resenya";   
-        buttonQRResenya.id = "qrResenya";
         buttonQRResenya.setAttribute("data-bs-toggle","modal");
         buttonQRResenya.setAttribute("data-bs-target","#exampleModal");
-        crearModal(resenyaIndividual["prod_id"]);
+        buttonQRResenya.id = "qrResenya";
+        buttonQRResenya.value = resenyaIndividual['prod_id'];
 
+
+
+        
         //Parrafo de comentario
         const Valoracion = document.createElement("p");
         Valoracion.classList.add("col-12", "pValoracion", "noMarginBottom","pComentario");
@@ -246,9 +249,21 @@ function mostrarReseñas(reseny){
         cajaDetalleValoracion.append(boxButton);
         boxButton.append(buttonQRResenya);
         
+
+        //Obtener los botones que tengan misma className de QRCOde
+        let obtenerProdQR = document.getElementsByClassName("btnQrProd");
+        //hacer un for de todos ellos
+        for(let i = 0; i < obtenerProdQR.length; i++){
+            //Aplicar a cada uno de ellos 1 onclick para llamar a funcion
+            obtenerProdQR[i].onclick = function(){
+                //Pasaremos su valor a crearModal para crear codigo QR
+                crearModal(obtenerProdQR[i].value);
+                // crearModal(obtenerProdQR.value);
+            }
+        }
+        
     });
     
-
     
 }
 

@@ -101,13 +101,33 @@ include_once "Model/ValoracionDAO.php";
                 valoracionDAO::setPropina($usuraio,$propina);
 
             }else if($_POST['accion'] == "getUsuario"){
-                $usuraio = $_POST['user_id'];
-                $usuarioEncontrada = valoracionDAO::getUsuarioToPropina($usuraio);
+                $usuario = $_POST['user_id'];
+                $usuarioEncontrada = valoracionDAO::getUsuarioToPropina($usuario);
 
                 $devuelveUsuario = $usuarioEncontrada;
                 echo json_encode($devuelveUsuario, JSON_UNESCAPED_UNICODE);
                 return;
                 
+            }else if($_POST['accion'] == "FiltrarPorPrecio"){
+                $precioFiltrado = $_POST["precioFiltrado"];
+                $precioMostrarPrecioFiltrado = ProductoDAO::getProductosByPrecio($precioFiltrado);
+
+                $preMostrarPrecioFiltrado = [];
+
+                foreach ($precioMostrarPrecioFiltrado as $precioMostrarFiltrado){
+                    $preMostrarPrecioFiltrado[] = [
+                        "producto_id" => $precioMostrarFiltrado->getProdId(),
+                        "imgProducto" => $precioMostrarFiltrado->getImagen(),
+                        "descripcion" => $precioMostrarFiltrado->getDescripcion(),
+                        "precio" => $precioMostrarFiltrado->getPrecio(),
+                        "nombre_producto" => $precioMostrarFiltrado->getNombre(),
+                        "tiempo_espera" => $precioMostrarFiltrado->getTiempo()
+                    ];
+                }
+
+                echo json_encode($preMostrarPrecioFiltrado, JSON_UNESCAPED_UNICODE);
+                return;
+
             }
         }
         

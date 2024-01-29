@@ -55,8 +55,8 @@
             </div>
 
         
-            <div class="row">
-                <section>
+            <div class="row" id="rowSectionCartaProducto">
+                <section id="sectionProductos">
                     <?php foreach($Productos as $producto){?>
                         <div class="row">
                         <article>

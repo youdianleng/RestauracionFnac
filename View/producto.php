@@ -733,4 +733,5 @@
     </div>  
 </body>
 <script src="js/producto.js"></script> 
+<script src="https://unpkg.com/notie"></script>
 </html>

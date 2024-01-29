@@ -91,6 +91,27 @@ class ProductoDAO{
 
     }
 
+
+    public static function getProductosByPrecio($precio){
+        //Preparar la consulta select para buscar elementos en dicho BBDD
+        $con = DataBase::connect();
+        $stmt = $con->prepare("SELECT * FROM productos WHERE Precio < $precio");
+
+        //Ejecutar el select, guardar el resultado y cerrar el conecxion
+        $stmt->execute();
+        $result=$stmt->get_result();
+
+        $con->close();
+        $obj = "productos";
+        //Guardar los resultados en un Array
+        $listaProducto = [];
+        while ($productoDB = $result->fetch_object($obj)){
+            $listaProducto[] = $productoDB;
+        }
+
+        return $listaProducto;
+    }
+
     //Eliminar el producto que depende del parametro id que nos pasa
     public static function deleteProduct($id){
         $con = DataBase::connect();
