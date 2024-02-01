@@ -95,18 +95,18 @@ include_once "Model/ValoracionDAO.php";
 
                 valoracionDAO::setValoracionProducto($producto,$comentario,$estrella,$usuario);
 
-            }else if($_POST['accion'] == "aplicarPropina"){
-                $usuraio = $_POST['user_id'];
-                $propina = $_POST['propina'];
-                valoracionDAO::setPropina($usuraio,$propina);
-
             }else if($_POST['accion'] == "getUsuario"){
-                $usuario = $_POST['user_id'];
+                $usuario = $_POST['usuario'];
+                $propinaDonada = $_POST['propinaDodat'];
                 $usuarioEncontrada = valoracionDAO::getUsuarioToPropina($usuario);
 
-                $devuelveUsuario = $usuarioEncontrada;
-                echo json_encode($devuelveUsuario, JSON_UNESCAPED_UNICODE);
-                return;
+                if(!$usuarioEncontrada){
+                    valoracionDAO::setPropina($usuario,$propinaDonada);
+                    return;
+                }else{
+                    valoracionDAO::updatePropina($usuario,$propinaDonada);
+                    return;
+                }
                 
             }else if($_POST['accion'] == "FiltrarPorPrecio"){
                 $precioFiltrado = $_POST["precioFiltrado"];

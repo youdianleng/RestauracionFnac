@@ -93,4 +93,5 @@
     </div>
 </body>
 <script src="js/bootstrap.bundle.min.js"></script>
+<script src="https://unpkg.com/notie"></script>
 </html>

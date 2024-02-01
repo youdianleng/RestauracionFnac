@@ -5,6 +5,7 @@
     include_once "Utils/CalculadoraPrecios.php";
     include_once "Model/UserDAO.php";
     include_once "Model/PedidoDAO.php";
+    include_once "Model/ValoracionDAO.php";
     class userController{
         
 
@@ -263,6 +264,8 @@
             //Eliminar todos los ingredientes que hay en los productos del usuario
             ingredientesDAO::deleteTodosIngredientesUsuario($_POST['cliente_id']);
 
+            //Eliminar los Propinas donadas por usuario
+            valoracionDAO::eliminarUsuarioPedido($_POST['cliente_id']);
 
             //Eliminar primero todos los productos que hay el usuario
             PedidoDAO::eliminarUsuarioPedido($_POST['cliente_id']);

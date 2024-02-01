@@ -106,6 +106,7 @@ class valoracionDAO{
     //Buscar usuario si anteriomente ha donado propina
 
     public static function getUsuarioToPropina($usuario){
+        $sad = $usuario;
         //Preparar la consulta select para buscar elementos en dicho BBDD
         $con = DataBase::connect();
         $stmt = $con->prepare("SELECT * FROM puntosusuario where Cliente_id = ?");
@@ -132,6 +133,25 @@ class valoracionDAO{
         $con->close();
     }
 
+    //Renovar el propina de usuario
+    public static function updatePropina($usuario,$propina){
+        $con = DataBase::connect();
 
+        //Insertar al BBDD los contenidos al tabla que corresponde
+        $stmt = mysqli_query($con,"UPDATE puntosusuario SET Punto = Punto + $propina WHERE Cliente_id = $usuario");
+
+        $con->close();
+    }
+
+
+    //Eliminar propina de usuario
+    public static function eliminarUsuarioPedido($usuario){
+        $con = DataBase::connect();
+        //Hacer un consulta SQL que elimina datos de dicho tabla
+        $stmt = $con->prepare("DELETE FROM puntosusuario Where Cliente_id = $usuario");
+
+        $con->close();
+
+    }
 }
 ?>

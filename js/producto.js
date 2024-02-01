@@ -1,3 +1,4 @@
+
 function RegistrarResenya(estrella,userId,valoracion,prodId) {
     // Llama a la API con el nuevo valor
     fetch("https://localhost/webs/GitProyect/GamingShop/index.php?controller=API&action=api", {
@@ -83,11 +84,11 @@ function enviarDatos() {
   //Verifica que el cuenta no sea de Admin
   if(idUsuarioResenya == 22 ){
     window.location.href = "https://localhost/webs/GitProyect/GamingShop/index.php?controller=Producto&&action=productoPanel&prod_id="+idProdResenya;
-    alert("Usuario Admin no puedo dejar un comentario");
+    notie.alert({ type: 'success', text: 'Usuario Admin no permite dejar comentario!', time: 2 })
   }else if(estrellaSeleccionada == 0){
-    alert("Te falta poner por menos 1 estrella");
+    notie.alert({ type: 'success', text: 'Te falta poner por menos 1 estrella!', time: 2 })
   }else if(idUsuarioResenya == "nadie"){
-    alert("Debes iniciar session para poder dejar tu comentario");
+    notie.alert({ type: 'success', text: 'Debes iniciar session para poder dejar tu comentario!', time: 2 })
     let iniciar = confirm("Quieres iniciar tu session ahora?");
     if(iniciar){
         window.location.href = "https://localhost/webs/GitProyect/GamingShop/index.php?controller=user&action=IniciarSession";
@@ -96,8 +97,10 @@ function enviarDatos() {
     if(resenya == ""){
         resenya = "El usuario no ha calificado el artículo en detalle.";
     }
-    alert("GRACIAS POR TUS OPINIONES !!!!");
+    notie.alert({ type: 'success', text: 'GRACIAS POR TUS OPINIONES!', time: 2 })
     RegistrarResenya(estrellaSeleccionada,idUsuarioResenya,resenya,idProdResenya);
+
+    
   }
   
 }

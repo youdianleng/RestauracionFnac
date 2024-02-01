@@ -5,7 +5,7 @@
     <link href="Css/carritoCss.css" rel="stylesheet" type="text/css" media="screen">
     <link href="Css/generalTexto.css" rel="stylesheet" type="text/css" media="screen">
     <link href="Css/generalDiseño.css" rel="stylesheet" type="text/css" media="screen">
-    <link href="Css/generalColors.css" rel="stylesheet" type="text/css" media="screen">
+    <link href="Css/generalColores.css" rel="stylesheet" type="text/css" media="screen">
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 </head>
 <body>
@@ -125,7 +125,7 @@
                                 </div>
                                 <div class="col-12 d-flex justify-content-between mt-3 codigoText">
                                         <p class="ms-4 mb-4 txt18">TOTAL <span class="txtIva">(IVA INCLUIDO)</span></p>
-                                        <p class="me-4 fw-bold txtRed "><?php 
+                                        <p class="me-4 fw-bold txtRed " id="precioConIva"><?php 
                                                 //Si existe el carrito entra
                                                 if(isset($_SESSION['Carrito'])){
                                                 //Realizar un calculo de precio de pedidos pero con IVA
@@ -139,10 +139,10 @@
                                             echo $_SESSION['usuario']->getCliente_id();
                                         }
                                     ?>">
-                                    <input hidden  name="PrecioTotal" value="<?php 
+                                    <input hidden id="precioTotal" name="PrecioTotal" value="<?php 
                                         //Si existe usuario y que el carrito contiene productos
                                         if(isset($_SESSION['usuario']) && ($_SESSION['Carrito']) != null){
-                                            echo CalculadoraPrecios::calculadorPrecioPedido($_SESSION['Carrito']);
+                                            echo CalculadoraPrecios::calculadorPrecioPedidoConIVA($_SESSION['Carrito']) ;
                                         } ?>">
                                     
                                         <div class="d-grid gap-2 col-11 mx-auto mt-2 pb-4">
@@ -265,5 +265,4 @@
 </script>
 <script src="js/carrito.js"></script>
 <script src="js/bootstrap.bundle.min.js"></script>
-<script src="https://unpkg.com/notie"></script>
 </html>
