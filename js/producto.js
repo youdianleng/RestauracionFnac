@@ -1,4 +1,41 @@
 
+//Obtener todos los reseñas y luego usar funcion para mostrar
+document.addEventListener('DOMContentLoaded', function(){
+    
+  // Obtener la cadena de consulta de la URL actual
+  let queryString = window.location.search;
+
+  // Crear un objeto URLSearchParams para manejar la cadena de consulta
+  let searchParams = new URLSearchParams(queryString);
+
+  // Obtener el valor del parámetro 'prod_id'
+  let prodId = searchParams.get('prod_id');
+
+
+  fetch("https://localhost/webs/GitProyect/GamingShop/index.php?controller=API&action=api",{
+      method : 'POST',
+      headers: {
+          'Content-Type':'application/x-www-form-urlencoded',
+      },
+      body: new URLSearchParams({
+        accion: "mostrarReseñasEnProducto",
+        prod_id: prodId
+
+      }),
+  })
+  .then(response => {
+      return response.json();
+  })
+  .then(data => {
+    mostrarReseñasEnBloques(data);
+  })
+  .catch(error => {
+      console.error(error);
+  });
+})
+
+
+//Añadir la reseña a base de dato
 function RegistrarResenya(estrella,userId,valoracion,prodId) {
     // Llama a la API con el nuevo valor
     fetch("https://localhost/webs/GitProyect/GamingShop/index.php?controller=API&action=api", {
@@ -122,3 +159,23 @@ window.addEventListener('scroll', function() {
     imagenFija.style.top = nuevaPosicion + 'px';
   });
 
+
+
+//Crear los muestras de resenyas
+function mostrarReseñasEnBloques(reseñas){
+    let longitudReseñas = reseñas.length;
+
+    let $cajaPrincipalReseñasProductos = document.getElementById("innerBox");
+    
+    for(let bucleCarousel = 0; bucleCarousel < longitudReseñas; bucleCarousel++){
+
+      if(bucleCarousel % 3 == 0){
+        console.log("CajaPrincipal");
+        cajaPrincipalReseñasProductos.append();
+        console.log("ContenidoCarousel");
+      }else{
+        console.log("ContenidoCarousel");
+      }
+
+    }
+}

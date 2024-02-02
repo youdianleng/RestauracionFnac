@@ -128,6 +128,49 @@ include_once "Model/ValoracionDAO.php";
                 echo json_encode($preMostrarPrecioFiltrado, JSON_UNESCAPED_UNICODE);
                 return;
 
+            }else if($_POST['accion'] == "getPropina"){
+                $usuario = $_POST['usuario'];
+
+                $puntoUsuario = valoracionDAO::getUsuarioToPropina($usuario);
+
+                $ArrayPunto = [];
+                foreach($puntoUsuario as $puntos){
+                    $ArrayPunto[] = [
+                        "puntosUsuarios" => $puntos->getPunto(),
+                    ];
+                }
+
+                if($ArrayPunto){
+                     // Devolver los datos en formato JSON
+                    echo json_encode($ArrayPunto, JSON_UNESCAPED_UNICODE);
+                    return;
+                }else{
+                    return null;
+                }
+            }else if($_POST['accion'] == "borrarPropina"){
+                $usuario = $_POST['usuario'];
+
+                $eliminarPropina = valoracionDAO::eliminarUsuarioPropina($usuario);
+                
+            }else if($_POST['accion'] == "mostrarReseñasEnProducto"){
+                $producto_id = $_POST["prod_id"];
+
+                
+                $todosReseñaMostrarProducto = valoracionDAO::getResenyasProductos($producto_id);
+
+                $arrayMostrarReseñasProducto = [];
+
+                foreach ($todosReseñaMostrarProducto as $ReseñaMostrarProducto){
+                    $arrayMostrarReseñasProducto[] = [
+                        "Valoracion" => $ReseñaMostrarProducto->getValoracion(),
+                        "Nombre" => $ReseñaMostrarProducto->getNombre(),
+                        "Estrellas" => $ReseñaMostrarProducto->getEstrella()
+                    ];
+                }
+
+                echo json_encode($arrayMostrarReseñasProducto, JSON_UNESCAPED_UNICODE);
+                return;
+
             }
         }
         

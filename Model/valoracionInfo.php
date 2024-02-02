@@ -7,6 +7,10 @@
     protected $Valoracion;
     protected $Estrella;
     protected $Cliente_id;
+    protected $Apellido;
+
+    protected $Nombre;
+    protected $Punto;
 
     //Contructor para crear clase
     public function __construct(){
@@ -88,6 +92,67 @@
     public function setCliente_id($Cliente_id)
     {
         $this->Cliente_id = $Cliente_id;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of Punto
+     */ 
+    public function getPunto()
+    {
+        return $this->Punto;
+    }
+
+    /**
+     * Set the value of Punto
+     *
+     * @return  self
+     */ 
+    public function setPunto($Punto)
+    {
+        $this->Punto = $Punto;
+
+        return $this;
+    }
+
+
+    /**
+     * Get the value of Apellido
+     */ 
+    public function getApellido()
+    {
+        return $this->Apellido;
+    }
+
+    /**
+     * Set the value of Apellido
+     *
+     * @return  self
+     */ 
+    public function setApellido($Apellido)
+    {
+        $this->Apellido = $Apellido;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of Nombre
+     */ 
+    public function getNombre()
+    {
+        return $this->Nombre;
+    }
+
+    /**
+     * Set the value of Nombre
+     *
+     * @return  self
+     */ 
+    public function setNombre($Nombre)
+    {
+        $this->Nombre = $Nombre;
 
         return $this;
     }

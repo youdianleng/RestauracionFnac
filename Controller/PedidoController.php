@@ -87,8 +87,6 @@
                 //Configurar el Cookie para mostrar el ultimo pedido de usuario
                 setcookie('UltimoPedido',$pedido,time()+3600);
 
-
-
                 //Quitar el carrito despues de añadir los productos en el pedido
                 unset($_SESSION['Carrito']);
 

@@ -40,10 +40,12 @@
                                 $pedido = $_COOKIE['UltimoPedido'];
                                 
                                 ?>
-                                    <tr class="pedidoColor">
+                            <?php }?>
+                                    <tr class="pedidoColor" >
                                         <td><?=$pedido?></td>
                                     </tr>
-                            <?php }?>
+                            
+                            
                             <?php 
                             //Cuadno el $pedidos no sea nulo y que el Cookie UltimoPedido existe entra
                             //Aqui es para mostrar los informaciones de los productos que esta en ese pedido
@@ -66,7 +68,10 @@
                             <?php }
                             }?>
                             </table>
-                            
+                            <div class="col-5">
+                                <input id="ultimoPedidoContent" value=<?=$pedido?> hidden>
+                                <button class="btn btn-primary mt-3" id="resetUltimoPedido">Ver Ultimo</button>
+                            </div>
                             
                         </div>
                     </div>
@@ -126,4 +131,5 @@
         </div>
     </div>
 </body>
+<script src="js/pedidoPanel.js"></script>
 </html>

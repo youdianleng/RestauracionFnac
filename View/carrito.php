@@ -123,6 +123,13 @@
                                             }
                                         ?>€</p>
                                 </div>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <p class="ms-4">Aplicar tus Puntos?</p>
+                                    <label class="switch me-4">
+                                        <input type="checkbox" id="aplicarPuntos">
+                                        <span class="slider"></span>
+                                    </label>
+                                </div>
                                 <div class="col-12 d-flex justify-content-between mt-3 codigoText">
                                         <p class="ms-4 mb-4 txt18">TOTAL <span class="txtIva">(IVA INCLUIDO)</span></p>
                                         <p class="me-4 fw-bold txtRed " id="precioConIva"><?php 
@@ -146,7 +153,7 @@
                                         } ?>">
                                     
                                         <div class="d-grid gap-2 col-11 mx-auto mt-2 pb-4">
-                                        <button class="btn btn-primary" onclick="aplicarPunto()" type="submit">Finalizar la Compra</button>
+                                        <button class="btn btn-primary" id="finalizarCompra" onclick="aplicarPunto()" type="submit">Finalizar la Compra</button>
                                     </div>
                                 </form>
                             </div>
@@ -266,3 +273,4 @@
 <script src="js/carrito.js"></script>
 <script src="js/bootstrap.bundle.min.js"></script>
 </html>
+

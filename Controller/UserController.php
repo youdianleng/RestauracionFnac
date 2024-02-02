@@ -245,6 +245,68 @@
             include_once "View/footer.php";
         }
 
+
+        //Ir a panel de control de Clientes de administrador
+        public function panelCliente(){
+            //Inicar el session
+            session_start();
+
+            //Guardar todos los Categorias
+            $Categorias = ProductoDAO::getAllCategoria();
+            
+            //Guardar todos los Productos
+            $Productos = ProductoDAO::getAllProductos();
+            
+
+            //Guardar todos los Clientes
+            $Usuarios = UserDAO::getUsuarios();
+
+            //Guardar todos los Pedidos
+            $Pedidos = PedidoDAO::getAllPedidoAdmin();
+
+            //Incluir los paneles del admin 
+            if(isset($_SESSION['usuario']) && $_SESSION['usuario']->getPermisos() == 0){
+                //Incluir de panel de Iniciar el Session
+                include_once "View/header.php";
+                include_once "userPanel/adminPanelCliente.php";
+                include_once "View/footer.php";
+            }else{
+                header('Location:'.url."?controller=user&action=IniciarSession");
+            }
+
+        }
+
+        //Ir a panel de control de Pedidos de administrador
+        public function panelPedidos(){
+            //Inicar el session
+            session_start();
+
+            //Guardar todos los Categorias
+            $Categorias = ProductoDAO::getAllCategoria();
+            
+            //Guardar todos los Productos
+            $Productos = ProductoDAO::getAllProductos();
+            
+
+            //Guardar todos los Clientes
+            $Usuarios = UserDAO::getUsuarios();
+
+            //Guardar todos los Pedidos
+            $Pedidos = PedidoDAO::getAllPedidoAdmin();
+
+            //Incluir los paneles del admin 
+            if(isset($_SESSION['usuario']) && $_SESSION['usuario']->getPermisos() == 0){
+                //Incluir de panel de Iniciar el Session
+                include_once "View/header.php";
+                include_once "userPanel/adminPanelPedido.php";
+                include_once "View/footer.php";
+            }else{
+                header('Location:'.url."?controller=user&action=IniciarSession");
+            }
+            
+        }
+
+
         //Mostrar el panel de Resenyas
         public function panelResenyas(){
             //Inicar el session
@@ -265,7 +327,7 @@
             ingredientesDAO::deleteTodosIngredientesUsuario($_POST['cliente_id']);
 
             //Eliminar los Propinas donadas por usuario
-            valoracionDAO::eliminarUsuarioPedido($_POST['cliente_id']);
+            valoracionDAO::eliminarUsuarioPropina($_POST['cliente_id']);
 
             //Eliminar primero todos los productos que hay el usuario
             PedidoDAO::eliminarUsuarioPedido($_POST['cliente_id']);

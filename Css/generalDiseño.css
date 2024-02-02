@@ -33,6 +33,11 @@ body{
 .noBorderRight{
     border-right: none!important;
 }
+
+.noBorderBottom{
+    border-bottom: none!important;
+}
+
 /* border_color */
 .bd-f4f{
     border-color: #f4f4ed;

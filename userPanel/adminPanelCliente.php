@@ -68,19 +68,26 @@
                         <h2>Productos</h2>
                             <div class="col-12 d-flex">
                                 <div class="row">
-                                <?php foreach ($Productos as $producto){?>
+                                <?php
+                                    //Aqui esta todos los usuarios que estan a dentro de sistema registrado
+                                    //Aqui es para que el admin pueda realizar control de eliminar el usuario
+                                    foreach ($Usuarios as $Usuario){?>
                                 <div class="col-3">
                                     <div class="card col-12">
                                         <img src="Materiales/Productos/sushi.png" class="card-img-top" alt="..." height="100%" width="100%">
                                         <div class="card-body">
-                                            <h5 class="card-title"><?=$producto->getNombre()?></h5>
+                                            <h5 class="card-title"><?=$Usuario->getNombre()?></h5>
                                         </div>
                                         <ul class="list-group list-group-flush noBorderBottom">
-                                            <li class="list-group-item">Producto ID: <?=$producto->getProdId()?></li>
-                                            <li class="list-group-item">Categoria ID: <?=$producto->getCatId()?></li>
+                                            <li class="list-group-item">Cliente ID: <?=$Usuario->getCliente_id()?></li>
+                                            <li class="list-group-item">Apellido Usuario: <?=$Usuario->getApellido()?></li>
                                             <li class="list-group-item">
-                                                <p class="fw-bold noMarginBottom">Descripcion:</p>
-                                                <?=$producto->getDescripcion()?>
+                                                <p class="fw-bold noMarginBottom">Mail:</p>
+                                                <?=$Usuario->getMail()?>
+                                            </li>
+                                            <li class="list-group-item">
+                                                <p class="fw-bold noMarginBottom">Contrasenya:</p>
+                                                <?=$Usuario->getContrasenya()?>
                                             </li>
                                         </ul>
                                         <div class="card-body col-12">

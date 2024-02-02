@@ -388,68 +388,8 @@
                   <div class="cajaResenyas col-7">
                     <div class="col-12 boxCarouselResenya">
                     <div id="carouselExample" class="carousel slide col-12 CarouselResenya">
-                      <div class="carousel-inner">
+                      <div class="carousel-inner" id="innerBox">
                         <div class="carousel-item active col-12">
-                          <div class="d-block w-100 d-flex carouselItem2">
-                            <div class="row borderLeft bd-f4f col-4">
-                              <a class="marginBot16 txt19 black fw-bold">JOSE LUIS .J</a>
-                              <div class="d-flex marginBot16 align-items-center">
-                                <svg class="svgEstrellaSmall">
-                                  <image href="Materiales/productoIndividual/valoracionOpiniones/Estrella.png" width="18px" height="18px"></image>
-                                </svg>
-                                <p class="noMarginBottom ms-1 colorF5">5</p>
-                              </div>
-                              <div class="d-flex align-items-center ">
-                                <svg class="svgTickaSmall">
-                                  <image href="Materiales/productoIndividual/valoracionOpiniones/tick.png" width="10.73px" height="10.73px"></image>
-                                </svg>
-                                <p class="txt11 noMarginBottom espacioLetter2 ms-1">COMPRAS VERIFICADAS</p>
-                              </div>
-                              
-                              <p class="txt13">Publicado el 14 oct. 2021</p>
-                              <p class="marginBot16 txt16 fw-bold">Rápido y perfecto</p>
-                              <p class="marginBot16 txt14">Como siempre Apple con un sistema operativo rápido sin problemas. Funciona perfectamente</p>
-                            </div>
-                            <div class="row borderLeft bd-f4f col-4">
-                              <a class="marginBot16 txt19 black fw-bold">JOSE LUIS .J</a>
-                              <div class="d-flex marginBot16 align-items-center">
-                                <svg class="svgEstrellaSmall">
-                                  <image href="Materiales/productoIndividual/valoracionOpiniones/Estrella.png" width="18px" height="18px"></image>
-                                </svg>
-                                <p></p>
-                              </div>
-                              <div class="d-flex align-items-center ">
-                                <svg class="svgTickaSmall">
-                                  <image href="Materiales/productoIndividual/valoracionOpiniones/tick.png" width="10.73px" height="10.73px"></image>
-                                </svg>
-                                <p class="ms-1"></p>
-                              </div>
-                              <p class="marginBot16"></p>
-                              <p class="marginBot16"></p>
-                              <p class="marginBot16"></p>
-                            </div>
-                            <div class="row borderLeft bd-f4f col-4">
-                              <a class="marginBot16 txt19 black fw-bold">JOSE LUIS .J</a>
-                              <div class="d-flex marginBot16 align-items-center">
-                                <svg class="svgEstrellaSmall">
-                                  <image href="Materiales/productoIndividual/valoracionOpiniones/Estrella.png" width="18px" height="18px"></image>
-                                </svg>
-                                <p></p>
-                              </div>
-                              <div class="d-flex align-items-center">
-                                <svg class="svgTickaSmall">
-                                  <image href="Materiales/productoIndividual/valoracionOpiniones/tick.png" width="10.73px" height="10.73px"></image>
-                                </svg>
-                                <p class="ms-1"></p>
-                              </div>
-                              <p class="marginBot16"></p>
-                              <p class="marginBot16"></p>
-                              <p class="marginBot16"></p>
-                            </div>
-                          </div>
-                          
-                        </div>
-                        <div class="carousel-item col-12">
                           <div class="d-block w-100 d-flex carouselItem2">
                             <div class="row borderLeft bd-f4f col-4">
                               <a class="marginBot16 txt19 black fw-bold">JOSE LUIS .J</a>
@@ -711,7 +651,7 @@
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
         <div class="modal-body">
-            <h3>Darnos tu Opinion</h1>
+            <h3>DARNOS TUS OPINIONES</h3>
             <div>
             <div class="star-container" onmousemove="MoverEnEstrella(event)" onmouseout="fueraDeEstrella()">
               <span class="star" onclick="clicarEstrella(1)" id="star1">★</span>
@@ -727,7 +667,7 @@
         </div>
         <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-            <button type="button" onclick="enviarDatos()" class="btn btn-primary">Save changes</button>
+            <button type="button" onclick="enviarDatos()" class="btn btn-primary">Enviar</button>
         </div>
         </div>
     </div>

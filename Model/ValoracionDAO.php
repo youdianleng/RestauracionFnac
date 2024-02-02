@@ -2,9 +2,9 @@
 //En ProductoDAO realiza todos los acciones relaciona con BBDD
 include_once "config/DB.php";
 class valoracionDAO{
-    public static function getResenyasProductos(){
+    public static function getResenyasProductos($producto_id){
         $con = DataBase::connect();
-        $stmt = $con->prepare("SELECT * FROM producto_valoracion INNER JOIN clientes ON producto_valoracion.Cliente_id = clientes.Cliente_id");
+        $stmt = $con->prepare("SELECT * FROM producto_valoracion INNER JOIN clientes ON producto_valoracion.Cliente_id = clientes.Cliente_id WHERE producto_valoracion.Producto_id = $producto_id");
 
         //Ejecutar el select, guardar el resultado y cerrar el conecxion
         $stmt->execute();
@@ -41,6 +41,9 @@ class valoracionDAO{
         return $listaResenya;
     }
 
+
+
+    
     public static function getResenyasByEstrella($estrella){
         $con = DataBase::connect();
         $listaResenya = [];
@@ -115,10 +118,15 @@ class valoracionDAO{
         //Ejecutar el select, guardar el resultado y cerrar el conecxion
         $stmt->execute();
         $result=$stmt->get_result();
-        $result = $result->fetch_object("usuarios");
         $con->close();
+        $obj = "valoracion";
+        //Guardar los resultados en un Array
+        $listaResenya = [];
+        while ($productoDB = $result->fetch_object($obj)){
+            $listaResenya[] = $productoDB;
+        }
 
-        return $result;
+        return $listaResenya;
     }
 
 
@@ -145,13 +153,17 @@ class valoracionDAO{
 
 
     //Eliminar propina de usuario
-    public static function eliminarUsuarioPedido($usuario){
+    public static function eliminarUsuarioPropina($usuario){
         $con = DataBase::connect();
         //Hacer un consulta SQL que elimina datos de dicho tabla
-        $stmt = $con->prepare("DELETE FROM puntosusuario Where Cliente_id = $usuario");
+        $stmt = $con->prepare("DELETE FROM puntosusuario Where Cliente_id = ?");
+        $stmt->bind_param("i",$usuario);
 
+        $stmt->execute();
+        $result = $stmt->get_result();
         $con->close();
 
+        return $result;
     }
 }
 ?>
