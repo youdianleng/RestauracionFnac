@@ -3,7 +3,7 @@ abstract class categoria{
 
     //Preparar los variables para clase
     protected $Categoria_id;
-    protected $Nombre;
+    protected $NombreCat;
     protected $Descripcion;
     protected $ImagenCategoria;
     
@@ -32,8 +32,8 @@ abstract class categoria{
     /**
      * Get the value of Nombre
      */ 
-    public function getNombre(){
-        return $this->Nombre;
+    public function getNombreCat(){
+        return $this->NombreCat;
     }
 
     /**
@@ -41,8 +41,8 @@ abstract class categoria{
      *
      * @return  self
      */ 
-    public function setNombre($Nombre){
-        $this->Nombre = $Nombre;
+    public function setNombreCat($Nombre){
+        $this->NombreCat = $Nombre;
 
         return $this;
     }

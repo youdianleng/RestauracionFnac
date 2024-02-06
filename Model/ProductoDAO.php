@@ -73,7 +73,7 @@ class ProductoDAO{
 
         //Preparar la consulta select para buscar elementos en dicho BBDD
         $con = DataBase::connect();
-        $stmt = $con->prepare("SELECT * FROM productos");
+        $stmt = $con->prepare("SELECT * FROM productos INNER JOIN categoria ON productos.Categoria_id = categoria.Categoria_id");
 
         //Ejecutar el select, guardar el resultado y cerrar el conecxion
         $stmt->execute();

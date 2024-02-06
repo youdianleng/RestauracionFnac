@@ -389,66 +389,7 @@
                     <div class="col-12 boxCarouselResenya">
                     <div id="carouselExample" class="carousel slide col-12 CarouselResenya">
                       <div class="carousel-inner" id="innerBox">
-                        <div class="carousel-item active col-12">
-                          <div class="d-block w-100 d-flex carouselItem2">
-                            <div class="row borderLeft bd-f4f col-4">
-                              <a class="marginBot16 txt19 black fw-bold">JOSE LUIS .J</a>
-                              <div class="d-flex marginBot16 align-items-center">
-                                <svg class="svgEstrellaSmall">
-                                  <image href="Materiales/productoIndividual/valoracionOpiniones/Estrella.png" width="18px" height="18px"></image>
-                                </svg>
-                                <p class="noMarginBottom ms-1 colorF5">5</p>
-                              </div>
-                              <div class="d-flex align-items-center ">
-                                <svg class="svgTickaSmall">
-                                  <image href="Materiales/productoIndividual/valoracionOpiniones/tick.png" width="10.73px" height="10.73px"></image>
-                                </svg>
-                                <p class="txt11 noMarginBottom espacioLetter2 ms-1">COMPRAS VERIFICADAS</p>
-                              </div>
-                              
-                              <p class="txt13">Publicado el 14 oct. 2021</p>
-                              <p class="marginBot16 txt16 fw-bold">Rápido y perfecto</p>
-                              <p class="marginBot16 txt14">Como siempre Apple con un sistema operativo rápido sin problemas. Funciona perfectamente</p>
-                            </div>
-                            <div class="row borderLeft bd-f4f col-4">
-                              <a class="marginBot16 txt19 black fw-bold">JOSE LUIS .J</a>
-                              <div class="d-flex marginBot16 align-items-center">
-                                <svg class="svgEstrellaSmall">
-                                  <image href="Materiales/productoIndividual/valoracionOpiniones/Estrella.png" width="18px" height="18px"></image>
-                                </svg>
-                                <p></p>
-                              </div>
-                              <div class="d-flex align-items-center ">
-                                <svg class="svgTickaSmall">
-                                  <image href="Materiales/productoIndividual/valoracionOpiniones/tick.png" width="10.73px" height="10.73px"></image>
-                                </svg>
-                                <p class="ms-1"></p>
-                              </div>
-                              <p class="marginBot16"></p>
-                              <p class="marginBot16"></p>
-                              <p class="marginBot16"></p>
-                            </div>
-                            <div class="row borderLeft bd-f4f col-4">
-                              <a class="marginBot16 txt19 black fw-bold">JOSE LUIS .J</a>
-                              <div class="d-flex marginBot16 align-items-center">
-                                <svg class="svgEstrellaSmall">
-                                  <image href="Materiales/productoIndividual/valoracionOpiniones/Estrella.png" width="18px" height="18px"></image>
-                                </svg>
-                                <p></p>
-                              </div>
-                              <div class="d-flex align-items-center">
-                                <svg class="svgTickaSmall">
-                                  <image href="Materiales/productoIndividual/valoracionOpiniones/tick.png" width="10.73px" height="10.73px"></image>
-                                </svg>
-                                <p class="ms-1"></p>
-                              </div>
-                              <p class="marginBot16"></p>
-                              <p class="marginBot16"></p>
-                              <p class="marginBot16"></p>
-                            </div>
-                          </div>
-                          
-                        </div>
+
                       </div>
                       <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
                         <span class="carousel-control-prev-icon" aria-hidden="true"></span>

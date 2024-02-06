@@ -193,3 +193,7 @@ table{
 .card{
     height: auto;
 }
+
+.card-title {
+    margin-bottom: 0px;
+}

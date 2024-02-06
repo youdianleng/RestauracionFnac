@@ -30,7 +30,7 @@ function miFuncion(){
     let RangeValue = document.getElementById("rangePrecio").value;
     
     let numeroRangePrecio = document.getElementById("rangePrecioNumero");
-    numeroRangePrecio.innerHTML = "Precio menor que " + RangeValue;
+    numeroRangePrecio.innerHTML = "Precio menor que " + RangeValue + " €";
      fetch("https://localhost/webs/GitProyect/GamingShop/index.php?controller=API&action=api",{
          method : 'POST',
          headers: {
@@ -73,7 +73,6 @@ function mostrarFiltradoPrecio(data){
         nombre: productosPrecioFiltrados['nombre_producto'],
         tiempo: productosPrecioFiltrados['tiempo_espera']
       })
-      console.log("hola");
 
 
       let newSectionProductoRow = document.createElement("row");

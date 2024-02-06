@@ -104,7 +104,7 @@
                                             </div>
                                         </div>
                                         <div class="card-body d-flex align-items-center araboto-normal " >
-                                            <p class="card-textP araboto-normal"><?= $categoria->getNombre();?></p>
+                                            <p class="card-textP araboto-normal"><?= $categoria->getNombreCat();?></p>
                                         </div>
                                     </div>
                                 </a> 

@@ -10,7 +10,7 @@
     <main>
         <div class="container">
         <div class="col-12 d-flex justify-content-center backgroundGrey ">
-            <div class="row mb-5 " >
+            <div class="row mb-5 col-12" >
             <div class="boxInformacionTotal">
                 <div class="col-12 mt-5">
                     <H2 class="miInformacion">MIS INFORMACIONES</H2>
@@ -57,30 +57,22 @@
 
                     
                     <div class="col-12 boxAdministradormMain row">
-                        <div class="mainBoxAñadir col-12 d-flex justify-content-end">
-                            <div class="col-3 añadirProducto mt-3">
-                                <form action=<?=url."?controller=producto&action=añadir"?> method="post">
-                                    <button class="btn btn-primary col-12">Añadir</button>
-                                </form>
-                            </div>
-                        </div>
-                        <div class="col-12 boxAdministradorm">
-                        <h2>Productos</h2>
+                        <div class="col-12 boxAdministradorm mt-5">
+                        <h2>Usuarios Registrados</h2>
                             <div class="col-12 d-flex">
-                                <div class="row">
+                                <div class="row col-12">
                                 <?php
                                     //Aqui esta todos los usuarios que estan a dentro de sistema registrado
                                     //Aqui es para que el admin pueda realizar control de eliminar el usuario
                                     foreach ($Usuarios as $Usuario){?>
                                 <div class="col-3">
                                     <div class="card col-12">
-                                        <img src="Materiales/Productos/sushi.png" class="card-img-top" alt="..." height="100%" width="100%">
-                                        <div class="card-body">
+                                        <div class="card-body noPadding">
                                             <h5 class="card-title"><?=$Usuario->getNombre()?></h5>
                                         </div>
                                         <ul class="list-group list-group-flush noBorderBottom">
-                                            <li class="list-group-item">Cliente ID: <?=$Usuario->getCliente_id()?></li>
-                                            <li class="list-group-item">Apellido Usuario: <?=$Usuario->getApellido()?></li>
+                                            <li class="list-group-item"><span class="fw-bold">Cliente ID:</span> <?=$Usuario->getCliente_id()?></li>
+                                            <li class="list-group-item"><span class="fw-bold">Apellido Usuario:</span> <?=$Usuario->getApellido()?></li>
                                             <li class="list-group-item">
                                                 <p class="fw-bold noMarginBottom">Mail:</p>
                                                 <?=$Usuario->getMail()?>
@@ -90,17 +82,19 @@
                                                 <?=$Usuario->getContrasenya()?>
                                             </li>
                                         </ul>
+
+
                                         <div class="card-body col-12">
                                             <!-- Crear un formulario que llama al productoController y en funcion Actualizar cuando clica al boton -->
                                             <form action=<?=url."?controller=producto&action=actualizar"?>  method="post">
                                                 <!-- Cuando envia se para el nombre producto_id y su valor como post -->
-                                                <input type="number" name="producto_id" value="<?=$producto->getProdId()?>" hidden>
+                                                <input type="number" name="producto_id" value="<?=$Usuario->getCliente_id()?>" hidden>
                                                 <button class="btn btn-primary col-5 me-3">Modificar</button>
                                             </form>
                                             <!-- Crear un formulario que llama al productoController y en funcion Eliminar cuando clica al boton -->
                                             <form action=<?=url."?controller=producto&action=eliminar"?> method="post">
                                                 <!-- Cuando envia se para el nombre producto_id y su valor como post -->
-                                                <input type="number" name="producto_id" value="<?=$producto->getProdId()?>" hidden>
+                                                <input type="number" name="producto_id" value="<?=$Usuario->getCliente_id()?>" hidden>
                                                 <button class="btn btn-primary col-5 me-3">Eliminar</button>
                                             </form>
                                         </div>

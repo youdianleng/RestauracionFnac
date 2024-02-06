@@ -71,13 +71,13 @@
                                 <?php foreach ($Productos as $producto){?>
                                 <div class="col-3">
                                     <div class="card col-12">
-                                        <img src="Materiales/Productos/sushi.png" class="card-img-top" alt="..." height="100%" width="100%">
+                                        <img src="<?=$producto->getImagen()?>" class="card-img-top" alt="..." height="100%" width="100%">
                                         <div class="card-body">
                                             <h5 class="card-title"><?=$producto->getNombre()?></h5>
                                         </div>
                                         <ul class="list-group list-group-flush noBorderBottom">
-                                            <li class="list-group-item">Producto ID: <?=$producto->getProdId()?></li>
-                                            <li class="list-group-item">Categoria ID: <?=$producto->getCatId()?></li>
+                                            <li class="list-group-item"><span class="fw-bold">Producto ID:</span> <?=$producto->getProdId()?></li>
+                                            <li class="list-group-item"><span class="fw-bold">Categoria:</span> <?=$producto->getNombreCat()?></li>
                                             <li class="list-group-item">
                                                 <p class="fw-bold noMarginBottom">Descripcion:</p>
                                                 <?=$producto->getDescripcion()?>

@@ -48,6 +48,11 @@ body{
 }
 
 /* Margin & Padding */
+.noPadding{
+    padding: none!important;
+}
+
+
 .padding30{
     padding: 30px;
 }

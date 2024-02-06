@@ -49,16 +49,15 @@ body{
     
     /* Textos */
     .card-textP{
-        font-size: 14.5px!important;
+        font-size: 20px!important;
     }
-
 
     .elegidaPorTi .card-title{
         font-size: 15px;
     }
 
     .noticias .card-title{
-        font-size: 10px;
+        font-size: 14px;
     }
 
     .noticias .font-m{
@@ -66,7 +65,7 @@ body{
     }
 
     .noticias a{
-        font-size: 7px;
+        font-size: 17px;
     }
 
     .elegidaPorTi li{
@@ -74,16 +73,16 @@ body{
     }
 
     .estiloP p{
-        font-size: 10px;
+        font-size: 15px;
     }
 
     .estiloP .noEstiloP p{
-        font-size: 5px;
+        font-size: 13px;
         color: #D8D8D8;
     }
 
     .noticias .card-textFinal{
-        font-size: 12px;
+        font-size: 17px;
     }
     
     /* Li, UL, OL */
@@ -109,9 +108,10 @@ body{
     }
 
     /*Caja Noticias*/
-    /* .boxTotal{
-        width: 100%!important;
-    } */
+    .boxTotal .card img{
+        height: 380px!important;
+    }
+
 
     
 

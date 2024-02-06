@@ -1,19 +1,22 @@
-
+//Al entrar a pagina de reseñas carga los datos necesarios, ej(Estrellas,Reseñas,Valoracion etc)
 document.addEventListener('DOMContentLoaded', function(){
-   
+   //llmar a api Controller para que haga el accion enviado
     fetch("https://localhost/webs/GitProyect/GamingShop/index.php?controller=API&action=api",{
         method : 'POST',
         headers: {
             'Content-Type':'application/x-www-form-urlencoded',
         },
         body: new URLSearchParams({
+            //Indicar el nombre de accion que desea accionar
             accion: 'consultaReseñas',
         }),
     })
     .then(response => {
         return response.json();
     })
+    //Devuelve los datos y usando este dato seguimos
     .then(data => {
+        //Llamar al funcion pricipal para que se crea la pagina de reseña con los datos
         mostrarReseñas(data);
         setParrafoHeightForAll();
     })
@@ -23,9 +26,12 @@ document.addEventListener('DOMContentLoaded', function(){
 })
 
 
+
+//Funcion que mostrara todos los contenidos de pagina de reseña
 function mostrarReseñas(reseny){
+    //Obtener el contenidor principal
     const contenidorResenya = document.getElementById("contenidorResenya");
-    // Creates parte Derecha
+    // Creates parte Derecha de los reseñas
     const cajaResenya = document.createElement("div");
     const ValoracionEstrella = document.createElement("div");
     const subCaja = document.createElement("div");
@@ -39,12 +45,14 @@ function mostrarReseñas(reseny){
     const filtraADscBox = document.createElement("div");
     filtraADscBox.classList.add("ascDescbutton");
 
+    //Crear el form para los estrellas
     const formEstrella = document.createElement("form");
     formEstrella.classList.add("d-flex");
 
     const divFormEstrella = document.createElement("div");
     formEstrella.append(divFormEstrella)
 
+    //Preparar el div de categorias
     const divCategoria = document.createElement("div");
     divCategoria.classList.add("divDeCategoria");
     
@@ -70,17 +78,19 @@ function mostrarReseñas(reseny){
 
     
     //Informacion muestra Izquierda
-  
     subCaja.append(cajaValoracionEstrella);
     cajaValoracionEstrella.append(cajaValoracionEstrellados);
     cajaValoracionEstrellados.append(formEstrella);
     cajaValoracionEstrellados.append(filtraADscBox);
     cajaValoracionEstrellados.append(divCategoria);
 
+    //Preparar el tag select para poder ordenar reseñas por ascendente o desendente
     const selectAscDesc = document.createElement("select");
     selectAscDesc.id = "selectAscDesc";
     selectAscDesc.classList.add("col-10","mt-4");
 
+    //Crear  los option que va a estar dentro de select
+    //Luego indicar el contenido de cada uno y el valor de cada uno
     const selectDefault = document.createElement("Option");
     selectDefault.innerHTML = "Ordenar Resenyas";
     const selectAscOption = document.createElement("Option");
@@ -90,49 +100,71 @@ function mostrarReseñas(reseny){
     selectDescOption.value = "desc";
     selectDescOption.innerHTML = "Descendente";
 
+
+    //Crear otro select para categorias
     const SelectCategoria = document.createElement("select")
     SelectCategoria.classList.add("col-10","mt-4");
     divCategoria.append(SelectCategoria);
+    //Llamar al funcion de filtracionResenyas.js para obtener todos los categorias que existe en bbdd
     getTodosCategorias()
     .then(data => {
-        // Hacer algo con los datos, por ejemplo, guardarlos en una variable
+        //Hacer un bucle de los datos encontradas y separarlo en contenidos individuales
         data.forEach((items)=>{
+            //Crea un option para cada uno de categorias
             let optionCategoria = document.createElement("option");
+            //indicar el contenido de cada option
             optionCategoria.innerHTML = items['NombreCategoria']
+            //insertar los option a dentro de select de categorias
             SelectCategoria.append(optionCategoria);
         })
     })
     .catch(error => {
+        //Si el valor devuelve con error muestra
         console.error(error);
     });
 
-
+    //Añadir los option de asc y desc en su caja de select
     filtraADscBox.append(selectAscDesc);
     selectAscDesc.append(selectDefault);
     selectAscDesc.append(selectAscOption);
     selectAscDesc.append(selectDescOption);
 
+
+
+
     //Array para estrellas
     let arrayEstrella = [];
     
+    //Añadir los cantidad de estrellas que vamos a mostrar
     for(let estrellaArray = 1; estrellaArray < 6; estrellaArray++){
+        //Cada vez que suma hace un añadir a arrayEstrella
+        //Este caso el array tindra 1,2,3,4,5
         arrayEstrella.push(estrellaArray);
     }
 
+    //Cuando el contenido de select cambia se realiza un funcion
     selectAscDesc.onchange = function(){
+        //Optener el valor cambiada de select
         let selecValue = document.getElementById("selectAscDesc").value;
+
+        //Llamar al funcion de ordenarEstrellas con el array y valor de select
         ordenarEstrellas(arrayEstrella,selecValue);
     }
 
 
     
-
+    //Aqui se crea los estrellas para poder clicar en pagina de resenta
     for(let estrella = 0;estrella < 5;estrella++){
+        //cada estrella tindra un input para seleccionar
         const estrellaFiltro = document.createElement("input");
+        //Conteie un label para mostrar estrella
         const estrellaFiltroLabel = document.createElement("label");
+        //Aplicar clase a label
         estrellaFiltroLabel.classList.add("col-11");
 
+        //realizar un for para mostrar cantidad de estrella y los estrellas oscuros
         for (let i = 0; i < 5; i++) {
+            //Si el valor i es menor o igual que estrella 
             if (i <= estrella) {
                 // Mostrar estrella llena
                 estrellaFiltroLabel.innerHTML += "<svg>"+
@@ -144,19 +176,26 @@ function mostrarReseñas(reseny){
                     "<image href='Materiales/productoIndividual/valoracionOpiniones/EstrellaVacia.svg' width='15px' height='15px'>"
                 +"</svg>";
             }
+
+            //indicar el tipo de input
             estrellaFiltro.type = "radio";
+            //indicar el id de input
             estrellaFiltro.id = "estrella" + (estrella + 1);
+            //indicar el valor de input
             estrellaFiltro.value = estrella+1;
         }
 
-        
+        //Asignar atributos al input
         estrellaFiltro.name = "estrella";
         estrellaFiltro.classList.add("col-1","mt-2");
-    
+        
+        //cuando clicamos al input se activa este funcion
         estrellaFiltro.onchange = function() {
+            //Enviar this(estrella) de input seleccionado al funcion
             getEstrellaSelected(this);
         };
         
+        //Añadir el filtro y label de filtro a dentro de formulario
         divFormEstrella.append(estrellaFiltro);
         divFormEstrella.append(estrellaFiltroLabel);
     }
@@ -171,9 +210,16 @@ function mostrarReseñas(reseny){
     subCajaRow.append(subCajaRowUnoRow);
 
 
-
+    //Preparar un array de comentario (No sirve para nada, solo es para poder ver mas clara los 
+    //valor en individual de reseny)
     ArrayDeComentarios = [];
+    
+    //Prepara un Contador para que cada boton de QR tenga un id diferente
+    contadorBucleIdQRButton = 1;
+
+    //Realizar un foreach para sacar todos los contenidos de array en individual
     reseny.forEach(resenyaIndividual => {
+        //Añadir al array creado anteriomente los contenidos separados con su nombre de id
         ArrayDeComentarios.push({
             user_id : resenyaIndividual['Nombre'],
             producto_id : resenyaIndividual['prod_id'],
@@ -182,25 +228,31 @@ function mostrarReseñas(reseny){
             valoracion : resenyaIndividual['valoracion']
 
         });
-        // Crear div
+
+
+        // Crear div para los contenidos de reseña
         const subCajaRowDos = document.createElement("div");
         subCajaRowDos.classList.add("col-6", "CajasP", "noMarginBottom");
-    
+        
+        //Crear un caja para cada comentario
         const cajaDetalleValoracion = document.createElement("div");
         cajaDetalleValoracion.classList.add("CajaDetalleValoracion","row","col-12");
     
-        // Crear párrafo
+        // Crear párrafo de usuario
         const Cliente = document.createElement("p");
         Cliente.classList.add("col-12", "pValoracion", "noMarginBottom");
         Cliente.innerHTML = resenyaIndividual['user_id'];
 
+        //Crear párrado de nombre de producto
         const Producto = document.createElement("p");
         Producto.classList.add("col-12", "pValoracion", "noMarginBottom");
         Producto.innerHTML = resenyaIndividual['prod_Nombre'];
 
+        //Crear párrafo de cuantos puntos han valorado el usuario
         const Estrella = document.createElement("p");
         Estrella.classList.add("col-12", "pValoracion", "noMarginBottom");
         Estrella.innerHTML = "Puntuación: ";
+        //Realizar un for para añadir el cantidad necesario de valoracion de estrella
         for (let star = 0; star < resenyaIndividual['estrella']; star++) {
             Estrella.innerHTML += "<svg>"+
                 "<image href='Materiales/productoIndividual/valoracionOpiniones/Estrella.svg' width='18px' height='18px'>"
@@ -212,10 +264,12 @@ function mostrarReseñas(reseny){
         let boxButton = document.createElement("div");
         boxButton.classList.add("d-flex","justify-content-end");
         boxButton.id = "boxButton";
+
+        //Crear button de reseña
         let buttonQRResenya = document.createElement("button");
-        // buttonQRResenya.value = resenyaIndividual['prod_id'];
         buttonQRResenya.classList.add("btn","btn-primary","btnQrProd"); 
         buttonQRResenya.innerHTML = "QR Resenya";   
+        //Añadir los atributos para poder activar el modal
         buttonQRResenya.setAttribute("data-bs-toggle","modal");
         buttonQRResenya.setAttribute("data-bs-target","#exampleModal");
         buttonQRResenya.id = "qrResenya";
@@ -239,7 +293,8 @@ function mostrarReseñas(reseny){
         subCajaRowDos.append(Valoracion);
         
         subCajaRowUnoRow.append(subCajaRowDos);
-        // Anidar div dentro de cajaDetalleValoracion
+
+        // Añadir div dentro de cajaDetalleValoracion
         subCajaRowDos.append(cajaDetalleValoracion);
 
         cajaDetalleValoracion.append(Cliente);
@@ -326,40 +381,36 @@ function crearModal(prod_id){
         modalHeaderBox.append(botonModalHeader);
 
     modalContentBox.append(modalBodyBox);
-        //Añadir contenido de Body Modal
-        const QrCode = document.createElement("div");
-        QrCode.id = "qrcode";
-        QrCode.classList.add("d-flex","justify-content-end");
-        // Data es donde aplicamos nuestro URL de WEb
-        const data = 'https://localhost/webs/GitProyect/GamingShop/index.php?controller=user&action=panelResenyas&prod_id='+prod_id;
+    //Añadir contenido de Body Modal
+    const QrCode = document.createElement("div");
+    QrCode.id = "qrcode";
+    QrCode.classList.add("d-flex","justify-content-end");
+    // Data es donde aplicamos nuestro URL de WEb
+    const data = 'https://localhost/webs/GitProyect/GamingShop/index.php?controller=user&action=panelResenyas&prod_id='+prod_id;
 
-        // Cabiar el url para que sea dinamico
-        const apiUrl = 'https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=';
+    // Cabiar el url para que sea dinamico
+    const apiUrl = 'https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=';
 
-        // Usar el URL de API para crear el imagen
-        const imageUrl = `${apiUrl}${encodeURIComponent(data)}`;
+    // Usar el URL de API para crear el imagen
+    const imageUrl = `${apiUrl}${encodeURIComponent(data)}`;
 
-        // Mostrar el QR en pagina web
-        QrCode.innerHTML = `<img src="${imageUrl}" alt="QR Code">`;
+    // Mostrar el QR en pagina web
+    QrCode.innerHTML = `<img src="${imageUrl}" alt="QR Code">`;
 
-        modalBodyBox.append(QrCode);
+    //insetar a dentro de Modal el imagen de QR
+    modalBodyBox.append(QrCode);
 
     modalContentBox.append(modalFooterBox);
-        //Añadir contenido de Footer Modal
-        modalFooterBox.append(closeModalFooter);
-        modalFooterBox.append(saveModalFooter);
-        
 
-
-    
+    //Añadir contenido de Footer Modal
+    modalFooterBox.append(closeModalFooter);
+    modalFooterBox.append(saveModalFooter);
     modalMainBox.classList.add("modal","fade");
     modalMainBox.id = "exampleModal";
     modalMainBox.setAttribute("tabindex","-1");
     modalMainBox.setAttribute("aria-labelledby","exampleModalLabel");
     modalMainBox.setAttribute("aria-hidden","true");
-
     modalDialogBox.classList.add("modal-dialog","modal-dialog-centered");
-
     modalContentBox.classList.add("modal-content");
 
 

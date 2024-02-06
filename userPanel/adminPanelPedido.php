@@ -10,7 +10,7 @@
     <main>
         <div class="container">
         <div class="col-12 d-flex justify-content-center backgroundGrey ">
-            <div class="row mb-5 " >
+            <div class="row mb-5 col-12" >
             <div class="boxInformacionTotal">
                 <div class="col-12 mt-5">
                     <H2 class="miInformacion">MIS INFORMACIONES</H2>
@@ -57,44 +57,30 @@
 
                     
                     <div class="col-12 boxAdministradormMain row">
-                        <div class="mainBoxAñadir col-12 d-flex justify-content-end">
-                            <div class="col-3 añadirProducto mt-3">
-                                <form action=<?=url."?controller=producto&action=añadir"?> method="post">
-                                    <button class="btn btn-primary col-12">Añadir</button>
-                                </form>
-                            </div>
-                        </div>
                         <div class="col-12 boxAdministradorm">
-                        <h2>Productos</h2>
+                        <h2>Pedidos Realizados</h2>
                             <div class="col-12 d-flex">
-                                <div class="row">
-                                <?php foreach ($Productos as $producto){?>
+                                <div class="row col-12">
+                                <?php foreach ($Pedidos as $Pedido){?>
                                 <div class="col-3">
                                     <div class="card col-12">
-                                        <img src="Materiales/Productos/sushi.png" class="card-img-top" alt="..." height="100%" width="100%">
                                         <div class="card-body">
-                                            <h5 class="card-title"><?=$producto->getNombre()?></h5>
+                                            <h5 class="card-title">Cliente: <?=$Pedido->getCliente_id()?></h5>
                                         </div>
                                         <ul class="list-group list-group-flush noBorderBottom">
-                                            <li class="list-group-item">Producto ID: <?=$producto->getProdId()?></li>
-                                            <li class="list-group-item">Categoria ID: <?=$producto->getCatId()?></li>
+                                            <li class="list-group-item"><span class="fw-bold">Pedido ID:</span> <?=$Pedido->getPedido_id()?></li>
+                                            <li class="list-group-item"><span class="fw-bold">Precio Pedido:</span> <?=$Pedido->getPrecio_total()?>€</li>
                                             <li class="list-group-item">
-                                                <p class="fw-bold noMarginBottom">Descripcion:</p>
-                                                <?=$producto->getDescripcion()?>
+                                                <p class="fw-bold noMarginBottom">Fecha Realizado:</p>
+                                                <?=substr($Pedido->getPedido_Time(), 0, 19)?>
                                             </li>
                                         </ul>
                                         <div class="card-body col-12">
-                                            <!-- Crear un formulario que llama al productoController y en funcion Actualizar cuando clica al boton -->
-                                            <form action=<?=url."?controller=producto&action=actualizar"?>  method="post">
-                                                <!-- Cuando envia se para el nombre producto_id y su valor como post -->
-                                                <input type="number" name="producto_id" value="<?=$producto->getProdId()?>" hidden>
-                                                <button class="btn btn-primary col-5 me-3">Modificar</button>
-                                            </form>
                                             <!-- Crear un formulario que llama al productoController y en funcion Eliminar cuando clica al boton -->
-                                            <form action=<?=url."?controller=producto&action=eliminar"?> method="post">
+                                            <form action=<?=url."?controller=Pedido&action=eliminarPedidoEspecificado"?> method="post">
                                                 <!-- Cuando envia se para el nombre producto_id y su valor como post -->
-                                                <input type="number" name="producto_id" value="<?=$producto->getProdId()?>" hidden>
-                                                <button class="btn btn-primary col-5 me-3">Eliminar</button>
+                                                <input type="number" name="pedidoUser" value="<?=$Pedido->getPedido_id()?>" hidden>
+                                                <button class="btn" type="Submit">Eliminar</button>
                                             </form>
                                         </div>
                                     </div>

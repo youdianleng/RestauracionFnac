@@ -72,29 +72,47 @@ body{
     
     }
     .row p{
-        font-size: 12px;
+        font-size: 15px;
     }
 
     .row .specialp{
-        font-size: 10px;
+        font-size: 18px;
     }
 
     .row .ultiProd{
-        font-size: 13px;
+        font-size: 16px;
     }
 
     .row .ultiProdDesc{
-        font-size: 12px;
+        font-size: 15px;
     }
 
     .row .ultiProdPrec{
-        font-size: 14px;
+        font-size: 17px;
     }
 
     .row .UltimoBtnWidth{
-        font-size: 9px;
+        font-size: 12px;
     }
 
+    .cajaDescripcion {
+        height: 55%!important;
+    }
+
+    /*
+    * General textos Cambiados
+    */
+    .txt15{
+        font-size: 20px!important;
+    }
+
+    .txt12{
+        font-size: 16px!important;
+    }
+
+    .txt13{
+        font-size: 17px!important;
+    }
     
 }
 

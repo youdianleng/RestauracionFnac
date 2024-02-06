@@ -40,7 +40,10 @@
                                 $pedido = $_COOKIE['UltimoPedido'];
                                 
                                 ?>
-                            <?php }?>
+                            <?php }else{ 
+                                $pedido = 0;
+                                
+                            }?>
                                     <tr class="pedidoColor" >
                                         <td><?=$pedido?></td>
                                     </tr>

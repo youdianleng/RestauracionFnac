@@ -1,6 +1,6 @@
 <?php
 
-abstract class Producto{
+abstract class Producto extends categoria{
 
     //Preparar los variables para clase
     protected $Producto_id;

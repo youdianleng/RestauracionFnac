@@ -78,7 +78,7 @@ include_once "Model/ValoracionDAO.php";
 
                 foreach ($todosCategoria as $categoria) {
                     $ArrayResenyas[] = [
-                        "NombreCategoria" => $categoria->getNombre(),
+                        "NombreCategoria" => $categoria->getNombreCat(),
                         "categoria_id" => $categoria->getCategoria_id()
                     ];
                 }
@@ -155,7 +155,7 @@ include_once "Model/ValoracionDAO.php";
             }else if($_POST['accion'] == "mostrarReseñasEnProducto"){
                 $producto_id = $_POST["prod_id"];
 
-                
+
                 $todosReseñaMostrarProducto = valoracionDAO::getResenyasProductos($producto_id);
 
                 $arrayMostrarReseñasProducto = [];

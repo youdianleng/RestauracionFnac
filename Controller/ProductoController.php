@@ -366,9 +366,9 @@
                 
                 //Realizar el funcion de modificar el producto
                 ProductoDAO::modificarProductos($producto_id, $nombre, $descripcion,$descripcionCorto, $imagen, $precio);
-                header("Location:".url."?controller=producto");
+                header("Location:".url."?controller=user&action=adminPanel");
             }else{
-                header("Location:".url."?controller=producto");
+                header("Location:".url."?controller=user&action=adminPanel");
             }
         }
 
