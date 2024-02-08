@@ -52,7 +52,7 @@ function getPropina(user_id){
 
 
 //Borrar el cupon de usuario si han aplicado el baja de propina
-function deletePropina(user_id){
+function deletePropina(user_id,puntoUsadosUsuario){
     // Llama a la API con el nuevo valor
     fetch("https://localhost/webs/GitProyect/GamingShop/index.php?controller=API&action=api", {
         method: 'POST',
@@ -61,7 +61,8 @@ function deletePropina(user_id){
         },
         body: new URLSearchParams({
             accion: 'borrarPropina',
-            usuario: user_id
+            usuario: user_id,
+            puntosUsuarioUsa: puntoUsadosUsuario
         }),
     })
     .then(response => {
@@ -86,8 +87,12 @@ let PropinaDeUsuario = 0;
 
 //Obtener el contenidor de PrecioTotal
 let PrecioTotalGet = document.getElementById("precioTotal");
+
 //Guardar el precio Original de PrecioTotal
 let OriginalPrecioTotal = PrecioTotalGet.value;
+
+//Este variable es para que cuando aplicamos el cupon y propina a la vez que va cojiendo los precios cambiado y no volver a calcular con el precio original
+let PrecioDinamicaTotalConIva = 0;
 
 //Cuando el carrito hay contenido
 if(propinaCarrito != 0){
@@ -156,7 +161,9 @@ if(propinaCarrito != 0){
         //Mostrar el precio cambiada con propina
         let precioMostrarIVA = document.getElementById("precioConIva");
         precioMostrarIVA.innerHTML = Math.round(PrecioTotalGet.value) + "€";
-;
+        PrecioDinamicaTotalConIva = Math.round(PrecioTotalGet.value);
+        //Detecta si usuario ha aplicado a la vez el cupon
+        detectaCuponUsuario();
         //Llamar al funcion para saber si el usuario ha seleccionado propina o no
         getValorPropinaSelected();
     });
@@ -204,37 +211,62 @@ function aplicarPunto(){
 //Controlador de si el usuario ha pulsado el boton de aplicar puntos o no
 let aplicarPuntoButton = document.getElementById("aplicarPuntos");
 
+//Obtener el punto de usuario como global
+let puntoUsuario = 0;
+
+//Obtener el punto que el usuario se va a usar en este compra
+let puntoUsadosUsuario = 0;
 //Aplicar el cupon a precio
 function aplicarPuntosCarrito(puntos){
     //Crear un array para puntos de usuario
-    puntosUsuario = [];
+    let puntosUsuario = [];
     //foreach para sacar los contenidos individual
     puntos.forEach(punto => {
         puntosUsuario.push({
             puntoUser: punto["puntosUsuarios"]
         })
-    
-    //obtenemos el div donde muestra el precioTotal de carrito
-    let precioMostrarIVA = document.getElementById("precioTotal");
-    //obtenemos el div donde muestra el precioTotal con IVA de carrito
-    let MostrarIva = document.getElementById("precioConIva");
-    //hacer un calculo de puntos dividido en 10
-    let puntosPorcetajeAplicada = (punto["puntosUsuarios"] / 10);
-    //Pasamos el valor de precioMostrarIva en Int para poder hacer calculo
-    let PrecioTotalAplicarCupon = parseInt(precioMostrarIVA.value);
-    //Realizar el calculo de precio menos puntos
-    let calculoPuntos = PrecioTotalAplicarCupon - Math.ceil(puntosPorcetajeAplicada);
-    
-    //Evitamos de que precio de puntos sea mayor que precio que va a pagar
-    //Para que no se muestra como -
-    if(0 > calculoPuntos){
-        MostrarIva.innerHTML = 0 + "€";
-        precioMostrarIVA.value = 0;
-    }else{ //En otros casos realiza el caulo y aplica.
-        MostrarIva.innerHTML = PrecioTotalAplicarCupon - Math.ceil(puntosPorcetajeAplicada) + "€";
-        precioMostrarIVA.value = PrecioTotalAplicarCupon - Math.ceil(puntosPorcetajeAplicada);
-    }
+    puntoUsuario = punto["puntosUsuarios"];
     });
+    
+    let seleccionCantidadPropinas = document.getElementById("zonaAplicarPuntos");
+    let propinaSeleccionado = document.createElement("p");
+    propinaSeleccionado.setAttribute("name","propinaSeleccionado");
+    propinaSeleccionado.classList.add("ms-4","noPaddingLeft","noPaddingRight","txt13");
+    seleccionCantidadPropinas.append(propinaSeleccionado);
+    propinaSeleccionado.innerHTML = "Puntos Usuario: "+puntoUsuario;
+
+    let puntosAAplicar = document.createElement("input");
+    seleccionCantidadPropinas.append(puntosAAplicar);
+    puntosAAplicar.classList.add("ms-4","noPaddingLeft","noPaddingRight","col-10");
+    puntosAAplicar.type = "range";
+    puntosAAplicar.id = "rangeSelecionPuntoUsuario";
+    puntosAAplicar.setAttribute("name","rangeSelecionPuntoUsuario");
+    puntosAAplicar.width = "50px";
+    puntosAAplicar.min = "0";
+    puntosAAplicar.max = puntoUsuario;
+    puntosAAplicar.value = 0;
+    let muestraPuntoAplicaActual = document.createElement("p");
+    muestraPuntoAplicaActual.id = "muestraPuntoAplicaActual";
+    muestraPuntoAplicaActual.setAttribute("name","muestraPuntoAplicaActual");
+    muestraPuntoAplicaActual.classList.add("ms-4","noPaddingLeft","noPaddingRight","txt13");
+    seleccionCantidadPropinas.append(muestraPuntoAplicaActual);
+
+    
+    puntosAAplicar.addEventListener("input", function(){
+        muestraPuntoAplicaActual.innerText = "Vas a usar " + puntosAAplicar.value + "p = " + Math.ceil(puntosAAplicar.value/10) + " €";
+        let precioConIvaMuestra = document.getElementById("precioConIva");
+        precioConIvaMuestra.innerHTML = OriginalPrecioTotal - Math.ceil(puntosAAplicar.value/10) + "€";
+        let precioConIva = document.getElementById("precioTotal");
+        precioConIva.value = OriginalPrecioTotal - Math.ceil(puntosAAplicar.value/10);
+        puntoUsadosUsuario = puntosAAplicar.value;
+
+        detectaPropinaUsuario();
+    })
+
+    
+
+
+    
 }
 
 //Definir si el usuario ha aplicado cupon o no
@@ -252,11 +284,13 @@ aplicarPuntoButton.addEventListener("change",function() {
         //Cambiamos el confirmarCupon en ON
         confirmarCupon = "ON";
         //tenemos que ver que precio de carrito no sea vacio
+
         if(OriginalPrecioTotal != ""){
             //Ontener el cantidad de propina dado por usuario actual
             getPropina(usuario);
         }
         
+
         
         
     }else{
@@ -273,9 +307,38 @@ aplicarPuntoButton.addEventListener("change",function() {
             MostrarIva.innerHTML = 0 + "€";
         }else{
             //En otros casos muestra el valor original que debe mostrar cuando no aplica los propinas
-            precioMostrarIVA.value = OriginalPrecioTotal;
-            MostrarIva.innerHTML = OriginalPrecioTotal + "€";
+            precioMostrarIVA.value = PrecioDinamicaTotalConIva;
+            MostrarIva.innerHTML = PrecioDinamicaTotalConIva + "€";
+
         }
+
+        /**
+         * Aqui hago para eliminar los divs de seleccionar cuantos puntos usuario queire aplicar
+         * Pero cuando hago muy rapido de activar y desactivar se ve que me crea varias 
+         * Entonces usar getElementsByName me soluciona la problema 
+         */
+        let propinaSeleccionado = document.getElementsByName("propinaSeleccionado");
+        // Convertir el objeto en array para poder realizar un foreach
+        let propinaSeleccionadosArray = Array.from(propinaSeleccionado);
+
+        propinaSeleccionadosArray.forEach(element => {
+            element.remove();
+        });
+        let borrarSeleccionUsuarioPunto = document.getElementsByName("rangeSelecionPuntoUsuario");
+        // Convertir el objeto en array para poder realizar un foreach
+        let rangePropinaSeleccionadosArray = Array.from(borrarSeleccionUsuarioPunto);
+
+        rangePropinaSeleccionadosArray.forEach(element => {
+            element.remove();
+        });
+
+        let borrarMuestraPuntoAplicaActual = document.getElementsByName("muestraPuntoAplicaActual");
+        // Convertir el objeto en array para poder realizar un foreach
+        let MuestraPropinaSeleccionadosArray = Array.from(borrarMuestraPuntoAplicaActual);
+
+        MuestraPropinaSeleccionadosArray.forEach(element => {
+            element.remove();
+        });
     }
 })
 
@@ -289,6 +352,34 @@ confirmarPagoConCupon.addEventListener("click",function(){
         //actualizamos el usuario al usuario actual iniciada
         usuario = document.getElementById('UsuarioActual').value;
         //Usar el funcion para eliminar los puntos que hay de usuario
-        deletePropina(usuario);
+        deletePropina(usuario,puntoUsadosUsuario);
     }
 });
+
+
+//Funcion para saber si el usuario ha aplicado cupon junto con propina
+function detectaCuponUsuario(){
+    //Obtener el id de cupon
+    if(document.getElementById("rangeSelecionPuntoUsuario")){
+        //Aqui es precio aplicado con cupon
+        prcioAplicadoCupon = Math.ceil(puntoUsadosUsuario/10) + "€";
+
+
+        PrecioDinamicaTotalConIva = PrecioDinamicaTotalConIva - Math.ceil(puntoUsadosUsuario/10);
+
+        let precioMostrarIVA = document.getElementById("precioConIva");
+        let precioTotal = document.getElementById("precioTotal");
+        precioMostrarIVA.innerHTML = PrecioDinamicaTotalConIva + "€";
+        precioTotal.value = PrecioDinamicaTotalConIva;
+    }
+}
+
+//Funcion para saber si el usuario ha aplicado propina junto con cupon
+function detectaPropinaUsuario(){
+    if(PrecioDinamicaTotalConIva != 0){
+        let precioMostrarIVA = document.getElementById("precioConIva");
+        let precioTotal = document.getElementById("precioTotal");
+       precioMostrarIVA.innerHTML = PrecioDinamicaTotalConIva - Math.ceil(puntoUsadosUsuario/10) + "€";
+       precioTotal.value = PrecioDinamicaTotalConIva - Math.ceil(puntoUsadosUsuario/10);
+    }
+}

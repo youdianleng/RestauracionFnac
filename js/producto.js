@@ -198,15 +198,16 @@ function mostrarReseñasEnBloques(reseñas){
     let contadorReseñas;
     let contadorResenBucle = 0;
     let arrayReseñas = [];
+    let cantidadOpiniones = 0;
       //sacar los contenidos de array reseñas
       reseñas.forEach(resen => {
-        
+        cantidadOpiniones += 1;
         arrayReseñas.push({
           valoracion: resen["Valoracion"],
           estrella: resen["Estrellas"],
           nombre: resen["Nombre"]
         })
-
+        
       //Aqui se crea los carousel pricipales y los subCarousel
       //Cada vez cuando moderamos a 3 = 0 entra para crear un nueva contenedor de carousel
       if(contadorResenBucle % 3 == 0){
@@ -267,7 +268,7 @@ function mostrarReseñasEnBloques(reseñas){
 
         let TickSmallP = document.createElement("p");
         divMainTickaSmall.append(TickSmallP);
-        TickSmallP.classList.add("txt11","noMarginBottom","espacioLetter2","ms-1");
+        TickSmallP.classList.add("txt11","noMarginBottom","espacioLetter2","ms-1","mb-3");
         TickSmallP.innerHTML = "COMPRAS VERIFICADAS";
 
         let fechaDivSvgTickaSmallMain = document.createElement("p");
@@ -279,8 +280,8 @@ function mostrarReseñasEnBloques(reseñas){
         fechaDivSvgTickaSmallMain.innerHTML = "Publicado el 14 oct. 2021";
         rapidoDivSvgTickaSmallMain.innerHTML = "Rápido y perfecto";
         valoracionDivSvgTickaSmallMain.innerHTML = resen["Valoracion"];
-        fechaDivSvgTickaSmallMain.classList.add("txt13");
-        rapidoDivSvgTickaSmallMain.classList.add("marginBot16","txt16","fw-bold");
+        fechaDivSvgTickaSmallMain.classList.add("txt13","mb-3");
+        rapidoDivSvgTickaSmallMain.classList.add("marginBot16","txt16","fw-bold","mb-3");
         valoracionDivSvgTickaSmallMain.classList.add("marginBot16","txt14");
 
       }else{
@@ -333,8 +334,8 @@ function mostrarReseñasEnBloques(reseñas){
 
         let TickSmallP = document.createElement("p");
         divMainTickaSmall.append(TickSmallP);
-        TickSmallP.classList.add("txt11","noMarginBottom","espacioLetter2","ms-1");
         TickSmallP.innerHTML = "COMPRAS VERIFICADAS";
+        TickSmallP.classList.add("txt11","noMarginBottom","espacioLetter2","ms-1","mb-3");
 
         let fechaDivSvgTickaSmallMain = document.createElement("p");
         let rapidoDivSvgTickaSmallMain = document.createElement("p");
@@ -345,8 +346,8 @@ function mostrarReseñasEnBloques(reseñas){
         fechaDivSvgTickaSmallMain.innerHTML = "Publicado el 14 oct. 2021";
         rapidoDivSvgTickaSmallMain.innerHTML = "Rápido y perfecto";
         valoracionDivSvgTickaSmallMain.innerHTML = resen["Valoracion"];
-        fechaDivSvgTickaSmallMain.classList.add("txt13");
-        rapidoDivSvgTickaSmallMain.classList.add("marginBot16","txt16","fw-bold");
+        fechaDivSvgTickaSmallMain.classList.add("txt13","mb-3");
+        rapidoDivSvgTickaSmallMain.classList.add("marginBot16","txt16","fw-bold","mb-2");
         valoracionDivSvgTickaSmallMain.classList.add("marginBot16","txt14");
       }
 
@@ -355,4 +356,6 @@ function mostrarReseñasEnBloques(reseñas){
       activaItemPricipal.classList.add("active");
       contadorResenBucle += 1;
     })
+    let mostrarCantidadOpiniones = document.getElementById("cantidadOpiniones");
+    mostrarCantidadOpiniones.innerHTML = cantidadOpiniones + " - Opiniones";
 }

@@ -54,7 +54,10 @@
             
             <div class="col-4 marginNone border-end cajaBajo">
                 <div class="estiloP mb-3 ">
-                    <img src="Materiales/recogida Gratuita.svg" alt="Recogida Gratuita">
+                    <svg height="50px" width="50px" class="ms-2 me-2">
+                        <image href="Materiales/recogida Gratuita.svg" alt="Recogida Gratuita" height="50px" width="50px"></image>
+                    </svg>
+                    
                     <div class="col-9">
                         <p>Recogida Gratuita en Tienda</p>
                         <span class="noEstiloP"><p>Elige tu tienda más cercana</p></span>
@@ -63,7 +66,9 @@
             </div>
             <div class="col-4 marginNone  border-end cajaBajo">
                 <div class="estiloP ">
-                    <img src="Materiales/promocion.svg" alt="Promocion">
+                    <svg height="50px" width="50px" class="ms-2 me-2">
+                        <image href="Materiales/promocion.svg" alt="Promocion" height="50px" width="50px"></image>
+                    </svg>
                     <div class="col-9">
                         <p>Descuento 5% en comidas</p>
                         <span class="noEstiloP"><p>En todos los comidas y para todo el mundo</p></span>
@@ -72,7 +77,9 @@
             </div>
             <div class="col-4 marginNone border-end cajaBajo">
                 <div class="estiloP ">
-                    <img src="Materiales/cena.svg" alt="Envio Gratis">
+                    <svg height="50px" width="50px" class="ms-2 me-2">
+                        <image href="Materiales/cena.svg" alt="Envio Gratis" height="50px" width="50px"></image>
+                    </svg>
                     <div class="col-9">
                         <p>Envió gratis</p>
                         <span class="noEstiloP"><p>Hazte Socio Tech+Cultura</p></span>

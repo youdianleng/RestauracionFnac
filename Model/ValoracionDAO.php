@@ -152,6 +152,21 @@ class valoracionDAO{
     }
 
 
+    //actualizar el punto que hay el usuario propina de usuario
+    public static function actualizarUsuarioPropina($usuario,$puntosUsaUsuarioActual){
+        $con = DataBase::connect();
+        //Hacer un consulta SQL que elimina datos de dicho tabla
+        $stmt = $con->prepare("UPDATE puntosusuario SET Punto = (Punto - $puntosUsaUsuarioActual) Where Cliente_id = ?");
+        $stmt->bind_param("i",$usuario);
+
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $con->close();
+
+        return $result;
+    }
+
+
     //Eliminar propina de usuario
     public static function eliminarUsuarioPropina($usuario){
         $con = DataBase::connect();

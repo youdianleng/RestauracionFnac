@@ -164,7 +164,12 @@
                   <!-- Botones para finalizar la compras -->
                   <div class="FinalizarCompra row">
                     <button class="btn btn-primary col-12">Comprar en un click</button>
-                    <button class="btn btn-primary btnAñadir col-12">Añadir a la cesta</button>
+                    <form action="<?= url . "?controller=producto&action=shop" ?>" method="POST" class="col-12 noPadding">
+                        <div class="d-grid gap-2 col-12 mx-auto mt-2 ">
+                            <input hidden name="id" value="<?= $_GET["prod_id"]?>">
+                            <button class="btn btn-primary" type="Submit">Añadir a Cesta</button>
+                        </div>
+                    </form>
                   </div>
 
                   <!-- Informacion de Disponibilidad de Producto -->
@@ -306,7 +311,7 @@
                           <div class="ValoracionEstati txt48 colorF5">/5</div>
                         </div>
                         <div class="d-flex align-items-center col-12 justify-content-center">
-                          <p class="color98">13 opiniones - 20 en el gama</p>
+                          <p class="color98" id="cantidadOpiniones"></p>
                         </div>
                         <div class="d-flex align-items-center col-12 justify-content-center">
                           <form action="" method="POST">

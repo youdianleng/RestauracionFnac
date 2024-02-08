@@ -13,26 +13,6 @@ body{
 }
 
 
-/* Font-Face */
-@font-face {
-    font-family: "araboto-light";
-    src: url("Fuentes/Araboto_Light_400.ttf");
-}
-
-@font-face {
-    font-family: "araboto-normal";
-    src: url("Fuentes/Araboto_Normal.ttf");
-}
-
-/* Font-size */
-.araboto-light{
-    font-family: "araboto-light";
-}
-
-.araboto-normal{
-    font-family: "araboto-normal";
-}
-
 .noticias .font-m{
     font-size: 25px;
 }
@@ -77,7 +57,7 @@ body{
     }
 
     .estiloP .noEstiloP p{
-        font-size: 13px;
+        font-size: 12px;
         color: #D8D8D8;
     }
 

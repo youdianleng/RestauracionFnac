@@ -381,3 +381,21 @@ textarea{
     color: #ccc;
     transition: color 0.5s;
   }
+
+  .carousel-control-prev {
+    width: 5%!important;
+  }
+
+  .carousel-control-prev-icon{
+    background-color: #5f5f5f;
+    border-radius: 100px;
+  }
+
+  .carousel-control-next {
+    width: 5%!important;
+  }
+
+  .carousel-control-next-icon{
+    background-color: #5f5f5f;
+    border-radius: 100px;
+  }

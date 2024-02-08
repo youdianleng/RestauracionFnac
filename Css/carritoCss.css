@@ -13,8 +13,9 @@ body{
     padding: 0px;
 }
 
+
 /* Responsive */
-@media only screen and (max-width: 1100px) {
+@media only screen and (max-width: 1000px) {
     body {
       width: 100%;
       height: auto;
@@ -23,37 +24,61 @@ body{
     }  
 
     h2{
-        font-size: 20px;
+        font-size: 23px!important;
     }
 
     .txt18{
-        font-size: 13px!important;
+        font-size: 21px!important;
     }
 
     .txtIva{
-        font-size: 8px!important;
+        font-size: 11px!important;
     }
 
     .codigoText{
-        font-size: 13px;
+        font-size: 16px!important;
     }
 
     .card-title{
-        font-size: 14px;
+        font-size: 17px!important;
     }
     
     .card-text{
-        font-size: 10px;
+        font-size: 13px!important;
     }
 
     input::placeholder{
-       font-size: 13px;
+       font-size: 16px!important;
     }
 
+    .txt21{
+        font-size: 24px!important;
+    }
 
+    .txt15{
+        font-size: 18px!important;
+    }
+    
+    .txt13{
+        font-size: 16px!important;
+    }
 
+    .txt14{
+        font-size: 18px!important;
+    }
 
+    #precioConIva{
+        font-size: 20px!important;
+    }
 
+    table{
+        font-size: 20px!important;
+    }
+
+    table input{
+        width: 20px;
+        height: 20px;
+    }
 }
 
 
@@ -169,7 +194,7 @@ body{
 
 .txt13{
     font-size: 13px;
-    color: #D2D2D2;
+    color: #989898;
 }
 
 .txt12{

@@ -149,8 +149,8 @@ include_once "Model/ValoracionDAO.php";
                 }
             }else if($_POST['accion'] == "borrarPropina"){
                 $usuario = $_POST['usuario'];
-
-                $eliminarPropina = valoracionDAO::eliminarUsuarioPropina($usuario);
+                $puntosUsaUsuario = $_POST['puntosUsuarioUsa'];
+                $eliminarPropina = valoracionDAO::actualizarUsuarioPropina($usuario,$puntosUsaUsuario);
                 
             }else if($_POST['accion'] == "mostrarReseñasEnProducto"){
                 $producto_id = $_POST["prod_id"];

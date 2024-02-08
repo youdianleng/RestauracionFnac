@@ -59,7 +59,9 @@ function miFuncion(){
      });
 }
 
+//Array para guardar los productos de forma individual
 productosFiltrado = []
+//Mostrar los productos segun el precio que tienen
 function mostrarFiltradoPrecio(data){
   let cartaBody = document.getElementById("rowSectionCartaProducto");
   let newSectionProducto = document.createElement("section");

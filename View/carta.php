@@ -44,7 +44,14 @@
             </div>
             <div class="col-2 d-flex justify-content-around align-items-center border ">
                 <div class="relev">
-                    <p>Relevancia</p>
+                    <div class="dropdown-center d-flex align-items-center">
+                        <p>Clasificación</p>
+                        <button class="btn dropdown-toggle btn-Ordenar" data-bs-toggle="dropdown" aria-expanded="false">
+                        </button>
+                        <ul class="dropdown-menu" id="dropDownMenu">
+
+                        </ul>
+                    </div>
                 </div>
                     
             </div>

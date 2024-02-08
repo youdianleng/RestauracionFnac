@@ -123,12 +123,14 @@
                                             }
                                         ?>€</p>
                                 </div>
-                                <div class="d-flex justify-content-between align-items-center">
+                                <div class="row" id="zonaAplicarPuntos">
+                                    <div class="d-flex justify-content-between align-items-center">
                                     <p class="ms-4">Aplicar tus Puntos?</p>
                                     <label class="switch me-4">
                                         <input type="checkbox" id="aplicarPuntos">
                                         <span class="slider"></span>
                                     </label>
+                                    </div>
                                 </div>
                                 <div class="col-12 d-flex justify-content-between mt-3 codigoText">
                                         <p class="ms-4 mb-4 txt18">TOTAL <span class="txtIva">(IVA INCLUIDO)</span></p>
