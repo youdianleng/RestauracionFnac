@@ -2,6 +2,7 @@
 //En ProductoDAO realiza todos los acciones relaciona con BBDD
 include_once "config/DB.php";
 class valoracionDAO{
+    //Obtener los resenyas depende de producto que nos envian
     public static function getResenyasProductos($producto_id){
         $con = DataBase::connect();
         $stmt = $con->prepare("SELECT * FROM producto_valoracion INNER JOIN clientes ON producto_valoracion.Cliente_id = clientes.Cliente_id WHERE producto_valoracion.Producto_id = $producto_id");
@@ -21,7 +22,7 @@ class valoracionDAO{
         return $listaResenya;
     }
 
-
+    //obtener todos los resenyas de bbdd
     public static function getResenyas(){
         $con = DataBase::connect();
         $stmt = $con->prepare("SELECT * FROM producto_valoracion INNER JOIN clientes on clientes.Cliente_id = producto_valoracion.Cliente_id INNER JOIN productos ON productos.Producto_id = producto_valoracion.Producto_id");
@@ -43,7 +44,7 @@ class valoracionDAO{
 
 
 
-    
+    //Devuelve los resenyas segun los estrellas que nos envian
     public static function getResenyasByEstrella($estrella){
         $con = DataBase::connect();
         $listaResenya = [];
@@ -71,7 +72,7 @@ class valoracionDAO{
 
     }
 
-
+    //Devuelve los resenyas segun el categoria que nos envian
     public static function getCategoriaResenya($cat_id){
         $con = DataBase::connect();
         $stmt = $con->prepare("SELECT * FROM producto_valoracion INNER JOIN productos ON producto_valoracion.producto_id = productos.producto_id INNER JOIN categoria ON productos.categoria_id = categoria.categoria_id where categoria.categoria_id = $cat_id");
@@ -92,7 +93,36 @@ class valoracionDAO{
 
     }
 
+    //Devuelve los productos depende de categoria que nos envian
+    public static function getProductoByCategoria($categoria){
+        $con = DataBase::connect();
+        $listaResenya = [];
+        $listaEstrellaStr = $categoria;
+        $estrella = explode(",",$listaEstrellaStr);
+        foreach($estrella as $est){
+            $stmt = $con->prepare("SELECT * FROM productos INNER JOIN categoria on productos.Categoria_id = categoria.Categoria_id WHERE categoria.Categoria_id = $est");
 
+            //Ejecutar el select, guardar el resultado y cerrar el conecxion
+            $stmt->execute();
+            $result=$stmt->get_result();
+    
+
+            $obj = "productos";
+            //Guardar los resultados en un Array
+            
+            while ($productoDB = $result->fetch_object($obj)){
+                $listaResenya[] = $productoDB;
+            }
+            
+        }
+        $con->close();
+
+        return $listaResenya;
+
+    }
+
+
+    //Hacer un insert en bbdd de valoracion que nos han escrito el usuario
     public static function setValoracionProducto($prod_id,$comentario,$estrella,$user_id){
         $con = DataBase::connect();
 

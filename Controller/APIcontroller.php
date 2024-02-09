@@ -171,6 +171,27 @@ include_once "Model/ValoracionDAO.php";
                 echo json_encode($arrayMostrarReseñasProducto, JSON_UNESCAPED_UNICODE);
                 return;
 
+            }else if($_POST['accion'] == "categoriasSeleccionados"){
+                $categoriaSelect = $_POST['categoriaFiltrado'];
+
+                $productosByCategoria = ValoracionDAO::getProductoByCategoria($categoriaSelect);
+
+                $arrayMostrarProductoCategoria = [];
+
+                foreach ($productosByCategoria as $productoByCategoria){
+                    $arrayMostrarProductoCategoria[] = [
+                        "producto_id" => $productoByCategoria->getProdId(),
+                        "Nombre" => $productoByCategoria->getNombre(),
+                        "Descripcion" => $productoByCategoria->getDescripcion(),
+                        "Imagen" => $productoByCategoria->getImagen(),
+                        "Precio" => $productoByCategoria->getPrecio(),
+                        "Tiempo" => $productoByCategoria->getTiempo(),
+                    ];
+                }
+
+                echo json_encode($arrayMostrarProductoCategoria, JSON_UNESCAPED_UNICODE);
+                return;
+
             }
         }
         

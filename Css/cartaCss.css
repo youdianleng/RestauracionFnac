@@ -286,3 +286,8 @@ a{
 #rangePrecio{
     width: 100%;
 }
+
+.dropdown-menu.show {
+    display: block;
+    width: 230px;
+}

@@ -56,7 +56,9 @@ body{
 .padding30{
     padding: 30px;
 }
-
+.padding10{
+    padding: 10px;
+}
 .noPaddingBottom{
     padding-bottom: 0!important;
 }
