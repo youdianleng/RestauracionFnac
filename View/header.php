@@ -11,6 +11,7 @@
     <link href="Css/generalTexto.css" rel="stylesheet" type="text/css" media="screen">
     <link href="Css/generalDiseño.css" rel="stylesheet" type="text/css" media="screen">
     <link href="Css/generalColores.css" rel="stylesheet" type="text/css" media="screen">
+    <link rel="stylesheet" type="text/css" href="https://unpkg.com/notie/dist/notie.min.css">
 </head>
 <body>
     <div class="container">

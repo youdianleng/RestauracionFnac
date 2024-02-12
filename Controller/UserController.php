@@ -217,8 +217,6 @@
                 header('Location:'.url."?controller=user&action=IniciarSession");
             }
             
-            
-            
         }
 
 

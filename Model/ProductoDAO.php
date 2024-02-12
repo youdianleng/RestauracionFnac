@@ -142,11 +142,11 @@ class ProductoDAO{
     }
 
     //Añadir un nuevo producto al bbdd
-    public static function añadirProductos($producto_id,$Categoria_id,$nombre,$descripcion,$descripcionCorto, $imagen ,$precio){
+    public static function añadirProductos($Categoria_id,$nombre,$descripcion,$descripcionCorto, $imagen ,$precio){
         $con = DataBase::connect();
 
         //Insertar al BBDD los contenidos al tabla que corresponde
-        $stmt = mysqli_query($con,"INSERT INTO `productos`(`Producto_id`, `Categoria_id`, `Nombre`, `Descripcion`, `DescripcionCorto`, `Imagen`, `Precio`) VALUES ('$producto_id','$Categoria_id','$nombre','$descripcion','$descripcionCorto','$imagen','$precio')");
+        $stmt = mysqli_query($con,"INSERT INTO `productos`(`Categoria_id`, `Nombre`, `Descripcion`, `DescripcionCorto`, `Imagen`, `Precio`) VALUES ('$Categoria_id','$nombre','$descripcion','$descripcionCorto','$imagen','$precio')");
 
         $con->close();
         header("Location: ".url."?controller=producto");

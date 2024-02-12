@@ -104,9 +104,12 @@
                                     <div class="card">
                                         <div class="divFoto">
                                             <div class="col-12 d-flex justify-content-start">
-                                                <img  class="zoomOn object-fit-scale pt-3 pb-3" src="<?=$categoria->getImagenCategoria();?>" alt="<?=$categoria->getDescripcion();?>">
+                                                <svg class="zoomOn ms-2">
+                                                    <image  href="<?=$categoria->getImagenCategoria();?>" height="140px" width="130px" alt="<?=$categoria->getDescripcion();?>"></image>
+                                                </svg>
+                                                
                                                 <div class="tret">
-                                                    <img src="Materiales/Etiquetas/Oferta 25.png" class="object-fit-scale" style="width: 100%;" alt="Etiqueta de Oferta">
+                                                    <img src="Materiales/Etiquetas/Oferta 25.png" style="width: 100%;" alt="Etiqueta de Oferta">
                                                 </div>
                                             </div>
                                         </div>
@@ -139,7 +142,9 @@
                                 <div class="card">
                                     <div class="divFoto">
                                         <div class="col-12 d-flex justify-content-start">
-                                            <img class="zoomOn object-fit-scale pt-3 pb-3" src="<?=$Productos[$productos]->getImagen()?>" alt="<?=$Productos[$productos]->getDescripcion()?>">
+                                            <svg class="zoomOn ms-2">
+                                                <image  href="<?=$Productos[$productos]->getImagenCategoria();?>" height="140px" width="130px" alt="<?=$Productos[$productos]->getDescripcion();?>"></image>
+                                            </svg>
                                             <div class="tret">
                                                 <img src="Materiales/Etiquetas/Oferta 25.png" alt="Etiqueta de oferta">
                                             </div>

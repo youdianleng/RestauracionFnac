@@ -280,7 +280,7 @@ a{
 }
 
 .liRange{
-    width: 300px;
+    width: 230px;
 }
 
 #rangePrecio{
@@ -289,5 +289,5 @@ a{
 
 .dropdown-menu.show {
     display: block;
-    width: 230px;
+    width: 232px;
 }

@@ -605,7 +605,6 @@ function mostrarFiltracionCategoria(data){
         if (checkbox.checked) {
           valoresSeleccionados.push(checkbox.value);
           FiltrarCategoria(valoresSeleccionados);
-
         }else {
             valoresSeleccionados = valoresSeleccionados.filter(function(item) {
             return item != checkbox.value;
@@ -614,8 +613,6 @@ function mostrarFiltracionCategoria(data){
           if(valoresSeleccionados == ""){
             valoresSeleccionados = arrayparaNulo;
           }
-
-          console.log(valoresSeleccionados);
           FiltrarCategoria(valoresSeleccionados);
 
 

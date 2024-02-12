@@ -26,29 +26,31 @@
 
 
                 <div class="col-12 d-flex ">
-                    <div class="col-2 cajaRedirige">
+                <div class="col-2 cajaRedirige">
                         <div class="col-12 d-flex boton efectSelect mt-2">
                             <a class="d-flex align-items-center " href="<?=url."?controller=user&action=adminPanel"?>">
-                                <img src="Materiales/productosIndividual/redirigeAdmin/ProductoGestion.svg">
+                                <img src="Materiales/productoIndividual/redirigeAdmin/ProductoGestion.svg">
                                 <div class="gestionProducto txt15 fw700 ps-2 black">Gestionar Productos</div>
                             </a>
                             
                         </div>
                         <div class="col-12 d-flex boton efectSelect mt-2">
                             <a class="d-flex align-items-center" href="<?=url."?controller=user&action=panelCliente"?>">
-                                <img src="Materiales/productosIndividual/redirigeAdmin/UsuarioCliente.svg">
+                                <img src="Materiales/productoIndividual/redirigeAdmin/UsuarioCliente.svg">
                                 <div class="gestionProducto txt15 fw700 ps-2 black">Gestionar Clientes</div>
                             </a>
                         </div>
                         <div class="col-12 d-flex boton efectSelect mt-2" >
                             <a class="d-flex align-items-center" href="<?=url."?controller=user&action=panelPedidos"?>">
-                                <img src="Materiales/productosIndividual/redirigeAdmin/NegroPaquete.svg">
+                                <svg width="30px" height="30px">
+                                    <image href="Materiales/productoIndividual/redirigeAdmin/NegroPaquete.svg" width="30px" height="30px"></image>
+                                </svg>
                                 <div class="gestionProducto txt15 fw700 ps-2 black">Gestionar Pedidos</div>
                             </a>
                         </div>
                         <div class="col-12 d-flex boton efectSelect mt-2" >
                             <a class="d-flex align-items-center" href="<?=url."?controller=user&action=panelResenyas"?>">
-                                <img src="Materiales/productosIndividual/redirigeAdmin/NegroPaquete.svg">
+                                <img src="Materiales/productoIndividual/redirigeAdmin/clasificacion.svg">
                                 <div class="gestionProducto txt15 fw700 ps-2 black">Ver Resenyas</div>
                             </a>
                         </div>

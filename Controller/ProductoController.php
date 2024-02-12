@@ -339,7 +339,9 @@
 
                 //Usar el producto id para hacer un busqueda de productos.
                 $producto = ProductoDAO::getProductByID($producto_id);
+                include_once "view/header.php";
                 include_once "view/editarProductos.php";
+                include_once "view/footer.php";
             }else{
                 header("Location:".url."?controller=producto");
             }
@@ -373,18 +375,31 @@
         }
 
         public function añadir(){
+            
+            $carpeta = 'C:\xampp\htdocs\webs\GitProyect\GamingShop\Materiales\Productos';
+            $archivos = glob($carpeta . '/*.{jpg,jpeg,png,gif}', GLOB_BRACE);
+
+            $arrayProductosImagen = [];
+            foreach ($archivos as $archivo) {
+                array_push($arrayProductosImagen,basename($archivo));
+            }
+
+            $categorias = ProductoDAO::getAllCategoria();
+
+            include_once "View/header.php";
             include_once "View/añadirProductos.php";
+            include_once "View/footer.php";
         }
 
         public function agregar(){
-            $producto_id = $_POST['producto_id'];
             $categoria_id = $_POST['categoria_id'];
             $nombre = $_POST['nombre'];
             $descripcion = $_POST['descript'];
             $descripcionCorto = $_POST['descriptCorto'];
-            $imagen = $_POST['imagen'];
+            $imagen = "C:\xampp\htdocs\webs\GitProyect\GamingShop\Materiales\Productos\\".$_POST['imagen'];
             $precio = $_POST['precio'];
-            ProductoDAO::añadirProductos($producto_id,$categoria_id,$nombre,$descripcion,$descripcionCorto, $imagen,$precio);
+            ProductoDAO::añadirProductos($categoria_id,$nombre,$descripcion,$descripcionCorto, $imagen,$precio);
+           
         }
 
 

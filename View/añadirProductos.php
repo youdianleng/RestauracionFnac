@@ -32,14 +32,23 @@
                                 <tr>
                                     <td class="col-12">
                                         <label class="fw-bold float-left border-left">Categoria_id</label>
-                                        <input class="mt-2" name="categoria_id">
+                                        <select name="categoria_id" class="mt-2 col-12" >
+                                            <?php
+                                                foreach($categorias as $categoria){
+                                                    echo "<option value=";
+                                                    echo $categoria->getCategoria_id().">";
+                                                    echo $categoria->getNombreCat();
+                                                    echo "</option>";     
+                                             }
+                                            ?>
+                                        </select>
                                         <br>
                                     </td>
                                 </tr>
                                 <tr>
                                 <td class="col-12">
                                         <label class="fw-bold float-left border-left">Nombre Producto</label>
-                                        <input class="mt-2" name="nombre">
+                                        <input class="mt-2" name="nombre" required>
                                     <br>
                                 </td>
                                 </tr>
@@ -59,7 +68,15 @@
                                 <tr>
                                 <td class="col-12">
                                         <label class="fw-bold float-left border-left">Imagen Producto</label>
-                                        <input class="mt-2" name="imagen">
+                                        <select class="mt-2 col-12" name="imagen">
+                                            <?php
+                                                foreach($arrayProductosImagen as $imagen){
+                                                    echo "<option>";
+                                                    echo $imagen;
+                                                    echo "</option>";
+                                                }
+                                            ?>
+                                        </select>
                                     <br>
                                 </td>
                                 </tr>
