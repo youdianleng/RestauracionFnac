@@ -70,7 +70,7 @@
                             <div class="col-12 border-bottom d-flex align-items-center pb-4 pt-4">
                                 <div class="col-12 row">
                                     <div class="col-lg-3 col-md-12 d-flex justify-content-center ">
-                                            <img class="mt-4" src="<?=$producto->getImagen()?>" style="width: 250px; height: 200px;" alt="<?=$producto->getDescripcion()?>">
+                                            <img class="mt-4" src="<?=$producto->getImagen()?>" style="width: 200px; height: 200px;" alt="<?=$producto->getDescripcion()?>">
                                         </div>
                                         <div class="col-lg-6 col-md-12">
                                             <p class="txt15 araboto-normal"><?=$producto->getNombre()?></p>
@@ -158,7 +158,10 @@
                 <?php foreach($ProductosUltimos as $productoUlt){ ?>
                     <div class="col-4 col-md-2 borderSolid">
                         <div class="card">
-                            <img src="<?=$productoUlt->getImagen()?>" class="card-img-top" alt="Ramen, comida tipica de Japan">
+                            <div class="d-flex justify-content-center">
+                                <img src="<?=$productoUlt->getImagen()?>" class="card-img-top" alt="Ramen, comida tipica de Japan" style="height:150px; width:150px;">
+                            </div>
+                            
                             <div class="card-body ms-3">
                                 <h5 class="ultiProd card-title "><?=$productoUlt->getNombre()?></h5>
                                 <p class="ultiProdDesc card-text shadowLetra2"><?=$productoUlt->getDescripcionCorto()?></p>

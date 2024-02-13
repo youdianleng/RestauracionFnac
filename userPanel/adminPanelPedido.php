@@ -67,10 +67,10 @@
                                 <div class="col-3">
                                     <div class="card col-12">
                                         <div class="card-body">
-                                            <h5 class="card-title">Cliente: <?=$Pedido->getCliente_id()?></h5>
+                                            <h5 class="card-title">Pedido: <?=$Pedido->getPedido_id()?></h5>
                                         </div>
                                         <ul class="list-group list-group-flush noBorderBottom">
-                                            <li class="list-group-item"><span class="fw-bold">Pedido ID:</span> <?=$Pedido->getPedido_id()?></li>
+                                            <li class="list-group-item"><span class="fw-bold">Cliente ID:</span> <?=$Pedido->getCliente_id()?></li>
                                             <li class="list-group-item"><span class="fw-bold">Precio Pedido:</span> <?=$Pedido->getPrecio_total()?>€</li>
                                             <li class="list-group-item">
                                                 <p class="fw-bold noMarginBottom">Fecha Realizado:</p>

@@ -184,7 +184,7 @@
 
                         <div class="col-lg-2 col-md-4">
                             <div class="card">
-                                <img src="<?= $producto->getImagen() ?>" class="object-fit-scale" style="height: 177px;" alt="<?= $producto->getDescripcion() ?>">
+                                <img src="<?= $producto->getImagen() ?>" class="object-fit-scale mt-3 mb-3" style="height: 150px;" alt="<?= $producto->getDescripcion() ?>">
                                 <div class="descripcion ms-3 mb-3">
                                     <h5 class="card-title"><?=$producto->getNombre()?></h5>
                                     <p class="card-text"><?=$producto->getDescripcionCorto()?></p>

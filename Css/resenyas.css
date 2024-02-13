@@ -50,7 +50,6 @@ body{
   }
 
 .cajaValoracionEstrella{
-    border-right: 1px solid #d8d8d8;
     padding: 10px;
 }
 
@@ -70,4 +69,16 @@ body{
 svg{
     width: 18px!important;
     height: 18px!important;
+}
+
+.efectSelect:hover{
+  background-color: #f2f2f2;
+}
+.boton{
+  padding-left: 7px;
+  line-height: 50px;
+}
+
+.bg-f2{
+  background-color: #f2f2f2;
 }

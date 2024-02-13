@@ -4,7 +4,7 @@
 
 @font-face {
     font-family: "araboto-light";
-    src: url("/GamingShop/Fuentes/Araboto_Light_400.ttf");
+    src: url("/GamingShop/Fuentes/Araboto_Light_400.woff");
 }
 
 @font-face {
@@ -18,7 +18,7 @@
 
 
 .araboto-light{
-    font-family: "araboto-light";
+    font-family: Roboto,Arial, Helvetica, Tahoma,sans-serif;
 }
 /* Textos */
 .txt8{

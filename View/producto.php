@@ -596,24 +596,35 @@
     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
-        <div class="modal-body">
-            <h3>DARNOS TUS OPINIONES</h3>
+        <div class="modal-body row justify-content-center">
+            <h3 class="d-flex justify-content-center mt-4">DEJA TU COMENTARIO!</h3>
             <div>
-            <div class="star-container" onmousemove="MoverEnEstrella(event)" onmouseout="fueraDeEstrella()">
-              <span class="star" onclick="clicarEstrella(1)" id="star1">★</span>
-              <span class="star" onclick="clicarEstrella(2)" id="star2">★</span>
-              <span class="star" onclick="clicarEstrella(3)" id="star3">★</span>
-              <span class="star" onclick="clicarEstrella(4)" id="star4">★</span>
-              <span class="star" onclick="clicarEstrella(5)" id="star5">★</span>
-            </div>
-              <textarea id="resenyaPorUsuario"></textarea>
+              <div class="star-container d-flex justify-content-center" onmousemove="MoverEnEstrella(event)" onmouseout="fueraDeEstrella()">
+                <span class="star" onclick="clicarEstrella(1)" id="star1">★</span>
+                <span class="star" onclick="clicarEstrella(2)" id="star2">★</span>
+                <span class="star" onclick="clicarEstrella(3)" id="star3">★</span>
+                <span class="star" onclick="clicarEstrella(4)" id="star4">★</span>
+                <span class="star" onclick="clicarEstrella(5)" id="star5">★</span>
+              </div>
+              <div class="mt-3">
+                <div class="d-flex">
+                  <h5>Dejar tus comentarios</h5>
+                  <svg height="30px" width="30px" class="mt-2 ms-2">
+                        <image href="Materiales/assestProductoPage/flechaInclinado.png" width="30px" height="30px"></image>
+                  </svg>
+                </div>
+                
+                
+                <textarea id="resenyaPorUsuario" placeholder="Aquí escribes tus parablas"></textarea>
+              </div>
+              
             </div>
             <input id="prodIdValue" hidden>
             <input id="userIdValue" hidden>
         </div>
         <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-            <button type="button" onclick="enviarDatos()" class="btn btn-primary">Enviar</button>
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Salir</button>
+            <button type="button" onclick="enviarDatos()" class="btn btn-primary">Entregar</button>
         </div>
         </div>
     </div>

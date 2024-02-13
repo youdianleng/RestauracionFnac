@@ -31,6 +31,8 @@ document.addEventListener('DOMContentLoaded', function(){
 function mostrarReseñas(reseny){
     //Obtener el contenidor principal
     const contenidorResenya = document.getElementById("contenidorResenya");
+    contenidorResenya.classList.add("bg-f2","pb-5");
+
     // Creates parte Derecha de los reseñas
     const cajaResenya = document.createElement("div");
     const ValoracionEstrella = document.createElement("div");
@@ -42,49 +44,64 @@ function mostrarReseñas(reseny){
     // Creates parte Izquierdo
     const cajaValoracionEstrella = document.createElement("div");
     const cajaValoracionEstrellados = document.createElement("div");
+
+
     const filtraADscBox = document.createElement("div");
     filtraADscBox.classList.add("ascDescbutton");
-
+    const textoDivCategoria = document.createElement("h2");
+    filtraADscBox.append(textoDivCategoria);
+    textoDivCategoria.innerHTML = "Filtrar por Ordre / Categoria";
     //Crear el form para los estrellas
     const formEstrella = document.createElement("form");
-    formEstrella.classList.add("d-flex");
+    formEstrella.classList.add("d-flex","col-6","row");
 
     const divFormEstrella = document.createElement("div");
+    const textDivFormEstrella = document.createElement("h2");
+    formEstrella.append(textDivFormEstrella);
+    textDivFormEstrella.innerHTML = "Filtrar Por Estrellas";
     formEstrella.append(divFormEstrella)
+
 
     //Preparar el div de categorias
     const divCategoria = document.createElement("div");
     divCategoria.classList.add("divDeCategoria");
-    
+
 
     // Añadir Classes
     cajaResenya.classList.add("cajaResenya");
     cajaResenya.id = "cajaDeResenya";
-    ValoracionEstrella.classList.add("col-12" , "mt-4");
-    subCaja.classList.add("d-flex","col-12","subCaja");
-    cajaValoracionEstrella.classList.add("col-2","cajaValoracionEstrella");
-    subCajaRow.classList.add("d-flex","subCajaRow", "col-10");
+    ValoracionEstrella.classList.add("col-12" , "pt-5","bg-f2");
+    subCaja.classList.add("col-12","subCaja","d-flex","bg-white");
+    cajaValoracionEstrella.classList.add("col-12","cajaValoracionEstrella","d-flex");
+    subCajaRow.classList.add("d-flex","subCajaRow", "col-12");
     subCajaRowDos.classList.add("row","col-12","subCajaRowDos");
     subCajaRowUnoRow.classList.add("row","col-12","subCajaRowUno");
     subCajaRowUnoRow.id = "subCajaRow";
     cajaValoracionEstrellados.classList.add("row","col-12","justify-content-start","FiltraBox");
 
+
     // Creat Textos
     const valoracionEstrellaTexto = document.createElement("h2");
     
     //Contenidos Textos
-    valoracionEstrellaTexto.innerHTML = "Reseñas";
-    
+    valoracionEstrellaTexto.innerHTML = "Todas las Reseñas";
+    valoracionEstrellaTexto.classList.add("mb-5");
 
     
     //Informacion muestra Izquierda
     subCaja.append(cajaValoracionEstrella);
     cajaValoracionEstrella.append(cajaValoracionEstrellados);
     cajaValoracionEstrellados.append(formEstrella);
-    cajaValoracionEstrellados.append(filtraADscBox);
-    cajaValoracionEstrellados.append(divCategoria);
+
+    const cajaConjuntoOrdre = document.createElement("div");
+    cajaConjuntoOrdre.classList.add("col-6");
+    cajaConjuntoOrdre.append(filtraADscBox);
+    cajaConjuntoOrdre.append(divCategoria);
+    cajaValoracionEstrellados.append(cajaConjuntoOrdre);
 
     //Preparar el tag select para poder ordenar reseñas por ascendente o desendente
+
+
     const selectAscDesc = document.createElement("select");
     selectAscDesc.id = "selectAscDesc";
     selectAscDesc.classList.add("col-10","mt-4");
@@ -206,9 +223,90 @@ function mostrarReseñas(reseny){
     cajaResenya.append(ValoracionEstrella);
     ValoracionEstrella.append(valoracionEstrellaTexto);
     cajaResenya.append(subCaja);
-    subCaja.append(subCajaRow);
+    const cajaConjuntoEstrellaReseñas = document.createElement("div");
+    cajaConjuntoEstrellaReseñas.classList.add("col-10");
+    cajaConjuntoEstrellaReseñas.append(cajaValoracionEstrella);
+    cajaConjuntoEstrellaReseñas.append(subCajaRow);
     subCajaRow.append(subCajaRowUnoRow);
 
+   
+    //Informacion de caja de redirige
+    const cajaRedirigen = document.createElement("div");
+    cajaRedirigen.classList.add("col-2","cajaRedirige");
+    const gestionProductosMain = document.createElement("div");
+    gestionProductosMain.classList.add("col-12","d-flex","boton","efectSelect","mt-2");
+    const aGestionProductosMain = document.createElement("a");
+    gestionProductosMain.append(aGestionProductosMain);
+    aGestionProductosMain.classList.add("d-flex","align-items-center");
+    aGestionProductosMain.href = "https://localhost/webs/GitProyect/GamingShop/index.php?controller=user&action=adminPanel";
+    const imgGestionProductosMain = document.createElement("img");
+    aGestionProductosMain.append(imgGestionProductosMain);
+    imgGestionProductosMain.src = "Materiales/productoIndividual/redirigeAdmin/ProductoGestion.svg";
+    imgGestionProductosMain.setAttribute("height","30px");
+    imgGestionProductosMain.setAttribute("width","30px");
+    const divAGestionProductosMain = document.createElement("div");
+    aGestionProductosMain.append(divAGestionProductosMain);
+    divAGestionProductosMain.classList.add("gestionProducto","txt15","fw700","ps-2","black");
+    divAGestionProductosMain.innerHTML = "Gestionar Productos";
+    cajaRedirigen.append(gestionProductosMain);
+
+
+    const gestionClientesMain = document.createElement("div");
+    gestionClientesMain.classList.add("col-12","d-flex","boton","efectSelect","mt-2");
+    const aGestionClientesMain = document.createElement("a");
+    gestionClientesMain.append(aGestionClientesMain);
+    aGestionClientesMain.classList.add("d-flex","align-items-center");
+    aGestionClientesMain.href = "https://localhost/webs/GitProyect/GamingShop/index.php?controller=user&action=panelCliente";
+    const imgGestionClientesMain = document.createElement("img");
+    aGestionClientesMain.append(imgGestionClientesMain);
+    imgGestionClientesMain.src = "Materiales/productoIndividual/redirigeAdmin/UsuarioCliente.svg";
+    imgGestionClientesMain.setAttribute("height","30px");
+    imgGestionClientesMain.setAttribute("width","30px");
+    const divAGestionClientesMain = document.createElement("div");
+    aGestionClientesMain.append(divAGestionClientesMain);
+    divAGestionClientesMain.classList.add("gestionProducto","txt15","fw700","ps-2","black");
+    divAGestionClientesMain.innerHTML = "Gestionar Clientes";
+    cajaRedirigen.append(gestionClientesMain);
+
+
+    const gestionPedidosMain = document.createElement("div");
+    gestionPedidosMain.classList.add("col-12","d-flex","boton","efectSelect","mt-2");
+    const aGestionPedidosMain = document.createElement("a");
+    gestionPedidosMain.append(aGestionPedidosMain);
+    aGestionPedidosMain.classList.add("d-flex","align-items-center");
+    aGestionPedidosMain.href = "https://localhost/webs/GitProyect/GamingShop/index.php?controller=user&action=panelPedidos";
+    const imgGestionPedidosMain = document.createElement("img");
+    aGestionPedidosMain.append(imgGestionPedidosMain);
+    imgGestionPedidosMain.src = "Materiales/productoIndividual/redirigeAdmin/NegroPaquete.svg";
+    imgGestionPedidosMain.setAttribute("height","30px");
+    imgGestionPedidosMain.setAttribute("width","30px");
+    const divAGestionPedidosMain = document.createElement("div");
+    aGestionPedidosMain.append(divAGestionPedidosMain);
+    divAGestionPedidosMain.classList.add("gestionProducto","txt15","fw700","ps-2","black");
+    divAGestionPedidosMain.innerHTML = "Gestionar Pedidos";
+    cajaRedirigen.append(gestionPedidosMain);
+
+
+    const gestionReseñasMain = document.createElement("div");
+    gestionReseñasMain.classList.add("col-12","d-flex","boton","efectSelect","mt-2");
+     const aGestionReseñasMain = document.createElement("a");
+     gestionReseñasMain.append(aGestionReseñasMain);
+    aGestionReseñasMain.classList.add("d-flex","align-items-center");
+    aGestionReseñasMain.href = "https://localhost/webs/GitProyect/GamingShop/index.php?controller=user&action=panelResenyas";
+    const imgGestionReseñasMain = document.createElement("img");
+    aGestionReseñasMain.append(imgGestionReseñasMain);
+    imgGestionReseñasMain.src = "Materiales/productoIndividual/redirigeAdmin/clasificacion.svg";
+    imgGestionReseñasMain.setAttribute("height","30px");
+    imgGestionReseñasMain.setAttribute("width","30px");
+    const divAGestionReseñasMain = document.createElement("div");
+    aGestionReseñasMain.append(divAGestionReseñasMain);
+    divAGestionReseñasMain.classList.add("gestionProducto","txt15","fw700","ps-2","black");
+    divAGestionReseñasMain.innerHTML = "Ver Resenyas";
+    cajaRedirigen.append(gestionReseñasMain);
+
+
+    subCaja.append(cajaRedirigen);
+    subCaja.append(cajaConjuntoEstrellaReseñas);
 
     //Preparar un array de comentario (No sirve para nada, solo es para poder ver mas clara los 
     //valor en individual de reseny)
@@ -236,7 +334,7 @@ function mostrarReseñas(reseny){
         
         //Crear un caja para cada comentario
         const cajaDetalleValoracion = document.createElement("div");
-        cajaDetalleValoracion.classList.add("CajaDetalleValoracion","row","col-12");
+        cajaDetalleValoracion.classList.add("CajaDetalleValoracion","row","col-12","fw-bold");
     
         // Crear párrafo de usuario
         const Cliente = document.createElement("p");
@@ -259,6 +357,9 @@ function mostrarReseñas(reseny){
             +"</svg>";
         }
 
+        //Crear en el boton de eliminar Resenya
+        let eliminarReseña = document.createElement("form");
+        
 
         //Crear un button para Generar QR de Cada Resenyas
         let boxButton = document.createElement("div");
@@ -303,7 +404,7 @@ function mostrarReseñas(reseny){
         cajaDetalleValoracion.append(Valoracion);
         cajaDetalleValoracion.append(boxButton);
         boxButton.append(buttonQRResenya);
-        
+        boxButton.append(eliminarReseña);
 
         //Obtener los botones que tengan misma className de QRCOde
         let obtenerProdQR = document.getElementsByClassName("btnQrProd");

@@ -188,7 +188,7 @@
                             //Si el $productos sea menos de 4 entra
                             if($productos < 4){?>
                     <div class="card" >
-                        <img src="<?=$Productos[$productos]->getImagen()?>" class="card-img-top" alt="<?=$Productos[$productos]->getDescripcion()?>">
+                        <img src="<?=$Productos[$productos]->getImagen()?>" style="height:200px; width:200px;" class="card-img-top" alt="<?=$Productos[$productos]->getDescripcion()?>">
                         <div class="card-body">
                             <h5 class="card-title"><?=$Productos[$productos]->getNombre()?></h5>
                             <p class="card-text pt-2"><?= $Productos[$productos]->getDescripcionCorto()?></p>

@@ -69,12 +69,11 @@
                                     foreach ($Usuarios as $Usuario){?>
                                 <div class="col-3">
                                     <div class="card col-12">
-                                        <div class="card-body noPadding">
-                                            <h5 class="card-title"><?=$Usuario->getNombre()?></h5>
+                                        <div class="card-body">
+                                            <h5 class="card-title">Cliente ID: <?=$Usuario->getCliente_id()?></h5>
                                         </div>
                                         <ul class="list-group list-group-flush noBorderBottom">
-                                            <li class="list-group-item"><span class="fw-bold">Cliente ID:</span> <?=$Usuario->getCliente_id()?></li>
-                                            <li class="list-group-item"><span class="fw-bold">Apellido Usuario:</span> <?=$Usuario->getApellido()?></li>
+                                            <li class="list-group-item"><span class="fw-bold">Nombre Usuario:</span><?=$Usuario->getNombre()." ".$Usuario->getApellido()?></li>
                                             <li class="list-group-item">
                                                 <p class="fw-bold noMarginBottom">Mail:</p>
                                                 <?=$Usuario->getMail()?>
@@ -87,12 +86,6 @@
 
 
                                         <div class="card-body col-12">
-                                            <!-- Crear un formulario que llama al productoController y en funcion Actualizar cuando clica al boton -->
-                                            <form action=<?=url."?controller=producto&action=actualizar"?>  method="post">
-                                                <!-- Cuando envia se para el nombre producto_id y su valor como post -->
-                                                <input type="number" name="producto_id" value="<?=$Usuario->getCliente_id()?>" hidden>
-                                                <button class="btn btn-primary col-5 me-3">Modificar</button>
-                                            </form>
                                             <!-- Crear un formulario que llama al productoController y en funcion Eliminar cuando clica al boton -->
                                             <form action=<?=url."?controller=producto&action=eliminar"?> method="post">
                                                 <!-- Cuando envia se para el nombre producto_id y su valor como post -->

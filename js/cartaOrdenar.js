@@ -146,7 +146,7 @@ function mostrarFiltradoPrecio(data){
       divSecondFirstNewSectionProductoRowArticle.classList.add("col-lg-3","col-md-12","d-flex","justify-content-center");
       let imgSecondFirstNewSectionProdArtivle = document.createElement("img");
       imgSecondFirstNewSectionProdArtivle.classList.add("mt-4");
-      imgSecondFirstNewSectionProdArtivle.style.width = "250px";
+      imgSecondFirstNewSectionProdArtivle.style.width = "200px";
       imgSecondFirstNewSectionProdArtivle.style.height = "200px";
       imgSecondFirstNewSectionProdArtivle.src = productosPrecioFiltrados['imgProducto'];
       imgSecondFirstNewSectionProdArtivle.alt = productosPrecioFiltrados['descripcion'];
@@ -399,7 +399,7 @@ function mostrarFiltracionCategoria(data){
       divSecondFirstNewSectionProductoRowArticle.classList.add("col-lg-3","col-md-12","d-flex","justify-content-center");
       let imgSecondFirstNewSectionProdArtivle = document.createElement("img");
       imgSecondFirstNewSectionProdArtivle.classList.add("mt-4");
-      imgSecondFirstNewSectionProdArtivle.style.width = "250px";
+      imgSecondFirstNewSectionProdArtivle.style.width = "200px";
       imgSecondFirstNewSectionProdArtivle.style.height = "200px";
       imgSecondFirstNewSectionProdArtivle.src = productosPrecioFiltrados['Imagen'];
       imgSecondFirstNewSectionProdArtivle.alt = productosPrecioFiltrados['Descripcion'];

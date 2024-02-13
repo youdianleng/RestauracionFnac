@@ -73,7 +73,7 @@
                                 <?php foreach ($Productos as $producto){?>
                                 <div class="col-3">
                                     <div class="card col-12">
-                                        <img src="<?=$producto->getImagen()?>" class="card-img-top" alt="..." height="100%" width="100%">
+                                        <img src="<?=$producto->getImagen()?>" class="card-img-top" alt="..." height="280px" width="100%">
                                         <div class="card-body">
                                             <h5 class="card-title"><?=$producto->getNombre()?></h5>
                                         </div>
