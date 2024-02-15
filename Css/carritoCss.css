@@ -145,19 +145,12 @@
 }
 
 /* Font-size Global */
-.txt32{
-    font-size: 32px;
-}
-
-.txt21{
-    font-size: 21px;
-}
-
 .txt18{
     font-size: 18px;
     font-weight: bold;
     
 }
+
 .txt24{
     font-size: 24px;
     font-family: "araboto-normal";
@@ -168,13 +161,7 @@
     font-family: "araboto-normal";
 }
 
-.txt14{
-    font-size: 14px;
-}
 
-.txtRed{
-    color: #DD1E35;
-}
 
 
 .txt13{
@@ -203,18 +190,6 @@
     font-weight: normal;
     line-height: 20px;
     vertical-align: top;
-}
-
-
-
-/*Botton de Añadir*/
-.btn-primary{
-    background-color: #F5B027;
-    border-style: none;
-}
-
-.btn-primary:hover{
-    background-color: #FFC22B;
 }
 
 

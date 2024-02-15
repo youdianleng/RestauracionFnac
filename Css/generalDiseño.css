@@ -108,11 +108,13 @@ a{
 }
 
 /*Botton de Añadir*/
-.btn-primary{
+.btn{
+    color: white;
     background-color: #F5B027;
     border-style: none;
 }
 
-.btn-primary:hover{
+.btn:hover{
+    color: white;
     background-color: #FFC22B;
 }

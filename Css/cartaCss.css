@@ -256,3 +256,9 @@ a{
     display: block;
     width: 232px;
 }
+
+/* Button */
+.btn-Ordenar{
+    color: black!important;
+    background-color: white!important;
+}

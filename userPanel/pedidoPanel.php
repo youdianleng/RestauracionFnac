@@ -115,7 +115,7 @@
                                                     <form action="<?=url."?controller=pedido&action=eliminarPedidoEspecificado"?>" class="ps-1" method="post">   
                                                         <input hidden name="pedidoUser" value="<?=$pedido->getPedido_id()?>">     
                                                         <input hidden name="user" value="<?=$_SESSION['usuario']->getCliente_id()?>"> 
-                                                        <button class="btn" type="submit">Cancelar</button>
+                                                        <button class="btn ms-2" type="submit">Cancelar</button>
                                                     </form>
                                                     </td>
                                                 </tr>

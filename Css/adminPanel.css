@@ -125,15 +125,8 @@ table{
 
 /* Button, Input */
 .btn{
-    background-color: #f5b027;
-    color: white;
     float: right;
 
-}
-
-.btn:hover{
-    background-color: #FFC22B;
-    color: white;
 }
 
 

@@ -97,16 +97,6 @@ input{
 }
 
 
-/*Botton de Añadir*/
-.btn-primary{
-    background-color: #F5B027;
-    border-style: none;
-}
-
-.btn-primary:hover{
-    background-color: #FFC22B;
-}
-
 
 /* Table */
 table{

@@ -149,7 +149,7 @@ class ProductoDAO{
         $stmt = mysqli_query($con,"INSERT INTO `productos`(`Categoria_id`, `Nombre`, `Descripcion`, `DescripcionCorto`, `Imagen`, `Precio`) VALUES ('$Categoria_id','$nombre','$descripcion','$descripcionCorto','$imagen','$precio')");
 
         $con->close();
-        header("Location: ".url."?controller=producto");
+        header("Location: ".url."?controller=user&action=adminPanel");
     }
 }
 

@@ -1,14 +1,3 @@
-/* Container Global */
-body{
-    width: 100%;
-    height: auto;
-    margin-left: auto;
-    margin-right: auto;
-}
-.container{
-    padding: 0px;
-    max-width: 1440px;
-}
 
 /* Responsive */
 
@@ -133,18 +122,6 @@ td{
 input{
     border-bottom: 2px solid;
     width: 100%;
-}
-
-.btn{
-    background-color: #f5b027;
-    color: white;
-    width: 100%;
-    float: left;
-}
-
-.btn:hover{
-    background-color: #FFC22B;
-    color: white;
 }
 
 /*Imagenes*/
