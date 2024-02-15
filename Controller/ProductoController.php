@@ -377,7 +377,7 @@
         
         //Usa para mostrar el panel de añadir productos
         public function añadir(){
-            
+            // Obtener todos los categorias que existe en bbdd
             $categorias = ProductoDAO::getAllCategoria();
 
             include_once "View/header.php";

@@ -96,9 +96,16 @@ class valoracionDAO{
     //Devuelve los productos depende de categoria que nos envian
     public static function getProductoByCategoria($categoria){
         $con = DataBase::connect();
+        //Prepara un array
         $listaResenya = [];
+
+        //Guardar el $categoria a dentro de otro variable
         $listaEstrellaStr = $categoria;
+
+        //El que recibidos es un cadena de texto con , y tenemos que separarlo
         $estrella = explode(",",$listaEstrellaStr);
+
+        //Realizar tantos veces como que tenga el array de $estrella
         foreach($estrella as $est){
             $stmt = $con->prepare("SELECT * FROM productos INNER JOIN categoria on productos.Categoria_id = categoria.Categoria_id WHERE categoria.Categoria_id = $est");
 

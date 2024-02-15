@@ -228,49 +228,59 @@ function mostrarReseñasEnBloques(reseñas){
         carouselItemSecond.append(carouselItemSecondDiv);
         carouselItemSecondDiv.classList.add("paddingCarousel","borderLeft","bd-f4f","col-4");
 
-        let carouselItemSecondDiva = document.createElement("a");
+        // Crear el div de resenya para mostrar los informacion
+        let carouselItemSecondDiva = document.createElement("p");
         carouselItemSecondDiv.append(carouselItemSecondDiva);
         carouselItemSecondDiva.classList.add("marginBot16","txt19","black","fw-bold");
         carouselItemSecondDiva.innerHTML = resen["Nombre"];
 
+        // Div para los informacion qu no sea nombre, (Descripcion, estrella, etc)
         let carouselItemSecondDivTwo = document.createElement("div");
         carouselItemSecondDiv.append(carouselItemSecondDivTwo);
         carouselItemSecondDivTwo.classList.add("d-flex","marginBot16","align-items-center");
 
+        // Estrellas de resenya
         let carouselItemSecondDivTwoSvg = document.createElement("svg");
         carouselItemSecondDivTwo.append(carouselItemSecondDivTwoSvg);
         carouselItemSecondDivTwoSvg.classList.add("svgEstrellaSmall");
         
+        // Imagen de Estrella svg
         let carouselItemSecondDivTwoSvgImg = document.createElement("image");
         carouselItemSecondDivTwoSvg.append(carouselItemSecondDivTwoSvgImg);
         carouselItemSecondDivTwoSvgImg.setAttribute("href","Materiales/productoIndividual/valoracionOpiniones/Estrella.png");
         carouselItemSecondDivTwoSvgImg.setAttribute("height", "18px");
         carouselItemSecondDivTwoSvgImg.setAttribute("width", "18px");
+        
+        // Muestra el numero de estella "ej, 1,2,3,4,5"
         let carouselItemSecondDivTwoSvgP = document.createElement("p");
         carouselItemSecondDivTwo.append(carouselItemSecondDivTwoSvgP);
         carouselItemSecondDivTwoSvgP.classList.add("noMarginBottom","ms-1","colorF5");
         carouselItemSecondDivTwoSvgP.innerHTML = resen["Estrellas"];
 
-
+        // Div para icono de compra verificada
         let divMainTickaSmall = document.createElement("div");
         carouselItemSecondDiv.append(divMainTickaSmall);
         divMainTickaSmall.classList.add("d-flex","align-items-center");
-        
+      
         let divTickaSmall = document.createElement("svg");
         divMainTickaSmall.append(divTickaSmall);
         divTickaSmall.classList.add("svgTickaSmall");
 
+        //Muestra el imagen de compra verificada
         let TickSmallImage = document.createElement("image");
         divTickaSmall.append(TickSmallImage);
         TickSmallImage.setAttribute("href","Materiales/productoIndividual/valoracionOpiniones/tick.png");
         TickSmallImage.setAttribute("height", "10.73px");
         TickSmallImage.setAttribute("width", "10.73px");
 
+        //Muestra el texto de comrpas verificadas
         let TickSmallP = document.createElement("p");
         divMainTickaSmall.append(TickSmallP);
         TickSmallP.classList.add("txt11","noMarginBottom","espacioLetter2","ms-1","mb-3");
         TickSmallP.innerHTML = "COMPRAS VERIFICADAS";
 
+        //Aqui se crea todos los restos de informaciones
+        //Fecha de publicacion, Valoracion General y su descripcion de valoracion
         let fechaDivSvgTickaSmallMain = document.createElement("p");
         let rapidoDivSvgTickaSmallMain = document.createElement("p");
         let valoracionDivSvgTickaSmallMain = document.createElement("p");
@@ -289,19 +299,23 @@ function mostrarReseñasEnBloques(reseñas){
         //Cojer el cajaPrincipal actual para añadir los reseñas
         let boxReseñaActual = document.getElementById("carouselItem2"+contadorReseñas);
 
+        //Crear el div para crear el carousel
         let carouselItemSecondDiv = document.createElement("div");
         boxReseñaActual.append(carouselItemSecondDiv);
         carouselItemSecondDiv.classList.add("paddingCarousel","borderLeft","bd-f4f","col-4");
 
+        // Mostrar el nombre de usuario que ha dejado este comentario
         let carouselItemSecondDiva = document.createElement("a");
         carouselItemSecondDiv.append(carouselItemSecondDiva);
         carouselItemSecondDiva.classList.add("marginBot16","txt19","black","fw-bold");
         carouselItemSecondDiva.innerHTML = resen["Nombre"];
 
+        // Crear el div para informaciones de resenyas
         let carouselItemSecondDivTwo = document.createElement("div");
         carouselItemSecondDiv.append(carouselItemSecondDivTwo);
         carouselItemSecondDivTwo.classList.add("d-flex","marginBot16","align-items-center");
 
+        // Mostrar el imagen de estrella de resenya
         let carouselItemSecondDivTwoSvg = document.createElement("svg");
         carouselItemSecondDivTwo.append(carouselItemSecondDivTwoSvg);
         carouselItemSecondDivTwoSvg.classList.add("svgEstrellaSmall");
@@ -312,12 +326,13 @@ function mostrarReseñasEnBloques(reseñas){
         carouselItemSecondDivTwoSvgImg.setAttribute("height", "18px");
         carouselItemSecondDivTwoSvgImg.setAttribute("width", "18px");
 
+        // Mostrar el numero de estrella que ha dado el usuario
         let carouselItemSecondDivTwoSvgP = document.createElement("p");
         carouselItemSecondDivTwo.append(carouselItemSecondDivTwoSvgP);
         carouselItemSecondDivTwoSvgP.classList.add("noMarginBottom","ms-1","colorF5");
         carouselItemSecondDivTwoSvgP.innerHTML = resen["Estrellas"];
 
-
+        // Mostrar el imagen de compras verificadas
         let divMainTickaSmall = document.createElement("div");
         carouselItemSecondDiv.append(divMainTickaSmall);
         divMainTickaSmall.classList.add("d-flex","align-items-center");
@@ -332,11 +347,14 @@ function mostrarReseñasEnBloques(reseñas){
         TickSmallImage.setAttribute("height", "10.73px");
         TickSmallImage.setAttribute("width", "10.73px");
 
+        //Mostrar el texto de compras verificadas
         let TickSmallP = document.createElement("p");
         divMainTickaSmall.append(TickSmallP);
         TickSmallP.innerHTML = "COMPRAS VERIFICADAS";
         TickSmallP.classList.add("txt11","noMarginBottom","espacioLetter2","ms-1","mb-3");
 
+        //Aqui esta todos los restos de informaciones de resenyas
+        //Descripciones, fecha de publicacion, valoracion general etc
         let fechaDivSvgTickaSmallMain = document.createElement("p");
         let rapidoDivSvgTickaSmallMain = document.createElement("p");
         let valoracionDivSvgTickaSmallMain = document.createElement("p");

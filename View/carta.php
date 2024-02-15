@@ -155,7 +155,11 @@
                     <h2>Ultimos Productos</h2>
                 </div>
                 <div class="d-flex">
-                <?php foreach($ProductosUltimos as $productoUlt){ ?>
+                <?php 
+                $contador = 0;
+                foreach($ProductosUltimos as $productoUlt){ 
+                    $contador++;
+                    if($contador < 7){?>
                     <div class="col-4 col-md-2 borderSolid">
                         <div class="card">
                             <div class="d-flex justify-content-center">
@@ -179,7 +183,7 @@
                                 </div>
                         </div>
                     </div>
-                <?php } ?>
+                <?php }} ?>
                 </div>
             </div>
         </div>

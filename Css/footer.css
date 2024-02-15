@@ -1,24 +1,3 @@
-/* Container Global */
-body{
-    width: 100%;
-    height: 100%;
-    margin-left: auto;
-    margin-right: auto;
-}
-.container{
-    max-width: 1440px;
-}
-
-/* Font-face  */
-@font-face {
-    font-family: "araboto-light";
-    src: url("Fuentes/Araboto_Light_400.ttf");
-}
-
-@font-face {
-    font-family: "araboto-normal";
-    src: url("Fuentes/Araboto_Normal_400.ttf");
-}
 
 /* Responsive */
 @media only screen and (max-width: 960px) {

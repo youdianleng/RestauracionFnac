@@ -91,7 +91,7 @@ function FiltrarCategoria(arrayCategoria){
 
 
 
-//Contenidos para filtracio de Precio
+//Contenedor para filtracio de Precio
 let dropDown = document.getElementById("dropDownMenu");
 let liOneDropDown = document.createElement("li");
 let liOneDropDownP = document.createElement("p");
@@ -107,6 +107,7 @@ rangeValuePrecio.setAttribute("max","100");
 
 liOneDropDown.classList.add("dropdown-item","liRange");
 
+//Mostrar el precio actual de que usuario desliza la barra
 let rangeNumeroActual = document.createElement("p");
 rangeNumeroActual.classList.add("numeroRangePrecio");
 rangeNumeroActual.id = "rangePrecioNumero";
@@ -132,7 +133,7 @@ function mostrarFiltradoPrecio(data){
         tiempo: productosPrecioFiltrados['tiempo_espera']
       })
 
-
+      //Crear el row de producto que va a mostrar despues de filtro
       let newSectionProductoRow = document.createElement("row");
       newSectionProductoRow.classList.add("row");
       let newSectionProductoRowArticle = document.createElement("article");
@@ -167,7 +168,6 @@ function mostrarFiltradoPrecio(data){
       divSecondSecondPThree.innerText = productosPrecioFiltrados['descripcion'];
 
       //Div dentro de Parte Informacion
-      
       let divInfoOneArticle = document.createElement("div");
       divInfoOneArticle.classList.add("d-flex","justify-content-end","txt13","pt-1");
       let divInfoOneArticleA = document.createElement("a");
@@ -215,6 +215,7 @@ function mostrarFiltradoPrecio(data){
       let divInfoTwoTwoArticle = document.createElement("div");
       divInfoTwoTwoArticle.classList.add("col-6","d-flex","justify-content-center");
       
+      //Div para mostrar Descripcion de productos de Disponible en Tienda
       let divInfoTwoTwoArticleRow = document.createElement("div");
       divInfoTwoTwoArticleRow.classList.add("row","col-12");
       let divInfoTwoTwoArticleRowOne = document.createElement("div");
@@ -228,6 +229,7 @@ function mostrarFiltradoPrecio(data){
       textpTwoDivInfoTwoTwoArticleRowOne.innerText = "Barcelona Sant";
       textpTwoDivInfoTwoTwoArticleRowOne.classList.add("txt13","negro");
       
+      //Div para mostrar Descripcion de productos de Disponible comer en restaurante
       let divInfoTwoTwoArticleRowTwo = document.createElement("div");
       divInfoTwoTwoArticleRowTwo.classList.add("col-12");
       let txtDivInfoTwoTwoArticleRowTwo = document.createElement("div");
@@ -240,7 +242,7 @@ function mostrarFiltradoPrecio(data){
       txtpTwoDivInfoTwoTwoArticleRowTwo.classList.add("txt13","negro");
 
 
-      //Appends informaciones
+      //Realizar el appends de los conetenedores
       divSecondSecondNewSectionProductoRowArticle.append(divSecondSecondPOne);
       divSecondSecondNewSectionProductoRowArticle.append(divSecondSecondPTwo);
       divSecondSecondNewSectionProductoRowArticle.append(divSecondSecondPThree);
@@ -266,6 +268,7 @@ function mostrarFiltradoPrecio(data){
       divInfoTwoOneOneArticle.append(pTwodivInfoTwoOneOneArticle);
       divInfoTwoOneOneArticle.append(pThreedivInfoTwoOneOneArticle);
       divInfoTwoOneOneArticle.append(pFourdivInfoTwoOneOneArticle);
+
       //P de divInfoTwoOneTwoArticle
       divInfoTwoOneArticle.append(divInfoTwoOneTwoArticle);
       divInfoTwoOneTwoArticle.append(pdivInfoTwoOneTwoArticle);
@@ -290,7 +293,7 @@ function mostrarFiltradoPrecio(data){
       pcontentSecondThirdOne.innerText = productosPrecioFiltrados['precio'] + "€";
       pcontentSecondThirdOne.classList.add("pb-3","normalPrecio");
 
-
+      //Div para crear el formulario para enviar los datos a accion
       let contentSecondThirdTwo = document.createElement("div");
       divSecondThirdOneNewSectionProductoRowArticle.append(contentSecondThirdTwo);
       contentSecondThirdTwo.classList.add("col-12","d-grid","gap-2");
@@ -309,6 +312,7 @@ function mostrarFiltradoPrecio(data){
       inputForm.value = productosPrecioFiltrados['producto_id'];
       inputForm.hidden = true;
 
+      //Craer el boton de añadir ciesta
       let buttonForm = document.createElement("button");
       divFormContentSecondThirdTwo.append(buttonForm);
       buttonForm.classList.add("btn","btn-primary");
@@ -338,7 +342,7 @@ function mostrarFiltradoPrecio(data){
 //Guardar los categorias para mostrar como opcion
 arrayCategorias = [];
 
-//Mostrar los datos nuevamente 
+//Mostrar en desplegable los categorias que hay en bbdd
 function FiltradoCategoria(data){
 
 
@@ -347,16 +351,21 @@ function FiltradoCategoria(data){
   let cajaPrincipalDropDownCategoria = document.createElement("div");
   cajaPrincipalDropDownCategoria.classList.add("padding10","row");
   dropDownCateogoria.append(cajaPrincipalDropDownCategoria);
+
+  //Sacar los datos que nos han pasado 
   data.forEach(element => {
     arrayCategorias.push({
       categoriaName : element["NombreCategoria"],
       categoria_id : element["categoria_id"]
     })
 
+    //Crear el caja para filtrar por categorias
     let cajaCheckBoxCategoria = document.createElement("div");
     cajaPrincipalDropDownCategoria.append(cajaCheckBoxCategoria);
     cajaCheckBoxCategoria.classList.add("d-flex","justify-content-between");
     let nombreCategoria = document.createElement("p");
+
+    //Crear el checkBox para que el usuario pueda elegir
     let checkBoxCategoria = document.createElement("input");
     checkBoxCategoria.type = "checkbox";
     checkBoxCategoria.name = "categoriaCheckBox";
@@ -371,9 +380,17 @@ function FiltradoCategoria(data){
 
 }
 
+
+// Funcion para volver a mostrar los productos segun el categorias seleccionado
 function mostrarFiltracionCategoria(data){
+
+   //Obtener el caja principal de pagina de carta
     let cartaBody = document.getElementById("rowSectionCartaProducto");
+
+    //Obtener el seccion donde muestra los productos
     let newSectionProducto = document.createElement("section");
+
+    //Sacar todos los informaciones guardados en data
     data.forEach(productosPrecioFiltrados => {
       
       productosFiltrado.push({
@@ -385,9 +402,10 @@ function mostrarFiltracionCategoria(data){
         tiempo: productosPrecioFiltrados['Tiempo']
       })
 
-
+      //Crear desde cero el row donde hay los productos
       let newSectionProductoRow = document.createElement("row");
       newSectionProductoRow.classList.add("row");
+      //Crear el article de productos
       let newSectionProductoRowArticle = document.createElement("article");
       let divNewSectionProductoRowArticle = document.createElement("div");
       divNewSectionProductoRowArticle.classList.add("col-12","border-bottom","d-flex","align-items-center","pb-4","pt-4");
@@ -420,19 +438,19 @@ function mostrarFiltracionCategoria(data){
       divSecondSecondPThree.innerText = productosPrecioFiltrados['Descripcion'];
 
       //Div dentro de Parte Informacion
-      
       let divInfoOneArticle = document.createElement("div");
       divInfoOneArticle.classList.add("d-flex","justify-content-end","txt13","pt-1");
       let divInfoOneArticleA = document.createElement("a");
       divInfoOneArticleA.href = "http://localhost/webs/GitProyect/GamingShop/index.php?controller=Producto&&action=productoPanel&prod_id="+productosPrecioFiltrados['producto_id'];
       divInfoOneArticleA.innerHTML = "<u>Ver Productos</u>";
 
+      //Crear el div de descripcion
       let divInfoTwoArticle = document.createElement("div");
       divInfoTwoArticle.classList.add("col-12","cajaDescripcion","d-flex");
-
       let divInfoTwoOneArticle = document.createElement("div");
       divInfoTwoOneArticle.classList.add("col-6","descripcionSub1","d-flex","ps-4","pt-2","pb-5");
 
+      //Crear el parte izquierda de caja de informacion, Tipo, Restaurante etc.
       let divInfoTwoOneOneArticle = document.createElement("div");
       divInfoTwoOneOneArticle.classList.add("col-6","shadowLetra");
       let pdivInfoTwoOneOneArticle = document.createElement("p");
@@ -448,7 +466,7 @@ function mostrarFiltracionCategoria(data){
       pFourdivInfoTwoOneOneArticle.classList.add("pt-3","specialp");
       pFourdivInfoTwoOneOneArticle.innerText = "Valoracion";
 
-
+      //Crear el caja de informacion de izquiera pero sus respuestas
       let divInfoTwoOneTwoArticle = document.createElement("div");
       divInfoTwoOneTwoArticle.classList.add("col-6","negrita","pb-3");
       let pdivInfoTwoOneTwoArticle = document.createElement("p");
@@ -468,6 +486,7 @@ function mostrarFiltracionCategoria(data){
       let divInfoTwoTwoArticle = document.createElement("div");
       divInfoTwoTwoArticle.classList.add("col-6","d-flex","justify-content-center");
       
+      //Caja de informacion de disponible en tienda
       let divInfoTwoTwoArticleRow = document.createElement("div");
       divInfoTwoTwoArticleRow.classList.add("row","col-12");
       let divInfoTwoTwoArticleRowOne = document.createElement("div");
@@ -481,6 +500,7 @@ function mostrarFiltracionCategoria(data){
       textpTwoDivInfoTwoTwoArticleRowOne.innerText = "Barcelona Sant";
       textpTwoDivInfoTwoTwoArticleRowOne.classList.add("txt13","negro");
       
+      //Caja de informacion de Disponicle comer en Restaurante
       let divInfoTwoTwoArticleRowTwo = document.createElement("div");
       divInfoTwoTwoArticleRowTwo.classList.add("col-12");
       let txtDivInfoTwoTwoArticleRowTwo = document.createElement("div");
@@ -529,6 +549,7 @@ function mostrarFiltracionCategoria(data){
       
       
       //Parte de Precio boton 
+      //Crear el div para mostrar el precio de producto
       let divSecondThirdNewSectionProductoRowArticle = document.createElement("div");
       divSecondThirdNewSectionProductoRowArticle.classList.add("col-lg-3","col-md-12","d-flex","justify-content-center");
       let divSecondThirdOneNewSectionProductoRowArticle = document.createElement("div");
@@ -543,7 +564,7 @@ function mostrarFiltracionCategoria(data){
       pcontentSecondThirdOne.innerText = productosPrecioFiltrados['Precio'] + "€";
       pcontentSecondThirdOne.classList.add("pb-3","normalPrecio");
 
-
+      //Preparar el formulario para enviar los datos a accion 
       let contentSecondThirdTwo = document.createElement("div");
       divSecondThirdOneNewSectionProductoRowArticle.append(contentSecondThirdTwo);
       contentSecondThirdTwo.classList.add("col-12","d-grid","gap-2");
@@ -562,6 +583,7 @@ function mostrarFiltracionCategoria(data){
       inputForm.value = productosPrecioFiltrados['producto_id'];
       inputForm.hidden = true;
 
+      //Mostrar el div de añadir producto a ciesta
       let buttonForm = document.createElement("button");
       divFormContentSecondThirdTwo.append(buttonForm);
       buttonForm.classList.add("btn","btn-primary");
@@ -602,17 +624,25 @@ function mostrarFiltracionCategoria(data){
         if(valoresSeleccionados == arrayparaNulo){
           valoresSeleccionados = [];
         }
+        //cuando el checkbox esta marcado
         if (checkbox.checked) {
+          //Añadimos el numero de valor de checkbox a array
           valoresSeleccionados.push(checkbox.value);
+          //Pasamos el array con los numeros para volver a cargar la pagina con los productos de categoria
           FiltrarCategoria(valoresSeleccionados);
         }else {
+            //En caso que desmarcamos realizar un filtro para quitar el numero dentro de array
             valoresSeleccionados = valoresSeleccionados.filter(function(item) {
             return item != checkbox.value;
           })
 
+          //si el array es nulo (Usuario ha quitado todos los checkbox)
+          //tenemos un array con todos los numeros preparado y sustituimos el array con el que contiene todos
           if(valoresSeleccionados == ""){
             valoresSeleccionados = arrayparaNulo;
           }
+
+          //Volver a cargar la pagina para mostrar los productos con categoria seleccionado
           FiltrarCategoria(valoresSeleccionados);
 
 

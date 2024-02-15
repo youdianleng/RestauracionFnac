@@ -10,17 +10,6 @@ body{
     max-width: 1440px;
 }
 
-/* Font-Face */
-@font-face {
-    font-family: "araboto-light";
-    src: url("Fuentes/Araboto_Light_400.ttf");
-}
-
-@font-face {
-    font-family: "araboto-normal";
-    src: url("Fuentes/Araboto_Normal.ttf");
-}
-
 /* Responsive */
 
 @media only screen and (max-width: 825px) {
