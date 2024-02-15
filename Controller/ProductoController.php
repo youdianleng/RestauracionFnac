@@ -374,16 +374,10 @@
             }
         }
 
+        
+        //Usa para mostrar el panel de añadir productos
         public function añadir(){
             
-            $carpeta = 'C:\xampp\htdocs\webs\GitProyect\GamingShop\Materiales\Productos';
-            $archivos = glob($carpeta . '/*.{jpg,jpeg,png,gif}', GLOB_BRACE);
-
-            $arrayProductosImagen = [];
-            foreach ($archivos as $archivo) {
-                array_push($arrayProductosImagen,basename($archivo));
-            }
-
             $categorias = ProductoDAO::getAllCategoria();
 
             include_once "View/header.php";
@@ -391,6 +385,7 @@
             include_once "View/footer.php";
         }
 
+        //Realizamos el action de añadir producto en base de datos
         public function agregar(){
             $categoria_id = $_POST['categoria_id'];
             $nombre = $_POST['nombre'];
