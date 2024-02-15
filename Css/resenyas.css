@@ -74,6 +74,10 @@ svg{
   line-height: 50px;
 }
 
+.btnQrProd{
+  height: 36px;
+}
+
 /* diseño de fondo */
 .bg-f2{
   background-color: #f2f2f2;

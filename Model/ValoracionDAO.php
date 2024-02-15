@@ -217,5 +217,21 @@ class valoracionDAO{
 
         return $result;
     }
+
+
+
+    //Eliminar el resenya de parametro
+    public static function eliminarResenya($resenya_id){
+        $con = DataBase::connect();
+        //Hacer un consulta SQL que elimina datos de dicho tabla
+        $stmt = $con->prepare("DELETE FROM producto_valoracion Where Producto_Valoracion = ?");
+        $stmt->bind_param("i",$resenya_id);
+
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $con->close();
+
+        return $result;
+    }
 }
 ?>

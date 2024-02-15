@@ -319,6 +319,7 @@ function mostrarReseñas(reseny){
     reseny.forEach(resenyaIndividual => {
         //Añadir al array creado anteriomente los contenidos separados con su nombre de id
         ArrayDeComentarios.push({
+            resenya_id : resenyaIndividual['resenya_id'],
             user_id : resenyaIndividual['Nombre'],
             producto_id : resenyaIndividual['prod_id'],
             producto_nombre : resenyaIndividual['prod_Nombre'],
@@ -359,7 +360,15 @@ function mostrarReseñas(reseny){
 
         //Crear en el boton de eliminar Resenya
         let eliminarReseña = document.createElement("form");
-        
+        eliminarReseña.setAttribute("action","https://localhost/webs/GitProyect/GamingShop/?controller=producto&action=eliminarResenya");
+        eliminarReseña.setAttribute("method","post");
+        let buttonEliminar = document.createElement("button");
+        eliminarReseña.append(buttonEliminar);
+        buttonEliminar.innerHTML = "Eliminar";
+        buttonEliminar.classList.add("btn","btn-primary","ms-2");
+        buttonEliminar.name = "resenya_id";
+        buttonEliminar.value = resenyaIndividual['resenya_id'];
+
 
         //Crear un button para Generar QR de Cada Resenyas
         let boxButton = document.createElement("div");

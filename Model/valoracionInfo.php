@@ -3,6 +3,7 @@
     abstract class ValoracionInfo extends Usuario{
 
     //Preparar los variables que usaremos para crear clases
+    protected $Producto_Valoracion;
     protected $Producto_id;
     protected $Valoracion;
     protected $Estrella;
@@ -153,6 +154,26 @@
     public function setNombre($Nombre)
     {
         $this->Nombre = $Nombre;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of Producto_Valoracion
+     */ 
+    public function getProducto_Valoracion()
+    {
+        return $this->Producto_Valoracion;
+    }
+
+    /**
+     * Set the value of Producto_Valoracion
+     *
+     * @return  self
+     */ 
+    public function setProducto_Valoracion($Producto_Valoracion)
+    {
+        $this->Producto_Valoracion = $Producto_Valoracion;
 
         return $this;
     }

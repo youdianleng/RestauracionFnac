@@ -24,6 +24,7 @@ include_once "Model/ValoracionDAO.php";
                 //porque cuando nos devuelve de busqueda sera un Object y no podemos realizar json con tipo Object
                 foreach ($todosResenya as $resenya) {
                     $ArrayResenyas[] = [
+                        "resenya_id" => $resenya->getProducto_Valoracion(),
                         "user_id" => $resenya->getApellido(),
                         "prod_Nombre" => $resenya->getNombre(),
                         "prod_id" => $resenya->getProducto_id(),

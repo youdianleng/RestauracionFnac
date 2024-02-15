@@ -448,8 +448,19 @@
             include_once "View/footer.php";
         }
 
+        //Eliminar el resenya que nos pasa por parametro
+        public function eliminarResenya(){
+            $id_resenya = $_POST['resenya_id'];
+
+            valoracionDAO::eliminarResenya($id_resenya);
+
+            header("Location:".url."?controller=user&action=panelResenyas");
+        }
+    
+
     }
 
+   
 
 
     
