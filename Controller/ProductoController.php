@@ -396,8 +396,43 @@
             $nombre = $_POST['nombre'];
             $descripcion = $_POST['descript'];
             $descripcionCorto = $_POST['descriptCorto'];
-            $imagen = "C:\xampp\htdocs\webs\GitProyect\GamingShop\Materiales\Productos\\".$_POST['imagen'];
+            $imagen = "Materiales/Productos/".$_POST['imagen'];
             $precio = $_POST['precio'];
+
+            // Si existe el imagen realiza el operacion de subir imagen
+            if($imagen){
+                // Aqui vamos a subir el imagen a fichero que queremos
+                $target_dir = "Materiales/Productos/"; // Directorio donde se almacenarán las imágenes en "Materiales/productos/"
+                $target_file = $target_dir . basename($_FILES["imagen"]["name"]);
+                $uploadOk = 1;
+                $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
+
+                // Resto del código de validación aquí...
+
+                // Verificar si $uploadOk es establecido en 0 por un error
+                if ($uploadOk == 0) {
+                    echo "Lo siento, tu archivo no fue subido.";
+                } else {
+                    // Intenta subir el archivo solo si el directorio objetivo existe
+                    if (!file_exists($target_dir)) {
+                        mkdir($target_dir, 0777, true); // Crea el directorio si no existe
+                    }
+
+                    // Si todo está bien, intenta subir el archivo
+                    if ($imageFileType != "png" && $imageFileType != "jpg" && $imageFileType != "jpeg") {
+                        echo "Solo puedes subir imagen de png o JPG";
+                    } else {
+                        // Proceed with file upload
+                        if (move_uploaded_file($_FILES["imagen"]["tmp_name"], $target_file)) {
+                            echo "Imagen Subido con exito";
+                        } else {
+                            echo "Ha tenido problema en el proceso de subir tus imagen";
+                        }
+                    }
+                }
+            }
+            
+
             ProductoDAO::añadirProductos($categoria_id,$nombre,$descripcion,$descripcionCorto, $imagen,$precio);
            
         }

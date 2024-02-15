@@ -28,7 +28,7 @@
                         <div class="row"></div>
                             <div class="col-12 mt-5 pb-5 d-flex justify-content-center">
                                 <table >
-                                <form action=<?= url."?controller=producto&action=agregar" ?> method='post'>
+                                <form action=<?= url."?controller=producto&action=agregar" ?> method='post' enctype="multipart/form-data">
                                 <tr>
                                     <td class="col-12">
                                         <label class="fw-bold float-left border-left">Categoria_id</label>
@@ -68,15 +68,7 @@
                                 <tr>
                                 <td class="col-12">
                                         <label class="fw-bold float-left border-left">Imagen Producto</label>
-                                        <select class="mt-2 col-12" name="imagen">
-                                            <?php
-                                                foreach($arrayProductosImagen as $imagen){
-                                                    echo "<option>";
-                                                    echo $imagen;
-                                                    echo "</option>";
-                                                }
-                                            ?>
-                                        </select>
+                                        <input type="file" name="imagen" id="imagen" class="mt-2" accept="image/*">
                                     <br>
                                 </td>
                                 </tr>
