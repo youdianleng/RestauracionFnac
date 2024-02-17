@@ -6,6 +6,8 @@
   - [Realizar Test](#realizar-test)
   - [Test](#test)
   - [Lenguaje de programación utilizado](#lenguaje-de-programación-utilizado)
+  - [Parte PHP](#Parte-PHP)
+  - [Parte Javacript](#Parte-Javascript)
   - [Autor](#autor)
   - [Descripcion de Licencia](#descripcion-de-licencia)
   - [Expresiones de gratitud](#expresiones-de-gratitud)
@@ -164,6 +166,59 @@ Para Asegurar que todos los instalacion y configuracion anteriores estan bien re
   2. HTML5
   3. JavaScript
   4. Css
+
+### Parte PHP
+#### Mayoria de parte de pagina esta contruido por PHP
+Ej. Pagina de Home, Pagina de Carta (principal), todos accion que hacemos de iniciar session  
+Registrar tanto como añadir, modificar y eliminar los contenidos esta hecho por codigo html
+1. Home  
+<img src="https://github.com/youdianleng/RestauracionFnac/blob/main/asset/home.png" width="400px" alt="Ver si en panel de Pedido de Usuario esta creado el Pedido o no">  
+
+2. Carta  
+<img src="https://github.com/youdianleng/RestauracionFnac/blob/main/asset/carta.png" width="400px" alt="Ver si en panel de Pedido de Usuario esta creado el Pedido o no">  
+
+3. Carrito  
+<img src="https://github.com/youdianleng/RestauracionFnac/blob/main/asset/carrito.png" width="400px" alt="Ver si en panel de Pedido de Usuario esta creado el Pedido o no">
+
+5. Panel User  
+<img src="https://github.com/youdianleng/RestauracionFnac/blob/main/asset/panelUser.png" width="400px" alt="Ver si en panel de Pedido de Usuario esta creado el Pedido o no">
+
+7. Panel Pedido  
+<img src="https://github.com/youdianleng/RestauracionFnac/blob/main/asset/panelPedido.png" width="400px" alt="Ver si en panel de Pedido de Usuario esta creado el Pedido o no">
+
+9. Panel Admin  
+<img src="https://github.com/youdianleng/RestauracionFnac/blob/main/asset/panelAdmin.png" width="400px" alt="Ver si en panel de Pedido de Usuario esta creado el Pedido o no">
+
+### Parte Javascript
+#### Hay partes de pagina esta hecho por javascript o combinacion de js con php
+Ej. Pagina de Cartas (Filtrado), Opcion de carrito (Dar propina, aplicar Cupon etc), Pagina de resenya (Completamente)
+Normalmente los paginas que necesita accion mas dinamica estaria construido o tiene parte de codigo Js  
+1. Carta (Filtrado)  
+Carta de Productos entrara por primera vez en PHP, se cambia como "modo" javascript desde de seleccionar cualquiera filtro de productos
+Hace que se recarga toda la parte de producto con javascript y mostrar los productos con lo que hemos filtrado
+<img src="https://github.com/youdianleng/RestauracionFnac/blob/main/asset/cartaFiltrado.png" width="400px" alt="Ver si en panel de Pedido de Usuario esta creado el Pedido o no">  
+
+3. Carrito (Cupon y Propinas)  
+El pagina de carrito esta hecho 90% con PHP, pero hay un parte pequeña de Cupon y propina esta hecho con Javascript
+lo que hace el Cupon es calcular el punto de usuario para hacer un oferta de precio al producto de carrito y el de propina es para dar propina y convertir estos propina a punto de cupon
+<img src="https://github.com/youdianleng/RestauracionFnac/blob/main/asset/carritoCupon.png" width="400px" alt="Ver si en panel de Pedido de Usuario esta creado el Pedido o no">  
+
+4. Pagina de resenya  
+Aqui se muestra todos los resenyas que hay en actualmente en bbdd de forma javascript.
+Tambien tenemos opcion de filtrar por estrella o decir que se ordena por ascendente o descendente  
+<img src="https://github.com/youdianleng/RestauracionFnac/blob/main/asset/panelResenya.png" width="400px" alt="Ver si en panel de Pedido de Usuario esta creado el Pedido o no">  
+
+6. Pagina de Producto (Carousel de resenya)  
+Mostrar un carousel donde se muestra todos los resenyas de ese producto hecho por usuario
+<img src="https://github.com/youdianleng/RestauracionFnac/blob/main/asset/carouselProducto.png" width="400px" alt="Ver si en panel de Pedido de Usuario esta creado el Pedido o no">  
+
+8. Pagina de Producto (Modal de dejar resenya)  
+En pagina de productos podemos ver que existe un boton de "Dar Resenya" lo que nos muestra es un modal para poder dejar nuestro comentario para este producto
+<img src="https://github.com/youdianleng/RestauracionFnac/blob/main/asset/darResenya.png" width="400px" alt="Ver si en panel de Pedido de Usuario esta creado el Pedido o no">  
+
+10. QrCode (Se te redirecciona hacia pagina producto de este resenya)  
+En el pagina de resenya de admin en cada resenya podemos ver un boton de "Qrcode" clicandose nos muestra un modal con un imagen Qr para podemos escanear y nos llevara hacia pagina de producto de ese resenya.
+<img src="https://github.com/youdianleng/RestauracionFnac/blob/main/asset/qrCode.png" width="400px" alt="Ver si en panel de Pedido de Usuario esta creado el Pedido o no">
 
 ## Autor
 Autor: Zhiou Zhu  
