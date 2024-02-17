@@ -77,4 +77,11 @@
         </div>
     </div>
 </body>
+<?php 
+    if(isset($_COOKIE['errorUser'])){
+        echo '<script type="text/javascript">';
+        echo "notie.alert({ type: 'error', text: 'Contrasenya Incorrecto, Vuelvas a Intentar' })";
+        echo '</script>';
+    }
+?>
 </html>

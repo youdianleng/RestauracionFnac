@@ -43,6 +43,7 @@
                     }else{
                         //Enviar al panel de Iniciar Session
                         header('Location:'.url."?controller=user&action=IniciarSession");
+                        setcookie("errorUser", "error", time() + 1, "/");
                     }
                     
                 }
@@ -77,15 +78,17 @@
 
         //Mostrar el panel de Usuario
         public function controllerPanelUser(){
-
             //Iniciar el session
             session_start();
-
-            //Mostrar los paneles de usuario por el web
-            include_once "View/header.php";
-            include_once "userPanel/userDetail.php";
-            include_once "View/footer.php";
-            
+            if(isset($_SESSION['usuario'])){
+                //Mostrar los paneles de usuario por el web
+                include_once "View/header.php";
+                include_once "userPanel/userDetail.php";
+                include_once "View/footer.php";
+            }else{
+                //Vuelve a panel de iniciar session
+                header('Location:'.url."?controller=user&action=IniciarSession");
+            }
             
         }
 
@@ -309,10 +312,17 @@
         public function panelResenyas(){
             //Inicar el session
             session_start();
-            //Incluir de panel de Iniciar el Session
-            include_once "View/header.php";
-            include_once "View/resenyas.php";
-            include_once "View/footer.php";
+
+            if(isset($_SESSION['usuario']) && $_SESSION['usuario']->getPermisos() == 0){
+                //Incluir de panel de Iniciar el Session
+                include_once "View/header.php";
+                include_once "View/resenyas.php";
+                include_once "View/footer.php";
+            }else{
+                //Vuelve a panel de iniciar session
+                header('Location:'.url."?controller=user&action=IniciarSession");
+            }
+            
         }
 
 
