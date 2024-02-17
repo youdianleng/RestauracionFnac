@@ -391,7 +391,7 @@
             $nombre = $_POST['nombre'];
             $descripcion = $_POST['descript'];
             $descripcionCorto = $_POST['descriptCorto'];
-            $imagen = "Materiales/Productos/".$_POST['imagen'];
+            $imagen = "Materiales/Productos/".$_FILES["imagen"]["name"];;
             $precio = $_POST['precio'];
 
             // Si existe el imagen realiza el operacion de subir imagen
