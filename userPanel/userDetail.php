@@ -64,7 +64,7 @@
                                 </form>
                                 <div class="col-12 mt-4 mb-5">
                                     <label class="labelUser">E-mail</label>
-                                    <input type="mail" class="mb-5" value="<?=$_SESSION['usuario']->getMail()?>">
+                                    <input type="mail" class="mb-5 bg-f2" value="<?=$_SESSION['usuario']->getMail()?>" readonly>
                                 </div>
 
                                 <div class="col-12 mt-4 mb-5">
